@@ -1,0 +1,27 @@
+const_value set 2
+
+CherrygroveEvolutionSpeechHouse_MapScriptHeader:
+.MapTriggers:
+	db 0
+
+.MapCallbacks:
+	db 0
+
+
+CherrygroveEvolutionSpeechHouse_MapEventHeader:
+	; filler
+	db 0, 0
+
+.Warps:
+	db 2
+	warp_def $7, $2, 5, CHERRYGROVE_CITY
+	warp_def $7, $3, 5, CHERRYGROVE_CITY
+
+.XYTriggers:
+	db 0
+
+.Signposts:
+	db 0
+
+.PersonEvents:
+	db 0

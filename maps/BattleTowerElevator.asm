@@ -1,0 +1,30 @@
+const_value set 2
+
+BattleTowerElevator_MapScriptHeader:
+.MapTriggers:
+	db 0
+
+	; triggers
+
+.MapCallbacks:
+	db 0
+
+
+
+BattleTowerElevator_MapEventHeader:
+	; filler
+	db 0, 0
+
+.Warps:
+	db 2
+	warp_def $3, $1, 1, BATTLE_TOWER_HALLWAY
+	warp_def $3, $2, 1, BATTLE_TOWER_HALLWAY
+
+.XYTriggers:
+	db 0
+
+.Signposts:
+	db 0
+
+.PersonEvents:
+	db 0
