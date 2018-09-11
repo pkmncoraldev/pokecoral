@@ -102,5 +102,12 @@ ENDM
 	trigger_def CHERRYGROVE_CITY,						wCherrygroveCityTrigger
 	trigger_def ILEX_FOREST,							wIlexForestTrigger
 	trigger_def SPOOKY_FOREST_1,						wSpookyForest1Trigger
+	trigger_def WAREHOUSE_ENTRANCE,						wWarehouseEntranceTrigger
+	trigger_def RUINS_OF_ALPH_HO_OH_ITEM_ROOM,			wRuinsofAlphHoOhItemRoomTrigger
+	trigger_def ROUTE_35,                               wRoute35Trigger
+	trigger_def VIOLET_GYM,								wVioletGymTrigger
+	trigger_def ROUTE_30_BERRY_SPEECH_HOUSE,			wRoute30BerrySpeechHouse
+	trigger_def CHERRYGROVE_GYM_SPEECH_HOUSE,			wCherrygroveGymSpeechHouse
+	trigger_def ROUTE_6_UNDERGROUND_ENTRANCE,			wRoute6UndergroundEntrance
 	db -1
 ; 4d15b

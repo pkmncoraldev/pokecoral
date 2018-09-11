@@ -8,23 +8,23 @@ MonMenuOptionStrings: ; 24caf
 	db "ERROR!@"
 	db "FLY@"
 	db "SURF@"
+	db "CUT@"
+	db "ROCK SMASH@"
 ; 24cd9
 
 MonMenuOptions: ; 24cd9
 
 ; Moves
-	db MONMENU_FIELD_MOVE, MONMENU_CUT,        CUT
-	db MONMENU_FIELD_MOVE, MONMENU_STRENGTH,   STRENGTH
-	db MONMENU_FIELD_MOVE, MONMENU_FLASH,      FLASH
-	db MONMENU_FIELD_MOVE, MONMENU_WATERFALL,  WATERFALL
-	db MONMENU_FIELD_MOVE, MONMENU_WHIRLPOOL,  WHIRLPOOL
-	db MONMENU_FIELD_MOVE, MONMENU_DIG,        DIG
-	db MONMENU_FIELD_MOVE, MONMENU_TELEPORT,   TELEPORT
-	db MONMENU_FIELD_MOVE, MONMENU_SOFTBOILED, SOFTBOILED
-	db MONMENU_FIELD_MOVE, MONMENU_HEADBUTT,   HEADBUTT
-	db MONMENU_FIELD_MOVE, MONMENU_ROCKSMASH,  ROCK_SMASH
-	db MONMENU_FIELD_MOVE, MONMENU_MILKDRINK,  MILK_DRINK
-	db MONMENU_FIELD_MOVE, MONMENU_SWEETSCENT, SWEET_SCENT
+;	db MONMENU_FIELD_MOVE, MONMENU_STRENGTH,   STRENGTH
+;	db MONMENU_FIELD_MOVE, MONMENU_FLASH,      FLASH
+;	db MONMENU_FIELD_MOVE, MONMENU_WATERFALL,  WATERFALL
+;	db MONMENU_FIELD_MOVE, MONMENU_WHIRLPOOL,  WHIRLPOOL
+;	db MONMENU_FIELD_MOVE, MONMENU_DIG,        DIG
+;	db MONMENU_FIELD_MOVE, MONMENU_TELEPORT,   TELEPORT
+;	db MONMENU_FIELD_MOVE, MONMENU_SOFTBOILED, TELEPORT
+;	db MONMENU_FIELD_MOVE, MONMENU_HEADBUTT,   HEADBUTT
+;	db MONMENU_FIELD_MOVE, MONMENU_MILKDRINK,  MILK_DRINK
+;	db MONMENU_FIELD_MOVE, MONMENU_SWEETSCENT, SWEET_SCENT
 
 ; Options
 	db MONMENU_MENUOPTION, MONMENU_STATS,      1 ; STATS
@@ -36,6 +36,8 @@ MonMenuOptions: ; 24cd9
 	db MONMENU_MENUOPTION, MONMENU_ERROR,      7 ; ERROR!
 	db MONMENU_MENUOPTION, MONMENU_FLY,        8
 	db MONMENU_MENUOPTION, MONMENU_SURF,       9
+	db MONMENU_MENUOPTION, MONMENU_CUT,        10
+	db MONMENU_MENUOPTION, MONMENU_ROCKSMASH,  11
 	
 	db -1
 ; 24d19
@@ -196,6 +198,8 @@ GetMonSubmenuItems: ; 24dd4
 .skip_moves
 	call TryLoadFlyMenu
 	call TryLoadSurfMenu
+	call TryLoadCutMenu
+	call TryLoadRockSmashMenu
 	ld a, MONMENU_STATS
 	call AddMonMenuItem
 	ld a, MONMENU_SWITCH
@@ -302,6 +306,52 @@ TryLoadSurfMenu:
 	jr z, .nope
 	
 	ld a, MONMENU_SURF
+	call AddMonMenuItem
+	
+.nope
+	ret
+	
+TryLoadCutMenu:
+	ld d, CUT
+	ld a, d
+    ld [wPutativeTMHMMove], a
+	push de
+	farcall CanLearnTMHMMove
+	pop de
+	ld a, c
+	and a
+	jr z, .nope
+	
+	ld de, ENGINE_GOT_CUT
+	farcall CheckEngineFlag
+	ld a, c
+	and a
+	jr z, .nope
+	
+	ld a, MONMENU_CUT
+	call AddMonMenuItem
+	
+.nope
+	ret
+	
+TryLoadRockSmashMenu:
+	ld d, ROCK_SMASH
+	ld a, d
+    ld [wPutativeTMHMMove], a
+	push de
+	farcall CanLearnTMHMMove
+	pop de
+	ld a, c
+	and a
+	jr z, .nope
+	
+	ld de, ENGINE_GOT_ROCK_SMASH
+	farcall CheckEngineFlag
+	ld a, c
+	and a
+	jr z, .nope
+	
+	ld a, MONMENU_ROCKSMASH
 	call AddMonMenuItem
 	
 .nope

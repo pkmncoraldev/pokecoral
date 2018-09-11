@@ -1,10 +1,10 @@
-; JumpluffPokedexEntry: ; 0x1cd998
-	db "COTTONWEED@" ; species name
-	dw 207, 70 ; height, width
+; AggronPokedexEntry: ; 0x1cd998
+	db "IRON ARMOR@" ; species name
+	dw 611, 7937 ; height, width
 
-	db   "Even in the fierc-"
-	next "est wind, it can"
-	next "control its fluff"
-	page "to make its way to"
-	next "any place in the"
-	next "world it wants.@"
+	db   "It claims a"
+	next "large mountain as"
+	next "its territory."
+	page "It thrashes"
+	next "those that vio-"
+	next "late its space.@"

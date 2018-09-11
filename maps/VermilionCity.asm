@@ -1,10 +1,11 @@
 const_value set 2
-	const VERMILIONCITY_TEACHER
-	const VERMILIONCITY_GRAMPS
-	const VERMILIONCITY_MACHOP
-	const VERMILIONCITY_SUPER_NERD
-	const VERMILIONCITY_BIG_SNORLAX
-	const VERMILIONCITY_POKEFAN_M
+	const TRAINSTATIONGREENGUY1
+	const TRAINSTATIONNPC1
+	const TRAINSTATIONNPC2
+	const TRAINSTATIONNPC3
+	const TRAINSTATIONNPC4
+	const TRAINSTATIONNPC5
+	const TRAINSTATIONNPC6
 
 VermilionCity_MapScriptHeader:
 .MapTriggers:
@@ -14,297 +15,212 @@ VermilionCity_MapScriptHeader:
 	db 1
 
 	; callbacks
-	dbw MAPCALLBACK_NEWMAP, .FlyPoint
-
-.FlyPoint:
+	dbw MAPCALLBACK_NEWMAP, .Flypoint
+	
+	
+.Flypoint:
 	setflag ENGINE_FLYPOINT_VERMILION
 	return
 
-TeacherScript_0x1aa983:
-	jumptextfaceplayer UnknownText_0x1aaa15
+VermilionCity_MapEventHeader:: db 0, 0
 
-VermilionMachopOwner:
-	jumptextfaceplayer VermilionMachopOwnerText
+.Warps: db 10
+	warp_def 12, 35, 1, ROUTE_6_UNDERGROUND_ENTRANCE
+	warp_def 13, 35, 2, ROUTE_6_UNDERGROUND_ENTRANCE
+	warp_def 14, 35, 3, ROUTE_6_UNDERGROUND_ENTRANCE
+	warp_def 15, 35, 4, ROUTE_6_UNDERGROUND_ENTRANCE
+	warp_def 19, 21, 2, GOLDENROD_MAGNET_TRAIN_STATION
+	warp_def 19, 22, 2, GOLDENROD_MAGNET_TRAIN_STATION
+	warp_def 21, 7, 1, VERMILION_POKECENTER_1F
+	warp_def 7, 5, 1, VERMILION_MART
+	warp_def 7, 15, 1, VERMILION_HOUSE_FISHING_SPEECH_HOUSE
+	warp_def 7, 27, 1, VERMILION_HOUSE_DIGLETTS_CAVE_SPEECH_HOUSE
 
-VermilionMachop:
-	opentext
-	writetext VermilionMachopText1
-	cry MACHOP
-	waitbutton
-	closetext
-	earthquake 30
-	opentext
-	writetext VermilionMachopText2
-	waitbutton
-	closetext
-	end
+.CoordEvents: db 0
 
-SuperNerdScript_0x1aa99b:
-	jumptextfaceplayer UnknownText_0x1aab1a
+.BGEvents: db 5
+	signpost 21, 8, SIGNPOST_READ, FlickerCenterSign
+	signpost 7, 6, SIGNPOST_READ, FlickerMartSign
+	signpost 27, 11, SIGNPOST_READ, FlickerSign
+	signpost 19, 21, SIGNPOST_READ, FlickerStationClosed
+	signpost 19, 22, SIGNPOST_READ, FlickerStationClosed
 
-VermilionSnorlax:
-	opentext
-	special SpecialSnorlaxAwake
-	iftrue UnknownScript_0x1aa9ab
-	writetext UnknownText_0x1aab64
-	waitbutton
-	closetext
-	end
+.ObjectEvents: db 7
+	person_event SPRITE_FISHER, -6, -6, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TrainStationNPC1, EVENT_TRAIN_STATION_GUY_1
+	person_event SPRITE_OFFICER, 20, 27, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrainStationNPC1, -1
+	person_event SPRITE_COOLTRAINER_F, 24, 13, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrainStationNPC2, -1
+	person_event SPRITE_BUG_CATCHER, 10, 19, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TrainStationNPC3, -1
+	person_event SPRITE_TWIN, 10, 20, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TrainStationNPC4, -1
+	person_event SPRITE_YOUNGSTER, 8, 9, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, TrainStationNPC5, -1
+	person_event SPRITE_YOUNGSTER, 25, 25, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_YELLOW, PERSONTYPE_SCRIPT, 0, TrainStationNPC6, -1
 
-UnknownScript_0x1aa9ab:
-	writetext UnknownText_0x1aab84
-	pause 15
-	cry SNORLAX
-	closetext
-	writecode VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon SNORLAX, 50
-	startbattle
-	disappear VERMILIONCITY_BIG_SNORLAX
-	setevent EVENT_FOUGHT_SNORLAX
-	reloadmapafterbattle
-	end
-
-VermilionGymBadgeGuy:
-	faceplayer
-	opentext
-	checkevent EVENT_GOT_HP_UP_FROM_VERMILION_GUY
-	iftrue .AlreadyGotItem
-	checkcode VAR_BADGES
-	if_equal 16, .AllBadges
-	if_greater_than 13, .MostBadges
-	if_greater_than 9, .SomeBadges
-	writetext UnknownText_0x1aabc8
-	waitbutton
-	closetext
-	end
-
-.SomeBadges:
-	writetext UnknownText_0x1aac2b
-	waitbutton
-	closetext
-	end
-
-.MostBadges:
-	writetext UnknownText_0x1aac88
-	waitbutton
-	closetext
-	end
-
-.AllBadges:
-	writetext UnknownText_0x1aacf3
-	buttonsound
-	verbosegiveitem HP_UP
-	iffalse .Done
-	setevent EVENT_GOT_HP_UP_FROM_VERMILION_GUY
-.AlreadyGotItem:
-	writetext UnknownText_0x1aad4a
-	waitbutton
-.Done:
-	closetext
-	end
-
-VermilionCitySign:
-	jumptext VermilionCitySignText
-
-VermilionGymSign:
-	jumptext VermilionGymSignText
-
-PokemonFanClubSign:
-	jumptext PokemonFanClubSignText
-
-VermilionCityDiglettsCaveSign:
-	jumptext VermilionCityDiglettsCaveSignText
-
-VermilionCityPortSign:
-	jumptext VermilionCityPortSignText
-
-VermilionCityPokeCenterSign:
+FlickerStationClosed:
+	jumptext FlickerStationClosedText
+	
+FlickerSign:
+	jumptext FlickerSignText
+	
+FlickerCenterSign:
 	jumpstd pokecentersign
 
-VermilionCityMartSign:
+FlickerMartSign:
 	jumpstd martsign
-
-VermilionCityHiddenFullHeal:
-	dwb EVENT_VERMILION_CITY_HIDDEN_FULL_HEAL, FULL_HEAL
-
-UnknownText_0x1aaa15:
-	text "VERMILION PORT is"
-	line "KANTO's seaside"
-	cont "gateway."
-
-	para "Luxury liners from"
-	line "around the world"
-	cont "dock here."
+	
+TrainStationNPC1:
+	checkevent EVENT_END_DEMO
+	iftrue .enddemo
+	faceplayer
+	opentext
+	writetext TrainStationNPC1Text
+	waitbutton
+	setevent EVENT_END_DEMO
+	closetext
+	end
+	
+.enddemo
+	faceplayer
+	opentext
+	writetext TrainStationNPC1Text2
+	yesorno
+	iffalse .no
+	writetext TrainStationNPC1Text3
+	waitbutton
+	credits
+	end
+	
+.no
+	writetext TrainStationNPC1Text4
+	waitbutton
+	closetext
+	end
+	
+TrainStationNPC2:
+	jumptextfaceplayer TrainStationNPC2Text
+	
+TrainStationNPC3:
+	faceplayer
+	opentext
+	writetext TrainStationNPC3Text
+	waitbutton
+	spriteface TRAINSTATIONNPC3, DOWN
+	closetext
+	end
+	
+TrainStationNPC4:
+	faceplayer
+	opentext
+	writetext TrainStationNPC4Text
+	waitbutton
+	spriteface TRAINSTATIONNPC4, DOWN
+	closetext
+	end
+	
+TrainStationNPC5:
+	jumptextfaceplayer TrainStationNPC5Text
+	
+TrainStationNPC6:
+	jumptextfaceplayer TrainStationNPC6Text
+	
+FlickerStationClosedText:
+	text "Closed for"
+	line "renovations."
 	done
-
-VermilionMachopOwnerText:
-	text "My #MON is"
-	line "preparing the land"
-	cont "for construction."
-
-	para "But I have no"
-	line "money to start the"
-	cont "project…"
+	
+FlickerSignText:
+	text "FLICKER STATION"
+	
+	para "The charming por-"
+	line "tal to prosperity."
 	done
-
-VermilionMachopText1:
-	text "MACHOP: Guooh"
-	line "gogogoh!"
+	
+TrainStationNPC6Text:
+	text "The train station"
+	line "is closed."
+	
+	para "What a shame…"
 	done
-
-VermilionMachopText2:
-	text "A MACHOP is growl-"
-	line "ing while stomping"
-	cont "the ground flat."
+	
+TrainStationNPC1Text:
+	text "This is as far as"
+	line "you can go in"
+	cont "this demo."
+	
+	para "Have you read all"
+	line "the books in the"
+	cont "GLINT LIBRARY?"
+	
+	para "Come talk to me"
+	line "again when you"
+	
+	para "want to end the"
+	line "game."
 	done
-
-UnknownText_0x1aab1a:
-	text "There are eight"
-	line "GYMS in KANTO."
-
-	para "That big building"
-	line "is VERMILION's"
-	cont "#MON GYM."
+	
+TrainStationNPC1Text2:
+	text "Would you like to"
+	line "end the game?"
 	done
-
-UnknownText_0x1aab64:
-	text "SNORLAX is snoring"
-	line "peacefully…"
+	
+TrainStationNPC1Text3:
+	text "Ok!"
+	
+	para "Thank you so much"
+	line "for playing"
+	cont "#MON CORAL"
+	cont "VERSION!"
 	done
-
-UnknownText_0x1aab84:
-	text "The #GEAR was"
-	line "placed near the"
-	cont "sleeping SNORLAX…"
-
-	para "…"
-
-	para "SNORLAX woke up!"
+	
+TrainStationNPC1Text4:
+	text "Ok."
+	
+	para "Have you read all"
+	line "the books in the"
+	cont "GLINT LIBRARY?"
+	
+	para "Come talk to me"
+	line "again when you"
+	
+	para "want to end the"
+	line "game."
 	done
-
-UnknownText_0x1aabc8:
-	text "Skilled trainers"
-	line "gather in KANTO."
-
-	para "GYM LEADERS are"
-	line "especially strong."
-
-	para "They won't be easy"
-	line "to defeat."
+	
+TrainStationNPC2Text:
+	text "The train here"
+	line "runs to LUSTER"
+	cont "CITY."
+	
+	para "This little town"
+	line "is kinda like a"
+	
+	para "gateway to the"
+	line "biggest city in"
+	cont "ONWA!"
 	done
+	
+TrainStationNPC3Text:
+	text "Woah!"
 
-UnknownText_0x1aac2b:
-	text "You've started to"
-	line "collect KANTO GYM"
-	cont "BADGES?"
-
-	para "Don't you agree"
-	line "that the trainers"
-	cont "here are tough?"
+	para "Look a the trains!"
+	
+	para "So cool!"
 	done
-
-UnknownText_0x1aac88:
-	text "I guess you'll be"
-	line "finished with your"
-
-	para "conquest of KANTO"
-	line "GYMS soon."
-
-	para "Let me know if"
-	line "you get all eight"
-	cont "BADGES."
+	
+TrainStationNPC4Text:
+	text "All he talks about"
+	line "is trains…"
+	
+	para "I'm so bored of"
+	line "trains!"
 	done
-
-UnknownText_0x1aacf3:
-	text "Congratulations!"
-
-	para "You got all the"
-	line "KANTO GYM BADGES."
-
-	para "I've got a reward"
-	line "for your efforts."
+	
+TrainStationNPC5Text:
+	text "I'm so tired of"
+	line "dirt roads."
+	
+	para "I keep getting"
+	line "gravel in my"
+	cont "shoes."
+	
+	para "I just want to go"
+	line "to the city!"
 	done
-
-UnknownText_0x1aad4a:
-	text "Having a variety"
-	line "of #MON types"
-
-	para "should give you an"
-	line "edge in battle."
-
-	para "I'm sure the KANTO"
-	line "GYM BADGES will"
-	cont "help you."
-	done
-
-VermilionCitySignText:
-	text "VERMILION CITY"
-
-	para "The Port of"
-	line "Exquisite Sunsets"
-	done
-
-VermilionGymSignText:
-	text "VERMILION CITY"
-	line "#MON GYM"
-	cont "LEADER: LT.SURGE"
-
-	para "The Lightning"
-	line "American"
-	done
-
-PokemonFanClubSignText:
-	text "#MON FAN CLUB"
-
-	para "All #MON Fans"
-	line "Welcome!"
-	done
-
-VermilionCityDiglettsCaveSignText:
-	text "DIGLETT'S CAVE"
-	done
-
-VermilionCityPortSignText:
-	text "VERMILION PORT"
-	line "ENTRANCE"
-	done
-
-VermilionCity_MapEventHeader:
-	; filler
-	db 0, 0
-
-.Warps:
-	db 10
-	warp_def $5, $5, 1, VERMILION_HOUSE_FISHING_SPEECH_HOUSE
-	warp_def $5, $9, 1, VERMILION_POKECENTER_1F
-	warp_def $d, $7, 1, POKEMON_FAN_CLUB
-	warp_def $d, $d, 1, VERMILION_MAGNET_TRAIN_SPEECH_HOUSE
-	warp_def $d, $15, 2, VERMILION_MART
-	warp_def $11, $15, 1, VERMILION_HOUSE_DIGLETTS_CAVE_SPEECH_HOUSE
-	warp_def $13, $a, 1, VERMILION_GYM
-	warp_def $1f, $13, 1, VERMILION_PORT_PASSAGE
-	warp_def $1f, $14, 2, VERMILION_PORT_PASSAGE
-	warp_def $7, $22, 1, DIGLETTS_CAVE
-
-.XYTriggers:
-	db 0
-
-.Signposts:
-	db 8
-	signpost 3, 25, SIGNPOST_READ, VermilionCitySign
-	signpost 19, 5, SIGNPOST_READ, VermilionGymSign
-	signpost 13, 5, SIGNPOST_READ, PokemonFanClubSign
-	signpost 9, 33, SIGNPOST_READ, VermilionCityDiglettsCaveSign
-	signpost 15, 27, SIGNPOST_READ, VermilionCityPortSign
-	signpost 5, 10, SIGNPOST_READ, VermilionCityPokeCenterSign
-	signpost 13, 22, SIGNPOST_READ, VermilionCityMartSign
-	signpost 19, 12, SIGNPOST_ITEM, VermilionCityHiddenFullHeal
-
-.PersonEvents:
-	db 6
-	person_event SPRITE_TEACHER, 9, 18, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TeacherScript_0x1aa983, -1
-	person_event SPRITE_GRAMPS, 6, 23, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, VermilionMachopOwner, -1
-	person_event SPRITE_MACHOP, 7, 26, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, VermilionMachop, -1
-	person_event SPRITE_SUPER_NERD, 16, 14, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SuperNerdScript_0x1aa99b, -1
-	person_event SPRITE_BIG_SNORLAX, 8, 34, SPRITEMOVEDATA_SNORLAX, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, VermilionSnorlax, EVENT_VERMILION_CITY_SNORLAX
-	person_event SPRITE_POKEFAN_M, 12, 31, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, VermilionGymBadgeGuy, -1

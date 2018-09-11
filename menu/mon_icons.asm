@@ -109,24 +109,24 @@ MonMenuIcons: ; 8eac4
 	db ICON_HAUNTER
 	db ICON_GENGAR
 	db ICON_ONIX
-	db ICON_DROWZEE
-	db ICON_HYPNO
-	db ICON_KRABBY
-	db ICON_KINGLER
+	db ICON_MEDITITE
+	db ICON_MEDICHAM
+	db ICON_CORPHISH
+	db ICON_CRAWDAUNT
 	db ICON_VOLTORB
 	db ICON_ELECTRODE
 	db ICON_EXEGGCUTE
 	db ICON_EXEGGUTOR
 	db ICON_CUBONE
 	db ICON_MAROWAK
-	db ICON_HITMONLEE
-	db ICON_HITMONCHAN
+	db ICON_BUNEARY
+	db ICON_LOPUNNY
 	db ICON_LICKITUNG
 	db ICON_KOFFING
 	db ICON_WEEZING
 	db ICON_RHYHORN
 	db ICON_RHYDON
-	db ICON_CHANSEY
+	db ICON_NUMEL
 	db ICON_TANGELA
 	db ICON_KANGASKHAN
 	db ICON_HORSEA
@@ -137,7 +137,7 @@ MonMenuIcons: ; 8eac4
 	db ICON_STARMIE
 	db ICON_HAWLUCHA
 	db ICON_SCYTHER
-	db ICON_JYNX
+	db ICON_VOLCARONA
 	db ICON_ELECTABUZZ
 	db ICON_MAGMAR
 	db ICON_PINSIR
@@ -176,8 +176,8 @@ MonMenuIcons: ; 8eac4
 	db ICON_FERALIGATR
 	db ICON_SENTRET
 	db ICON_FURRET
-	db ICON_HOOTHOOT
-	db ICON_NOCTOWL
+	db ICON_NOIBAT
+	db ICON_NOIVERN
 	db ICON_LEDYBA
 	db ICON_LEDIAN
 	db ICON_JOLTIK
@@ -200,9 +200,9 @@ MonMenuIcons: ; 8eac4
 	db ICON_AZUMARILL
 	db ICON_SUDOWOODO
 	db ICON_POLITOED
-	db ICON_HOPPIP
-	db ICON_SKIPLOOM
-	db ICON_JUMPLUFF
+	db ICON_ARON
+	db ICON_LAIRON
+	db ICON_AGGRON
 	db ICON_AIPOM
 	db ICON_SUNKERN
 	db ICON_SUNFLORA
@@ -249,13 +249,13 @@ MonMenuIcons: ; 8eac4
 	db ICON_PORYGON2
 	db ICON_STANTLER
 	db ICON_SMEARGLE
-	db ICON_TYROGUE
-	db ICON_HITMONTOP
-	db ICON_SMOOCHUM
+	db ICON_SWABLU
+	db ICON_ALTARIA
+	db ICON_LARVESTA
 	db ICON_ELEKID
 	db ICON_MAGBY
 	db ICON_MILTANK
-	db ICON_BLISSEY
+	db ICON_CAMERUPT
 	db ICON_RAIKOU
 	db ICON_ENTEI
 	db ICON_SUICUNE
@@ -364,24 +364,24 @@ IconPointers:
 	dw HaunterIcon
 	dw GengarIcon
 	dw OnixIcon
-	dw DrowzeeIcon
-	dw HypnoIcon
-	dw KrabbyIcon
-	dw KinglerIcon
+	dw MedititeIcon
+	dw MedichamIcon
+	dw CorphishIcon
+	dw CrawdauntIcon
 	dw VoltorbIcon
 	dw ElectrodeIcon
 	dw ExeggcuteIcon
 	dw ExeggutorIcon
 	dw CuboneIcon
 	dw MarowakIcon
-	dw HitmonleeIcon
-	dw HitmonchanIcon
+	dw BunearyIcon
+	dw LopunnyIcon
 	dw LickitungIcon
 	dw KoffingIcon
 	dw WeezingIcon
 	dw RhyhornIcon
 	dw RhydonIcon
-	dw ChanseyIcon
+	dw NumelIcon
 	dw TangelaIcon
 	dw KangaskhanIcon
 	dw HorseaIcon
@@ -392,7 +392,7 @@ IconPointers:
 	dw StarmieIcon
 	dw HawluchaIcon
 	dw ScytherIcon
-	dw JynxIcon
+	dw VolcaronaIcon
 	dw ElectabuzzIcon
 	dw MagmarIcon
 	dw PinsirIcon
@@ -431,8 +431,8 @@ IconPointers:
 	dw FeraligatrIcon
 	dw SentretIcon
 	dw FurretIcon
-	dw HoothootIcon
-	dw NoctowlIcon
+	dw NoibatIcon
+	dw NoivernIcon
 	dw LedybaIcon
 	dw LedianIcon
 	dw JoltikIcon
@@ -455,9 +455,9 @@ IconPointers:
 	dw AzumarillIcon
 	dw SudowoodoIcon
 	dw PolitoedIcon
-	dw HoppipIcon
-	dw SkiploomIcon
-	dw JumpluffIcon
+	dw AronIcon
+	dw LaironIcon
+	dw AggronIcon
 	dw AipomIcon
 	dw SunkernIcon
 	dw SunfloraIcon
@@ -504,13 +504,13 @@ IconPointers:
 	dw Porygon2Icon
 	dw StantlerIcon
 	dw SmeargleIcon
-	dw TyrogueIcon
-	dw HitmontopIcon
-	dw SmoochumIcon
+	dw SwabluIcon
+	dw AltariaIcon
+	dw LarvestaIcon
 	dw ElekidIcon
 	dw MagbyIcon
 	dw MiltankIcon
-	dw BlisseyIcon
+	dw CameruptIcon
 	dw RaikouIcon
 	dw EnteiIcon
 	dw SuicuneIcon

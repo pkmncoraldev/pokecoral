@@ -1012,14 +1012,6 @@ MobileFunc_106462: mobile
 ; 106464
 
 Function106464:: ; 106464
-	ld de, MobilePhoneTilesGFX
-	ld hl, VTiles2 tile $60
-	lb bc, BANK(MobilePhoneTilesGFX), 1
-	call Get2bpp
-	ld de, FontsExtra2_UpArrowGFX
-	ld hl, VTiles2 tile $61
-	lb bc, BANK(FontsExtra2_UpArrowGFX), 1
-	call Get2bpp
 	ld de, GFX_106514
 	ld hl, VTiles2 tile $62
 	ld c, 9
@@ -1041,7 +1033,8 @@ Function10649b: ; 10649b
 	call AddNTimes
 	ld d, h
 	ld e, l
-	ld hl, VTiles2 tile $79
+;	ld hl, VTiles2 tile $79
+	ld hl, VTiles0 tile "┌" ; $ba
 	ld c, 6
 	ld b, BANK(Frames)
 	call Function1064c3

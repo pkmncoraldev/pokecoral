@@ -1,5 +1,4 @@
 const_value set 2
-	const GLINT_RIVAL
 	const GLINT_NPC1
 	const GLINT_NPC2
 	const GLINT_NPC3
@@ -48,8 +47,7 @@ AzaleaTown_MapEventHeader:: db 0, 0
 	warp_def 5, 21, 2, KURTS_HOUSE
 	warp_def 15, 6, 2, AZALEA_GYM
 
-.CoordEvents: db 1
-	xy_trigger 1, 4, 5, 0, GlintRival, 0, 0
+.CoordEvents: db 0
 
 .BGEvents: db 9
 	signpost 18, 20, SIGNPOST_READ, GlintCitySign
@@ -62,8 +60,7 @@ AzaleaTown_MapEventHeader:: db 0, 0
 	signpost 21, 18, SIGNPOST_ITEM, GlintCityHiddenRevive
 	signpost 9, 38, SIGNPOST_READ, GlintCityRoute3sign
 
-.ObjectEvents: db 12
-	person_event SPRITE_SILVER, 5, 5, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, GlintRival, EVENT_GLINT_RIVAL_WILL_BUMP
+.ObjectEvents: db 11
 	person_event SPRITE_LASS, 8, 20, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, GlintNPC1, -1
 	person_event SPRITE_FISHER, 16, 13, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, GlintNPC2, -1
 	person_event SPRITE_TWIN, 12, 15, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_YELLOW, PERSONTYPE_SCRIPT, 0, GlintNPC3, -1
@@ -144,110 +141,7 @@ GlintCityRoute3signText:
 	line "GLINT CITY"
 	done
 	
-GlintRival:
-	callasm .StopRunning
-	playsound SFX_BUMP
-	applymovement GLINT_RIVAL, Movement_GlintRivalBump
-	playmusic MUSIC_RIVAL_AFTER
-	opentext
-	writetext GlintRivalText1
-	waitbutton
-	closetext
-	setevent EVENT_GLINT_RIVAL_WILL_BUMP
-	clearevent EVENT_GLINT_RIVAL_NOT_IN_HOUSE
-	
-	
-	checkevent EVENT_GOT_CHARMANDER_FROM_ELM
-	iftrue .charmander
-	
-	checkevent EVENT_GOT_SQUIRTLE_FROM_ELM
-	iftrue .squirtle
-	
-	checkevent EVENT_GOT_BULBASAUR_FROM_ELM
-	iftrue .bulbasaur
-	
-	checkevent EVENT_GOT_CYNDAQUIL_FROM_ELM
-	iftrue .cyndaquil
-	
-	checkevent EVENT_GOT_TOTODILE_FROM_ELM
-	iftrue .totodile
-	winlosstext GlintRivalWinText, GlintRivalLoseText
-	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_7
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	jump .afterbattle
-	
-.charmander
-	winlosstext GlintRivalWinText, GlintRivalLoseText
-	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_8
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	jump .afterbattle
 
-.squirtle
-	winlosstext GlintRivalWinText, GlintRivalLoseText
-	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_9
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	jump .afterbattle
-
-.bulbasaur
-	winlosstext GlintRivalWinText, GlintRivalLoseText
-	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_10
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	jump .afterbattle
-
-.cyndaquil
-	winlosstext GlintRivalWinText, GlintRivalLoseText
-	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_11
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	jump .afterbattle
-
-.totodile
-	winlosstext GlintRivalWinText, GlintRivalLoseText
-	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_12
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	
-.afterbattle
-	playmusic MUSIC_RIVAL_AFTER
-	opentext
-	writetext GlintRivalText2
-	waitbutton
-	closetext
-	applymovement PLAYER, Movement_GlintRivalOuttaTheWay
-	spriteface PLAYER, RIGHT
-	applymovement GLINT_RIVAL, Movement_GlintRivalWalkInHouse
-	playsound SFX_ENTER_DOOR
-	disappear GLINT_RIVAL
-	special Special_FadeOutMusic
-	pause 15
-	playmapmusic
-	dotrigger $0
-	end
-	
-.StopRunning:
-	ld a, [PlayerState]
-	cp PLAYER_RUN
-	ret nz
-	ld a, PLAYER_NORMAL
-	ld [PlayerState], a
-	call ReplaceKrisSprite
-	ret
 	
 GlintNPC1:
 	faceplayer
@@ -338,84 +232,6 @@ GlintBirb:
 	waitbutton
 	closetext
 	end
-	
-Movement_GlintRivalBump:
-	fix_facing
-	jump_step DOWN
-	remove_fixed_facing
-	big_step UP
-	big_step UP
-	step_end
-	
-Movement_GlintRivalWalkInHouse:
-	step UP
-	step UP
-	step_end
-	
-Movement_GlintRivalOuttaTheWay:
-	step LEFT
-	step_end
-	
-GlintRivalText1:
-	text "Hey!"
-	line "Watch it!"
-	
-	para "You?"
-	
-	para "What are you doing"
-	line "here?"
-	
-	para "I left my #DEX"
-	line "at the LIGHTHOUSE?"
-	
-	para "And what makes you"
-	line "think you could"
-	cont "just take it?"
-	
-	para "I don't need help"
-	line "from a weakling"
-	cont "like you."
-	
-	para "I bet you aren't"
-	line "even any stronger"
-	
-	para "than you were when"
-	line "you first got your"
-	cont "#MON!"
-	
-	para "I was heading"
-	line "home, but I could"
-	
-	para "take you down real"
-	line "quick."
-	done
-
-GlintRivalText2:
-	text "Tch!"
-	
-	para "Whatever…"
-	
-	para "I don't need to"
-	line "deal with this."
-	
-	para "You can't keep"
-	line "getting lucky"
-	cont "forever."
-	
-	para "Outta my way!"
-	done
-	
-GlintRivalWinText:
-	text "What?"
-	
-	para "Again?"
-	done
-	
-GlintRivalLoseText:
-	text "Hmph!"
-	
-	para "Too easy."
-	done
 	
 GlintNPC1Text:
 	text "My GROWLITHE loves"

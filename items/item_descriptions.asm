@@ -97,7 +97,7 @@ ItemDescriptions:
 	dw EtherDesc
 	dw MaxEtherDesc
 	dw ElixerDesc
-	dw RedScaleDesc
+	dw CoralShardDesc
 	dw SecretPotionDesc
 	dw SSTicketDesc
 	dw MysteryEggDesc
@@ -151,7 +151,7 @@ ItemDescriptions:
 	dw MiracleSeedDesc
 	dw ThickClubDesc
 	dw FocusBandDesc
-	dw TeruSama8Desc
+	dw SkateboardDesc
 	dw EnergyPowderDesc
 	dw EnergyRootDesc
 	dw HealPowderDesc
@@ -167,16 +167,16 @@ ItemDescriptions:
 	dw BasementKeyDesc
 	dw PassDesc
 	dw LinkCableDesc
-	dw TeruSama10Desc
-	dw TeruSama11Desc
+	dw Clue1Desc
+	dw Clue2Desc
 	dw CharcoalDesc
 	dw BerryJuiceDesc
 	dw ScopeLensDesc
-	dw TeruSama12Desc
-	dw TeruSama13Desc
+	dw Clue3Desc
+	dw Clue4Desc
 	dw MetalCoatDesc
 	dw DragonFangDesc
-	dw TeruSama14Desc
+	dw Clue5Desc
 	dw LeftoversDesc
 	dw TeruSama15Desc
 	dw TeruSama16Desc
@@ -546,9 +546,9 @@ ElixerDesc:
 	db   "Restores PP of all"
 	next "moves by 10.@"
 
-RedScaleDesc:
-	db   "A scale from the"
-	next "red GYARADOS.@"
+CoralShardDesc:
+	db   "Boosts ATK and"
+	next "SP.ATK of CORSOLA.@"
 
 SecretPotionDesc:
 	db   "Fully heals any"
@@ -757,7 +757,7 @@ FocusBandDesc:
 	db   "May prevent faint-"
 	next "ing. (HOLD)@"
 
-TeruSama8Desc:
+SkateboardDesc:
 	db   "?@"
 
 EnergyPowderDesc:
@@ -819,12 +819,14 @@ LinkCableDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
 
-TeruSama10Desc:
-	db   "?@"
+Clue1Desc:
+	db   "A clue of some"
+	next "sort.@"
 
-TeruSama11Desc:
-	db   "?@"
-
+Clue2Desc:
+	db   "A clue of some"
+	next "sort.@"
+	
 CharcoalDesc:
 	db   "Powers up fire-"
 	next "type moves. (HOLD)@"
@@ -837,11 +839,13 @@ ScopeLensDesc:
 	db   "Raises critical"
 	next "hit ratio. (HOLD)@"
 
-TeruSama12Desc:
-	db   "?@"
-
-TeruSama13Desc:
-	db   "?@"
+Clue3Desc:
+	db   "A clue of some"
+	next "sort.@"
+	
+Clue4Desc:
+	db   "A clue of some"
+	next "sort.@"
 
 MetalCoatDesc:
 	db   "Powers up steel-"
@@ -850,9 +854,10 @@ MetalCoatDesc:
 DragonFangDesc:
 	db   "Powers up dragon-"
 	next "type moves. (HOLD)@"
-
-TeruSama14Desc:
-	db   "?@"
+	
+Clue5Desc:
+	db   "A clue of some"
+	next "sort.@"
 
 LeftoversDesc:
 	db   "Restores HP during"

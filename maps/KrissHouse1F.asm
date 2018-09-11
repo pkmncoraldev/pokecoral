@@ -4,10 +4,11 @@ const_value set 2
 
 KrissHouse1F_MapScriptHeader:
 .MapTriggers:
-	db 2
+	db 3
 	
 	maptrigger .Trigger0
 	maptrigger .Trigger1
+	maptrigger .Trigger2
 
 	; triggers
 
@@ -18,12 +19,28 @@ KrissHouse1F_MapScriptHeader:
 	end
 	
 .Trigger1:
+;	checkevent EVENT_KRISS_HOUSE_MOM_2
+;	iffalse .end
+;	appear KRISSHOUSE1F_MOM2
+;	dotrigger $2
+;.end
+	end
+	
+.Trigger2:
 	end
 	
 SunsetMomStopsYou:
 	checkevent EVENT_TALKED_TO_MOM
 	iftrue SunsetMomStopsYouEnd
 	callasm .StopRunning
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iffalse .boy
+	variablesprite SPRITE_PLAYER_CUTSCENE, SPRITE_KRIS_CUTSCENE
+	setevent EVENT_PLAYER_IS_FEMALE
+	jump .cont
+.boy
+	setevent EVENT_PLAYER_IS_MALE
+.cont
 	playmusic MUSIC_MOM
 	showemote EMOTE_SHOCK, KRISSHOUSE1F_MOM1, 15
 	applymovement KRISSHOUSE1F_MOM1, SunsetMomStopsYouMovement
@@ -72,6 +89,11 @@ SunsetMomGetPass:
 	closetext
 	spriteface KRISSHOUSE1F_MOM1, LEFT
 	clearevent EVENT_CAN_GET_PASS_FROM_MOM
+	clearevent EVENT_ISLAND_GREEM_MAN
+	setevent EVENT_KRISS_HOUSE_MOM_2
+	setevent EVENT_RIVAL_ROUTE_6
+	clearevent EVENT_KRISS_HOUSE_MOM_1
+	variablesprite SPRITE_LEILANI_PSYDUCK, SPRITE_ROCKET
 	end
 .howdidyouknow
 	faceplayer
@@ -84,6 +106,11 @@ SunsetMomGetPass:
 	closetext
 	spriteface KRISSHOUSE1F_MOM1, LEFT
 	clearevent EVENT_CAN_GET_PASS_FROM_MOM
+	clearevent EVENT_ISLAND_GREEM_MAN
+	setevent EVENT_KRISS_HOUSE_MOM_2
+	setevent EVENT_RIVAL_ROUTE_6
+	clearevent EVENT_KRISS_HOUSE_MOM_1
+	variablesprite SPRITE_LEILANI_PSYDUCK, SPRITE_ROCKET
 	end
 	
 SunsetMomSpeech:
@@ -124,23 +151,23 @@ SunsetMomGotAPokemon:
 	setflag ENGINE_PHONE_CARD
 	addcellnum PHONE_MOM
 	setevent EVENT_MOM_GOT_POKEGEAR
-	writetext SetDayOfWeekText
-	buttonsound
-	special Special_SetDayOfWeek
-UnknownScript_0x7a519:
-	writetext UnknownText_0x7a742
-	yesorno
-	iffalse UnknownScript_0x7a52a
-	special Special_InitialSetDSTFlag
-	yesorno
-	iffalse UnknownScript_0x7a519
-	jump UnknownScript_0x7a531
-
-UnknownScript_0x7a52a:
-	special Special_InitialClearDSTFlag
-	yesorno
-	iffalse UnknownScript_0x7a519
-UnknownScript_0x7a531:
+;	writetext SetDayOfWeekText
+;	buttonsound
+;	special Special_SetDayOfWeek
+;UnknownScript_0x7a519:
+;	writetext UnknownText_0x7a742
+;	yesorno
+;	iffalse UnknownScript_0x7a52a
+;	special Special_InitialSetDSTFlag
+;	yesorno
+;	iffalse UnknownScript_0x7a519
+;	jump UnknownScript_0x7a531
+;
+;UnknownScript_0x7a52a:
+;	special Special_InitialClearDSTFlag
+;	yesorno
+;	iffalse UnknownScript_0x7a519
+;UnknownScript_0x7a531:
 	writetext UnknownText_0x7a763
 	yesorno
 	iffalse UnknownScript_0x7a542
@@ -208,15 +235,50 @@ SunsetMomStopsYouReturn:
 	step_end
 
 SunsetMomTextGivePass1:
-	text "GIVE PASS TEXT 1"
+	text "<PLAYER>!"
+	
+	para "How's your"
+	line "adventure going?"
+	
+	para "I've got that"
+	line "ISLAND PASS right"
+	cont "here!"	
 	done
 	
 SunsetMomTextGivePass2:
-	text "GIVE PASS TEXT 2"
+	text "Be safe,"
+	line "<PLAYER>."
+	
+	para "Don't forget to"
+	line "call every once"
+	cont "in a while."
 	done
 	
 SunsetMomTextGivePass3:
-	text "GIVE PASS TEXT 3"
+	text "Oh!"
+	
+	para "<PLAYER>?"
+	
+	para "How's your"
+	line "adventure going?"
+	
+	para "What are you"
+	line "doing home?"
+	
+	para "An ISLAND PASS?"
+	
+	para "I just bought one."
+	
+	para "Woah…"
+	
+	para "Deja vu!"
+	
+	para "We've done this"
+	line "before, haven't"
+	cont "we?"
+	
+	para "Well, anyway,"
+	line "here you go!"	
 	done
 	
 MomAfterGearText:
@@ -240,32 +302,13 @@ MomAfterGearText:
 	line "there, sweetie."
 	done
 
-SetDayOfWeekText:
+UnknownText_0x7a763:
 	text "#MON GEAR, or"
 	line "just #GEAR."
 
 	para "It's essential if"
 	line "you want to be a"
 	cont "good trainer."
-
-	para "Oh, the day of the"
-	line "week isn't set."
-
-	para "You mustn't forget"
-	line "that!"
-	done
-
-UnknownText_0x7a742:
-	text "Is it Daylight"
-	line "Saving Time now?"
-	done
-
-UnknownText_0x7a763:
-	text "Come home to"
-	line "adjust your clock"
-
-	para "for Daylight"
-	line "Saving Time."
 
 	para "By the way, do you"
 	line "know how to use"
@@ -387,10 +430,6 @@ SunsetMomText6:
 	line "a #MON CENTER."
 	done
 	
-SunsetMomText7:
-
-	done
-	
 StoveText:
 	text "What's cooking?"
 
@@ -433,7 +472,7 @@ TVText:
 KrissHouse1F_MapEventHeader:: db 0, 0
 
 .Warps: db 3
-	warp_def 7, 6, 1, CHERRYGROVE_CITY
+	warp_def 7, 6, 1, GOLDENROD_CITY
 	warp_def 7, 7, 1, SUNSET_BAY
 	warp_def 0, 9, 1, KRISS_HOUSE_2F
 
@@ -448,5 +487,5 @@ KrissHouse1F_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 2
 	person_event SPRITE_POKEFAN_F, 4, 7, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, SunsetMomScript, EVENT_KRISS_HOUSE_MOM_1
-	person_event SPRITE_POKEFAN_F, 2, 2, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 1, 0, PERSONTYPE_SCRIPT, 0, SunsetMomScript, EVENT_KRISS_HOUSE_MOM_2
+	person_event SPRITE_POKEFAN_F, 2, 2, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, SunsetMomScript, EVENT_KRISS_HOUSE_MOM_2
 

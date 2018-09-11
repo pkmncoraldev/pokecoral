@@ -204,8 +204,8 @@ Item2Attributes:
 ; ELIXER
 	item_attribute  3000, 0,                10,             CANT_SELECT, ITEM,     ITEMMENU_PARTY,   ITEMMENU_PARTY
 
-; RED SCALE
-	item_attribute     0, 0,                 0, CANT_SELECT | CANT_TOSS, KEY_ITEM, ITEMMENU_NOUSE,   ITEMMENU_NOUSE
+; CORAL_SHARD
+	item_attribute   500, 0,                 0,             CANT_SELECT, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
 
 ; SECRETPOTION
 	item_attribute     0, 0,                 0, CANT_SELECT | CANT_TOSS, KEY_ITEM, ITEMMENU_NOUSE,   ITEMMENU_NOUSE
@@ -366,8 +366,8 @@ Item2Attributes:
 ; FOCUS BAND
 	item_attribute   200, HELD_FOCUS_BAND,     30,             CANT_SELECT, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
 
-; TERU-SAMA
-	item_attribute $9999, 0,                 0,                       0, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
+; SKATEBOARD
+	item_attribute     0, 0,                 0,               CANT_TOSS, KEY_ITEM, ITEMMENU_CLOSE,   ITEMMENU_NOUSE
 
 ; ENERGYPOWDER
 	item_attribute   500, 0,                 0,             CANT_SELECT, ITEM,     ITEMMENU_PARTY,   ITEMMENU_PARTY
@@ -414,26 +414,26 @@ Item2Attributes:
 ; LINK CABLE
 	item_attribute  2100, 0,                 0,             CANT_SELECT, ITEM,     ITEMMENU_PARTY,   ITEMMENU_NOUSE
 
-; TERU-SAMA
-	item_attribute $9999, 0,                 0,                       0, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
+; CLUE 1
+	item_attribute     0, 0,                 0,               CANT_TOSS, KEY_ITEM, ITEMMENU_CURRENT,   ITEMMENU_NOUSE
 
-; TERU-SAMA
-	item_attribute $9999, 0,                 0,                       0, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
+; CLUE 2
+	item_attribute     0, 0,                 0,               CANT_TOSS, KEY_ITEM, ITEMMENU_CURRENT,   ITEMMENU_NOUSE
 
 ; CHARCOAL
 	item_attribute  9800, HELD_FIRE_BOOST,     10,             CANT_SELECT, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
 
 ; BERRY JUICE
-	item_attribute   200, HELD_BERRY,          20,             CANT_SELECT, ITEM,     ITEMMENU_PARTY,   ITEMMENU_PARTY
+	item_attribute   800, HELD_BERRY,          20,             CANT_SELECT, ITEM,     ITEMMENU_PARTY,   ITEMMENU_PARTY
 
 ; SCOPE LENS
 	item_attribute   200, HELD_CRITICAL_UP,     0,             CANT_SELECT, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
 
-; TERU-SAMA
-	item_attribute $9999, 0,                 0,                       0, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
+; CLUE 3
+	item_attribute     0, 0,                 0,               CANT_TOSS, KEY_ITEM, ITEMMENU_CURRENT,   ITEMMENU_NOUSE
 
-; TERU-SAMA
-	item_attribute $9999, 0,                 0,                       0, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
+; CLUE 4
+	item_attribute     0, 0,                 0,               CANT_TOSS, KEY_ITEM, ITEMMENU_CURRENT,   ITEMMENU_NOUSE
 
 ; METAL COAT
 	item_attribute   100, HELD_STEEL_BOOST,    10,             CANT_SELECT, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
@@ -441,8 +441,8 @@ Item2Attributes:
 ; DRAGON FANG
 	item_attribute   100, 0,                 0,             CANT_SELECT, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
 
-; TERU-SAMA
-	item_attribute $9999, 0,                 0,                       0, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE
+; CLUE 5
+	item_attribute     0, 0,                 0,               CANT_TOSS, KEY_ITEM, ITEMMENU_CURRENT,   ITEMMENU_NOUSE
 
 ; LEFTOVERS
 	item_attribute   200, HELD_LEFTOVERS,      10,             CANT_SELECT, ITEM,     ITEMMENU_NOUSE,   ITEMMENU_NOUSE

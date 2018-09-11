@@ -78,30 +78,12 @@ Special_CheckMagikarpLength: ; fbb32
 	db "@"
 ; 0xfbbae
 
-Magikarp_LoadFeetInchesChars: ; fbbae
-	ld hl, VTiles2 tile "′"
-	ld de, .feetinchchars
-	lb bc, BANK(.feetinchchars), 2
-	call Request2bpp
-	ret
-; fbbbb
-
-.feetinchchars ; fbbb
-INCBIN "gfx/unknown/0fbbbb.2bpp"
-; fbbdb
-
 PrintMagikarpLength: ; fbbdb
-	call Magikarp_LoadFeetInchesChars
 	ld hl, StringBuffer1
 	ld de, Buffer1
 	lb bc, PRINTNUM_RIGHTALIGN | 1, 2
 	call PrintNum
-	ld [hl], "′"
-	inc hl
-	ld de, Buffer2
-	lb bc, PRINTNUM_RIGHTALIGN | 1, 2
-	call PrintNum
-	ld [hl], "″"
+	ld [hl], " "
 	inc hl
 	ld [hl], "@"
 	ret
@@ -325,10 +307,10 @@ CalcMagikarpLength: ; fbbfc
 
 
 Special_MagikarpHouseSign: ; fbcd2
-	ld a, [wBestMagikarpLengthFeet]
-	ld [Buffer1], a
 	ld a, [wBestMagikarpLengthInches]
-	ld [Buffer2], a
+	ld [Buffer1], a
+;	ld a, [wBestMagikarpLengthInches]
+;	ld [Buffer2], a
 	call PrintMagikarpLength
 	ld hl, .CurrentRecordtext
 	call PrintText

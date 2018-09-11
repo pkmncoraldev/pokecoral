@@ -51,15 +51,6 @@ INCLUDE "home/predef.asm"
 INCLUDE "home/window.asm"
 INCLUDE "home/flag.asm"
 
-Function2ebb:: ; 2ebb
-; unreferenced
-	ld a, [wMonStatusFlags]
-	bit 1, a
-	ret z
-
-	ld a, [hJoyDown]
-	bit B_BUTTON_F, a
-	ret
 ; 2ec6
 
 xor_a:: ; 2ec6
@@ -73,13 +64,6 @@ xor_a_dec_a:: ; 2ec8
 	ret
 ; 2ecb
 
-Function2ecb:: ; 2ecb
-; unreferenced
-	push hl
-	ld hl, wMonStatusFlags
-	bit 1, [hl]
-	pop hl
-	ret
 ; 2ed3
 
 DisableSpriteUpdates:: ; 0x2ed3

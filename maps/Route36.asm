@@ -29,7 +29,7 @@ Route36_MapScriptHeader:
 
 
 TrainerRoute2_1:
-	trainer EVENT_BEAT_ROUTE_2_TRAINER_1, YOUNGSTER, JOEY_YOUNGSTER, TrainerRoute2_1SeenText, TrainerRoute2_1BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE_2_TRAINER_1, YOUNGSTER, 1, TrainerRoute2_1SeenText, TrainerRoute2_1BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -40,7 +40,7 @@ TrainerRoute2_1:
 	end
 
 TrainerRoute2_2:
-	trainer EVENT_BEAT_ROUTE_2_TRAINER_2, LASS, LIBBY_LASS, TrainerRoute2_2SeenText, TrainerRoute2_2BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE_2_TRAINER_2, LASS, 1, TrainerRoute2_2SeenText, TrainerRoute2_2BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -51,7 +51,7 @@ TrainerRoute2_2:
 	end
 		
 TrainerRoute2_3:
-	trainer EVENT_BEAT_ROUTE_2_TRAINER_3, YOUNGSTER, BILLY_YOUNGSTER, TrainerRoute2_3SeenText, TrainerRoute2_3BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE_2_TRAINER_3, YOUNGSTER, 2, TrainerRoute2_3SeenText, TrainerRoute2_3BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -187,10 +187,10 @@ Route36_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 7
 	person_event SPRITE_YOUNGSTER, 23, 17, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerRoute2_1, -1
-	person_event SPRITE_LASS, 18, 16, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 5, TrainerRoute2_2, -1
+	person_event SPRITE_LASS, 18, 16, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 5, TrainerRoute2_2, -1
 	person_event SPRITE_YOUNGSTER, 12, 11, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerRoute2_3, -1
 	person_event SPRITE_FISHER, 28, 26, SPRITEMOVEDATA_WANDER, 2, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route2NPC1, -1
 	person_event SPRITE_POKE_BALL, 36, 23, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route2newPokeBall, EVENT_ROUTE_2NEW_POKE_BALL
-	person_event SPRITE_POKE_BALL, 19, 27, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route2newPokeBall2, EVENT_ROUTE_2NEW_POKE_BALL2
+	person_event SPRITE_POKE_BALL, 31, -6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route2newPokeBall2, EVENT_ROUTE_2NEW_POKE_BALL2
 	person_event SPRITE_POKE_BALL, 52, 16, SPRITEMOVEDATA_ITEM_TREE, 2, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route2PokeballDummy, EVENT_DAYBREAK_RARE_CANDY
 

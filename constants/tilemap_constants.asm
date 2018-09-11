@@ -5,46 +5,29 @@ WATRTILE EQU 15
 TALK     EQU  1 << 4
 
 const_value SET 1
-	const TILESET_GLINT		           ; 01
-	const TILESET_JOHTO_2              ; 02
-	const TILESET_KANTO                ; 03
-	const TILESET_GROVE ; 04
-	const TILESET_HOUSE_1              ; 05
-	const TILESET_KRISS_HOUSE          ; 06
-	const TILESET_POKECENTER           ; 07
-	const TILESET_GATE                 ; 08
-	const TILESET_PORT                 ; 09
-	const TILESET_LAB                  ; 0a
-	const TILESET_POWER_PLANT          ; 0b
-	const TILESET_MART                 ; 0c
-	const TILESET_CELADON_MANSION      ; 0d
-	const TILESET_GAME_CORNER          ; 0e
-	const TILESET_GYM_1                ; 0f
-	const TILESET_KURT_HOUSE           ; 10
-	const TILESET_TRAIN_STATION        ; 11
-	const TILESET_OLIVINE_GYM          ; 12
-	const TILESET_LIGHTHOUSE           ; 13
-	const TILESET_KRISS_HOUSE_2F       ; 14
-	const TILESET_POKECOM_CENTER       ; 15
-	const TILESET_BATTLE_TOWER         ; 16
-	const TILESET_SPROUT_TOWER         ; 17
-	const TILESET_CAVE                 ; 18
-	const TILESET_PARK                 ; 19
-	const TILESET_SPOOKY_FOREST        ; 1a
-	const TILESET_RADIO_TOWER          ; 1b
-	const TILESET_UNDERGROUND          ; 1c
-	const TILESET_ICE_PATH             ; 1d
-	const TILESET_WHIRL_ISLANDS        ; 1e
-	const TILESET_ILEX_FOREST          ; 1f
-	const TILESET_32                   ; 20
-	const TILESET_ISLAND      ; 21
-	const TILESET_KABUTO_WORD_ROOM     ; 22
-	const TILESET_OMANYTE_WORD_ROOM    ; 23
-	const TILESET_SUNSET_BAY ; 24
-	const TILESET_STARGLOW_CAVERN
-	const TILESET_MOUNTAIN
-	const TILESET_LAVA_CAVE
-	const TILESET_JUNGLE
+	const TILESET_PLAYER_HOUSE ;01
+	const TILESET_GLINT	;02
+	const TILESET_HOUSE_1	;03
+	const TILESET_HOUSE_2	;04
+	const TILESET_CENTER	;05
+	const TILESET_CAFE	;06
+	const TILESET_LIGHTHOUSE	;07
+	const TILESET_GATE	;08
+	const TILESET_SCHOOL	;09
+	const TILESET_CAVE	;10
+	const TILESET_GROVE	;11
+	const TILESET_MOUNTAIN	;12
+	const TILESET_JUNGLE	;13
+	const TILESET_SPOOKY	;14
+	const TILESET_HAUNTED	;15
+	const TILESET_RANCH	;16
+	const TILESET_MART	;17
+	const TILESET_PLAYER_ROOM	;18
+	const TILESET_LAVA_CAVE	;19
+	const TILESET_STARGLOW_CAVERN	;20
+	const TILESET_HAUNTED_TV	;21
+	const TILESET_LIBRARY	;22
+	const TILESET_LUSTER	;23
 
 	const_def
 	const PAL_BG_GRAY

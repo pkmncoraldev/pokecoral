@@ -90,10 +90,10 @@ MagnetTrain_UpdateLYOverrides: ; 8cc99
 	add a
 	ld [hSCX], a
 	call .loadloop
-	ld c, $30
+	ld c, $20
 	ld a, [wcf65]
 	call .loadloop
-	ld c, $31
+	ld c, $21
 	ld a, [wcf64]
 	add a
 	call .loadloop
@@ -222,24 +222,24 @@ GetMagnetTrainBGTiles: ; 8cd74
 MagnetTrainBGTiles: ; 8cd82
 ; Alternating tiles for each line
 ; of the Magnet Train tilemap.
-	db $4c, $4d ; bush
-	db $5c, $5d ; bush
-	db $4c, $4d ; bush
-	db $5c, $5d ; bush
-	db $08, $08 ; fence
-	db $18, $18 ; fence
-	db $1f, $1f ; track
+	db $14, $14 ; bush
+	db $0a, $0a ; bush
+	db $05, $0a ; bush
+	db $0a, $0a ; bush
+	db $0b, $0b ; bush
+	db $0c, $0c ; fence
+	db $31, $31 ; track
 	db $31, $31 ; track
 	db $11, $11 ; track
 	db $11, $11 ; track
-	db $0d, $0d ; track
-	db $31, $31 ; track
-	db $04, $04 ; fence
-	db $18, $18 ; fence
-	db $4c, $4d ; bush
-	db $5c, $5d ; bush
-	db $4c, $4d ; bush
-	db $5c, $5d ; bush
+	db $11, $11 ; track
+	db $11, $11 ; track
+	db $06, $06 ; fence
+	db $06, $06 ; fence
+	db $14, $14 ; bush
+	db $14, $14 ; bush
+	db $14, $14 ; bush
+	db $14, $14 ; bush
 ; 8cda6
 
 MagnetTrain_InitLYOverrides: ; 8cda6
@@ -260,27 +260,129 @@ SetMagnetTrainPals: ; 8cdc3
 	ld a, $1
 	ld [rVBK], a
 
-	; bushes
+	; wall
 	hlbgcoord 0, 0
-	ld bc, 4 bgrows
-	ld a, $2
+	ld bc, 5 bgrows
+	ld a, $5
 	call ByteFill
 
-	; train
-	hlbgcoord 0, 4
-	ld bc, 10 bgrows
-	xor a
+	; brick
+	hlbgcoord 0, 5
+	ld bc, 1 bgrows
+	ld a, $1
 	call ByteFill
 
-	; more bushes
-	hlbgcoord 0, 14
-	ld bc, 4 bgrows
-	ld a, $2
+	; train roof
+	hlbgcoord 0, 6
+	ld bc, 2 bgrows
+	ld a, $6
 	call ByteFill
-
-	; train window
-	hlbgcoord 7, 8
-	ld bc, 6
+	
+	; train and track
+	hlbgcoord 0, 8
+	ld bc, 8 bgrows
+	ld a, $5
+	call ByteFill
+	
+	;lights
+	hlbgcoord 0, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 2, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 4, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 6, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 8, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 10, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 12, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 14, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 16, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 18, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 20, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 22, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 24, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 26, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 28, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 30, 2
+	ld bc, 1
+	ld a, $4
+	call ByteFill
+	
+	;train windows
+	hlbgcoord 0, 8
+	ld bc, 2
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 4, 8
+	ld bc, 4
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 10, 8
+	ld bc, 4
+	ld a, $4
+	call ByteFill
+	
+	hlbgcoord 16, 8
+	ld bc, 2
 	ld a, $4
 	call ByteFill
 
@@ -320,7 +422,7 @@ MagnetTrain_Jumptable: ; 8cdf7
 ; 8ce19
 
 .InitPlayerSpriteAnim: ; 8ce19
-	ld d, 10 * 8 + 5
+	ld d, 0;10 * 8 + 5
 	ld a, [wMagnetTrainPlayerSpriteInitX]
 	ld e, a
 	ld b, SPRITE_ANIM_INDEX_15
@@ -436,7 +538,7 @@ MagnetTrain_Jumptable_FirstRunThrough: ; 8ceae
 	push af
 	ld a, [wPermission]
 	push af
-	ld a, [TimeOfDay]
+	ld a, $2;[TimeOfDay]
 	and $3
 	ld [TimeOfDayPal], a
 	ld a, $1
@@ -460,23 +562,23 @@ MagnetTrain_Jumptable_FirstRunThrough: ; 8ceae
 ; 8ceff
 
 MagnetTrainTilemap1:
-	db $1f, $05, $06, $0a, $0a
-	db $0a, $09, $0a, $0a, $0a
-	db $0a, $0a, $0a, $09, $0a
-	db $0a, $0a, $0b, $0c, $1f
+	db $07, $09, $15, $16, $09
+	db $17, $07, $09, $15, $16
+	db $09, $17, $07, $09, $15
+	db $16, $09, $17, $31, $31
 MagnetTrainTilemap2:
-	db $14, $15, $16, $1a, $1a
-	db $1a, $19, $1a, $1a, $1a
-	db $1a, $1a, $1a, $19, $1a
-	db $1a, $1a, $1b, $1c, $1d
+	db $19, $1a, $1b, $1c, $1d
+	db $22, $19, $1a, $1b, $1c
+	db $1d, $22, $19, $1a, $1b
+	db $1c, $1d, $22, $31, $31
 MagnetTrainTilemap3:
-	db $24, $25, $26, $27, $07
-	db $2f, $29, $28, $28, $28
-	db $28, $28, $28, $29, $07
-	db $2f, $2a, $2b, $2c, $2d
+	db $23, $24, $25, $26, $27
+	db $28, $23, $24, $25, $26
+	db $27, $28, $23, $24, $25
+	db $26, $27, $28, $11, $11
 MagnetTrainTilemap4:
-	db $20, $1f, $2e, $1f, $17
-	db $00, $2e, $1f, $1f, $1f
-	db $1f, $1f, $1f, $2e, $17
-	db $00, $1f, $2e, $1f, $0f
+	db $29, $2b, $2c, $2d, $02
+	db $03, $2a, $2b, $2c, $2d
+	db $02, $03, $2a, $2b, $2c
+	db $2d, $02, $34, $11, $11
 ; 8cf4f

@@ -3,6 +3,7 @@ INCBIN "gfx/unknown/049c0c.2bpp"
 ; 49cdc
 
 MainMenu: ; 49cdc
+;	farcall ColorTest
 	xor a
 	ld [wDisableTextAcceleration], a
 	call Function49ed0

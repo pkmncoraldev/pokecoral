@@ -31,7 +31,7 @@ DaybreakTeacher:
 	waitbutton
 	winlosstext DaybreakTeacherWinText, 0
 	setlasttalked EARLSPOKEMONACADEMY_TEACHER
-	loadtrainer TEACHERFAST, COLETTE
+	loadtrainer TEACHERFAST, 1
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_TEACHER

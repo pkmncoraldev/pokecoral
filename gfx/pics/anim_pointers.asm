@@ -94,24 +94,24 @@ AnimationPointers:
 	dw HaunterAnimation
 	dw GengarAnimation
 	dw OnixAnimation
-	dw DrowzeeAnimation
-	dw HypnoAnimation
-	dw KrabbyAnimation
-	dw KinglerAnimation
+	dw MedititeAnimation
+	dw MedichamAnimation
+	dw CorphishAnimation
+	dw CrawdauntAnimation
 	dw VoltorbAnimation
 	dw ElectrodeAnimation
 	dw ExeggcuteAnimation
 	dw ExeggutorAnimation
 	dw CuboneAnimation
 	dw MarowakAnimation
-	dw HitmonleeAnimation
-	dw HitmonchanAnimation
+	dw BunearyAnimation
+	dw LopunnyAnimation
 	dw LickitungAnimation
 	dw KoffingAnimation
 	dw WeezingAnimation
 	dw RhyhornAnimation
 	dw RhydonAnimation
-	dw ChanseyAnimation
+	dw NumelAnimation
 	dw TangelaAnimation
 	dw KangaskhanAnimation
 	dw HorseaAnimation
@@ -122,7 +122,7 @@ AnimationPointers:
 	dw StarmieAnimation
 	dw HawluchaAnimation
 	dw ScytherAnimation
-	dw JynxAnimation
+	dw VolcaronaAnimation
 	dw ElectabuzzAnimation
 	dw MagmarAnimation
 	dw PinsirAnimation
@@ -161,8 +161,8 @@ AnimationPointers:
 	dw FeraligatrAnimation
 	dw SentretAnimation
 	dw FurretAnimation
-	dw HoothootAnimation
-	dw NoctowlAnimation
+	dw NoibatAnimation
+	dw NoivernAnimation
 	dw LedybaAnimation
 	dw LedianAnimation
 	dw JoltikAnimation
@@ -185,9 +185,9 @@ AnimationPointers:
 	dw AzumarillAnimation
 	dw SudowoodoAnimation
 	dw PolitoedAnimation
-	dw HoppipAnimation
-	dw SkiploomAnimation
-	dw JumpluffAnimation
+	dw AronAnimation
+	dw LaironAnimation
+	dw AggronAnimation
 	dw AipomAnimation
 	dw SunkernAnimation
 	dw SunfloraAnimation
@@ -234,13 +234,13 @@ AnimationPointers:
 	dw Porygon2Animation
 	dw StantlerAnimation
 	dw SmeargleAnimation
-	dw TyrogueAnimation
-	dw HitmontopAnimation
-	dw SmoochumAnimation
+	dw SwabluAnimation
+	dw AltariaAnimation
+	dw LarvestaAnimation
 	dw ElekidAnimation
 	dw MagbyAnimation
 	dw MiltankAnimation
-	dw BlisseyAnimation
+	dw CameruptAnimation
 	dw RaikouAnimation
 	dw EnteiAnimation
 	dw SuicuneAnimation

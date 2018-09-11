@@ -90,40 +90,40 @@ EvolveAfterBattle_MasterLoop
 	cp EVOLVE_LEVEL_NITE
 	jp z, .levelnite
 
-	cp EVOLVE_HAPPINESS
-	jr z, .happiness
+;	cp EVOLVE_HAPPINESS
+;	jr z, .happiness
 
 
 ; EVOLVE_STAT
-	ld a, [TempMonLevel]
-	cp [hl]
-	jp c, .dont_evolve_1
+;	ld a, [TempMonLevel]
+;	cp [hl]
+;	jp c, .dont_evolve_1
+;
+;	call IsMonHoldingEverstone
+;	jp z, .dont_evolve_1
+;
+;	push hl
+;	ld de, TempMonAttack
+;	ld hl, TempMonDefense
+;	ld c, 2
+;	call StringCmp
+;	ld a, ATK_EQ_DEF
+;	jr z, .got_tyrogue_evo
+;	ld a, ATK_LT_DEF
+;	jr c, .got_tyrogue_evo
+;	ld a, ATK_GT_DEF
+;.got_tyrogue_evo
+;	pop hl
+;
+;	inc hl
+;	cp [hl]
+;	jp nz, .dont_evolve_2
+;
+;	inc hl
+;	jr .proceed3
 
-	call IsMonHoldingEverstone
-	jp z, .dont_evolve_1
 
-	push hl
-	ld de, TempMonAttack
-	ld hl, TempMonDefense
-	ld c, 2
-	call StringCmp
-	ld a, ATK_EQ_DEF
-	jr z, .got_tyrogue_evo
-	ld a, ATK_LT_DEF
-	jr c, .got_tyrogue_evo
-	ld a, ATK_GT_DEF
-.got_tyrogue_evo
-	pop hl
-
-	inc hl
-	cp [hl]
-	jp nz, .dont_evolve_2
-
-	inc hl
-	jr .proceed3
-
-
-.happiness
+;.happiness
 	ld a, [TempMonHappiness]
 	cp 220
 	jp c, .dont_evolve_2

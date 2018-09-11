@@ -16,65 +16,12 @@ SECTION "Credits", ROMX[$5847], BANK[CREDITS]
 	const JACEDEANE
 	const SIRWHIBBLES
 	const YABOYDINGO
+	const PIA_CARROT
+	const SAXOPHONEOFTIME
+	const BONE_CULTURE
+	const PRET
 	const HEG1
 	const HEG2
-	const GO_ICHINOSE
-	const MORIKAZU_AOKI
-	const KOHJI_NISHINO
-	const KENJI_MATSUSHIMA
-	const TOSHINOBU_MATSUMIYA
-	const SATORU_IWATA
-	const NOBUHIRO_SEYA
-	const KAZUHITO_SEKINE
-	const TETSUJI_OOTA
-	const NCL_SUPER_MARIO_CLUB
-	const SARUGAKUCHO
-	const AKITO_MORI
-	const TAKAHIRO_HARADA
-	const TOHRU_HASHIMOTO
-	const NOBORU_MATSUMOTO
-	const TAKEHIRO_IZUSHI
-	const TAKASHI_KAWAGUCHI
-	const TSUNEKAZU_ISHIHARA
-	const HIROSHI_YAMAUCHI
-	const KENJI_SAIKI
-	const ATSUSHI_TADA
-	const NAOKO_KAWAKAMI
-	const HIROYUKI_ZINNAI
-	const KUNIMI_KAWAMURA
-	const HISASHI_SOGABE
-	const KEITA_KAGAYA
-	const YOSHINORI_MATSUDA
-	const HITOMI_SATO
-	const TORU_OSAWA
-	const TAKAO_OHARA
-	const YUICHIRO_ITO
-	const TAKAO_SHIMIZU
-	const PLANNING
-	const KEITA_NAKAMURA
-	const HIROTAKA_UEMURA
-	const HIROAKI_TAMURA
-	const NORIAKI_SAKAGUCHI
-	const MIYUKI_SATO
-	const GAKUZI_NOMOTO
-	const AI_MASHIMA
-	const MIKIHIRO_ISHIKAWA
-	const HIDEYUKI_HASHIMOTO
-	const SATOSHI_YAMATO
-	const SHIGERU_MIYAMOTO
-	const GAIL_TILDEN
-	const NOB_OGASAWARA
-	const SETH_MCMAHILL
-	const HIROTO_ALEXANDER
-	const TERESA_LILLYGREN
-	const THOMAS_HERTZOG
-	const ERIK_JOHNSON
-	const HIRO_NAKAMURA
-	const TERUKI_MURAKAWA
-	const KAZUYOSHI_OSAWA
-	const KIMIKO_NAKAMICHI
-	const CREDIT_END
-	const CREDIT_UNKNOWN
 	const STAFF
 	const MADE_BY
 	const ART_BY
@@ -83,29 +30,9 @@ SECTION "Credits", ROMX[$5847], BANK[CREDITS]
 	const MUSIC_BY
 	const SPECIAL_THANKS
 	const GRAPHICS_DESIGN
-	const CREDIT_MUSIC
-	const CREDIT_SOUND_EFFECTS
-	const GAME_DESIGN
-	const GAME_SCENARIO
-	const TOOL_PROGRAMMING
-	const PARAMETRIC_DESIGN
-	const SCRIPT_DESIGN
-	const MAP_DATA_DESIGN
-	const MAP_DESIGN
-	const PRODUCT_TESTING
-	const PRODUCERS
-	const EXECUTIVE_PRODUCER
-	const POKEMON_ANIMATION
-	const POKEDEX_TEXT
-	const MOBILE_PRJ_LEADER
-	const MOBILE_SYSTEM_AD
-	const MOBILE_STADIUM_DIR
-	const COORDINATION
-	const COPYRIGHT
-	const US_VERSION_STAFF
-	const US_COORDINATION
 	const ORIG
 	const THANKS
+	const COPYRIGHT
 
 const_value SET -7
 	const CREDITS_THEEND
@@ -851,24 +778,28 @@ CreditsScript: ; 10acb4
 	db        POKEMON_GRAPE, 1
 	db            JACEDEANE, 2
 	db          SIRWHIBBLES, 3
+	db			 PIA_CARROT, 4
 
 	db CREDITS_WAIT, 12
 	
 	db             MUSIC_BY, 1
 	db             CORALDEV, 2
+	db		SAXOPHONEOFTIME, 3
 	
 	db CREDITS_WAIT, 12
 	
 	db       SPECIAL_THANKS, 0
 	db             QUIDOMEE, 1
 	db           YABOYDINGO, 2
-	db                RANGI, 3
+	db		   BONE_CULTURE, 3
+	db                RANGI, 4
 	
 	db CREDITS_WAIT, 12
 
 	db       SPECIAL_THANKS, 0
-	db                 HEG1, 1
-	db                 HEG2, 2
+	db                 PRET, 1
+	db                 HEG1, 2
+	db                 HEG2, 3
 	
 	db CREDITS_WAIT, 12
 	
@@ -899,65 +830,12 @@ CreditsStrings:
 	dw .JaceDeane
 	dw .SirWhibbles
 	dw .YaBoyDingo
+	dw .PiaCarrot
+	dw .SaxofTime
+	dw .BoneCulture
+	dw .Pret
 	dw .Heg1
 	dw .Heg2
-	dw .GoIchinose
-	dw .MorikazuAoki
-	dw .KohjiNishino
-	dw .KenjiMatsushima
-	dw .ToshinobuMatsumiya
-	dw .SatoruIwata
-	dw .NobuhiroSeya
-	dw .KazuhitoSekine
-	dw .TetsujiOota
-	dw .NclSuperMarioClub
-	dw .Sarugakucho
-	dw .AkitoMori
-	dw .TakahiroHarada
-	dw .TohruHashimoto
-	dw .NoboruMatsumoto
-	dw .TakehiroIzushi
-	dw .TakashiKawaguchi
-	dw .TsunekazuIshihara
-	dw .HiroshiYamauchi
-	dw .KenjiSaiki
-	dw .AtsushiTada
-	dw .NaokoKawakami
-	dw .HiroyukiZinnai
-	dw .KunimiKawamura
-	dw .HisashiSogabe
-	dw .KeitaKagaya
-	dw .YoshinoriMatsuda
-	dw .HitomiSato
-	dw .ToruOsawa
-	dw .TakaoOhara
-	dw .YuichiroIto
-	dw .TakaoShimizu
-	dw .Planning
-	dw .KeitaNakamura
-	dw .HirotakaUemura
-	dw .HiroakiTamura
-	dw .NoriakiSakaguchi
-	dw .MiyukiSato
-	dw .GakuziNomoto
-	dw .AiMashima
-	dw .MikihiroIshikawa
-	dw .HideyukiHashimoto
-	dw .SatoshiYamato
-	dw .ShigeruMiyamoto
-	dw .GailTilden
-	dw .NobOgasawara
-	dw .SethMcMahill
-	dw .HirotoAlexander
-	dw .TeresaLillygren
-	dw .ThomasHertzog
-	dw .ErikJohnson
-	dw .HiroNakamura
-	dw .TerukiMurakawa
-	dw .KazuyoshiOsawa
-	dw .KimikoNakamichi
-	dw .End
-	dw .Unknown
 	dw .Staff
 	dw .MadeBy
 	dw .ArtBy
@@ -966,134 +844,39 @@ CreditsStrings:
 	dw .MusicBy
 	dw .SpecialThanks
 	dw .GraphicsDesign
-	dw .Music
-	dw .SoundEffects
-	dw .GameDesign
-	dw .GameScenario
-	dw .ToolProgramming
-	dw .ParametricDesign
-	dw .ScriptDesign
-	dw .MapDataDesign
-	dw .MapDesign
-	dw .ProductTesting
-	dw .Producers
-	dw .ExecutiveProducer
-	dw .PokemonAnimation
-	dw .PokedexText
-	dw .MobilePrjLeader
-	dw .MobileSystemAd
-	dw .MobileStadiumDir
-	dw .Coordination
-	dw .Copyright
-	dw .UsVersionStaff
-	dw .UsCoordination
 	dw .Orig
 	dw .Thanks
+	dw .Copyright
 
-.coraldev:            db "      CORALDEV@"            ; "たじり さとし@"
-.Quidomee:            db "      QUIDOMEE@"            ; "ますだ じゅんいち@"
-.Rangi:               db "       RANGI@"              ; "わたなべ てつや@"
-.Chamber:             db "      CHAMBER@"             ; "もりもと しげき@"
-.FroggestSpirit:      db "   FROGGESTSPIRIT@"         ; "たまだ そうすけ@"
-.BlueEmerald:         db "    BLUE EMERALD@"          ; "おおた たけのり@"
-.Comboy:              db "       COMBOY@"             ; "すぎもり けん@"
-.Jozzer26:            db "      JOZZER26@"            ; "ふじわら もとふみ@"
-.Solo:                db "        SOLO@"              ; "にしだ あつこ@"
-.PokemonGrape:        db "    #MON GRAPE@"            ; "さいとう むねお@"
-.JaceDeane:           db "      JACEDEANE@"           ; "おおた さとし@"
-.SirWhibbles:         db "    SIR WHIBBLES@"          ; "よしかわ れな@"
-.YaBoyDingo:          db "       DINGO@"              ; "おくたに じゅん@"
-.Heg1:                db "  THE /HEG/ THREAD@"        ; "よしだ ひろのぶ@"
-.Heg2:                db "       ON /VP/@"            ; "いわした あすか@"
-.GoIchinose:          db "    GO ICHINOSE@"           ; "いちのせ ごう@"
-.MorikazuAoki:        db "   MORIKAZU AOKI@"          ; "あおき もりかず@"
-.KohjiNishino:        db "   KOHJI NISHINO@"          ; "にしの こうじ@"
-.KenjiMatsushima:     db "  KENJI MATSUSHIMA@"        ; "まつしま けんじ@"
-.ToshinobuMatsumiya:  db "TOSHINOBU MATSUMIYA@"       ; "まつみや としのぶ@"
-.SatoruIwata:         db "    SATORU IWATA@"          ; "いわた さとる@"
-.NobuhiroSeya:        db "   NOBUHIRO SEYA@"          ; "せや のぶひろ@"
-.KazuhitoSekine:      db "  KAZUHITO SEKINE@"         ; "せきね かずひと@"
-.TetsujiOota:         db "    TETSUJI OOTA@"          ; "おおた てつじ@"
-.NclSuperMarioClub:   db "NCL SUPER MARIO CLUB@"      ; "スーパーマりォクラブ@"
-.Sarugakucho:         db "    SARUGAKUCHO@"           ; "さるがくちょう@"
-.AkitoMori:           db "     AKITO MORI@"           ; "もり あきと@"
-.TakahiroHarada:      db "  TAKAHIRO HARADA@"         ; "はらだ たかひろ@"
-.TohruHashimoto:      db "  TOHRU HASHIMOTO@"         ; "はしもと とおる@"
-.NoboruMatsumoto:     db "  NOBORU MATSUMOTO@"        ; "まつもと のぼる@"
-.TakehiroIzushi:      db "  TAKEHIRO IZUSHI@"         ; "いずし たけひろ@"
-.TakashiKawaguchi:    db " TAKASHI KAWAGUCHI@"        ; "かわぐち たかし@"
-.TsunekazuIshihara:   db " TSUNEKAZU ISHIHARA@"       ; "いしはら つねかず@"
-.HiroshiYamauchi:     db "  HIROSHI YAMAUCHI@"        ; "やまうち ひろし@"
-.KenjiSaiki:          db "    KENJI SAIKI@"           ; "さいき けんじ@"
-.AtsushiTada:         db "    ATSUSHI TADA@"          ; "ただ あつし@"
-.NaokoKawakami:       db "   NAOKO KAWAKAMI@"         ; "かわかみ なおこ@"
-.HiroyukiZinnai:      db "  HIROYUKI ZINNAI@"         ; "じんない ひろゆき@"
-.KunimiKawamura:      db "  KUNIMI KAWAMURA@"         ; "かわむら くにみ@"
-.HisashiSogabe:       db "   HISASHI SOGABE@"         ; "そがべ ひさし@"
-.KeitaKagaya:         db "    KEITA KAGAYA@"          ; "かがや けいた@"
-.YoshinoriMatsuda:    db " YOSHINORI MATSUDA@"        ; "まつだ よしのり@"
-.HitomiSato:          db "    HITOMI SATO@"           ; "さとう ひとみ@"
-.ToruOsawa:           db "     TORU OSAWA@"           ; "おおさわ とおる@"
-.TakaoOhara:          db "    TAKAO OHARA@"           ; "おおはら たかお@"
-.YuichiroIto:         db "    YUICHIRO ITO@"          ; "いとう ゆういちろう@"
-.TakaoShimizu:        db "   TAKAO SHIMIZU@"          ; "しみず たかお@"
-.Planning:            db " SPECIAL PRODUCTION"
-                    next "      PLANNING"             ; "きかくかいはつぶ@"
-                    next " & DEVELOPMENT DEPT.@"
-.KeitaNakamura:       db "   KEITA NAKAMURA@"         ; "なかむら けいた@"
-.HirotakaUemura:      db "  HIROTAKA UEMURA@"         ; "うえむら ひろたか@"
-.HiroakiTamura:       db "   HIROAKI TAMURA@"         ; "たむら ひろあき@"
-.NoriakiSakaguchi:    db " NORIAKI SAKAGUCHI@"        ; "さかぐち のりあき@"
-.MiyukiSato:          db "    MIYUKI SATO@"           ; "さとう みゆき@"
-.GakuziNomoto:        db "   GAKUZI NOMOTO@"          ; "のもと がくじ@"
-.AiMashima:           db "     AI MASHIMA@"           ; "ましま あい@"
-.MikihiroIshikawa:    db " MIKIHIRO ISHIKAWA@"        ; "いしかわ みきひろ@"
-.HideyukiHashimoto:   db " HIDEYUKI HASHIMOTO@"       ; "はしもと ひでゆき@"
-.SatoshiYamato:       db "   SATOSHI YAMATO@"         ; "やまと さとし@"
-.ShigeruMiyamoto:     db "  SHIGERU MIYAMOTO@"        ; "みやもと しげる@"
-.End:                 db "        END@"               ; "おしまい@"
-.Unknown:             db "      ????????@"            ; "????????@"
-.GailTilden:          db "    GAIL TILDEN@"
-.NobOgasawara:        db "   NOB OGASAWARA@"
-.SethMcMahill:        db "   SETH McMAHILL@"
-.HirotoAlexander:     db "  HIROTO ALEXANDER@"
-.TeresaLillygren:     db "  TERESA LILLYGREN@"
-.ThomasHertzog:       db "   THOMAS HERTZOG@"
-.ErikJohnson:         db "    ERIK JOHNSON@"
-.HiroNakamura:        db "   HIRO NAKAMURA@"
-.TerukiMurakawa:      db "  TERUKI MURAKAWA@"
-.KazuyoshiOsawa:      db "  KAZUYOSHI OSAWA@"
-.KimikoNakamichi:     db "  KIMIKO NAKAMICHI@"
-.Staff:               db "       #MON"                ; "ポケットモンスター"
-                    next "    CORAL VERSION"         ; "  クりスタル バージョン"
-                    next "       DEMO 1@"             ; "    スタッフ@"
-.MadeBy:              db "      HACK BY@"             ; "エグゼクティブ ディレクター@"
-.ArtBy:               db "       ART BY@"             ; "ディレクター@"
-.AdditionalProg:      db "  ADD. PROGRAMING@"         ; "プログラム@"
-.AdditionalGraphics:  db "   ADDITIONAL GFX@"         ; "グラフィック ディレクター@"
-.MusicBy:             db "      MUSIC BY@"            ; "# デザイン@"
-.SpecialThanks:       db "   SPECIAL THANKS@"         ; "スぺシャルサンクス@"
-.GraphicsDesign:      db "  GRAPHICS DESIGN@"         ; "グラフィック デザイン@"
-.Music:               db "       MUSIC@"              ; "おんがく@"
-.SoundEffects:        db "   SOUND EFFECTS@"          ; "サウンド エフ→クト@"
-.GameDesign:          db "    GAME DESIGN@"           ; "ゲームデザイン@"
-.GameScenario:        db "   GAME SCENARIO@"          ; "シナりォ@"
-.ToolProgramming:     db "  TOOL PROGRAMMING@"        ; "ツール プログラム@"
-.ParametricDesign:    db " PARAMETRIC DESIGN@"        ; "パラメーター せってい@"
-.ScriptDesign:        db "   SCRIPT DESIGN@"          ; "スクりプト せってい@"
-.MapDataDesign:       db "  MAP DATA DESIGN@"         ; "マップデータ せってい@"
-.MapDesign:           db "     MAP DESIGN@"           ; "マップ デザイン@"
-.ProductTesting:      db "  PRODUCT TESTING@"         ; "デバッグプレイ@"
-.Producers:           db "     PRODUCERS@"            ; "プロデューサー@"
-.ExecutiveProducer:   db " EXECUTIVE PRODUCER@"       ; "エグゼクティブ プロデューサー@"
-.PokemonAnimation:    db " #MON ANIMATION@"           ; "# アニメーション@"
-.PokedexText:         db "    #DEX TEXT@"             ; "ずかん テキスト@"
-.MobilePrjLeader:     db " MOBILE PRJ. LEADER@"       ; "モバイルプロジ→クト りーダー@"
-.MobileSystemAd:      db " MOBILE SYSTEM AD.@"        ; "モバイル システムアドバイザー@"
-.MobileStadiumDir:    db "MOBILE STADIUM DIR.@"       ; "モバイルスタジアム ディレクター@"
-.Coordination:        db "    COORDINATION@"          ; "コーディネーター@"
-.UsVersionStaff:      db "  US VERSION STAFF@"
-.UsCoordination:      db "  US COORDINATION@"
+.coraldev:            db "      CORALDEV@"
+.Quidomee:            db "      QUIDOMEE@"
+.Rangi:               db "       RANGI@"
+.Chamber:             db "      CHAMBER@"
+.FroggestSpirit:      db "   FROGGESTSPIRIT@"
+.BlueEmerald:         db "    BLUE EMERALD@"
+.Comboy:              db "       COMBOY@"
+.Jozzer26:            db "      JOZZER26@"
+.Solo:                db "        SOLO@"
+.PokemonGrape:        db "    #MON GRAPE@"
+.JaceDeane:           db "      JACEDEANE@"
+.SirWhibbles:         db "    SIR WHIBBLES@"
+.YaBoyDingo:          db "       DINGO@"
+.PiaCarrot:			  db "     PIA CARROT@"
+.SaxofTime:			  db "   SAXOPHONEOFTIME@"
+.BoneCulture:		  db "    BONE CULTURE@"
+.Pret:				  db "        PRET@"
+.Heg1:                db "       /RHEG/@"
+.Heg2:                db "All the /YEHAW/ boys@"
+.Staff:               db "       #MON"
+                    next "    CORAL VERSION"
+                    next "       DEMO 2@"
+.MadeBy:              db "      HACK BY@"
+.ArtBy:               db "       ART BY@"
+.AdditionalProg:      db "  ADD. PROGRAMING@"
+.AdditionalGraphics:  db "   ADDITIONAL GFX@"
+.MusicBy:             db "      MUSIC BY@"
+.SpecialThanks:       db "   SPECIAL THANKS@"
+.GraphicsDesign:      db "  GRAPHICS DESIGN@"
 .Orig:                db "  ORIGINAL GAME BY@"
 .Thanks:              db " THANKS FOR PLAYING!@"
 

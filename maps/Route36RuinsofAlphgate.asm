@@ -16,11 +16,15 @@ Route36RuinsofAlphgate_MapEventHeader:: db 0, 0
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 1
+	signpost 1, 5, SIGNPOST_READ, LakeBoat2Trashcan
 
 .ObjectEvents: db 1
 	person_event SPRITE_FISHER, 1, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, LakeBoatMan2, -1
 
+LakeBoat2Trashcan:
+	jumptext LakeBoatTrashcanText
+	
 LakeBoatMan2:
 	opentext
 	writetext LakeBoatManText1
@@ -33,20 +37,6 @@ LakeBoatMan2:
 	takemoney $0, 500
 	special PlaceMoneyTopRight
 .doit
-	checkevent EVENT_LAKE_BOAT_LEFT_GONE
-	iffalse .boatishere
-	writetext LakeBoatManText4
-	waitbutton
-	closetext
-	applymovement LAKEBOATMAN2, Movement_LakeBoatManPhone1
-	opentext
-	writetext LakeBoatManText5
-	waitbutton
-	closetext
-	applymovement LAKEBOATMAN2, Movement_LakeBoatManPhone2
-	faceplayer
-	opentext
-.boatishere
 	writetext LakeBoatManText3
 	waitbutton
 	closetext
@@ -74,6 +64,10 @@ LakeBoatMan2:
 	waitbutton
 	closetext
 	end
+	
+LakeBoatTrashcanText:
+	text "It's empty."
+	done
 	
 LakeBoatManText1:
 	text "Welcome to the"

@@ -18,7 +18,7 @@ Route43_MapScriptHeader:
 	; callbacks
 
 TrainerRoute3_1:
-	trainer EVENT_BEAT_ROUTE_3_TRAINER_1, YOUNGSTER, CHRIS_YOUNGSTER, TrainerRoute3_1SeenText, TrainerRoute3_1BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE_3_TRAINER_1, YOUNGSTER, 3, TrainerRoute3_1SeenText, TrainerRoute3_1BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -29,7 +29,7 @@ TrainerRoute3_1:
 	end
 	
 TrainerRoute3_2:
-	trainer EVENT_BEAT_ROUTE_3_TRAINER_2, FISHER, DAVE_FISHER, TrainerRoute3_2SeenText, TrainerRoute3_2BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE_3_TRAINER_2, FISHER, 1, TrainerRoute3_2SeenText, TrainerRoute3_2BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -41,7 +41,7 @@ TrainerRoute3_2:
 	end
 	
 TrainerRoute3_3:
-	trainer EVENT_BEAT_ROUTE_3_TRAINER_3, CAMPER, DENNY_CAMPER, TrainerRoute3_3SeenText, TrainerRoute3_3BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE_3_TRAINER_3, CAMPER, 1, TrainerRoute3_3SeenText, TrainerRoute3_3BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -52,7 +52,7 @@ TrainerRoute3_3:
 	end
 
 TrainerRoute3_4:
-	trainer EVENT_BEAT_ROUTE_3_TRAINER_4, PICNICKER, ERIN_PICNICKER, TrainerRoute3_4SeenText, TrainerRoute3_4BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE_3_TRAINER_4, PICNICKER, 1, TrainerRoute3_4SeenText, TrainerRoute3_4BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -63,7 +63,7 @@ TrainerRoute3_4:
 	end
 	
 TrainerRoute3_5:
-	trainer EVENT_BEAT_ROUTE_3_TRAINER_5, LASS, CHARLOTTE_LASS, TrainerRoute3_5SeenText, TrainerRoute3_5BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE_3_TRAINER_5, LASS, 2, TrainerRoute3_5SeenText, TrainerRoute3_5BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -358,7 +358,7 @@ Route3RodmanText2:
 	para "You won't find"
 	line "much with that"
 	
-	para "peice of junk,"
+	para "piece of junk,"
 	line "though."
 	done
 	
@@ -414,7 +414,7 @@ Route43_MapEventHeader:: db 0, 0
 	person_event SPRITE_FISHER, 16, 19, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 0, TrainerRoute3_2, -1
 	person_event SPRITE_YOUNGSTER, 15, 33, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerRoute3_3, -1
 	person_event SPRITE_LASS, 6, 35, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 4, TrainerRoute3_4, -1
-	person_event SPRITE_LASS, 16, 45, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 3, TrainerRoute3_5, -1
+	person_event SPRITE_LASS, 16, 45, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerRoute3_5, -1
 	person_event SPRITE_FISHER, 9, 20, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route3Rodman, -1
 	person_event SPRITE_OFFICER, 0, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route3Officer, -1
 	person_event SPRITE_POKE_BALL, 6, 34, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route3newPokeBall, EVENT_ROUTE_3NEW_POKE_BALL

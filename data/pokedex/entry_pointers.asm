@@ -167,24 +167,24 @@ PokedexDataPointerTable: ; 0x44378
 	dw HaunterPokedexEntry
 	dw GengarPokedexEntry
 	dw OnixPokedexEntry
-	dw DrowzeePokedexEntry
-	dw HypnoPokedexEntry
-	dw KrabbyPokedexEntry
-	dw KinglerPokedexEntry
+	dw MedititePokedexEntry
+	dw MedichamPokedexEntry
+	dw CorphishPokedexEntry
+	dw CrawdauntPokedexEntry
 	dw VoltorbPokedexEntry
 	dw ElectrodePokedexEntry
 	dw ExeggcutePokedexEntry
 	dw ExeggutorPokedexEntry
 	dw CubonePokedexEntry
 	dw MarowakPokedexEntry
-	dw HitmonleePokedexEntry
-	dw HitmonchanPokedexEntry
+	dw BunearyPokedexEntry
+	dw LopunnyPokedexEntry
 	dw LickitungPokedexEntry
 	dw KoffingPokedexEntry
 	dw WeezingPokedexEntry
 	dw RhyhornPokedexEntry
 	dw RhydonPokedexEntry
-	dw ChanseyPokedexEntry
+	dw NumelPokedexEntry
 	dw TangelaPokedexEntry
 	dw KangaskhanPokedexEntry
 	dw HorseaPokedexEntry
@@ -195,7 +195,7 @@ PokedexDataPointerTable: ; 0x44378
 	dw StarmiePokedexEntry
 	dw HawluchaPokedexEntry
 	dw ScytherPokedexEntry
-	dw JynxPokedexEntry
+	dw VolcaronaPokedexEntry
 	dw ElectabuzzPokedexEntry
 	dw MagmarPokedexEntry
 	dw PinsirPokedexEntry
@@ -234,8 +234,8 @@ PokedexDataPointerTable: ; 0x44378
 	dw FeraligatrPokedexEntry
 	dw SentretPokedexEntry
 	dw FurretPokedexEntry
-	dw HoothootPokedexEntry
-	dw NoctowlPokedexEntry
+	dw NoibatPokedexEntry
+	dw NoivernPokedexEntry
 	dw LedybaPokedexEntry
 	dw LedianPokedexEntry
 	dw JoltikPokedexEntry
@@ -258,9 +258,9 @@ PokedexDataPointerTable: ; 0x44378
 	dw AzumarillPokedexEntry
 	dw SudowoodoPokedexEntry
 	dw PolitoedPokedexEntry
-	dw HoppipPokedexEntry
-	dw SkiploomPokedexEntry
-	dw JumpluffPokedexEntry
+	dw AronPokedexEntry
+	dw LaironPokedexEntry
+	dw AggronPokedexEntry
 	dw AipomPokedexEntry
 	dw SunkernPokedexEntry
 	dw SunfloraPokedexEntry
@@ -307,13 +307,13 @@ PokedexDataPointerTable: ; 0x44378
 	dw Porygon2PokedexEntry
 	dw StantlerPokedexEntry
 	dw SmearglePokedexEntry
-	dw TyroguePokedexEntry
-	dw HitmontopPokedexEntry
-	dw SmoochumPokedexEntry
+	dw SwabluPokedexEntry
+	dw AltariaPokedexEntry
+	dw LarvestaPokedexEntry
 	dw ElekidPokedexEntry
 	dw MagbyPokedexEntry
 	dw MiltankPokedexEntry
-	dw BlisseyPokedexEntry
+	dw CameruptPokedexEntry
 	dw RaikouPokedexEntry
 	dw EnteiPokedexEntry
 	dw SuicunePokedexEntry

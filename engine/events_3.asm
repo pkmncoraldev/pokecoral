@@ -15,16 +15,16 @@ ReturnFromMapSetupScript:: ; b8000
 	ld c, a
 	call GetWorldMapLocation
 	ld [wCurrentLandmark], a
-	call .CheckNationalParkGate
-	jr z, .nationalparkgate
+;	call .CheckNationalParkGate
+;	jr z, .nationalparkgate
 
 	call GetMapPermission
 	cp GATE
 	jr nz, .not_gate
 
-.nationalparkgate
-	ld a, -1
-	ld [wCurrentLandmark], a
+;.nationalparkgate
+;	ld a, -1
+;	ld [wCurrentLandmark], a
 
 .not_gate
 	ld hl, wEnteredMapFromContinue
@@ -89,15 +89,15 @@ ReturnFromMapSetupScript:: ; b8000
 	ret
 ; b8089
 
-.CheckNationalParkGate: ; b8089
-	ld a, [MapGroup]
-	cp GROUP_ROUTE_35_NATIONAL_PARK_GATE
-	ret nz
-	ld a, [MapNumber]
-	cp MAP_ROUTE_35_NATIONAL_PARK_GATE
-	ret z
-	cp MAP_ROUTE_36_NATIONAL_PARK_GATE
-	ret
+;.CheckNationalParkGate: ; b8089
+;	ld a, [MapGroup]
+;	cp GROUP_ROUTE_35_NATIONAL_PARK_GATE
+;	ret nz
+;	ld a, [MapNumber]
+;	cp MAP_ROUTE_35_NATIONAL_PARK_GATE
+;	ret z
+;	cp MAP_ROUTE_36_NATIONAL_PARK_GATE
+;	ret
 ; b8098
 
 
@@ -132,7 +132,7 @@ PlaceMapNameSign:: ; b8098 (2e:4098)
 
 LoadMapNameSignGFX: ; b80c6
 	ld de, MapEntryFrameGFX
-	ld hl, VTiles2 tile $60
+	ld hl, VTiles0 tile $c0
 	lb bc, BANK(MapEntryFrameGFX), $e
 	call Get2bpp
 	ret
@@ -208,45 +208,45 @@ InitMapSignAttrMap: ; b8115
 PlaceMapNameFrame: ; b812f
 	hlcoord 0, 0
 	; top left
-	ld a, $61
+	ld a, $c1
 	ld [hli], a
 	; top row
-	ld a, $62
+	ld a, $c2
 	call .FillTopBottom
 	; top right
-	ld a, $64
+	ld a, $c4
 	ld [hli], a
 	; left, first line
-	ld a, $65
+	ld a, $c5
 	ld [hli], a
 	; first line
 	call .FillMiddle
 	; right, first line
-	ld a, $6b
+	ld a, $cb
 	ld [hli], a
 	; left, second line
-	ld a, $66
+	ld a, $c6
 	ld [hli], a
 	; second line
 	call .FillMiddle
 	; right, second line
-	ld a, $6c
+	ld a, $cc
 	ld [hli], a
 	; bottom left
-	ld a, $67
+	ld a, $c7
 	ld [hli], a
 	; bottom
-	ld a, $68
+	ld a, $c8
 	call .FillTopBottom
 	; bottom right
-	ld a, $6a
+	ld a, $ca
 	ld [hl], a
 	ret
 ; b815b
 
 .FillMiddle: ; b815b
 	ld c, 18
-	ld a, $6d
+	ld a, $cd
 .loop
 	ld [hli], a
 	dec c

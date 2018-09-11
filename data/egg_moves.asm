@@ -45,7 +45,7 @@ SquirtleEggMoves:
 	db $ff
 
 PikipekEggMoves:
-	db MIRROR_MOVE
+	db TACKLE
 	db $ff
 	
 PidgeyEggMoves:
@@ -60,7 +60,6 @@ endc
 RattataEggMoves:
 	db SCREECH
 	db FLAME_WHEEL
-	db FURY_SWIPES
 	db BITE
 	db COUNTER
 	db REVERSAL
@@ -115,10 +114,7 @@ NidoranMEggMoves:
 	db $ff
 
 BuizelEggMoves:
-	db BATON_PASS
-	db DOUBLESLAP
-	db FURY_CUTTER
-	db SLASH
+	db TACKLE
 	db $ff
 
 ZubatEggMoves:
@@ -140,10 +136,7 @@ endc
 	db $ff
 
 DwebbleEggMoves:
-	db COUNTER
-	db CURSE
-	db ENDURE
-	db SPIKES
+	db TACKLE
 	db $ff
 
 VenonatEggMoves:
@@ -213,9 +206,6 @@ AbraEggMoves:
 
 MachopEggMoves:
 	db LIGHT_SCREEN
-	db MEDITATE
-	db ROLLING_KICK
-	db ENCORE
 	db $ff
 
 BellsproutEggMoves:
@@ -275,7 +265,7 @@ DoduoEggMoves:
 	db $ff
 
 ShroomishEggMoves:
-	db CHARM
+	db TACKLE
 	db $ff
 
 GrimerEggMoves:
@@ -303,17 +293,12 @@ OnixEggMoves:
 	db FLAIL
 	db $ff
 
-DrowzeeEggMoves:
-	db LIGHT_SCREEN
-	db BARRIER
+MedititeEggMoves:
+	db TACKLE
 	db $ff
 
-KrabbyEggMoves:
-	db DIG
-	db HAZE
-	db AMNESIA
-	db FLAIL
-	db SLAM
+CorphishEggMoves:
+	db TACKLE
 	db $ff
 
 ExeggcuteEggMoves:
@@ -360,10 +345,8 @@ RhyhornEggMoves:
 	db MAGNITUDE
 	db $ff
 
-ChanseyEggMoves:
-	db PRESENT
-	db METRONOME
-	db HEAL_BELL
+NumelEggMoves:
+	db TACKLE
 	db $ff
 
 TangelaEggMoves:
@@ -406,8 +389,7 @@ StaryuEggMoves:
 endc
 
 HawluchaEggMoves:
-	db AGILITY
-	db BATON_PASS
+	db TACKLE
 	db $ff
 
 ScytherEggMoves:
@@ -420,7 +402,7 @@ ScytherEggMoves:
 	db $ff
 
 PinsirEggMoves:
-	db FURY_ATTACK
+;	db FURY_ATTACK
 	db FLAIL
 	db $ff
 
@@ -435,7 +417,7 @@ EeveeEggMoves:
 	db $ff
 
 CottoneeEggMoves:
-	db ENCORE
+	db TACKLE
 	db $ff
 
 KabutoEggMoves:
@@ -479,14 +461,10 @@ ChikoritaEggMoves:
 	db $ff
 
 CyndaquilEggMoves:
-	db FURY_SWIPES
 	db QUICK_ATTACK
 	db REVERSAL
 	db THRASH
 	db FORESIGHT
-if _CRYSTAL
-	db SUBMISSION
-endc
 	db $ff
 
 TotodileEggMoves:
@@ -506,29 +484,16 @@ SentretEggMoves:
 	db REVERSAL
 	db $ff
 
-HoothootEggMoves:
-	db MIRROR_MOVE
-	db SUPERSONIC
-	db FAINT_ATTACK
-	db WING_ATTACK
-	db WHIRLWIND
-if _CRYSTAL
+NoibatEggMoves:
 	db TACKLE
-endc
 	db $ff
 
 LedybaEggMoves:
 	db PSYBEAM
-	db BIDE
-	db LIGHT_SCREEN
 	db $ff
 
 JoltikEggMoves:
-	db DISABLE
-	db FAINT_ATTACK
-	db PIN_MISSILE
-	db POISON_STING
-	db PURSUIT
+	db TACKLE
 	db $ff
 
 ChinchouEggMoves:
@@ -539,14 +504,9 @@ ChinchouEggMoves:
 
 PichuEggMoves:
 	db REVERSAL
-	db BIDE
-	db PRESENT
-	db ENCORE
-	db DOUBLESLAP
 	db $ff
 
 CleffaEggMoves:
-	db PRESENT
 	db METRONOME
 	db AMNESIA
 	db BELLY_DRUM
@@ -556,12 +516,10 @@ CleffaEggMoves:
 
 IgglybuffEggMoves:
 	db PERISH_SONG
-	db PRESENT
 	db FAINT_ATTACK
 	db $ff
 
 TogepiEggMoves:
-	db PRESENT
 	db MIRROR_MOVE
 	db PECK
 	db FORESIGHT
@@ -587,7 +545,6 @@ MareepEggMoves:
 
 MarillEggMoves:
 	db LIGHT_SCREEN
-	db PRESENT
 	db AMNESIA
 	db FUTURE_SIGHT
 	db BELLY_DRUM
@@ -600,14 +557,8 @@ SudowoodoEggMoves:
 	db SELFDESTRUCT
 	db $ff
 
-HoppipEggMoves:
-	db CONFUSION
-	db GROWL
-	db ENCORE
-	db DOUBLE_EDGE
-	db REFLECT
-	db AMNESIA
-	db PAY_DAY
+AronEggMoves:
+	db TACKLE
 	db $ff
 
 AipomEggMoves:
@@ -665,10 +616,6 @@ PinecoEggMoves:
 	db $ff
 
 DunsparceEggMoves:
-	db BIDE
-	db ANCIENTPOWER
-	db ROCK_SLIDE
-	db BITE
 	db RAGE
 	db $ff
 
@@ -683,7 +630,6 @@ SnubbullEggMoves:
 	db METRONOME
 	db FAINT_ATTACK
 	db REFLECT
-	db PRESENT
 	db CRUNCH
 	db HEAL_BELL
 	db LICK
@@ -703,8 +649,6 @@ ShuckleEggMoves:
 
 HeracrossEggMoves:
 	db HARDEN
-	db BIDE
-	db FLAIL
 	db $ff
 
 SneaselEggMoves:
@@ -797,28 +741,16 @@ StantlerEggMoves:
 	db BITE
 	db $ff
 
-TyrogueEggMoves:
-	db RAPID_SPIN
-	db HI_JUMP_KICK
-	db MACH_PUNCH
-	db MIND_READER
+SwabluEggMoves:
+	db TACKLE
 	db $ff
 
-SmoochumEggMoves:
-if !_CRYSTAL
-	db LOVELY_KISS
-endc
-	db MEDITATE
+LarvestaEggMoves:
+	db TACKLE
 	db $ff
 
 ElekidEggMoves:
 	db KARATE_CHOP
-	db BARRIER
-	db ROLLING_KICK
-	db MEDITATE
-if _CRYSTAL
-	db CROSS_CHOP
-endc
 	db $ff
 
 MagbyEggMoves:
@@ -832,7 +764,6 @@ endc
 	db $ff
 
 MiltankEggMoves:
-	db PRESENT
 	db REVERSAL
 	db SEISMIC_TOSS
 	db $ff

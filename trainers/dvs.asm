@@ -23,7 +23,7 @@ TrainerClassDVs: ; 270d6
 	;  Atk  Spd
 	;  Def  Spc
 	db $AE, $AA ; stanley
-	db $88, $88 ; rodney
+	db $EE, $EE ; rodney
 	db $98, $88 ; leilani
 	db $98, $88 ; morty
 	db $98, $88 ; pryce
@@ -93,4 +93,13 @@ TrainerClassDVs: ; 270d6
 	db $DD, $DD ; triobror
 	db $DD, $DD ; triobrob
 	db $DD, $DD ; triobroy
+	db $98, $88 ; disguiseman
+	db $98, $88 ; lady
+	db $98, $88 ; bikinip
+	db $98, $88 ; bikinir
+	db $98, $88 ; bikiniy
+	db $98, $88 ; couple
+	db $7E, $A8 ; delinquentm
+	db $7E, $A8 ; delinquentf
+	db $98, $88 ; safari
 ; 2715c

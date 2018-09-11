@@ -1,6 +1,11 @@
 const_value set 2
 	const LIGHTHOUSE_ABNER
 	const LIGHTHOUSE_RIVAL
+	const LIGHTHOUSE_KID1
+	const LIGHTHOUSE_KID2
+	const LIGHTHOUSE_KID1_2
+	const LIGHTHOUSE_KID2_2
+
 SunsetLighthouse_MapScriptHeader:
 .MapTriggers:
 	db 2
@@ -17,7 +22,25 @@ SunsetLighthouse_MapScriptHeader:
 
 .Trigger1:
 	end
-	
+
+SunsetLighthouse_MapEventHeader:: db 0, 0
+
+.Warps: db 2
+	warp_def 9, 5, 1, SUNSET_CAPE
+	warp_def 9, 4, 1, SUNSET_CAPE
+
+.CoordEvents: db 0
+
+.BGEvents: db 0
+
+.ObjectEvents: db 6
+	person_event SPRITE_GENTLEMAN, 4, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LighthouseAbner, -1
+	person_event SPRITE_SILVER, -6, -6, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_GLINT_RIVAL_NOT_IN_HOUSE
+	person_event SPRITE_LASS, 6, 5, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, LighthouseKid1, EVENT_GOT_A_POKEMON_FROM_ELM
+	person_event SPRITE_YOUNGSTER, 6, 6, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LighthouseKid2, EVENT_GOT_A_POKEMON_FROM_ELM
+	person_event SPRITE_LASS, 6, 5, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, LighthouseKid1, EVENT_LIGHTHOUSE_KIDS_DIE
+	person_event SPRITE_YOUNGSTER, 6, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LighthouseKid2, EVENT_LIGHTHOUSE_KIDS_DIE
+
 DidntChooseStarterScript:
 	writetext DidntChooseStarterText
 	waitbutton
@@ -44,6 +67,44 @@ LighthouseStartGetStarterScene:
 	writetext LighthouseAbnerText1
 	waitbutton
 	closetext
+	
+	playmusic MUSIC_RIVAL_ENCOUNTER
+	playsound SFX_ENTER_DOOR
+	moveperson LIGHTHOUSE_RIVAL, 5, 9
+	appear LIGHTHOUSE_RIVAL
+	applymovement LIGHTHOUSE_RIVAL, Movement_LighthouseRivalEnters
+	opentext
+	writetext LighthouseAbnerText7
+	waitbutton
+	closetext
+	opentext
+	writetext LighthouseRivalEntersText
+	waitbutton
+	closetext
+	
+	opentext
+	writetext LighthouseAbnerText10
+	waitbutton
+	closetext
+	
+	spriteface LIGHTHOUSE_RIVAL, LEFT
+	opentext
+	writetext LighthouseRivalEntersText2
+	waitbutton
+	closetext
+	pause 10
+	playmusic MUSIC_PROF_ELM
+	opentext
+	writetext LighthouseAbnerText8
+	waitbutton
+	closetext
+	pause 5
+	spriteface LIGHTHOUSE_RIVAL, UP
+	opentext
+	writetext LighthouseAbnerText9
+	waitbutton
+	closetext
+	
 	applymovement LIGHTHOUSE_ABNER, Movement_AbnerLighthouseWalk1
 	spriteface LIGHTHOUSE_ABNER, DOWN
 	opentext
@@ -302,6 +363,136 @@ LighthouseGetStarterScene_part2:
 	waitbutton
 	closetext
 .continueLighthouseGetStarterScene_part2
+	applymovement LIGHTHOUSE_ABNER, Movement_AbnerLighthouseWalk3
+	spriteface LIGHTHOUSE_ABNER, DOWN
+	opentext
+	writetext LighthouseAbnerTextToKid1
+	waitbutton
+	closetext
+	checkevent EVENT_GOT_SQUIRTLE_FROM_ELM
+	iftrue .Kid1SquirtleText
+	checkevent EVENT_GOT_BULBASAUR_FROM_ELM
+	iftrue .Kid1BulbasaurText
+	checkevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	iftrue .Kid1CyndaquilText
+	checkevent EVENT_GOT_TOTODILE_FROM_ELM
+	iftrue .Kid1TotodileText
+	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
+	iftrue .Kid1ChikoritaText
+	opentext
+	writetext Kid1PicksBulbasaurText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+	jump .continue2LighthouseGetStarterScene_part2
+	
+.Kid1SquirtleText
+	opentext
+	writetext Kid1PicksCharmanderText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+	jump .continue2LighthouseGetStarterScene_part2
+	
+.Kid1BulbasaurText
+	opentext
+	writetext Kid1PicksSquirtleText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+	jump .continue2LighthouseGetStarterScene_part2
+.Kid1CyndaquilText
+	opentext
+	writetext Kid1PicksChikoritaText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+	jump .continue2LighthouseGetStarterScene_part2
+.Kid1TotodileText
+	opentext
+	writetext Kid1PicksCyndaquilText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+	jump .continue2LighthouseGetStarterScene_part2
+.Kid1ChikoritaText
+	opentext
+	writetext Kid1PicksTotodileText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+.continue2LighthouseGetStarterScene_part2
+	applymovement LIGHTHOUSE_ABNER, Movement_AbnerLighthouseWalk4
+	spriteface LIGHTHOUSE_ABNER, DOWN
+	opentext
+	writetext LighthouseAbnerTextToKid2
+	waitbutton
+	closetext
+	checkevent EVENT_GOT_SQUIRTLE_FROM_ELM
+	iftrue .Kid2SquirtleText
+	checkevent EVENT_GOT_BULBASAUR_FROM_ELM
+	iftrue .Kid2BulbasaurText
+	checkevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	iftrue .Kid2CyndaquilText
+	checkevent EVENT_GOT_TOTODILE_FROM_ELM
+	iftrue .Kid2TotodileText
+	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
+	iftrue .Kid2ChikoritaText
+	opentext
+	writetext Kid2PicksCyndaquilText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+	jump .continue3LighthouseGetStarterScene_part2
+	
+.Kid2SquirtleText
+	opentext
+	writetext Kid2PicksTotodileText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+	jump .continue3LighthouseGetStarterScene_part2
+	
+.Kid2BulbasaurText
+	opentext
+	writetext Kid2PicksChikoritaText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+	jump .continue3LighthouseGetStarterScene_part2
+.Kid2CyndaquilText
+	opentext
+	writetext Kid2PicksCharmanderText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+	jump .continue3LighthouseGetStarterScene_part2
+.Kid2TotodileText
+	opentext
+	writetext Kid2PicksSquirtleText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+	jump .continue3LighthouseGetStarterScene_part2
+.Kid2ChikoritaText
+	opentext
+	writetext Kid2PicksBulbasaurText
+	playsound SFX_LEVEL_UP 
+	waitsfx
+	waitbutton
+	closetext
+.continue3LighthouseGetStarterScene_part2
 	applymovement LIGHTHOUSE_ABNER, Movement_AbnerLighthouseReturn
 	spriteface LIGHTHOUSE_ABNER, DOWN
 	opentext
@@ -319,24 +510,30 @@ LighthouseGetStarterScene_part2:
 	writetext LighthouseAbnerText3
 	waitbutton
 	closetext
+	spriteface LIGHTHOUSE_KID1, RIGHT
+	spriteface LIGHTHOUSE_KID2, LEFT
 	spriteface PLAYER, LEFT
 	opentext
 	writetext LighthouseRivalText2
 	waitbutton
 	closetext
-	checkevent EVENT_GOT_SQUIRTLE_FROM_ELM
-	iftrue .Squirtle
-	checkevent EVENT_GOT_BULBASAUR_FROM_ELM
-	iftrue .Bulbasaur
-	checkevent EVENT_GOT_CYNDAQUIL_FROM_ELM
-	iftrue .Cyndaquil
 	checkevent EVENT_GOT_TOTODILE_FROM_ELM
-	iftrue .Totodile
+	iftrue .totodile
+	checkevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	iftrue .cyndaquil
 	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
-	iftrue .Chikorita
+	iftrue .chikorita
+	checkevent EVENT_GOT_SQUIRTLE_FROM_ELM
+	iftrue .squirtle
+	checkevent EVENT_GOT_CHARMANDER_FROM_ELM
+	iftrue .charmander
+	checkevent EVENT_GOT_BULBASAUR_FROM_ELM
+	iftrue .bulbasaur
+	
+.totodile
 	winlosstext LighthouseRivalWinText, LighthouseRivalLoseText
 	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_3
+	loadtrainer RIVAL1, 6
 	writecode VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	dontrestartmapmusic
@@ -344,10 +541,32 @@ LighthouseGetStarterScene_part2:
 	iffalse .LighthouseAfterVictorious
 	jump .LighthouseAfterYourDefeat
 	
-.Squirtle
+.cyndaquil
 	winlosstext LighthouseRivalWinText, LighthouseRivalLoseText
 	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_1
+	loadtrainer RIVAL1, 5
+	writecode VAR_BATTLETYPE, BATTLETYPE_CANLOSE
+	startbattle
+	dontrestartmapmusic
+	reloadmap
+	iffalse .LighthouseAfterVictorious
+	jump .LighthouseAfterYourDefeat
+
+.chikorita
+	winlosstext LighthouseRivalWinText, LighthouseRivalLoseText
+	setlasttalked LIGHTHOUSE_RIVAL
+	loadtrainer RIVAL1, 4
+	writecode VAR_BATTLETYPE, BATTLETYPE_CANLOSE
+	startbattle
+	dontrestartmapmusic
+	reloadmap
+	iffalse .LighthouseAfterVictorious
+	jump .LighthouseAfterYourDefeat
+		
+.squirtle
+	winlosstext LighthouseRivalWinText, LighthouseRivalLoseText
+	setlasttalked LIGHTHOUSE_RIVAL
+	loadtrainer RIVAL1, 3
 	writecode VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	dontrestartmapmusic
@@ -355,10 +574,10 @@ LighthouseGetStarterScene_part2:
 	iffalse .LighthouseAfterVictorious
 	jump .LighthouseAfterYourDefeat
 	
-.Bulbasaur
+.bulbasaur
 	winlosstext LighthouseRivalWinText, LighthouseRivalLoseText
 	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_2
+	loadtrainer RIVAL1, 2
 	writecode VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	dontrestartmapmusic
@@ -366,39 +585,17 @@ LighthouseGetStarterScene_part2:
 	iffalse .LighthouseAfterVictorious
 	jump .LighthouseAfterYourDefeat
 	
-.Cyndaquil
+.charmander
 	winlosstext LighthouseRivalWinText, LighthouseRivalLoseText
 	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_6
+	loadtrainer RIVAL1, 1
 	writecode VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	dontrestartmapmusic
 	reloadmap
 	iffalse .LighthouseAfterVictorious
 	jump .LighthouseAfterYourDefeat
-	
-.Totodile
-	winlosstext LighthouseRivalWinText, LighthouseRivalLoseText
-	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_4
-	writecode VAR_BATTLETYPE, BATTLETYPE_CANLOSE
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	iffalse .LighthouseAfterVictorious
-	jump .LighthouseAfterYourDefeat
-	
-.Chikorita
-	winlosstext LighthouseRivalWinText, LighthouseRivalLoseText
-	setlasttalked LIGHTHOUSE_RIVAL
-	loadtrainer RIVAL1, RIVAL1_5
-	writecode VAR_BATTLETYPE, BATTLETYPE_CANLOSE
-	startbattle
-	dontrestartmapmusic
-	reloadmap
-	iffalse .LighthouseAfterVictorious
-	jump .LighthouseAfterYourDefeat
-	
+		
 .LighthouseAfterVictorious:
 	playmusic MUSIC_RIVAL_AFTER
 	opentext
@@ -451,7 +648,6 @@ LighthouseGetStarterScene_part2:
 	special Special_FadeOutMusic
 	pause 5
 	playmapmusic
-	domaptrigger SUNSET_BAY, $1
 	end	
 		
 LighthouseAbner:
@@ -462,13 +658,34 @@ LighthouseAbner:
 	
 LighthouseRival:
 	end
-		
+	
+LighthouseKid1:
+	faceplayer
+	opentext
+	writetext LighthouseKid1Text
+	buttonsound
+	spriteface LIGHTHOUSE_KID1, RIGHT
+	spriteface LIGHTHOUSE_KID1_2, RIGHT
+	closetext
+	end	
+	
+LighthouseKid2:
+	faceplayer
+	opentext
+	writetext LighthouseKid2Text
+	buttonsound
+	spriteface LIGHTHOUSE_KID2, LEFT
+	spriteface LIGHTHOUSE_KID2_2, LEFT
+	closetext
+	end
+	
 LighthouseAbnerPostPokeGear:
 	jumptextfaceplayer LighthouseAbnerTextPostPokeGear
 	
 Movement_EnterLighthouse:
 	step UP
 	step UP
+	step LEFT
 	step UP
 	step_end
 	
@@ -479,9 +696,28 @@ Movement_AbnerLighthouseWalk1:
 Movement_AbnerLighthouseWalk2:
 	step LEFT
 	step_end
-		
-Movement_AbnerLighthouseReturn:
+	
+Movement_AbnerLighthouseWalk3:
 	step RIGHT
+	step RIGHT
+	step_end
+	
+Movement_AbnerLighthouseWalk4:
+	step RIGHT
+	step_end
+	
+Movement_AbnerLighthouseReturn:
+	step LEFT
+	step LEFT
+	step UP
+	step_end
+	
+Movement_LighthouseRivalEnters:
+	step_sleep 20
+	step UP
+	step UP
+	step LEFT
+	step LEFT
 	step UP
 	step_end
 	
@@ -514,60 +750,25 @@ LighthouseAbnerText1:
 	para "So nice of you to"
 	line "finally join us."
 	
-	para "Now we can get on"
-	line "with this."
+	para "Now we're just"
+	line "missing <RIVAL>,"
 	
-	para "We don't live"
-	line "close to PROF."
+	para "and knowing him,"
+	line "we could be here"
 	
-	para "SPRUCE's #MON"
-	line "RESEARCH LAB."
+	para "for hours waiting,"
+	line "so let's just get"
+	cont "started…"
 	
-	para "Because of this,"
-	line "my brother and I"
+	para "Today marks the"
+	line "first day in your"
 	
-	para "are filling in"
-	line "for him."
+	para "journey as #MON"
+	line "TRAINERS!"
 	
-	para "I have in this"
-	line "bag, six rare"
-	cont "#MON."
-
-	para "They were sent"
-	line "from the PROF.'s"
-	
-	para "lab especially"
-	line "for all of you."
-	
-	para "You only get one,"
-	line "so choose wisely."
-	
-	para "But no matter"
-	line "which you choose,"
-	
-	para "you must train"
-	line "it well."
-	
-	para "One of you might"
-	line "even become the"
-	
-	para "next #MON"
-	line "LEAGUE CHAMPION!"
-	
-	para "Ohohohoho!"
-	
-	para "Ahem."
-	
-	para "<PLAYER>!"
-	
-	para "Why don't you"
-	line "choose first?"
-	
-	para "All these three"
-	line "have done is"
-	
-	para "bicker since"
-	line "they got here."
+	para "This is a very im-"
+	line "portant day for"
+	cont "all of you and-"
 	done
 	
 LighthouseAbnerText2:
@@ -588,8 +789,6 @@ LighthouseAbnerText3:
 	
 	para "ALEX and MARCUS"
 	line "could battle too."
-	
-	
 	done
 	
 LighthouseAbnerText4:
@@ -643,6 +842,84 @@ LighthouseAbnerText6:
 	line "before you leave."
 	done
 	
+LighthouseAbnerText7:
+	text "ABNER: <RIVAL>!"
+	
+	para "Late as usual."
+	
+	para "What's your excuse"
+	line "this time?"
+	done
+	
+LighthouseAbnerText8:
+	text "ABNER: Ahem…"
+	
+	para "As I was saying…"
+	done
+	
+LighthouseAbnerText9:
+	text "We don't live"
+	line "close to PROF."
+	
+	para "SPRUCE's #MON"
+	line "RESEARCH LAB."
+	
+	para "Because of this,"
+	line "my brother and I"
+	
+	para "are filling in"
+	line "for him."
+	
+	para "I have in this"
+	line "bag, six rare"
+	cont "#MON."
+
+	para "They were sent"
+	line "from the PROF.'s"
+	
+	para "lab especially"
+	line "for all of you."
+	
+	para "You only get one,"
+	line "so choose wisely."
+	
+	para "But no matter"
+	line "which you choose,"
+	
+	para "you must train"
+	line "it well."
+	
+	para "One of you might"
+	line "even become the"
+	
+	para "next #MON"
+	line "LEAGUE CHAMPION!"
+	
+	para "Ohohohoho!"
+	
+	para "Ahem."
+	
+	para "<PLAYER>!"
+	
+	para "Why don't you"
+	line "choose first?"
+	done
+	
+LighthouseAbnerText10:
+	text "ABNER: Right."
+	
+	para "Didn't think so."
+	
+	para "You're just lucky"
+	line "<PLAYER> was also"
+	
+	para "running late or"
+	line "you might have"
+	
+	para "missed your chance"
+	line "to get a #MON."
+	done
+	
 LighthouseAbnerText:
 	text "Did you visit"
 	line "your MOM yet?"
@@ -694,6 +971,14 @@ LighthouseRivalText2:
 	text "<RIVAL>: This is"
 	line "gonna be a piece"
 	cont "of cake!"
+	done
+	
+LighthouseRivalEntersText:
+	text "<RIVAL>: …"
+	done
+	
+LighthouseRivalEntersText2:
+	text "<RIVAL>: Tch!"
 	done
 	
 LighthouseRivalText_YouWon:
@@ -784,6 +1069,102 @@ RivalPicksChikoritaText:
 	line "stronger."
 	done
 	
+Kid1PicksCharmanderText:
+	text "ALEX: Oh!"
+	
+	para "I want CHARMANDER!"
+	line "It's so cute!"
+	done
+	
+Kid1PicksSquirtleText:
+	text "ALEX: Oh!"
+	
+	para "I want SQUIRTLE!"
+	line "It's so cute!"
+	done
+	
+Kid1PicksBulbasaurText:
+	text "ALEX: Oh!"
+	
+	para "I want BULBASAUR!"
+	line "It's so cute!"
+	done
+	
+Kid1PicksCyndaquilText:
+	text "ALEX: Oh!"
+	
+	para "I want CYNDAQUIL!"
+	line "It's so cute!"
+	done
+	
+Kid1PicksTotodileText:
+	text "ALEX: Oh!"
+	
+	para "I want TOTODILE!"
+	line "It's so cute!"
+	done
+	
+Kid1PicksChikoritaText:
+	text "ALEX: Oh!"
+	
+	para "I want CHIKORITA!"
+	line "It's so cute!"
+	done
+	
+Kid2PicksCharmanderText:
+	text "MARCUS: Yes!"
+	
+	para "No one took"
+	line "CHARMANDER!"
+	
+	para "I'll take it!"
+	done
+	
+Kid2PicksSquirtleText:
+	text "MARCUS: Yes!"
+	
+	para "No one took"
+	line "SQUIRTLE!"
+	
+	para "I'll take it!"
+	done
+	
+Kid2PicksBulbasaurText:
+	text "MARCUS: Yes!"
+	
+	para "No one took"
+	line "BULBASAUR!"
+	
+	para "I'll take it!"
+	done
+	
+Kid2PicksCyndaquilText:
+	text "MARCUS: Yes!"
+	
+	para "No one took"
+	line "CYNDAQUIL!"
+	
+	para "I'll take it!"
+	done
+	
+Kid2PicksTotodileText:
+	text "MARCUS: Yes!"
+	
+	para "No one took"
+	line "TOTODILE!"
+	
+	para "I'll take it!"
+	done
+	
+Kid2PicksChikoritaText:
+	text "MARCUS: Yes!"
+	
+	para "No one took"
+	line "CHIKORITA!"
+	
+	para "I'll take it!"
+	done
+	
 LighthouseRivalWinText:
 	text "WHAT? How could"
 	line "I lose?"
@@ -872,18 +1253,14 @@ ReceivedStarterText:
 	text_from_ram StringBuffer3
 	text "!"
 	done	
+
+LighthouseKid1Text:
+	text "Yippee!"
 	
-SunsetLighthouse_MapEventHeader:: db 0, 0
-
-.Warps: db 2
-	warp_def 9, 5, 1, SUNSET_CAPE
-	warp_def 9, 4, 1, SUNSET_CAPE
-
-.CoordEvents: db 0
-
-.BGEvents: db 0
-
-.ObjectEvents: db 2
-	person_event SPRITE_GENTLEMAN, 4, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LighthouseAbner, -1
-	person_event SPRITE_SILVER, 6, 4, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_GOT_A_POKEMON_FROM_ELM
-
+	para "We won!"
+	done
+	
+LighthouseKid2Text:
+	text "I can't believe"
+	line "I lost…"
+	done

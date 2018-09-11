@@ -150,18 +150,20 @@ UnknownText_0x1bc29c::
 	text "Welcome to #MON"
 	line "CORAL VERSION."
 
-	para "This is the first"
+	para "This is the 2nd"
 	line "demo."
 
 	para "In this version,"
 	line "you can play up"
 	
-	para "through the first"
-	line "GYM."
+	para "through the third"
+	line "GYM and beyond."
 	
-	para "I've even prepared"
-	line "a bit more to do"
-	cont "after the GYM."
+	para "A lot of work has"
+	line "gone into creating"
+	
+	para "this game, so I"
+	line "hope you enjoy."
 	
 	para "Let's start by"
 	line "setting the time."
@@ -194,13 +196,13 @@ UnknownText_0x1bc326::
 	
 	para "Enjoy #MON"
 	line "CORAL VERSION"
-	cont "Demo 1!"
+	cont "Demo 2!"
 	prompt
 
 UnknownText_0x1bc336::
 	text "Enjoy #MON"
 	line "CORAL VERSION"
-	cont "Demo 1!"
+	cont "Demo 2!"
 	done
 
 UnknownText_0x1bc34f::
@@ -1287,11 +1289,22 @@ UnknownText_0x1bd2e7::
 	line "Contest is over!"
 	done
 
+RanchRaceOverText_Text::
+	text "Time's up!"
+	done
+	
 UnknownText_0x1bd308::
 	text "REPEL's effect"
 	line "wore off."
 	done
+	
+UseAnotherRepelText::
+	text "REPEL's effect"
+	line "wore off."
 
+	para "Use another?"
+	done
+	
 UnknownText_0x1bd321::
 	text "<PLAYER> found"
 	line "@"

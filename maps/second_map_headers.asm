@@ -3,7 +3,7 @@
 	connection east, ROUTE_27, Route27, 0, 0, 9, NEW_BARK_TOWN
 
 	map_header_2 CherrygroveCity, CHERRYGROVE_CITY, 53, NORTH | EAST | WEST
-	connection north, ROUTE_45, Route45, 3, 27, 12, CHERRYGROVE_CITY
+	connection north, ROUTE_45, Route45, -2, 14, 16, CHERRYGROVE_CITY
 	connection west, ROUTE_29, Route29, 0, 0, 29, CHERRYGROVE_CITY
 	connection east, ROUTE_27, Route27, 5, 0, 17, CHERRYGROVE_CITY
 
@@ -19,7 +19,7 @@
 	map_header_2 CianwoodCity, CIANWOOD_CITY, $35, EAST
 	connection east, ROUTE_41, Route41, 0, 0, 27, CIANWOOD_CITY
 
-	map_header_2 GoldenrodCity, GOLDENROD_CITY, $35, NORTH | SOUTH
+	map_header_2 GoldenrodCity, GOLDENROD_CITY, 53, NORTH | SOUTH
 	connection north, ROUTE_35, Route35, 5, 0, 10, GOLDENROD_CITY
 	connection south, ROUTE_34, Route34, 5, 0, 10, GOLDENROD_CITY
 
@@ -57,10 +57,11 @@
 	map_header_2 Route28, ROUTE_28, $2c, WEST
 	connection west, SILVER_CAVE_OUTSIDE, SilverCaveOutside, -3, 6, 12, ROUTE_28
 
-	map_header_2 Route29, ROUTE_29, 53, EAST
+	map_header_2 Route29, ROUTE_29, 53, NORTH | EAST
+	connection north, DRAGON_SHRINE, DragonShrine, 2, 6, 12, ROUTE_29
 	connection east, CHERRYGROVE_CITY, CherrygroveCity, 0, 0, 29, ROUTE_29
 
-	map_header_2 Route30, ROUTE_30, 5, EAST
+	map_header_2 Route30, ROUTE_30, 97, EAST
 	connection east, ROUTE_41, Route41, 11, 0, 9, ROUTE_30
 
 	map_header_2 Route31, ROUTE_31, 9, 0
@@ -70,9 +71,13 @@
 	map_header_2 Route33, ROUTE_33, 5, SOUTH
 	connection south, LAKE_OF_RAGE, LakeofRage, -3, 0, 10, ROUTE_33
 
-	map_header_2 Route34, ROUTE_34, 5, SOUTH | WEST
-	connection south, ROUTE_42, Route42, 7, 10, 6, ROUTE_34
+	map_header_2 Route34, ROUTE_34, 5, NORTH | SOUTH | WEST
+	connection north, TOHJO_FALLS, TohjoFalls, 3, 1, 7, ROUTE_34
+	connection south, ROUTE_42, Route42, 7, 10, 7, ROUTE_34
 	connection west, LAKE_OF_RAGE, LakeofRage, -2, 4, 13, ROUTE_34
+	
+	map_header_2 TohjoFalls, TOHJO_FALLS, 5, SOUTH
+	connection south, ROUTE_34, Route34, 1, 3, 7, TOHJO_FALLS
 
 	map_header_2 Route35, ROUTE_35, 5, SOUTH
 	connection south, AZALEA_TOWN, AzaleaTown, 1, 2, 7, ROUTE_35
@@ -104,7 +109,7 @@
 	map_header_2 Route40, ROUTE_40, 7, 0
 
 	map_header_2 Route41, ROUTE_41, 97, SOUTH | WEST
-	connection south, ROUTE_45, Route45, 7, 12, 7, ROUTE_41
+	connection south, ROUTE_45, Route45, 3, 5, 11, ROUTE_41
 	connection west, ROUTE_30, Route30, -3, 8, 10, ROUTE_41
 	
 	map_header_2 Route42, ROUTE_42, 7, NORTH
@@ -115,8 +120,6 @@
 	
 	map_header_2 WarehouseEntrance, WAREHOUSE_ENTRANCE, 92, SOUTH
 	connection south, SPOOKY_FOREST_8, SpookyForest8, 4, 0, 8, WAREHOUSE_ENTRANCE
-
-	map_header_2 UndergroundPathSwitchRoomEntrances, UNDERGROUND_PATH_SWITCH_ROOM_ENTRANCES, 0, 0
 	
 	map_header_2 SpookyForest1, SPOOKY_FOREST_1, 92, NORTH | SOUTH | WEST | EAST
 	connection north, SPOOKY_FOREST_2, SpookyForest2, 0, 0, 8, SPOOKY_FOREST_1
@@ -178,8 +181,11 @@
 ;	connection east, BLACKTHORN_CITY, BlackthornCity, -3, 6, 12, ROUTE_44
 
 	map_header_2 Route45, ROUTE_45, 97, NORTH | SOUTH
-	connection north, ROUTE_41, Route41, 13, 8, 4, ROUTE_45
-	connection south, CHERRYGROVE_CITY, CherrygroveCity, 26, 2, 12, ROUTE_45
+	connection north, ROUTE_41, Route41, 2, 0, 20, ROUTE_45
+	connection south, CHERRYGROVE_CITY, CherrygroveCity, 16, 0, 18, ROUTE_45
+	
+	map_header_2 DragonShrine, DRAGON_SHRINE, 53, SOUTH
+	connection south, ROUTE_29, Route29, 9, 5, 7, DRAGON_SHRINE
 
 	map_header_2 Route46, ROUTE_46, 9, 0
 ;	connection south, ROUTE_29, Route29, -3, 7, 16, ROUTE_46
@@ -255,18 +261,17 @@
 	connection south, ROUTE_13, Route13, -3, 17, 13, ROUTE_12
 	connection west, ROUTE_11, Route11, 9, 0, 9, ROUTE_12
 
-	map_header_2 Route11, ROUTE_11, $f, WEST | EAST
-	connection west, VERMILION_CITY, VermilionCity, 0, 0, 12, ROUTE_11
-	connection east, ROUTE_12, Route12, -3, 6, 15, ROUTE_11
+	map_header_2 Route11, ROUTE_11, 5, NORTH
+	connection north, VERMILION_CITY, VermilionCity, 8, 4, 12, ROUTE_11
+;	connection east, ROUTE_12, Route12, -3, 6, 15, ROUTE_11
 
 	map_header_2 LavenderTown, LAVENDER_TOWN, $2c, NORTH | SOUTH | WEST
 	connection north, ROUTE_10_SOUTH, Route10South, 0, 0, 10, LAVENDER_TOWN
 	connection south, ROUTE_12, Route12, 0, 0, 10, LAVENDER_TOWN
 	connection west, ROUTE_8, Route8, 0, 0, 9, LAVENDER_TOWN
 
-	map_header_2 VermilionCity, VERMILION_CITY, $43, NORTH | EAST
-	connection north, ROUTE_6, Route6, 5, 0, 10, VERMILION_CITY
-	connection east, ROUTE_11, Route11, 0, 0, 9, VERMILION_CITY
+	map_header_2 VermilionCity, VERMILION_CITY, 113, SOUTH
+	connection south, ROUTE_11, Route11, 1, 5, 10, VERMILION_CITY
 
 	map_header_2 Route6, ROUTE_6, $f, NORTH | SOUTH
 	connection north, SAFFRON_CITY, SaffronCity, -3, 2, 16, ROUTE_6
@@ -320,8 +325,9 @@
 	connection south, LAVENDER_TOWN, LavenderTown, 0, 0, 10, ROUTE_10_SOUTH
 
 	map_header_2 NationalPark, NATIONAL_PARK, 53, NORTH
-	connection north, ROUTE_45, Route45, 7, 27, 7, NATIONAL_PARK
+	connection north, ROUTE_45, Route45, 8, 22, 6, NATIONAL_PARK
 	
+	map_header_2 UndergroundPathSwitchRoomEntrances, UNDERGROUND_PATH_SWITCH_ROOM_ENTRANCES, $5c, 0
 	map_header_2 Route23, ROUTE_23, $f, 0
 	map_header_2 SproutTower1F, SPROUT_TOWER_1F, $0, 0
 	map_header_2 SproutTower2F, SPROUT_TOWER_2F, $0, 0
@@ -350,7 +356,7 @@
 	map_header_2 RuinsofAlphAerodactylChamber, RUINS_OF_ALPH_AERODACTYL_CHAMBER, 0, 0
 	map_header_2 RuinsofAlphInnerChamber, RUINS_OF_ALPH_INNER_CHAMBER, $0, 0
 	map_header_2 RuinsofAlphResearchCenter, RUINS_OF_ALPH_RESEARCH_CENTER, $0, 0
-	map_header_2 RuinsofAlphHoOhItemRoom, RUINS_OF_ALPH_HO_OH_ITEM_ROOM, $0, 0
+	map_header_2 RuinsofAlphHoOhItemRoom, RUINS_OF_ALPH_HO_OH_ITEM_ROOM, 5, 0
 	map_header_2 RuinsofAlphKabutoItemRoom, RUINS_OF_ALPH_KABUTO_ITEM_ROOM, $0, 0
 	map_header_2 RuinsofAlphOmanyteItemRoom, RUINS_OF_ALPH_OMANYTE_ITEM_ROOM, 0, 0
 	map_header_2 RuinsofAlphAerodactylItemRoom, RUINS_OF_ALPH_AERODACTYL_ITEM_ROOM, 0, 0
@@ -400,8 +406,6 @@
 	map_header_2 DarkCaveBlackthornEntrance, DARK_CAVE_BLACKTHORN_ENTRANCE, $9, 0
 	map_header_2 DragonsDen1F, DRAGONS_DEN_1F, $9, 0
 	map_header_2 DragonsDenB1F, DRAGONS_DEN_B1F, $71, 0
-	map_header_2 DragonShrine, DRAGON_SHRINE, $0, 0
-	map_header_2 TohjoFalls, TOHJO_FALLS, $9, 0
 	map_header_2 SunsetPokeCenter1F, SUNSET_POKECENTER_1F, 0, 0
 	map_header_2 OlivineGym, OLIVINE_GYM, $0, 0
 	map_header_2 SunsetGrassWaterHouse, SUNSET_GRASS_WATER_HOUSE, 0, 0
@@ -444,7 +448,7 @@
 	map_header_2 Route19, ROUTE_19, 113, 0
 	map_header_2 Route20, ROUTE_20, 9, 0
 	map_header_2 Route21, ROUTE_21, 9, 0
-	map_header_2 SeafoamGym, SEAFOAM_GYM, 9, 0
+	map_header_2 SeafoamGym, SEAFOAM_GYM, 0, 0
 	map_header_2 CeruleanGymBadgeSpeechHouse, CERULEAN_GYM_BADGE_SPEECH_HOUSE, $0, 0
 	map_header_2 CeruleanPoliceStation, CERULEAN_POLICE_STATION, $0, 0
 	map_header_2 CeruleanTradeSpeechHouse, CERULEAN_TRADE_SPEECH_HOUSE, $0, 0
@@ -466,7 +470,7 @@
 	map_header_2 Route43MahoganyGate, ROUTE_43_MAHOGANY_GATE, 0, 0
 	map_header_2 Route43Gate, ROUTE_43_GATE, 9, 0
 	map_header_2 VioletMart, VIOLET_MART, 9, 0
-	map_header_2 VioletGym, VIOLET_GYM, $0, 0
+	map_header_2 VioletGym, VIOLET_GYM, 0, 0
 	map_header_2 EarlsPokemonAcademy, EARLS_POKEMON_ACADEMY, 0, 0
 	map_header_2 VioletNicknameSpeechHouse, VIOLET_NICKNAME_SPEECH_HOUSE, 0, 0
 	map_header_2 VioletPokeCenter1F, VIOLET_POKECENTER_1F, 0, 0
@@ -499,16 +503,16 @@
 	map_header_2 IlexForestAzaleaGate, ILEX_FOREST_AZALEA_GATE, 0, 0
 	map_header_2 Route34IlexForestGate, ROUTE_34_ILEX_FOREST_GATE, 0, 0
 	map_header_2 DayCare, DAYCARE, $0, 0
-	map_header_2 VermilionHouseFishingSpeechHouse, VERMILION_HOUSE_FISHING_SPEECH_HOUSE, $0, 0
-	map_header_2 VermilionPokeCenter1F, VERMILION_POKECENTER_1F, $0, 0
+	map_header_2 VermilionHouseFishingSpeechHouse, VERMILION_HOUSE_FISHING_SPEECH_HOUSE, 0, 0
+	map_header_2 VermilionPokeCenter1F, VERMILION_POKECENTER_1F, 0, 0
 	map_header_2 VermilionPokeCenter2FBeta, VERMILION_POKECENTER_2F_BETA, $0, 0
-	map_header_2 PokemonFanClub, POKEMON_FAN_CLUB, $0, 0
+	map_header_2 PokemonFanClub, POKEMON_FAN_CLUB, 0, 0
 	map_header_2 VermilionMagnetTrainSpeechHouse, VERMILION_MAGNET_TRAIN_SPEECH_HOUSE, $0, 0
-	map_header_2 VermilionMart, VERMILION_MART, $0, 0
-	map_header_2 VermilionHouseDiglettsCaveSpeechHouse, VERMILION_HOUSE_DIGLETTS_CAVE_SPEECH_HOUSE, $0, 0
+	map_header_2 VermilionMart, VERMILION_MART, 0, 0
+	map_header_2 VermilionHouseDiglettsCaveSpeechHouse, VERMILION_HOUSE_DIGLETTS_CAVE_SPEECH_HOUSE, 0, 0
 	map_header_2 VermilionGym, VERMILION_GYM, $0, 0
 	map_header_2 Route6SaffronGate, ROUTE_6_SAFFRON_GATE, $0, 0
-	map_header_2 Route6UndergroundEntrance, ROUTE_6_UNDERGROUND_ENTRANCE, $0, 0
+	map_header_2 Route6UndergroundEntrance, ROUTE_6_UNDERGROUND_ENTRANCE, 175, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0
 	map_header_2 RedsHouse2F, REDS_HOUSE_2F, $0, 0
 	map_header_2 BluesHouse, BLUES_HOUSE, $0, 0
@@ -625,17 +629,17 @@
 	map_header_2 SaffronPokeCenter2FBeta, SAFFRON_POKECENTER_2F_BETA, $0, 0
 	map_header_2 MrPsychicsHouse, MR_PSYCHICS_HOUSE, $0, 0
 	map_header_2 SaffronTrainStation, SAFFRON_TRAIN_STATION, 0, 0
-	map_header_2 SilphCo1F, SILPH_CO_1F, $0, 0
+	map_header_2 SilphCo1F, SILPH_CO_1F, 0, 0
 	map_header_2 CopycatsHouse1F, COPYCATS_HOUSE_1F, $0, 0
 	map_header_2 CopycatsHouse2F, COPYCATS_HOUSE_2F, $0, 0
 	map_header_2 Route5UndergroundEntrance, ROUTE_5_UNDERGROUND_ENTRANCE, $0, 0
 	map_header_2 Route5SaffronCityGate, ROUTE_5_SAFFRON_CITY_GATE, $0, 0
 	map_header_2 Route5CleanseTagSpeechHouse, ROUTE_5_CLEANSE_TAG_SPEECH_HOUSE, $0, 0
-	map_header_2 CherrygroveMart, CHERRYGROVE_MART, $0, 0
+	map_header_2 CherrygroveMart, CHERRYGROVE_MART, 0, 0
 	map_header_2 CherrygrovePokeCenter1F, CHERRYGROVE_POKECENTER_1F, 0, 0
 	map_header_2 CherrygroveGymSpeechHouse, CHERRYGROVE_GYM_SPEECH_HOUSE, 7, 0
-	map_header_2 GuideGentsHouse, GUIDE_GENTS_HOUSE, $0, 0
-	map_header_2 CherrygroveEvolutionSpeechHouse, CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, $0, 0
-	map_header_2 Route30BerrySpeechHouse, ROUTE_30_BERRY_SPEECH_HOUSE, $0, 0
+	map_header_2 GuideGentsHouse, GUIDE_GENTS_HOUSE, 0, 0
+	map_header_2 CherrygroveEvolutionSpeechHouse, CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, 0, 0
+	map_header_2 Route30BerrySpeechHouse, ROUTE_30_BERRY_SPEECH_HOUSE, 0, 0
 	map_header_2 MrPokemonsHouse, MR_POKEMONS_HOUSE, 0, 0
 	map_header_2 Route31VioletGate, ROUTE_31_VIOLET_GATE, $0, 0

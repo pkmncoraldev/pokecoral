@@ -1,10 +1,10 @@
-; KinglerPokedexEntry: ; 0x1b8e45
-	db "PINCER@" ; species name
-	dw 403, 1320 ; height, width
+; CrawdauntPokedexEntry: ; 0x1b8e45
+	db "ROGUE@" ; species name
+	dw 307, 723 ; height, width
 
-	db   "Its oversized claw"
-	next "is very powerful,"
-	next "but when it's not"
-	page "in battle, the"
-	next "claw just gets in"
-	next "the way.@"
+	db   "It is a ruffian"
+	next "that uses its"
+	next "pincers to pick"
+	page "up and toss out"
+	next "other #MON"
+	next "from its pond.@"

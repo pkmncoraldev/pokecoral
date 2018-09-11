@@ -914,7 +914,7 @@ LoadNamingScreenGFX: ; 11c51
 	lb bc, BANK(NamingScreenGFX_UnderLine), 1
 	call Get1bpp
 
-	ld de, VTiles2 tile $60
+	ld de, VTiles1 tile $e0
 	ld hl, NamingScreenGFX_Border
 	ld bc, 1 tiles
 	ld a, BANK(NamingScreenGFX_Border)

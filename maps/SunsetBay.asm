@@ -106,7 +106,7 @@ SunsetNPC1:
 	faceplayer
 	opentext
 	writetext SunsetNPC1Text
-	buttonsound
+	waitbutton
 	spriteface SUNSET_NPC1, UP
 	closetext
 	end
@@ -135,7 +135,6 @@ SunsetNPC5:
 	opentext
 	writetext SunsetNPC5Text
 	waitbutton
-	buttonsound
 	closetext
 	end
 

@@ -46,6 +46,9 @@ SunsetOfficerStopsYou1:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue SunsetOfficerStopsYou1_2
 	callasm .StopRunning
+	playsound SFX_PAY_DAY
+	showemote EMOTE_SHOCK, ROUTE1GATE_OFFICER, 15
+	pause 7
 	opentext
 	writetext OfficerStopsYouText1
 	waitbutton
@@ -68,6 +71,9 @@ SunsetOfficerStopsYou1:
 	
 SunsetOfficerStopsYou1_2:
 	callasm .StopRunning
+	playsound SFX_PAY_DAY
+	showemote EMOTE_SHOCK, ROUTE1GATE_OFFICER, 15
+	pause 7
 	opentext
 	writetext OfficerStopsYouText1
 	waitbutton
@@ -92,6 +98,9 @@ SunsetOfficerStopsYou2:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue SunsetOfficerStopsYou2_2
 	callasm .StopRunning
+	playsound SFX_PAY_DAY
+	showemote EMOTE_SHOCK, ROUTE1GATE_OFFICER, 15
+	pause 7
 	opentext
 	writetext OfficerStopsYouText1
 	waitbutton
@@ -114,6 +123,9 @@ SunsetOfficerStopsYou2:
 	
 SunsetOfficerStopsYou2_2:
 	callasm .StopRunning
+	playsound SFX_PAY_DAY
+	showemote EMOTE_SHOCK, ROUTE1GATE_OFFICER, 15
+	pause 7
 	opentext
 	writetext OfficerStopsYouText1
 	waitbutton

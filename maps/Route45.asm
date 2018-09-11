@@ -17,10 +17,11 @@ const_value set 2
 
 Route45_MapScriptHeader:
 .MapTriggers:
-	db 2
+	db 3
 	
 	maptrigger .Trigger0
 	maptrigger .Trigger1
+	maptrigger .Trigger2
 
 .MapCallbacks:
 	db 0
@@ -31,44 +32,44 @@ Route45_MapScriptHeader:
 .Trigger1:
 	end
 	
+.Trigger2:
+	end
+	
 Route45_MapEventHeader:: db 0, 0
 
 .Warps: db 1
-	warp_def 5, 71, 3, ROUTE_43_MAHOGANY_GATE
+	warp_def 5, 59, 3, ROUTE_43_MAHOGANY_GATE
 
-.CoordEvents: db 8
-	xy_trigger 0, 35, 65, 0, SunBeamTollBoothStop, 0, 0
-	xy_trigger 0, 6, 54, 0, Route6PokeFanM, 0, 0
-	xy_trigger 0, 7, 54, 0, Route6PokeFanF, 0, 0
-	xy_trigger 0, 6, 53, 0, Route6PokeFanM2, 0, 0
-	xy_trigger 0, 7, 53, 0, Route6PokeFanF2, 0, 0
-	xy_trigger 0, 6, 52, 0, Route6PokeFanM2, 0, 0
-	xy_trigger 0, 7, 52, 0, Route6PokeFanF2, 0, 0
-	xy_trigger 0, 6, 51, 0, Route6PokeFanM2, 0, 0
+.CoordEvents: db 5
+	xy_trigger 0, 35, 53, 0, SunBeamTollBoothStop, 0, 0
+	xy_trigger 0, 6, 43, 0, Route6PokeFanM, 0, 0
+	xy_trigger 0, 7, 44, 0, Route6PokeFanF, 0, 0
+	xy_trigger 1, 6, 43, 0, Route6PokeFanM, 0, 0
+	xy_trigger 1, 7, 44, 0, Route6PokeFanF, 0, 0
 
 .BGEvents: db 5
-	signpost 34, 64, SIGNPOST_READ, Route45IslandSign
-	signpost 6, 72, SIGNPOST_READ, Route45HouseSign
-	signpost 3, 32, SIGNPOST_READ, Route45LakeSign
-	signpost 35, 66, SIGNPOST_READ, SunBeamTollTalk
-	signpost 4, 14, SIGNPOST_ITEM, Route6HiddenUltraBall
+	signpost 34, 52, SIGNPOST_READ, Route45IslandSign
+	signpost 6, 60, SIGNPOST_READ, Route45HouseSign
+	signpost 3, 26, SIGNPOST_READ, Route45LakeSign
+	signpost 35, 54, SIGNPOST_READ, SunBeamTollTalk
+	signpost 4, 8, SIGNPOST_ITEM, Route6HiddenUltraBall
 
 .ObjectEvents: db 15
-	person_event SPRITE_GENTLEMAN, 23, 62, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_YELLOW, PERSONTYPE_SCRIPT, 0, Route6Gentleman, -1
-	person_event SPRITE_COOLTRAINER_F, 19, 62, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Route6Lass, -1
-	person_event SPRITE_YOUNGSTER, 17, 62, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route6Youngster, -1
-	person_event SPRITE_COOLTRAINER_F, 30, 63, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, Route6Lass2, -1
-	person_event SPRITE_PSYDUCK, 30, 62, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_YELLOW, PERSONTYPE_SCRIPT, 0, Route6Psyduck, -1
-	person_event SPRITE_YOUNGSTER, 8, 54, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerRoute6_2, -1
-	person_event SPRITE_LASS, 8, 55, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerRoute6_1, -1
-	person_event SPRITE_POKEFAN_M, 6, 50, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 0, TrainerRoute6_3, -1
-	person_event SPRITE_POKEFAN_F, 7, 51, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 0, TrainerRoute6_4, -1
-	person_event SPRITE_GRANNY, 5, 41, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerRoute6_5, -1
-	person_event SPRITE_COOLTRAINER_F, 4, 15, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 2, TrainerRoute6_6, -1
-	person_event SPRITE_GENTLEMAN, 6, 21, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerRoute6_7, -1
-	person_event SPRITE_LASS, 9, 73, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route6Lass3, -1
-	person_event SPRITE_FISHER, 6, 29, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, Route6Fisher, -1
-	person_event SPRITE_POKE_BALL, 2, 25, SPRITEMOVEDATA_ITEM_TREE, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route6PokeBallThunderPunch, EVENT_ROUTE_6_POKE_BALL_THUNDERPUNCH
+	person_event SPRITE_GENTLEMAN_GRUNTF, 23, 50, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_YELLOW, PERSONTYPE_SCRIPT, 0, Route6Gentleman, -1
+	person_event SPRITE_LASS, 19, 50, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, Route6Lass, -1
+	person_event SPRITE_YOUNGSTER, 17, 50, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route6Youngster, -1
+	person_event SPRITE_LASS, 30, 51, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, Route6Lass2, -1
+	person_event SPRITE_LEILANI_PSYDUCK, 30, 50, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_YELLOW, PERSONTYPE_SCRIPT, 0, Route6Psyduck, -1
+	person_event SPRITE_YOUNGSTER, 8, 43, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerRoute6_2, -1
+	person_event SPRITE_LASS, 8, 44, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerRoute6_1, -1
+	person_event SPRITE_POKEFAN_M, 6, 39, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerRoute6_3, -1
+	person_event SPRITE_POKEFAN_F, 7, 40, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerRoute6_4, -1
+	person_event SPRITE_GRANNY, 4, 31, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerRoute6_5, -1
+	person_event SPRITE_LASS, 4, 9, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 2, TrainerRoute6_6, -1
+	person_event SPRITE_GENTLEMAN_GRUNTF, 6, 15, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerRoute6_7, -1
+	person_event SPRITE_LASS, 9, 60, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route6Lass3, -1
+	person_event SPRITE_FISHER, 6, 23, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route6Fisher, -1
+	person_event SPRITE_POKE_BALL, 2, 19, SPRITEMOVEDATA_ITEM_TREE, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route6PokeBallThunderPunch, EVENT_ROUTE_6_POKE_BALL_THUNDERPUNCH
 
 Route6PokeFanM:
 	checkevent EVENT_BEAT_ROUTE6_TRAINER_3
@@ -76,27 +77,9 @@ Route6PokeFanM:
 	playmusic MUSIC_HIKER_ENCOUNTER
 	showemote EMOTE_SHOCK, ROUTE6TRAINER3,  30
 	applymovement ROUTE6TRAINER3, Movement_Route6_PokeFanM
+	spriteface PLAYER, LEFT
 	opentext
 	writetext TrainerRoute6_3SeenText2
-	waitbutton
-	closetext
-	winlosstext TrainerRoute6_3BeatenText, 0
-	setlasttalked ROUTE6TRAINER3
-	loadtrainer POKEFANM, 1
-	startbattle
-	reloadmapafterbattle
-	setevent EVENT_BEAT_ROUTE6_TRAINER_3
-.end
-	end
-	
-Route6PokeFanM2:
-	checkevent EVENT_BEAT_ROUTE6_TRAINER_3
-	iftrue .end
-	playmusic MUSIC_HIKER_ENCOUNTER
-	showemote EMOTE_SHOCK, ROUTE6TRAINER3,  30
-	applymovement ROUTE6TRAINER3, Movement_Route6_PokeFanM
-	opentext
-	writetext TrainerRoute6_3SeenText1
 	waitbutton
 	closetext
 	winlosstext TrainerRoute6_3BeatenText, 0
@@ -114,27 +97,9 @@ Route6PokeFanF:
 	playmusic MUSIC_BEAUTY_ENCOUNTER
 	showemote EMOTE_SHOCK, ROUTE6TRAINER4,  30
 	applymovement ROUTE6TRAINER4, Movement_Route6_PokeFanF
+	spriteface PLAYER, LEFT
 	opentext
 	writetext TrainerRoute6_4SeenText2
-	waitbutton
-	closetext
-	winlosstext TrainerRoute6_4BeatenText, 0
-	setlasttalked ROUTE6TRAINER4
-	loadtrainer POKEFANF, 1
-	startbattle
-	reloadmapafterbattle
-	setevent EVENT_BEAT_ROUTE6_TRAINER_4
-.end
-	end
-	
-Route6PokeFanF2:
-	checkevent EVENT_BEAT_ROUTE6_TRAINER_4
-	iftrue .end
-	playmusic MUSIC_BEAUTY_ENCOUNTER
-	showemote EMOTE_SHOCK, ROUTE6TRAINER4,  30
-	applymovement ROUTE6TRAINER4, Movement_Route6_PokeFanF
-	opentext
-	writetext TrainerRoute6_4SeenText1
 	waitbutton
 	closetext
 	winlosstext TrainerRoute6_4BeatenText, 0
@@ -158,7 +123,7 @@ Route6HiddenUltraBall:
 	dwb EVENT_ROUTE6_HIDDEN_ULTRA_BALL, ULTRA_BALL
 	
 TrainerRoute6_1:
-	trainer EVENT_BEAT_ROUTE6_TRAINER_1, PICNICKER, BETH_PICNICKER, TrainerRoute6_1SeenText, TrainerRoute6_1BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE6_TRAINER_1, PICNICKER, 2, TrainerRoute6_1SeenText, TrainerRoute6_1BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -169,7 +134,7 @@ TrainerRoute6_1:
 	end
 	
 TrainerRoute6_2:
-	trainer EVENT_BEAT_ROUTE6_TRAINER_2, CAMPER, VINCENT_CAMPER, TrainerRoute6_2SeenText, TrainerRoute6_2BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE6_TRAINER_2, CAMPER, 2, TrainerRoute6_2SeenText, TrainerRoute6_2BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -180,7 +145,7 @@ TrainerRoute6_2:
 	end
 	
 TrainerRoute6_3:
-	trainer EVENT_BEAT_ROUTE6_TRAINER_3, POKEFANM, RON_POKEFANM, TrainerRoute6_3SeenText1, TrainerRoute6_3BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE6_TRAINER_3, POKEFANM, 1, TrainerRoute6_3SeenText1, TrainerRoute6_3BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -191,7 +156,7 @@ TrainerRoute6_3:
 	end
 	
 TrainerRoute6_4:
-	trainer EVENT_BEAT_ROUTE6_TRAINER_4, POKEFANF, SUSAN_POKEFANF, TrainerRoute6_4SeenText1, TrainerRoute6_4BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE6_TRAINER_4, POKEFANF, 1, TrainerRoute6_4SeenText1, TrainerRoute6_4BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -202,7 +167,7 @@ TrainerRoute6_4:
 	end
 	
 TrainerRoute6_5:
-	trainer EVENT_BEAT_ROUTE6_TRAINER_5, LADY, RUTH_LADY, TrainerRoute6_5SeenText, TrainerRoute6_5BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE6_TRAINER_5, LADY, 1, TrainerRoute6_5SeenText, TrainerRoute6_5BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -213,7 +178,7 @@ TrainerRoute6_5:
 	end
 	
 TrainerRoute6_6:
-	trainer EVENT_BEAT_ROUTE6_TRAINER_6, COOLTRAINERF, SARAH_COOLTRAINERF, TrainerRoute6_6SeenText, TrainerRoute6_6BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE6_TRAINER_6, LASS, 6, TrainerRoute6_6SeenText, TrainerRoute6_6BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -224,7 +189,7 @@ TrainerRoute6_6:
 	end
 	
 TrainerRoute6_7:
-	trainer EVENT_BEAT_ROUTE6_TRAINER_7, COOLTRAINERM, CODY_COOLTRAINERM, TrainerRoute6_7SeenText, TrainerRoute6_7BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE6_TRAINER_7, GENTLEMAN, 1, TrainerRoute6_7SeenText, TrainerRoute6_7BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -252,7 +217,6 @@ SunBeamTollBoothStop
 	dotrigger $1
 	jump .end
 .noislandpass
-	setevent EVENT_CAN_GET_PASS_FROM_MOM
 	opentext
 	writetext SunBeamTollBoothText2
 	yesorno
@@ -268,7 +232,41 @@ SunBeamTollBoothStop
 	waitbutton
 	closetext
 .cont
-	applymovement PLAYER, Movement_SunBeamTollBoothStop	
+	applymovement PLAYER, Movement_SunBeamTollBoothStop
+	checkevent EVENT_RIVAL_ROUTE_6
+	iftrue .end
+	playmusic MUSIC_RIVAL_ENCOUNTER
+	disappear ROUTE6TRAINER7
+	moveperson ROUTE6TRAINER7, $35, $1c
+	variablesprite SPRITE_GENTLEMAN_GRUNTF, SPRITE_SILVER
+	special MapCallbackSprites_LoadUsedSpritesGFX
+	appear ROUTE6TRAINER7
+	applymovement ROUTE6TRAINER7, Movement_SunBeamTollBoothStopRival2
+	opentext
+	writetext SunBeamTollBoothRivalText1
+	waitbutton
+	closetext
+	applymovement PLAYER, Movement_SunBeamTollBoothStop2
+	spriteface PLAYER, RIGHT
+	applymovement ROUTE6TRAINER7, Movement_SunBeamTollBoothStopRival1
+	spriteface ROUTE6TRAINER7, RIGHT
+	opentext
+	writetext SunBeamTollBoothRivalText2
+	waitbutton
+	closetext
+	applymovement ROUTE6TRAINER7, Movement_SunBeamTollBoothStopRival2
+	disappear ROUTE6TRAINER7
+	moveperson ROUTE6TRAINER7, $f, $6
+	variablesprite SPRITE_GENTLEMAN_GRUNTF, SPRITE_GENTLEMAN
+	special MapCallbackSprites_LoadUsedSpritesGFX
+	appear ROUTE6TRAINER7
+	special Special_FadeOutMusic
+	pause 20
+	special RestartMapMusic
+	setevent EVENT_RIVAL_ROUTE_6
+	setevent EVENT_CAN_GET_PASS_FROM_MOM
+	setevent EVENT_KRISS_HOUSE_MOM_1
+	clearevent EVENT_KRISS_HOUSE_MOM_2
 .end
 	end
 	
@@ -655,8 +653,8 @@ SunBeamTollBoothText5:
 	line "the island without"
 	cont "an ISLAND PASS."
 	
-	para "<PLAYER> flashed the"
-	line "ISLAND PASS."
+	para "<PLAYER> flashed"
+	line "the ISLAND PASS."
 	
 	para "WHAT!?"
 	
@@ -709,8 +707,60 @@ Route45LakeSignText:
 	text "LAKE ONWA ahead."
 	done
 	
+SunBeamTollBoothRivalText1:
+	text "<RIVAL>: You"
+	line "again?"
+	
+	para "What's that?"
+	
+	para "They won't let you"
+	line "on the island?"
+	
+	para "HA!"
+	
+	para "That's hilarious!"
+	
+	para "Serves you right,"
+	line "you loser."
+	
+	para "Don't worry."
+	
+	para "I'm not even going"
+	line "to waste my time"
+	cont "with you."
+	
+	para "Move aside!"
+	
+	para "I've got more imp-"
+	line "ortant things to"
+	cont "do right now."
+	done
+	
+SunBeamTollBoothRivalText2:
+	text "<RIVAL> flashed"
+	line "an ISLAND PASS."
+	done
+	
+Movement_SunBeamTollBoothStopRival1:
+	step DOWN
+	step DOWN
+	step DOWN
+	step_end
+	
+Movement_SunBeamTollBoothStopRival2:
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step_end
+	
 Movement_SunBeamTollBoothStop:
 	step UP
+	step UP
+	step_end
+	
+Movement_SunBeamTollBoothStop2:
+	step LEFT
 	step_end
 	
 Movement_Route6_PokeFanM:
@@ -720,6 +770,7 @@ Movement_Route6_PokeFanM:
 	step_end
 	
 Movement_Route6_PokeFanF:
+	step RIGHT
 	step RIGHT
 	step RIGHT
 	step_end

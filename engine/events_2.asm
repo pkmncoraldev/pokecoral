@@ -72,18 +72,42 @@ CheckFacingTileEvent:: ; 97c5f
 .waterfall
 	ld a, [EngineBuffer1]
 	call CheckWaterfallTile
-	jr nz, .headbutt
+;	jr nz, .headbutt
+	jr nz, .dodriojump
 	callba TryWaterfallOW
 	jr .done
 
 .headbutt
 	ld a, [EngineBuffer1]
 	call CheckHeadbuttTreeTile
-	jr nz, .surf
+	jr nz, .dodriojump
 	callba TryHeadbuttOW
 	jr c, .done
 	jr .noevent
 
+.dodriojump
+	ld a, [EngineBuffer1]
+	call CheckDodrioJumpTile
+	jr nz, .dodriojump2
+	callba TryDodrioJumpOW
+	jr c, .done2
+	jr .noevent
+	
+.dodriojump2
+	ld a, [EngineBuffer1]
+	call CheckDodrioJump2Tile
+	jr nz, .rocksmash
+	callba TryDodrioJump2OW
+	jr c, .done2
+	jr .noevent
+	
+.rocksmash
+	ld a, [EngineBuffer1]
+	call CheckRockSmashTile
+	jr nz, .surf
+	callba TryRockSmashOW
+	jr .done
+	
 .surf
 	callba TrySurfOW
 	jr nc, .noevent
@@ -95,6 +119,11 @@ CheckFacingTileEvent:: ; 97c5f
 
 .done
 	call PlayClickSFX
+	ld a, $ff
+	scf
+	ret
+	
+.done2
 	ld a, $ff
 	scf
 	ret
@@ -162,6 +191,31 @@ WildBattleScript: ; 97cf9
 ; 97cfd
 
 CanUseSweetScent:: ; 97cfd
+	ld a, [MapGroup]
+	cp GROUP_ILEX_FOREST
+	jr nz, .cont
+	ld a, [MapNumber]
+	cp MAP_SPOOKY_FOREST_1
+	jr z, .ice_check
+	cp MAP_SPOOKY_FOREST_2
+	jr z, .ice_check
+	cp MAP_SPOOKY_FOREST_3
+	jr z, .ice_check
+	cp MAP_SPOOKY_FOREST_4
+	jr z, .ice_check
+	cp MAP_SPOOKY_FOREST_5
+	jr z, .ice_check
+	cp MAP_SPOOKY_FOREST_6
+	jr z, .ice_check
+	cp MAP_SPOOKY_FOREST_7
+	jr z, .ice_check
+	cp MAP_SPOOKY_FOREST_8
+	jr z, .ice_check
+	cp MAP_SPOOKY_FOREST_9
+	jr z, .ice_check
+	cp MAP_WAREHOUSE_ENTRANCE
+	jr z, .ice_check	
+.cont
 	ld hl, StatusFlags
 	bit 5, [hl]
 	jr nz, .no
@@ -334,7 +388,7 @@ DoBikeStep:: ; 97db3
 	jr nz, .NoCall
 
 	; Queue the call.
-	ld a, SPECIALCALL_BIKESHOP
+	ld a, SPECIALCALL_COMETOISLAND
 	ld [wSpecialPhoneCallID], a
 	xor a
 	ld [wSpecialPhoneCallID + 1], a

@@ -65,7 +65,7 @@ RuinsofAlphAerodactylWordRoom_MapEventHeader:: db 0, 0
 	signpost 1, 2, SIGNPOST_READ, SpookHouseDeadLight
 
 .ObjectEvents: db 1
-	person_event SPRITE_TWIN, 2, 40, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_SILVER, PERSONTYPE_SCRIPT, 0, SpookHouseNPC1, EVENT_SPOOKHOUSE_SAW_GHOST_2
+	person_event SPRITE_TWIN, 2, 40, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, SpookHouseNPC1, EVENT_SPOOKHOUSE_SAW_GHOST_2
 
 Movement_SpookHouseGhost2:
 	set_sliding

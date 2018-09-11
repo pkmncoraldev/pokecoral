@@ -13,7 +13,7 @@ SunsetCafeClerk:
 	opentext
 	writetext ClerkText
 	buttonsound
-	pokemart MARTTYPE_BITTER, MART_OLIVINE
+	pokemart MARTTYPE_BITTER, MART_SUNSET
 	refreshscreen $0
 	closetext
 	spriteface SunsetCafe_CLERK, LEFT

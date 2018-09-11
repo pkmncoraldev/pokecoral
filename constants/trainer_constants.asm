@@ -5,8 +5,8 @@ KRIS  EQU __enum__
 	trainerclass TRAINER_NONE ; 0
 	const PHONECONTACT_MOM
 	const PHONECONTACT_BIKESHOP
-	const PHONECONTACT_BILL
-	const PHONECONTACT_ELM
+	const PHONECONTACT_UNKNOWN
+	const PHONECONTACT_SPRUCE
 	const PHONECONTACT_BUENA
 
 	trainerclass STANLEY ; 1
@@ -26,22 +26,18 @@ KRIS  EQU __enum__
 	trainerclass CLAIR ; 8
 
 	trainerclass RIVAL1 ; 9
-	const RIVAL1_1
-	const RIVAL1_2
-	const RIVAL1_3
-	const RIVAL1_4
-	const RIVAL1_5
-	const RIVAL1_6
-	const RIVAL1_7
-	const RIVAL1_8
-	const RIVAL1_9
-	const RIVAL1_10
-	const RIVAL1_11
-	const RIVAL1_12
-	const RIVAL1_13
-	const RIVAL1_14
-	const RIVAL1_15
-	const RIVAL1_16
+	const RIVAL1_1_1
+	const RIVAL1_1_2
+	const RIVAL1_1_3
+	const RIVAL1_1_4
+	const RIVAL1_1_5
+	const RIVAL1_1_6
+	const RIVAL1_2_1
+	const RIVAL1_2_2
+	const RIVAL1_2_3
+	const RIVAL1_2_4
+	const RIVAL1_2_5
+	const RIVAL1_2_6
 
 	trainerclass POKEMON_PROF ; a
 
@@ -77,13 +73,10 @@ KRIS  EQU __enum__
 	trainerclass ERIKA ; 15
 
 	trainerclass YOUNGSTER ; 16
-	const JOEY_YOUNGSTER
-	const BILLY_YOUNGSTER
-	const CHRIS_YOUNGSTER
+;3
 
 	trainerclass SCHOOLBOY ; 17
-	const TIMMY_SCHOOLBOY
-	const DAMIAN_SCHOOLBOY
+;2
 
 	trainerclass BIRD_KEEPER ; 18
 	const ROD
@@ -107,20 +100,15 @@ KRIS  EQU __enum__
 	const VANCE3
 
 	trainerclass LASS ; 19
-	const LIBBY_LASS
-	const CHARLOTTE_LASS
-	const VERONICA_LASS
-	const JUNE_LASS
-	const MELANIE_LASS
-	
+;6
 
 	trainerclass JANINE ; 1a
 
 	trainerclass COOLTRAINERM ; 1b
-	const CODY_COOLTRAINERM
+;1
 
 	trainerclass COOLTRAINERF ; 1c
-	const SARAH_COOLTRAINERF
+;1
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -161,11 +149,7 @@ KRIS  EQU __enum__
 	trainerclass GRUNTM ; 1f
 
 	trainerclass GENTLEMAN ; 20
-	const PRESTON
-	const EDWARD
-	const GREGORY
-	const VIRGIL
-	const ALFRED
+;1
 
 	trainerclass SKIER ; 21
 	const ROXANNE
@@ -179,26 +163,13 @@ KRIS  EQU __enum__
 	trainerclass SABRINA ; 23
 
 	trainerclass BUG_CATCHER ; 24
-	const BARNEY_BUG_CATCHER
-	const ARNOLD_BUG_CATCHER
 
 	trainerclass FISHER ; 25
-	const DAVE_FISHER
-	const HAROLD_FISHER
-	const HOMER_FISHER
-	const HUE_FISHER
-	const DARREN_FISHER
+;8
 
 	trainerclass SWIMMERM ; 26
-	const TERRY_SWIMMERM
-	const MIKE_SWIMMERM
 
 	trainerclass SWIMMERF ; 27
-	const JENNY_SWIMMERF
-	const SAM_SWIMMERF
-	const JESS_SWIMMERF
-	const MICHAELA_SWIMMERF
-	
 
 	trainerclass SAILOR ; 28
 	const EUGENE
@@ -238,12 +209,7 @@ KRIS  EQU __enum__
 	const DORFO
 
 	trainerclass HIKER ; 2c
-	const HIKER_DOUG
-	const HIKER_WILL
-	const HIKER_ROB
-	const HIKER_BENJAMIN
-	const HIKER_LANDON
-	const HIKER_SIMON
+;11
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY
@@ -264,22 +230,10 @@ KRIS  EQU __enum__
 	const COREY
 
 	trainerclass FIREBREATHER ; 30
-	const OTIS
-	const DICK
-	const NED
-	const BURT
-	const BILL
-	const WALT
-	const RAY
-	const LYLE
+;4
 
 	trainerclass JUGGLER ; 31
-	const IRWIN1
-	const FRITZ
-	const HORTON
-	const IRWIN2
-	const IRWIN3
-	const IRWIN4
+;3
 
 	trainerclass BLACKBELT_T ; 32
 	const KENJI1
@@ -306,19 +260,12 @@ KRIS  EQU __enum__
 	const RICHARD
 	const GILBERT
 	const JARED
-;	const RODNEY
 
 	trainerclass PICNICKER ; 35
-	const ERIN_PICNICKER
-	const BETH_PICNICKER
-	const MOLLY_PICNICKER
-	const SHAUNA_PICNICKER
+;4
 
 	trainerclass CAMPER ; 36
-	const DENNY_CAMPER
-	const VINCENT_CAMPER
-	const BART_CAMPER
-	const TREVOR_CAMPER
+;4
 	
 	trainerclass EXECUTIVEF ; 37
 
@@ -351,7 +298,7 @@ KRIS  EQU __enum__
 	const DOUGLAS
 
 	trainerclass POKEFANM ; 3b
-	const RON_POKEFANM
+;1
 
 	trainerclass KIMONO_GIRL ; 3c
 	const NAOKO1
@@ -362,11 +309,10 @@ KRIS  EQU __enum__
 	const MIKI
 
 	trainerclass TWINS ; 3d
-	const JENANDJAN1_TWINS
-	const JENANDJAN2_TWINS
+;2
 
 	trainerclass POKEFANF ; 3e
-	const SUSAN_POKEFANF
+;1
 
 	trainerclass RED ; 3f
 
@@ -382,31 +328,43 @@ KRIS  EQU __enum__
 	const EUSINE
 
 	trainerclass TEACHERFAST
-	const KATE_TEACHERFAST
+;1
 	
 	trainerclass TRIOBROR
-	const REDBRO_TRIOBROR
+;1
 	
 	trainerclass TRIOBROB
-	const BLUEBRO_TRIOBROB
+;1
 	
 	trainerclass TRIOBROY
-	const YELLOWBRO_TRIOBROY
+;1
 	
 	trainerclass DISGUISEMAN
-	const DISGUISEMAN1
+;1
 	
 	trainerclass LADY
-	const RUTH_LADY
+;1
 	
 	trainerclass BIKINIP
-	const LILAC_BIKINIP
+;1
 	
 	trainerclass BIKINIR
-	const ROSE_BIKINIR
+;1
 	
 	trainerclass BIKINIY
-	const HAZEL_BIKINIY
+;1
+
+	trainerclass COUPLE
+;1
+
+	trainerclass DELINQUENT_M
+;1
+
+	trainerclass DELINQUENT_M
+;1
+
+	trainerclass SAFARI
+;1
 	
 NUM_TRAINER_CLASSES EQU __enum__
 

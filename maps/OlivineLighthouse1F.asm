@@ -41,11 +41,11 @@ OlivineLighthouse1F_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 9
 	person_event SPRITE_TEACHER, 5, 5, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, StarglowHouse1Mommy, EVENT_STARGLOW_HELPED_LITTLEGIRL
-	person_event SPRITE_TWIN, 7, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, StarglowHouse1LittleGirl, EVENT_INITIALIZED_EVENTS
+	person_event SPRITE_TWIN, 7, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, StarglowHouse1LittleGirl, EVENT_STARGLOW_HOUSE
 	person_event SPRITE_ROCKET, 5, 4, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, StarglowHouse1Rocket, EVENT_STARGLOW_HELPED_LITTLEGIRL
 	person_event SPRITE_TOGEPI, 4, 6, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, StarglowHouse1Togepi, EVENT_STARGLOW_HELPED_LITTLEGIRL
-	person_event SPRITE_TWIN, 6, 5, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, StarglowHouse1LittleGirl, EVENT_INITIALIZED_EVENTS
-	person_event SPRITE_TEACHER, 5, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, StarglowHouse1Mommy, EVENT_INITIALIZED_EVENTS
+	person_event SPRITE_TWIN, 6, 5, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, StarglowHouse1LittleGirl, EVENT_STARGLOW_HOUSE
+	person_event SPRITE_TEACHER, 5, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, StarglowHouse1Mommy, EVENT_STARGLOW_HOUSE
 	person_event SPRITE_TWIN, 4, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, StarglowHouse1LittleGirl, EVENT_STARGLOW_HAVENT_HELPED_GIRL
 	person_event SPRITE_TEACHER, 4, 5, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, StarglowHouse1Mommy, EVENT_STARGLOW_HAVENT_HELPED_GIRL
 	person_event SPRITE_TOGEPI, 4, 1, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, StarglowHouse1Togepi, EVENT_STARGLOW_HAVENT_HELPED_GIRL_TOGEPI
@@ -185,6 +185,8 @@ StarglowHouse1LittleGirl:
 	writetext StarglowHouse1LittleGirlText5
 	yesorno
 	iffalse .end
+	checkcode VAR_PARTYCOUNT
+	if_equal 6, .PartyFull
 	disappear STARGLOWHOUSE1_TOGEPI2
 	writetext StarglowHouse1GotTogepiText
 	playsound SFX_CAUGHT_MON
@@ -235,6 +237,13 @@ StarglowHouse1LittleGirl:
 	xor a
 	ret
 	
+.PartyFull:
+	setevent EVENT_DIDNT_TAKE_TOGEPI
+	writetext StarglowHouse1LittleGirlText10
+	waitbutton
+	closetext
+	end
+	
 StarglowHouse1Rocket:
 	faceplayer
 	opentext
@@ -252,6 +261,7 @@ StarglowHouse1Rocket:
 	writetext StarglowHouse1RocketText4
 	waitbutton
 	closetext
+	variablesprite SPRITE_RODNEY_FISHER, SPRITE_ROCKET_GIRL
 	checkcode VAR_FACING
 	if_equal UP, .YouAreFacingUp
 	applymovement STARGLOWHOUSE1_ROCKET, Movement_StarglowHouse1Rocket3
@@ -442,7 +452,7 @@ StarglowHouse1MommyText3:
 	para "I can't bear the"
 	line "thought of little"
 	
-	para "TOGEPI here being"
+	para "EGGY here being"
 	line "taken away by that"
 	cont "horrible man."
 	done
@@ -479,7 +489,7 @@ StarglowHouse1MommyText5:
 	done
 	
 StarglowHouse1TogepiText:
-	text "TOGEPI: Prrrrri!"
+	text "EGGY: Prrrrri!"
 	done
 	
 StarglowHouse1RocketText1:
@@ -562,36 +572,33 @@ StarglowHouse1LittleGirlText3:
 	
 StarglowHouse1LittleGirlText4:
 	text "What's the matter,"
-	line "TOGEPI?"
+	line "EGGY?"
 	done
 
 StarglowHouse1LittleGirlText5:
 	text "TRAINER!"
 	
-	para "TOGEPI wants to go"
+	para "EGGY wants to go"
 	line "along with you and"
 	cont "get stronger!"
 	
 	para "Will you take"
-	line "TOGEPI?"
+	line "EGGY?"
 	done
 	
 StarglowHouse1LittleGirlText6:
 	text "Please, make sure"
 	line "you take good care"
-	cont "of TOGEPI!"
+	cont "of EGGY!"
 	done
 	
 StarglowHouse1LittleGirlText7:
-	text "Did you change"
-	line "your mind?"
-	
-	para "Will you take"
-	line "TOGEPI?"
+	text "Will you take"
+	line "EGGY?"
 	done
 	
 StarglowHouse1LittleGirlText8:
-	text "How has my TOGEPI"
+	text "How has EGGY"
 	line "been doing?"
 	
 	para "Has it gotten a"
@@ -602,4 +609,15 @@ StarglowHouse1LittleGirlText9:
 	text "Oh…"
 	
 	para "Next time, then!"
+	done
+	
+StarglowHouse1LittleGirlText10:
+	text "Oh!"
+	
+	para "You already have"
+	line "6 #MON on"
+	cont "you…"
+	
+	para "You need to make"
+	line "some room!"
 	done

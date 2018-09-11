@@ -230,14 +230,18 @@ KrissHouse2F_MapEventHeader:: db 0, 0
 	signpost 1, 5, SIGNPOST_READ, KrissHouseBookshelf
 	signpost 1, 1, SIGNPOST_READ, KrissHouseCloset
 
-.ObjectEvents: db 2
+.ObjectEvents: db 1
 	person_event SPRITE_SNES, 2, 4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, GameConsole, -1
-	person_event SPRITE_CHRIS_BIKE, 5, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, GimmeThatBoy, -1
+;	person_event SPRITE_CHRIS_BIKE, 5, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, GimmeThatBoy, -1
 
 GimmeThatBoy:
 	opentext
-	writetext ChangeColorText
-	waitbutton
-	givepoke MEW, 100
+	verbosegiveitem ISLAND_PASS
 	closetext
+	clearevent EVENT_CAN_GET_PASS_FROM_MOM
+	clearevent EVENT_ISLAND_GREEM_MAN
+	setevent EVENT_KRISS_HOUSE_MOM_2
+	setevent EVENT_RIVAL_ROUTE_6
+	clearevent EVENT_KRISS_HOUSE_MOM_1
+	variablesprite SPRITE_LEILANI_PSYDUCK, SPRITE_ROCKET
 	end

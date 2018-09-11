@@ -1,5 +1,4 @@
 const_value set 2
-	const VERMILIONHOUSEDIGLETTSCAVESPEECHHOUSE_GENTLEMAN
 
 VermilionHouseDiglettsCaveSpeechHouse_MapScriptHeader:
 .MapTriggers:
@@ -8,33 +7,62 @@ VermilionHouseDiglettsCaveSpeechHouse_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-GentlemanScript_0x192031:
-	jumptextfaceplayer UnknownText_0x192034
+VermilionHouseDiglettsCaveSpeechHouse_MapEventHeader:: db 0, 0
 
-UnknownText_0x192034:
-	text "Over many years,"
-	line "DIGLETT dug a"
-	cont "large tunnel."
+.Warps: db 2
+	warp_def 7, 2, 10, VERMILION_CITY
+	warp_def 7, 3, 10, VERMILION_CITY
 
-	para "That tunnel goes"
-	line "to a distant town."
+.CoordEvents: db 0
+
+.BGEvents: db 0
+
+.ObjectEvents: db 2
+	person_event SPRITE_GRAMPS, 4, 5, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 5, FlickerHouse2NPC1, -1
+	person_event SPRITE_REDS_MOM, 3, 2, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 5, FlickerHouse2NPC2, -1
+	
+FlickerHouse2NPC1:
+	jumptextfaceplayer FlickerHouse2NPC1Text
+	
+FlickerHouse2NPC2:
+	jumptextfaceplayer FlickerHouse2NPC2Text
+	
+FlickerHouse2NPC1Text:
+	text "I used to work the"
+	line "railroad as a"
+	
+	para "young man when"
+	line "they first built"
+	cont "the station."
+	
+	para "Since then, this"
+	line "little town has"
+	
+	para "gotten a lot"
+	line "bigger."
 	done
-
-VermilionHouseDiglettsCaveSpeechHouse_MapEventHeader:
-	; filler
-	db 0, 0
-
-.Warps:
-	db 2
-	warp_def $7, $2, 6, VERMILION_CITY
-	warp_def $7, $3, 6, VERMILION_CITY
-
-.XYTriggers:
-	db 0
-
-.Signposts:
-	db 0
-
-.PersonEvents:
-	db 1
-	person_event SPRITE_GENTLEMAN, 3, 1, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, GentlemanScript_0x192031, -1
+	
+FlickerHouse2NPC2Text:
+	text "FLICKER STATION is"
+	line "the name of this"
+	
+	para "town, but it's"
+	line "also the name of"
+	cont "the train station."
+	
+	para "Apparently the"
+	line "town was built"
+	
+	para "around the"
+	line "station."
+	
+	para "I guess that would"
+	line "explain the weird"
+	cont "name…"
+	
+	para "Still doesn't"
+	line "make it any less"
+	
+	para "confusing in con-"
+	line "versation."
+	done

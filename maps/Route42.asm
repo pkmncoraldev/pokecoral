@@ -20,24 +20,32 @@ Route42_MapEventHeader:: db 0, 0
 
 .CoordEvents: db 0
 
-.BGEvents: db 4
+.BGEvents: db 5
 	signpost 4, 27, SIGNPOST_READ, Route5Sign
 	signpost 49, 21, SIGNPOST_READ, Route5GateSign
 	signpost 36, 6, SIGNPOST_READ, FruitTreeScript_Route5new1
 	signpost 26, 26, SIGNPOST_READ, FruitTreeScript_Route5new2
+	signpost 32, 8, SIGNPOST_ITEM, Route5HiddenRareCandy
 
-.ObjectEvents: db 8
+.ObjectEvents: db 9
 	person_event SPRITE_LASS, 9, 22, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerRoute5_1, -1
 	person_event SPRITE_YOUNGSTER, 13, 18, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerRoute5_2, -1
 	person_event SPRITE_BUG_CATCHER, 18, 14, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerRoute5_3, -1
-	person_event SPRITE_LASS, 28, 18, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 3, TrainerRoute5_4, -1
+	person_event SPRITE_LASS, 28, 18, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerRoute5_4, -1
 	person_event SPRITE_POKEFAN_M, 41, 7, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 4, TrainerRoute5_5, -1
 	person_event SPRITE_YOUNGSTER, 13, 26, SPRITEMOVEDATA_WANDER, 0, 1, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 1, Route5NPC6, -1
 	person_event SPRITE_YOUNGSTER, 32, 32, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 1, Route5NPC7, -1
 	person_event SPRITE_LASS, 47, 20, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 1, Route5NPC8, -1
+	person_event SPRITE_POKE_BALL, 25, 31, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route9PokeBall, EVENT_ROUTE_9_POKE_BALL
+
+Route5HiddenRareCandy:
+	dwb EVENT_ROUTE_9_HIDDEN_RARE_CANDY, RARE_CANDY
+	
+Route9PokeBall:
+	itemball GREAT_BALL
 
 TrainerRoute5_1:
-	trainer EVENT_BEAT_ROUTE5_TRAINER_1, PICNICKER, SHAUNA_PICNICKER, TrainerRoute5_1SeenText, TrainerRoute5_1BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE5_TRAINER_1, PICNICKER, 4, TrainerRoute5_1SeenText, TrainerRoute5_1BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -48,7 +56,7 @@ TrainerRoute5_1:
 	end
 	
 TrainerRoute5_2:
-	trainer EVENT_BEAT_ROUTE5_TRAINER_2, CAMPER, TREVOR_CAMPER, TrainerRoute5_2SeenText, TrainerRoute5_2BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE5_TRAINER_2, CAMPER, 4, TrainerRoute5_2SeenText, TrainerRoute5_2BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -59,7 +67,7 @@ TrainerRoute5_2:
 	end
 	
 TrainerRoute5_3:
-	trainer EVENT_BEAT_ROUTE5_TRAINER_3, BUG_CATCHER, ARNOLD_BUG_CATCHER, TrainerRoute5_3SeenText, TrainerRoute5_3BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE5_TRAINER_3, BUG_CATCHER, 2, TrainerRoute5_3SeenText, TrainerRoute5_3BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -70,7 +78,7 @@ TrainerRoute5_3:
 	end
 	
 TrainerRoute5_4:
-	trainer EVENT_BEAT_ROUTE5_TRAINER_4, LASS, MELANIE_LASS, TrainerRoute5_4SeenText, TrainerRoute5_4BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE5_TRAINER_4, LASS, 5, TrainerRoute5_4SeenText, TrainerRoute5_4BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -81,7 +89,7 @@ TrainerRoute5_4:
 	end
 	
 TrainerRoute5_5:
-	trainer EVENT_BEAT_ROUTE5_TRAINER_5, HIKER, HIKER_SIMON, TrainerRoute5_5SeenText, TrainerRoute5_5BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE5_TRAINER_5, HIKER, 6, TrainerRoute5_5SeenText, TrainerRoute5_5BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled

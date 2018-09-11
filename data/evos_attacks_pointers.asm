@@ -98,24 +98,24 @@ EvosAttacksPointers:: ; 0x425b1
 	dw HaunterEvosAttacks
 	dw GengarEvosAttacks
 	dw OnixEvosAttacks
-	dw DrowzeeEvosAttacks
-	dw HypnoEvosAttacks
-	dw KrabbyEvosAttacks
-	dw KinglerEvosAttacks
+	dw MedititeEvosAttacks
+	dw MedichamEvosAttacks
+	dw CorphishEvosAttacks
+	dw CrawdauntEvosAttacks
 	dw VoltorbEvosAttacks
 	dw ElectrodeEvosAttacks
 	dw ExeggcuteEvosAttacks
 	dw ExeggutorEvosAttacks
 	dw CuboneEvosAttacks
 	dw MarowakEvosAttacks
-	dw HitmonleeEvosAttacks
-	dw HitmonchanEvosAttacks
+	dw BunearyEvosAttacks
+	dw LopunnyEvosAttacks
 	dw LickitungEvosAttacks
 	dw KoffingEvosAttacks
 	dw WeezingEvosAttacks
 	dw RhyhornEvosAttacks
 	dw RhydonEvosAttacks
-	dw ChanseyEvosAttacks
+	dw NumelEvosAttacks
 	dw TangelaEvosAttacks
 	dw KangaskhanEvosAttacks
 	dw HorseaEvosAttacks
@@ -126,7 +126,7 @@ EvosAttacksPointers:: ; 0x425b1
 	dw StarmieEvosAttacks
 	dw HawluchaEvosAttacks
 	dw ScytherEvosAttacks
-	dw JynxEvosAttacks
+	dw VolcaronaEvosAttacks
 	dw ElectabuzzEvosAttacks
 	dw MagmarEvosAttacks
 	dw PinsirEvosAttacks
@@ -165,8 +165,8 @@ EvosAttacksPointers:: ; 0x425b1
 	dw FeraligatrEvosAttacks
 	dw SentretEvosAttacks
 	dw FurretEvosAttacks
-	dw HoothootEvosAttacks
-	dw NoctowlEvosAttacks
+	dw NoibatEvosAttacks
+	dw NoivernEvosAttacks
 	dw LedybaEvosAttacks
 	dw LedianEvosAttacks
 	dw JoltikEvosAttacks
@@ -189,9 +189,9 @@ EvosAttacksPointers:: ; 0x425b1
 	dw AzumarillEvosAttacks
 	dw SudowoodoEvosAttacks
 	dw PolitoedEvosAttacks
-	dw HoppipEvosAttacks
-	dw SkiploomEvosAttacks
-	dw JumpluffEvosAttacks
+	dw AronEvosAttacks
+	dw LaironEvosAttacks
+	dw AggronEvosAttacks
 	dw AipomEvosAttacks
 	dw SunkernEvosAttacks
 	dw SunfloraEvosAttacks
@@ -238,13 +238,13 @@ EvosAttacksPointers:: ; 0x425b1
 	dw Porygon2EvosAttacks
 	dw StantlerEvosAttacks
 	dw SmeargleEvosAttacks
-	dw TyrogueEvosAttacks
-	dw HitmontopEvosAttacks
-	dw SmoochumEvosAttacks
+	dw SwabluEvosAttacks
+	dw AltariaEvosAttacks
+	dw LarvestaEvosAttacks
 	dw ElekidEvosAttacks
 	dw MagbyEvosAttacks
 	dw MiltankEvosAttacks
-	dw BlisseyEvosAttacks
+	dw CameruptEvosAttacks
 	dw RaikouEvosAttacks
 	dw EnteiEvosAttacks
 	dw SuicuneEvosAttacks

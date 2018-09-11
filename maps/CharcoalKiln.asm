@@ -27,6 +27,7 @@ GlintApt11FNpc2:
 	waitbutton
 	verbosegiveitem HM_ROCK_SMASH
 	setevent EVENT_GOT_TM08_ROCK_SMASH
+	setflag ENGINE_GOT_ROCK_SMASH
 	writetext GlintApt11FNpc2Text2
 	waitbutton
 	spriteface GLINT_APT11F_NPC2, RIGHT

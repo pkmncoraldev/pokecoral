@@ -176,15 +176,15 @@ CutFunction: ; c785
 	dw .FailCut
 
 .CheckAble: ; c79c (3:479c)
-;	ld de, ENGINE_HIVEBADGE
-;	call CheckBadge
-;	jr c, .nohivebadge
+	ld de, ENGINE_SECONDBADGE
+	call CheckBadge
+	jr c, .nosecondbadge
 	call CheckMapForSomethingToCut
 	jr c, .nothingtocut
 	ld a, $1
 	ret
 
-.nohivebadge
+.nosecondbadge
 	ld a, $80
 	ret
 
@@ -283,6 +283,140 @@ CutDownTreeOrGrass: ; c810
 	call LoadStandardFont
 	ret
 
+RockSmashFunction: ; c785
+	call FieldMoveJumptableReset
+.loop
+	ld hl, .Jumptable
+	call FieldMoveJumptable
+	jr nc, .loop
+	and $7f
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.Jumptable: ; c796 (3:4796)
+
+	dw .CheckAble
+	dw .DoSmash
+	dw .FailSmash
+
+.CheckAble: ; c79c (3:479c)
+	ld de, ENGINE_FIRSTBADGE
+	call CheckBadge
+	jr c, .nofirstbadge
+	call CheckMapForSomethingToRockSmash
+	jr c, .nothingtosmash
+	ld a, $1
+	ret
+
+.nofirstbadge
+	ld a, $80
+	ret
+
+.nothingtosmash
+	ld a, $2
+	ret
+
+.DoSmash: ; c7b2 (3:47b2)
+	ld hl, Script_RockSmashFromMenu
+	call QueueScript
+	ld a, $81
+	ret
+
+.FailSmash: ; c7bb (3:47bb)
+	ld hl, Text_NothingToRockSmash
+	call MenuTextBoxBackup
+	ld a, $80
+	ret
+
+Text_UsedRockSmash: ; 0xc7c4
+	; used CUT!
+	text_jump UsedRockSmashText
+	db "@"
+
+Text_NothingToRockSmash: ; 0xc7c9
+	; There's nothing to CUT here.
+	text_jump NothingToRockSmashText
+	db "@"
+	
+CheckMapForSomethingToRockSmash: ; c7ce
+	; Does the collision data of the facing tile permit cutting?
+	call GetFacingTileCoord
+	ld c, a
+	push de
+	callba CheckRockSmashCollision
+	pop de
+	jr nc, .fail
+	; Get the location of the current block in OverworldMap.
+	call GetBlockLocation
+	ld c, [hl]
+	; See if that block contains something that can be cut.
+	push hl
+	ld hl, RockSmashRockBlockPointers
+	call CheckOverworldTileArrays
+	pop hl
+	jr nc, .fail
+	; Back up the OverworldMap address to Buffer3
+	ld a, l
+	ld [Buffer3], a
+	ld a, h
+	ld [Buffer4], a
+	; Back up the replacement tile to Buffer5
+	ld a, b
+	ld [Buffer5], a
+	; Back up the animation index to Buffer6
+	ld a, c
+	ld [Buffer6], a
+	xor a
+	ret
+
+.fail
+	scf
+	ret
+
+Script_RockSmashFromMenu: ; c7fe
+	reloadmappart
+	special UpdateTimePals
+
+Script_RockSmash: ; 0xc802
+	callasm GetPartyNick
+	writetext Text_UsedRockSmash
+	closetext
+	special WaitSFX
+	playsound SFX_STRENGTH
+	earthquake 84
+	callasm DoTheRockSmash
+	reloadmappart
+	callasm RockMonEncounter
+	copybytetovar TempWildMonSpecies
+	iffalse .done
+	randomwildmon
+	startbattle
+	reloadmapafterbattle
+.done
+	end
+
+DoTheRockSmash: ; c810
+	ld hl, Buffer3 ; OverworldMapTile
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, [Buffer5] ; ReplacementTile
+	ld [hl], a
+	xor a
+	ld [hBGMapMode], a
+	call OverworldTextModeSwitch
+	call UpdateSprites
+	call DelayFrame
+	ld a, [Buffer6] ; Animation type
+	ld e, a
+;	callba OWCutAnimation
+	call BufferScreen
+	call GetMovementPermissions
+	call UpdateSprites
+	call DelayFrame
+	call LoadStandardFont
+	ret
+	
 CheckOverworldTileArrays: ; c840
 	; Input: c contains the tile you're facing
 	; Output: Replacement tile in b and effect on wild encounters in c, plus carry set.
@@ -321,22 +455,34 @@ CheckOverworldTileArrays: ; c840
 
 CutTreeBlockPointers: ; c862
 ; Which tileset are we in?
-	dbw TILESET_SUNSET_BAY, .johto1
-	dbw TILESET_GLINT, .johto1
-	dbw TILESET_ISLAND, .johto1
+	dbw TILESET_GLINT, .glint
+	dbw TILESET_MOUNTAIN, .mountain
+	dbw TILESET_SPOOKY, .spooky
 	dbw TILESET_JUNGLE, .jungle
-	dbw TILESET_JOHTO_2, .johto2
-	dbw TILESET_KANTO, .kanto
-	dbw TILESET_PARK, .park
-	dbw TILESET_ILEX_FOREST, .ilex
 	db -1
 
-.johto1 ; Johto OW
+.glint
 ; Which meta tile are we facing, which should we replace it with, and which animation?
 	db $03, $02, $01 ; grass
 	db $5b, $3c, $00 ; tree
 	db $5f, $3d, $00 ; tree
-	db $63, $3f, $00 ; tree
+	db $63, $2f, $00 ; tree
+	db $67, $3e, $00 ; tree
+	db -1
+	
+.mountain
+	db $03, $02, $01 ; grass
+	db $5b, $3c, $00 ; tree
+	db $5f, $3d, $00 ; tree
+	db $63, $2f, $00 ; tree
+	db $67, $3e, $00 ; tree
+	db -1
+	
+.spooky
+	db $03, $02, $01 ; grass
+	db $5b, $3c, $00 ; tree
+	db $5f, $3d, $00 ; tree
+	db $63, $2f, $00 ; tree
 	db $67, $3e, $00 ; tree
 	db -1
 
@@ -346,34 +492,22 @@ CutTreeBlockPointers: ; c862
 	db $61, $60, $00 ; tree
 	db $62, $69, $00 ; tree
 	db $63, $6e, $00 ; tree
+	db -1
+
+RockSmashRockBlockPointers:
+	dbw TILESET_STARGLOW_CAVERN, .starglowcavern
+	db -1
+
+.starglowcavern ; c8a8
+	db $5f, $1c, $00
+	db $60, $2b, $00
+	db -1
 	
-.johto2 ; Goldenrod area
-	db $03, $02, $01 ; grass
-	db -1
-
-.kanto ; Kanto OW
-	db $0b, $0a, $01 ; grass
-	db $32, $6d, $00 ; tree
-	db $33, $6c, $00 ; tree
-	db $34, $6f, $00 ; tree
-	db $35, $4c, $00 ; tree
-	db $60, $6e, $00 ; tree
-	db -1
-
-.park ; National Park
-	db $13, $03, $01 ; grass
-	db $03, $04, $01 ; grass
-	db -1
-
-.ilex ; Ilex Forest
-	db $0f, $17, $00
-	db -1
-
 WhirlpoolBlockPointers: ; c8a4
-	dbw TILESET_GLINT, .johto
+	dbw TILESET_GLINT, .glint
 	db -1
 
-.johto ; c8a8
+.glint ; c8a8
 	db $07, $36, $00
 	db -1
 
@@ -385,9 +519,9 @@ OWFlash: ; c8ac
 
 .CheckUseFlash: ; c8b5
 ; Flash
-	ld de, ENGINE_HIVEBADGE
-	callba CheckBadge
-	jr c, .nozephyrbadge
+;	ld de, ENGINE_HIVEBADGE
+;	callba CheckBadge
+;	jr c, .nozephyrbadge
 	push hl
 	callba SpecialAerodactylChamber
 	pop hl
@@ -748,7 +882,7 @@ TrySurfOW:: ; c9e7
 	ld de, ENGINE_FIRSTBADGE
 	call CheckEngineFlag
 	jr c, .cantsurfyet
-	
+
 	ld de, ENGINE_GOT_SURF
 	call CheckEngineFlag
 	jr c, .cantsurfyet
@@ -1614,28 +1748,90 @@ UnknownText_0xcee6: ; 0xcee6
 	text_jump UnknownText_0x1c08bc
 	db "@"
 
-RockSmashFunction: ; ceeb
-	call TryRockSmashFromMenu
-	and $7f
-	ld [wFieldMoveSucceeded], a
+TryDodrioJumpOW:: ; cec9
+	ld a, [PlayerState]
+	cp PLAYER_DODRIO
+	jr nz, .no
+
+	ld a, BANK(DodrioJumpScript)
+	ld hl, DodrioJumpScript
+	call CallScript
+	scf
 	ret
 
-TryRockSmashFromMenu: ; cef4
-	call GetFacingObject
-	jr c, .no_rock
-	ld a, d
-	cp $18
-	jr nz, .no_rock
+.no
+	xor a
+	ret
+	
+DodrioJumpScript:
+	playsound SFX_JUMP_OVER_LEDGE
+	checkcode VAR_FACING
+	if_equal DOWN, .YouAreFacingDown
+	if_equal UP, .YouAreFacingUp
+	if_equal RIGHT, .YouAreFacingRight
+	applymovement PLAYER, Movement_DodrioJumpLeft
+	jump .end
+.YouAreFacingDown
+	applymovement PLAYER, Movement_DodrioJumpDown
+	jump .end
+.YouAreFacingUp
+	applymovement PLAYER, Movement_DodrioJumpUp
+	jump .end
+.YouAreFacingRight
+	applymovement PLAYER, Movement_DodrioJumpRight
+	
+.end
+	end
+	
+TryDodrioJump2OW:: ; cec9
+	ld a, [PlayerState]
+	cp PLAYER_DODRIO
+	jr nz, .no
 
-	ld hl, RockSmashFromMenuScript
-	call QueueScript
-	ld a, $81
+	ld a, BANK(DodrioJump2Script)
+	ld hl, DodrioJump2Script
+	call CallScript
+	scf
 	ret
 
-.no_rock
-	call FieldMoveFailed
-	ld a, $80
+.no
+	xor a
 	ret
+	
+DodrioJump2Script:
+	checkcode VAR_FACING
+	if_equal DOWN, .YouAreFacingDown
+	if_equal UP, .YouAreFacingUp
+	if_equal RIGHT, .YouAreFacingRight
+	jump .end
+.YouAreFacingDown
+	playsound SFX_JUMP_OVER_LEDGE
+	applymovement PLAYER, Movement_DodrioJumpDown
+	jump .end
+.YouAreFacingUp
+	playsound SFX_JUMP_OVER_LEDGE
+	applymovement PLAYER, Movement_DodrioJumpUp
+	jump .end
+.YouAreFacingRight
+	
+.end
+	end
+	
+Movement_DodrioJumpLeft:
+	jump_step LEFT
+	step_end
+	
+Movement_DodrioJumpDown:
+	jump_step DOWN
+	step_end
+	
+Movement_DodrioJumpUp:
+	jump_step UP
+	step_end
+	
+Movement_DodrioJumpRight:
+	jump_step RIGHT
+	step_end
 
 GetFacingObject: ; cf0d
 	callba CheckFacingObject
@@ -1657,74 +1853,6 @@ GetFacingObject: ; cf0d
 
 .fail
 	scf
-	ret
-
-RockSmashFromMenuScript: ; 0xcf2e
-	reloadmappart
-	special UpdateTimePals
-
-RockSmashScript: ; cf32
-	callasm GetPartyNick
-	writetext UnknownText_0xcf58
-	closetext
-	special WaitSFX
-	playsound SFX_STRENGTH
-	earthquake 84
-	applymovement2 MovementData_0xcf55
-	disappear -2
-
-	callasm RockMonEncounter
-	copybytetovar TempWildMonSpecies
-	iffalse .done
-	randomwildmon
-	startbattle
-	reloadmapafterbattle
-.done
-	end
-
-MovementData_0xcf55: ; 0xcf55
-	rock_smash 10
-	step_end
-
-UnknownText_0xcf58: ; 0xcf58
-	text_jump UnknownText_0x1c08f0
-	db "@"
-
-AskRockSmashScript: ; 0xcf5d
-	callasm HasRockSmash
-	if_equal 1, .no
-
-	opentext
-	writetext UnknownText_0xcf77
-	yesorno
-	iftrue RockSmashScript
-	closetext
-	end
-.no
-	jumptext UnknownText_0xcf72
-
-UnknownText_0xcf72: ; 0xcf72
-	; Maybe a #MON can break this.
-	text_jump UnknownText_0x1c0906
-	db "@"
-
-UnknownText_0xcf77: ; 0xcf77
-	; This rock looks breakable. Want to use ROCK SMASH?
-	text_jump UnknownText_0x1c0924
-	db "@"
-
-HasRockSmash: ; cf7c
-	ld d, ROCK_SMASH
-	call CheckPartyMove
-	jr nc, .yes
-.no
-	ld a, 1
-	jr .done
-.yes
-	xor a
-	jr .done
-.done
-	ld [ScriptVar], a
 	ret
 
 FishFunction: ; cf8e
@@ -1753,6 +1881,11 @@ FishFunction: ; cf8e
 	cp PLAYER_SURF
 	jr z, .fail
 	cp PLAYER_SURF_PIKA
+	jr z, .fail
+	cp PLAYER_SURF_LAVA
+	jr z, .fail
+	ld a, [wTileset]
+	cp TILESET_LAVA_CAVE
 	jr z, .fail
 	call GetFacingTileCoord
 	call GetTileCollision
@@ -1833,6 +1966,7 @@ Script_NotEvenANibble_FallThrough: ; 0xd02d
 	end
 
 Script_GotABite: ; 0xd035
+;	callasm .makegray
 	scall Script_FishCastRod
 	callasm Fishing_CheckFacingUp
 	iffalse .NotFacingUp
@@ -1847,6 +1981,7 @@ Script_GotABite: ; 0xd035
 	applymovement PLAYER, .Movement_RestoreRod
 	writetext UnknownText_0xd0a4
 	callasm PutTheRodAway
+;	callasm .makegreen
 	closetext
 	randomwildmon
 	startbattle
@@ -1874,7 +2009,7 @@ Script_GotABite: ; 0xd035
 	hide_emote
 	fish_cast_rod
 	step_end
-
+	
 Fishing_CheckFacingUp: ; d06c
 	ld a, [PlayerDirection]
 	and $c
@@ -1891,6 +2026,7 @@ Script_FishCastRod: ; 0xd07c
 	reloadmappart
 	loadvar hBGMapMode, $0
 	special UpdateTimePals
+	callasm .makegray
 	loademote EMOTE_ROD
 	callasm LoadFishingGFX
 	loademote EMOTE_SHOCK
@@ -1898,6 +2034,50 @@ Script_FishCastRod: ; 0xd07c
 	pause 40
 	end
 
+.makegray
+	ld hl, .palettesgray
+	ld de, OBPals + 8 * 5
+	ld bc, 8
+	ld a, $5
+	call FarCopyWRAM
+	ld a, $1
+	ld [hCGBPalUpdate], a
+	ret
+	
+.palettesgray ; 12451
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 13, 13, 13
+	RGB 00, 00, 00
+	
+.makegreen
+	ld a, [TimeOfDay]
+	cp NITE
+	jr z, .standardnite
+	cp MORN
+	jr z, .standardmorn
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	jr z, .standarddusk
+	ld hl, StandardGrassDayPalette
+	jr .cont
+.standardnite
+	ld hl, StandardGrassNitePalette
+	jr .cont
+.standardmorn
+	ld hl, StandardGrassMornPalette
+	jr .cont
+.standarddusk
+	ld hl, StandardGrassDuskPalette
+.cont
+	ld de, OBPals + 8 * 5
+	ld bc, 8
+	ld a, $5
+	call FarCopyWRAM
+	ld a, $1
+	ld [hCGBPalUpdate], a
+	ret
+	
 MovementData_0xd093: ; d093
 	fish_cast_rod
 	step_end
@@ -2069,14 +2249,18 @@ GotOffTheBikeText: ; 0xd181
 	; got off the @ .
 	text_jump UnknownText_0x1c09c7
 	db "@"
-
+	
 TryCutOW:: ; d186
-	ld d, CUT
-	call CheckPartyMove
+	ld de, ENGINE_SECONDBADGE
+	call CheckEngineFlag
 	jr c, .cant_cut
 
-	ld de, ENGINE_HIVEBADGE
+	ld de, ENGINE_GOT_CUT
 	call CheckEngineFlag
+	jr c, .cant_cut
+	
+	ld d, CUT
+	call CheckPartyCanLearnMove
 	jr c, .cant_cut
 
 	ld a, BANK(AskCutScript)
@@ -2123,3 +2307,62 @@ UnknownText_0xd1d0: ; 0xd1d0
 	text_jump UnknownText_0x1c0a05
 	db "@"
 	
+TryRockSmashOW:: ; d186
+	ld de, ENGINE_FIRSTBADGE
+	call CheckEngineFlag
+	jr c, .cant_smash
+
+	ld de, ENGINE_GOT_ROCK_SMASH
+	call CheckEngineFlag
+	jr c, .cant_smash
+	
+	ld d, ROCK_SMASH
+	call CheckPartyCanLearnMove
+	jr c, .cant_smash
+	
+	ld a, BANK(AskRockSmashScript)
+	ld hl, AskRockSmashScript
+	call CallScript
+	scf
+	ret
+
+.cant_smash
+	ld a, BANK(CantSmashScript)
+	ld hl, CantSmashScript
+	call CallScript
+	scf
+	ret
+
+AskRockSmashScript: ; 0xd1a9
+	opentext
+	writetext UnknownText_0xcf77
+	yesorno
+	iffalse .script_d1b8
+	callasm .CheckMap
+	iftrue Script_RockSmash
+.script_d1b8
+	closetext
+	end
+
+.CheckMap: ; d1ba
+	xor a
+	ld [ScriptVar], a
+	call CheckMapForSomethingToRockSmash
+	ret c
+	ld a, TRUE
+	ld [ScriptVar], a
+	ret
+
+
+CantSmashScript: ; 0xd1cd
+	jumptext UnknownText_0xcf72
+
+UnknownText_0xcf72: ; 0xcf72
+	; Maybe a #MON can break this.
+	text_jump UnknownText_0x1c0906
+	db "@"
+
+UnknownText_0xcf77: ; 0xcf77
+	; This rock looks breakable. Want to use ROCK SMASH?
+	text_jump UnknownText_0x1c0924
+	db "@"

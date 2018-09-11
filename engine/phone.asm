@@ -99,7 +99,7 @@ GetRemainingSpaceInPhoneList: ; 90040
 ; 90066
 
 PermanentNumbers: ; 90066
-	db PHONECONTACT_MOM, PHONECONTACT_ELM, -1
+	db PHONECONTACT_MOM, PHONECONTACT_SPRUCE, -1
 ; 90069
 
 
@@ -454,7 +454,7 @@ Script_SpecialBillCall:: ; 0x90255
 	jump Script_ReceivePhoneCall
 
 .LoadBillScript:
-	ld e, PHONE_BILL
+	ld e, PHONE_UNKNOWN
 	jp LoadCallerScript
 ; 90261
 
@@ -464,7 +464,7 @@ UnknownScript_0x90261: ; 0x90261
 	jump Script_ReceivePhoneCall
 
 .LoadElmScript:
-	ld e, PHONE_ELM
+	ld e, PHONE_SPRUCE
 	jp LoadCallerScript
 ; 9026f
 
@@ -518,7 +518,7 @@ Phone_FirstOfTwoRings: ; 902b3
 Phone_CallerTextboxWithName2: ; 902c9
 	call Phone_CallerTextbox
 	hlcoord 1, 2
-	ld [hl], $62
+	ld [hl], $d9
 	inc hl
 	inc hl
 	ld a, [PhoneScriptBank]
@@ -618,7 +618,7 @@ Function90363: ; 90363 (24:4363)
 	push bc
 	call Phone_CallerTextbox
 	hlcoord 1, 1
-	ld [hl], $62
+	ld [hl], $d9
 	inc hl
 	inc hl
 	ld d, h
@@ -654,7 +654,7 @@ CheckCanDeletePhoneNumber: ; 9038a (24:438a)
 	ld a, b
 	cp PHONECONTACT_MOM
 	ret z
-	cp PHONECONTACT_ELM
+	cp PHONECONTACT_SPRUCE
 	ret z
 	ld c, $1
 	ret
@@ -710,14 +710,14 @@ NonTrainerCallerNames: ; 903d6
 	dw .none
 	dw .mom
 	dw .bikeshop
-	dw .bill
-	dw .elm
+	dw .unknown
+	dw .spruce
 	dw .buena
 
 .none db "----------@"
 .mom db "MOM:@"
-.bill db "BILL:@"
-.elm db "PROF.ELM:@"
+.unknown db "???:@"
+.spruce db "PROF.SPRUCE:@"
 .bikeshop db "BIKE SHOP:@"
 .buena db "BUENA:", $22, "   DISC JOCKEY@"
 ; 90423
@@ -773,42 +773,42 @@ ENDM
 	phone TRAINER_NONE, PHONE_00,              N_A,                       0, UnusedPhoneScript,   0, UnusedPhoneScript
 	phone TRAINER_NONE, PHONECONTACT_MOM,      KRISS_HOUSE_1F,            7, MomPhoneScript,      0, UnusedPhoneScript
 	phone TRAINER_NONE, PHONECONTACT_BIKESHOP, OAKS_LAB,                  0, UnusedPhoneScript,   0, UnusedPhoneScript
-	phone TRAINER_NONE, PHONECONTACT_BILL,     N_A,                       7, BillPhoneScript1,    0, BillPhoneScript2
-	phone TRAINER_NONE, PHONECONTACT_ELM,      ELMS_LAB,                  7, ElmPhoneScript1,     0, ElmPhoneScript2
+	phone TRAINER_NONE, PHONECONTACT_UNKNOWN,  N_A,                       7, SprucePhoneScript,   0, UnusedPhoneScript
+	phone TRAINER_NONE, PHONECONTACT_SPRUCE,   N_A,            		      7, SprucePhoneScript,   0, UnusedPhoneScript
 ; 90627
 
 SpecialPhoneCallList: ; 90627
 	dw SpecialCallOnlyWhenOutside
-	db PHONE_ELM
-	dba ElmPhoneScript2
+	db PHONE_UNKNOWN
+	dba SprucePhoneScript
 
-	dw SpecialCallOnlyWhenOutside
-	db PHONE_ELM
-	dba ElmPhoneScript2
+;	dw SpecialCallOnlyWhenOutside
+;	db PHONE_SPRUCE
+;	dba SprucePhoneScript
 
-	dw SpecialCallOnlyWhenOutside
-	db PHONE_ELM
-	dba ElmPhoneScript2
+;	dw SpecialCallOnlyWhenOutside
+;	db PHONE_ELM
+;	dba ElmPhoneScript2
 
-	dw SpecialCallOnlyWhenOutside
-	db PHONE_ELM
-	dba ElmPhoneScript2
-
-	dw SpecialCallWhereverYouAre
-	db PHONE_ELM
-	dba ElmPhoneScript2
-
-	dw SpecialCallWhereverYouAre
-	db PHONE_OAK ; ????????
-	dba BikeShopPhoneScript ; bike shop
-
-	dw SpecialCallWhereverYouAre
-	db PHONE_MOM
-	dba ElmPhoneScript2
-
-	dw SpecialCallOnlyWhenOutside
-	db PHONE_ELM
-	dba ElmPhoneScript2
+;	dw SpecialCallOnlyWhenOutside
+;	db PHONE_ELM
+;	dba ElmPhoneScript2
+;
+;	dw SpecialCallWhereverYouAre
+;	db PHONE_ELM
+;	dba ElmPhoneScript2
+;
+;	dw SpecialCallWhereverYouAre
+;	db PHONE_OAK ; ????????
+;	dba BikeShopPhoneScript ; bike shop
+;
+;	dw SpecialCallWhereverYouAre
+;	db PHONE_MOM
+;	dba ElmPhoneScript2
+;
+;	dw SpecialCallOnlyWhenOutside
+;	db PHONE_ELM
+;	dba ElmPhoneScript2
 ; 90657
 
 UnknownScript_0x90657: ; 0x90657

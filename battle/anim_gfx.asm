@@ -38,4 +38,5 @@ AnimObjShineGFX:     INCBIN "gfx/fx/shine.2bpp.lz"
 AnimObjAngelsGFX:    INCBIN "gfx/fx/angels.2bpp.lz"
 AnimObjWaveGFX:      INCBIN "gfx/fx/wave.2bpp.lz"
 AnimObjAeroblastGFX: INCBIN "gfx/fx/aeroblast.2bpp.lz"
+AnimObjLavaGFX:		 INCBIN "gfx/fx/lava.2bpp.lz"
 ; 8640e

@@ -3,7 +3,7 @@
 	enum difficultbookshelf
 	enum picturebookshelf
 	enum magazinebookshelf
-	enum teamrocketoath
+	enum doorlocked
 	enum incenseburner
 	enum merchandiseshelf
 	enum townmap

@@ -46,8 +46,8 @@
 	dba Music_Evolution ; 0xf06e1
 	dba Music_NationalPark ; 0xf54e8
 	dba Music_Credits ; 0x1f31c
-	dba Music_AzaleaTown ; 0xf57e8
-	dba Music_CherrygroveCity ; 0xf5b03
+	dba Music_StarglowValley ; 0xf57e8
+	dba Music_SunbeamIsland ; 0xf5b03
 	dba Music_LookKimonoGirl ; 0xf79b8
 	dba Music_UnionCave ; 0xf5c60
 	dba Music_WildBattle ; 0xf5dc5
@@ -60,7 +60,7 @@
 	dba Music_RivalBattle ; 0xe974f
 	dba Music_RocketBattle ; 0xe9b6f
 	dba Music_ElmsLab ; 0xea040
-	dba Music_DarkCave ; 0xea2be
+	dba Music_Lava ; 0xea2be
 	dba Music_Route29 ; 0xf0386
 	dba Music_Route36 ; 0xe94e9
 	dba Music_SSAqua ; 0xead99
@@ -90,7 +90,7 @@
 	dba Music_Mom ; 0xf6bf2
 	dba Music_VictoryRoad ; 0xf6c72
 	dba Music_PokemonLullaby ; 0xf6d79
-	dba Music_PokemonMarch ; 0xf6e23
+	dba Music_Spooky ; 0xf6e23
 	dba Music_GoldSilverOpening ; 0xf7055
 	dba Music_GoldSilverOpening2 ; 0xf7308
 	dba Music_MainMenu ; 0xf78fd
@@ -128,4 +128,5 @@
 	dba Music_GlintCity
 	dba Music_Route4new
 	dba Music_Coraldev1
+	dba Music_GlintGrove
 ; e91a3

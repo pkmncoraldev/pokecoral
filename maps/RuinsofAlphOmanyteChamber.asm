@@ -30,6 +30,8 @@ RuinsofAlphOmanyteChamber_MapEventHeader:: db 0, 0
 FloatBall:
 	checkcode VAR_FACING
 	if_equal DOWN, .YouAreFacingDown
+	killsfx
+	playsound SFX_SHARPEN
 	checkevent EVENT_SPOOKHOUSE_BALL_WILL_MOVE_LEFT
 	iftrue .left
 	applymovement SPOOKHOUSE_FLOATBALL, Movement_SpookHouseFloatBall1

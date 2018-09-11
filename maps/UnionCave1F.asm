@@ -46,11 +46,11 @@ UnionCave1F_MapEventHeader:: db 0, 0
 	person_event SPRITE_POKE_BALL, 14, 3, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, StarglowCavern1FPokeBall1, EVENT_STAR_GLOW_CAVERN_POKE_BALL1
 	person_event SPRITE_DISGUISEMAN, 19, 30, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, StarglowCavern1FNPC2, EVENT_STAR_GLOW_CAVERN_POKE_BALL2
 	person_event SPRITE_FISHER, 19, 30, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, -1, EVENT_STARGLOW_CAVERN_DISGUISEMAN
-	person_event SPRITE_FISHER, 24, 31, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, -1, EVENT_INITIALIZED_EVENTS
-	person_event SPRITE_FISHER, 20, 34, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, -1, EVENT_INITIALIZED_EVENTS
+	person_event SPRITE_FISHER, 0, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, -1, EVENT_STARGLOW_CAVERN_DISGUISEMAN_2
+	person_event SPRITE_FISHER, 20, 34, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, -1, EVENT_STARGLOW_CAVERN_DISGUISEMAN_2
 
 TrainerStarglowCavern_1:
-	trainer EVENT_BEAT_STARGLOW_CAVERN_TRAINER_1, HIKER, HIKER_DOUG, TrainerStarglowCavern_1SeenText, TrainerStarglowCavern_1BeatenText, 0, .Script
+	trainer EVENT_BEAT_STARGLOW_CAVERN_TRAINER_1, HIKER, 1, TrainerStarglowCavern_1SeenText, TrainerStarglowCavern_1BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -61,7 +61,7 @@ TrainerStarglowCavern_1:
 	end
 	
 TrainerStarglowCavern_2:
-	trainer EVENT_BEAT_STARGLOW_CAVERN_TRAINER_2, HIKER, HIKER_WILL, TrainerStarglowCavern_2SeenText, TrainerStarglowCavern_2BeatenText, 0, .Script
+	trainer EVENT_BEAT_STARGLOW_CAVERN_TRAINER_2, HIKER, 2, TrainerStarglowCavern_2SeenText, TrainerStarglowCavern_2BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -72,7 +72,7 @@ TrainerStarglowCavern_2:
 	end
 	
 TrainerStarglowCavern_3:
-	trainer EVENT_BEAT_STARGLOW_CAVERN_TRAINER_3, HIKER, HIKER_ROB, TrainerStarglowCavern_3SeenText, TrainerStarglowCavern_3BeatenText, 0, .Script
+	trainer EVENT_BEAT_STARGLOW_CAVERN_TRAINER_3, HIKER, 3, TrainerStarglowCavern_3SeenText, TrainerStarglowCavern_3BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -102,7 +102,7 @@ StarglowCavernNuggeyManStopsYou:
 StarglowCavern1FNPC1:
 	checkevent EVENT_GOT_NUGGET_FROM_STARGLOW_CAVERN_HIKER
 	iftrue .alreadygotnugget
-	checkevent EVENT_PUNKS_LEAVE_STARGLOW
+	checkevent EVENT_STARGLOW_CAVERN_DISGUISEMAN_FINISHED
 	iftrue .didntgetnuggetlasttime
 	opentext
 	writetext StarglowCavern_NuggetManText1
@@ -145,6 +145,10 @@ StarglowCavern1FNPC1:
 	closetext
 	dotrigger $1
 	setevent EVENT_GOT_NUGGET_FROM_STARGLOW_CAVERN_HIKER
+	setevent EVENT_STARGLOW_CAVERN_DISGUISEMAN
+	setevent EVENT_STARGLOW_CAVERN_DISGUISEMAN_2
+	setevent EVENT_STAR_GLOW_CAVERN_POKE_BALL2
+	setevent EVENT_STARGLOW_CAVERN_DISGUISEMAN_FINISHED
 	end
 .alreadygotnugget:
 	opentext
@@ -174,9 +178,14 @@ StarglowCavern1FNPC2:
 	writetext StarglowCavern_DisguiseMan1Text2
 	waitbutton
 	closetext
+	setevent EVENT_STARGLOW_CAVERN_DISGUISEMAN
+	setevent EVENT_STARGLOW_CAVERN_DISGUISEMAN_2
+	setevent EVENT_STAR_GLOW_CAVERN_POKE_BALL2
+	setevent EVENT_STARGLOW_CAVERN_DISGUISEMAN_FINISHED
+	dotrigger $1
 	winlosstext TrainerStarglowCavern_4BeatenText, -1
 	setlasttalked STARGLOWCAVERN_TRAINER4_POKEBALL
-	loadtrainer DISGUISEMAN, DISGUISEMAN1
+	loadtrainer DISGUISEMAN, 1
 	startbattle
 	reloadmapafterbattle
 	checkflag ENGINE_PLAYER_IS_FEMALE
@@ -198,7 +207,6 @@ StarglowCavern1FNPC2:
 	writetext StarglowCavern_DisguiseMan1Text4
 	waitbutton
 	closetext
-	dotrigger $1
 	end
 	
 StarglowCavern1FPokeBall1:
@@ -388,39 +396,67 @@ StarglowCavern_NuggetManText5:
 	done
 	
 TrainerStarglowCavern_1SeenText:
-	text "SEEN TEXT"
+	text "You'll find a bunch"
+	line "of ROCK TYPE #-"
+	cont "MON in this cave."
+	
+	para "Hope you're"
+	line "prepared!"
 	done
 	
 TrainerStarglowCavern_1BeatenText:
-	text "BEATEN TEXT"
+	text "That's the way!"
 	done
 	
 TrainerStarglowCavern_1NormalText:
-	text "NORMAL TEXT"
+	text "GRASS or WATER"
+	line "#MON would"
+	
+	para "probably do great"
+	line "around here."
 	done
 	
 TrainerStarglowCavern_2SeenText:
-	text "SEEN TEXT"
+	text "HIKERS love caves!"
+	
+	para "I don't know why,"
+	line "but we just do!"
 	done
 	
 TrainerStarglowCavern_2BeatenText:
-	text "BEATEN TEXT"
+	text "Oh yeah!"
 	done
 	
 TrainerStarglowCavern_2NormalText:
-	text "NORMAL TEXT"
+	text "This cave is"
+	line "great!"
+	
+	para "So many great ROCK"
+	line "#MON!"
 	done
 	
 TrainerStarglowCavern_3SeenText:
-	text "SEEN TEXT"
+	text "Hehehe…"
+	
+	para "What's wrong, kid?"
+	
+	para "Lost?"
 	done
 	
 TrainerStarglowCavern_3BeatenText:
-	text "BEATEN TEXT"
+	text "What's that?"
+	
+	para "I lost?"
 	done
 	
 TrainerStarglowCavern_3NormalText:
-	text "NORMAL TEXT"
+	text "Don't worry."
+	
+	para "This cave is"
+	line "straightforward."
+	
+	para "You can't really"
+	line "get lost in here."
 	done
 	
 TrainerStarglowCavern_4BeatenText:

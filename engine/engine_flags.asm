@@ -199,6 +199,7 @@ ENDM
 	engine_flag DailyFlags, 6 ; goldenrod underground merchant closed
 	engine_flag DailyFlags, 7 ; fought in trainer hall today
 	engine_flag DailyFlags + 1, 0 ; bikini contest
+	engine_flag DailyFlags + 1, 1 ; ranch ride race
 
 	engine_flag WeeklyFlags, 0 ; mt moon square clefairy  ; $58
 	engine_flag WeeklyFlags, 1 ; union cave lapras
@@ -293,6 +294,7 @@ ENDM
 	engine_flag HMFlags, 0
 	engine_flag HMFlags, 1
 	engine_flag HMFlags, 2
+	engine_flag HMFlags, 3
 	
 	engine_flag MetGymLeaderFlags, 0
 	engine_flag MetGymLeaderFlags, 1
@@ -301,4 +303,4 @@ ENDM
 	engine_flag MetGymLeaderFlags, 4
 	engine_flag MetGymLeaderFlags, 5
 	engine_flag MetGymLeaderFlags, 6
-	engine_flag MetGymLeaderFlags, 7
+	engine_flag MetGymLeaderFlags, 7	

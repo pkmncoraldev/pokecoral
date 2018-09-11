@@ -32,7 +32,7 @@ UnknownScript_0x18ad24:
 ClefairyScript_0x18ad2a:
 	opentext
 	writetext UnknownText_0x18ae4b
-	cry BLISSEY
+	cry CAMERUPT
 	waitbutton
 	closetext
 	end
@@ -69,7 +69,7 @@ UnknownText_0x18add3:
 	done
 
 UnknownText_0x18ae4b:
-	text "BLISSEY: Bliisii!"
+	text "CAMERUPT: Bliisii!"
 	done
 
 CopycatsHouse1F_MapEventHeader:

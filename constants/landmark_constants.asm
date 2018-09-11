@@ -15,6 +15,7 @@
 	const UNION_CAVE        ; 0a
 	const LAKE_OF_RAGE      ; 26
 	const ROUTE_34          ; 0f
+	const TOHJO_FALLS       ; 5d
 	const ROUTE_42          ; 22
 	const ROUTE_45          ; 2b
 	const ROUTE_41          ; 20
@@ -23,13 +24,18 @@
 	const CHERRYGROVE_CITY  ; 03
 	const ILEX_FOREST       ; 0e
 	const RUINS_OF_ALPH     ; 09
-	const OCEAN          	; 19
+	const ROUTE_11          ; 49
+	const SLOWPOKE_WELL     ; 0d
+	const VERMILION_CITY    ; 3d
+
+
+KANTO_LANDMARK EQU const_value
 	const NEW_BARK_TOWN     ; 01
+	const OCEAN          	; 19
 	const ROUTE_29          ; 02
 	const ROUTE_31          ; 05
 	const ROUTE_32          ; 08
 	const ROUTE_33          ; 0b
-	const SLOWPOKE_WELL     ; 0d
 	const GOLDENROD_CITY    ; 10
 	const RADIO_TOWER       ; 11
 	const ROUTE_35          ; 12
@@ -50,10 +56,6 @@
 	const DARK_CAVE         ; 2c
 	const ROUTE_46          ; 2d
 	const SILVER_CAVE       ; 2e
-
-
-KANTO_LANDMARK EQU const_value
-
 	const PALLET_TOWN       ; 2f
 	const ROUTE_1           ; 30
 	const VIRIDIAN_CITY     ; 31
@@ -68,7 +70,6 @@ KANTO_LANDMARK EQU const_value
 	const ROUTE_5           ; 3a
 	const UNDERGROUND       ; 3b
 	const ROUTE_6           ; 3c
-	const VERMILION_CITY    ; 3d
 	const DIGLETTS_CAVE     ; 3e
 	const ROUTE_7           ; 3f
 	const ROUTE_8           ; 40
@@ -80,7 +81,6 @@ KANTO_LANDMARK EQU const_value
 	const LAV_RADIO_TOWER   ; 46
 	const CELADON_CITY      ; 47
 	const SAFFRON_CITY      ; 48
-	const ROUTE_11          ; 49
 	const ROUTE_12          ; 4a
 	const ROUTE_13          ; 4b
 	const ROUTE_14          ; 4c
@@ -100,6 +100,5 @@ KANTO_LANDMARK EQU const_value
 	const INDIGO_PLATEAU    ; 5a
 	const ROUTE_26          ; 5b
 	const ROUTE_27          ; 5c
-	const TOHJO_FALLS       ; 5d
 	const ROUTE_28          ; 5e
 	const FAST_SHIP         ; 5f

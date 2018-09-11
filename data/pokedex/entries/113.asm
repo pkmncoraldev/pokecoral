@@ -1,10 +1,10 @@
-; ChanseyPokedexEntry: ; 0x1b942e
-	db "EGG@" ; species name
-	dw 307, 760 ; height, width
+; NumelPokedexEntry: ; 0x1b942e
+	db "NUMB@" ; species name
+	dw 204, 529 ; height, width
 
-	db   "People try to"
-	next "catch it for its"
-	next "extremely"
-	page "nutritious eggs,"
-	next "but it rarely can"
-	next "be found.@"
+	db   "The flaming magma"
+	next "it stores in the"
+	next "hump on its back"
+	page "is the source of"
+	next "its tremendous"
+	next "power.@"

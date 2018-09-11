@@ -302,6 +302,17 @@ UnknownText_0x1c05ec::
 	line "CUT here."
 	prompt
 
+UsedRockSmashText::
+	text_from_ram StringBuffer2
+	text " used"
+	line "ROCK SMASH!"
+	prompt
+
+NothingToRockSmashText::
+	text "There's no rocks"
+	line "to smash here."
+	prompt
+
 UnknownText_0x1c0609::
 	text "A blinding FLASH"
 	line "lights the area!@"

@@ -16,27 +16,6 @@ GoldenrodMagnetTrainStation_MapScriptHeader:
 	end
 
 OfficerScript_0x550ec:
-	faceplayer
-	opentext
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .MagnetTrainToSaffron
-	writetext UnknownText_0x55160
-	waitbutton
-	closetext
-	end
-
-.MagnetTrainToSaffron:
-	writetext UnknownText_0x551b7
-	yesorno
-	iffalse .DecidedNotToRide
-	checkitem PASS
-	iffalse .PassNotInBag
-	writetext UnknownText_0x551ed
-	waitbutton
-	closetext
-	applymovement GOLDENRODMAGNETTRAINSTATION_OFFICER, MovementData_0x55146
-	applymovement PLAYER, MovementData_0x5514f
-	writebyte $0
 	special Special_MagnetTrain
 	warpcheck
 	newloadmap MAPSETUP_TRAIN
@@ -172,8 +151,8 @@ GoldenrodMagnetTrainStation_MapEventHeader:
 
 .Warps:
 	db 4
-	warp_def $11, $8, 5, GOLDENROD_CITY
-	warp_def $11, $9, 5, GOLDENROD_CITY
+	warp_def $11, $8, 5, VERMILION_CITY
+	warp_def $11, $9, 5, VERMILION_CITY
 	warp_def $5, $6, 4, SAFFRON_TRAIN_STATION
 	warp_def $5, $b, 3, SAFFRON_TRAIN_STATION
 

@@ -94,24 +94,24 @@ FramesPointers:
 	dw HaunterFrames
 	dw GengarFrames
 	dw OnixFrames
-	dw DrowzeeFrames
-	dw HypnoFrames
-	dw KrabbyFrames
-	dw KinglerFrames
+	dw MedititeFrames
+	dw MedichamFrames
+	dw CorphishFrames
+	dw CrawdauntFrames
 	dw VoltorbFrames
 	dw ElectrodeFrames
 	dw ExeggcuteFrames
 	dw ExeggutorFrames
 	dw CuboneFrames
 	dw MarowakFrames
-	dw HitmonleeFrames
-	dw HitmonchanFrames
+	dw BunearyFrames
+	dw LopunnyFrames
 	dw LickitungFrames
 	dw KoffingFrames
 	dw WeezingFrames
 	dw RhyhornFrames
 	dw RhydonFrames
-	dw ChanseyFrames
+	dw NumelFrames
 	dw TangelaFrames
 	dw KangaskhanFrames
 	dw HorseaFrames
@@ -122,7 +122,7 @@ FramesPointers:
 	dw StarmieFrames
 	dw HawluchaFrames
 	dw ScytherFrames
-	dw JynxFrames
+	dw VolcaronaFrames
 	dw ElectabuzzFrames
 	dw MagmarFrames
 	dw PinsirFrames
@@ -161,8 +161,8 @@ FramesPointers:
 	dw FeraligatrFrames
 	dw SentretFrames
 	dw FurretFrames
-	dw HoothootFrames
-	dw NoctowlFrames
+	dw NoibatFrames
+	dw NoivernFrames
 	dw LedybaFrames
 	dw LedianFrames
 	dw JoltikFrames
@@ -185,9 +185,9 @@ FramesPointers:
 	dw AzumarillFrames
 	dw SudowoodoFrames
 	dw PolitoedFrames
-	dw HoppipFrames
-	dw SkiploomFrames
-	dw JumpluffFrames
+	dw AronFrames
+	dw LaironFrames
+	dw AggronFrames
 	dw AipomFrames
 	dw SunkernFrames
 	dw SunfloraFrames
@@ -234,13 +234,13 @@ FramesPointers:
 	dw Porygon2Frames
 	dw StantlerFrames
 	dw SmeargleFrames
-	dw TyrogueFrames
-	dw HitmontopFrames
-	dw SmoochumFrames
+	dw SwabluFrames
+	dw AltariaFrames
+	dw LarvestaFrames
 	dw ElekidFrames
 	dw MagbyFrames
 	dw MiltankFrames
-	dw BlisseyFrames
+	dw CameruptFrames
 	dw RaikouFrames
 	dw EnteiFrames
 	dw SuicuneFrames

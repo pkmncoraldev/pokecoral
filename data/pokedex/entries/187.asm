@@ -1,10 +1,10 @@
-; HoppipPokedexEntry: ; 0x1cd8b5
-	db "COTTONWEED@" ; species name
-	dw 104, 10 ; height, width
+; AronPokedexEntry: ; 0x1cd8b5
+	db "IRON ARMOR@" ; species name
+	dw 104, 1323 ; height, width
 
-	db   "It can be carried"
-	next "away on even the"
-	next "gentlest breeze."
-	page "It may even float"
-	next "all the way to the"
-	next "next town.@"
+	db   "It eats iron to"
+	next "build its steel"
+	next "body. It's a pest,"
+	page "that descends from"
+	next "mountains to eat"
+	next "man-made things.@"

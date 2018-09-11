@@ -1,10 +1,10 @@
 ; MisdreavusPokedexEntry: ; 0x1d0301
-	db "SCREECH@" ; species name
-	dw 204, 20 ; height, width
+	db "PUPPET@" ; species name
+	dw 200, 51 ; height, width
 
-	db   "It loves to watch"
-	next "people it's scar-"
-	next "ed. It frightens"
-	page "them by screaming"
-	next "loudly or appear-"
-	next "ing suddenly.@"
+	db   "It loves vengeful"
+	next "emotions and hangs"
+	next "in rows under the"
+	page "eaves of houses"
+	next "where vengeful"
+	next "people live.@"

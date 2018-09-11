@@ -208,10 +208,6 @@ LoadWarpData: ; 1046c6
 	ld c, a
 	call GetAnyMapTileset
 	ld a, c
-	cp TILESET_POKECENTER
-	jr z, .pokecenter_pokecom
-	cp TILESET_POKECOM_CENTER
-	jr z, .pokecenter_pokecom
 	ret
 .pokecenter_pokecom
 	ld a, [wPrevMapGroup]

@@ -55,7 +55,7 @@ _GetVarAction:: ; 80648 (20:4648)
 	dwb .UnownCaught,                   RETVAR_EXECUTE
 	dwb wPermission,                    RETVAR_STRBUF2
 	dwb .BoxFreeSpace,                  RETVAR_EXECUTE
-	dwb wBugContestMinsRemaining,       RETVAR_STRBUF2
+	dwb wBugContestSecsRemaining,       RETVAR_STRBUF2
 	dwb XCoord,                         RETVAR_STRBUF2
 	dwb YCoord,                         RETVAR_STRBUF2
 	dwb wSpecialPhoneCallID,            RETVAR_STRBUF2

@@ -434,3 +434,21 @@ ChrisSurfSprite:
 	
 KrisSurfSprite:
 	sprite_header KrisSurfSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED
+	
+DodrioRideSprite:
+	sprite_header DodrioRideSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BROWN
+	
+ScarecrowSprite:
+	sprite_header ScarecrowSpriteGFX, 1, STILL_SPRITE, PAL_OW_BROWN
+	
+ExecSprite:
+	sprite_header ExecSpriteGFX, 3, WALKING_SPRITE, PAL_OW_GREEN
+	
+InvisibleSprite:
+	sprite_header InvisibleSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED
+	
+ChrisCutsceneSprite:
+	sprite_header ChrisSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED
+	
+KrisCutsceneSprite:
+	sprite_header KrisSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED

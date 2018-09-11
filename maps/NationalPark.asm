@@ -112,8 +112,8 @@ NationalPark_MapEventHeader:: db 0, 0
 	person_event SPRITE_NIDORANM, 7, 17, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, SunbeamIslandGardenNidoranM, -1
 	person_event SPRITE_NIDORANF, 5, 16, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SunbeamIslandGardenNidoranF, -1
 	person_event SPRITE_SLOWPOKE, 13, 7, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, SunbeamIslandGardenSlowpoke, -1
-	person_event SPRITE_HITMONLEE, 9, 10, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, SunbeamIslandGardenLopunny, -1
-	person_event SPRITE_HITMONTOP, 10, 14, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SunbeamIslandGardenAltaria, -1
+	person_event SPRITE_LOPUNNY, 9, 10, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, SunbeamIslandGardenLopunny, -1
+	person_event SPRITE_ALTARIA, 10, 14, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SunbeamIslandGardenAltaria, -1
 	person_event SPRITE_DONPHAN, 6, 21, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SunbeamIslandGardenDonphan, -1
 	person_event SPRITE_DODRIO, 4, 19, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, SunbeamIslandGardenDodrio, -1
 
@@ -156,7 +156,7 @@ SunbeamIslandGardenSlowpoke:
 SunbeamIslandGardenLopunny:
 	opentext
 	writetext SunbeamIslandGardenLopunnyText
-	cry HITMONLEE
+	cry LOPUNNY
 	waitbutton
 	closetext
 	end
@@ -164,7 +164,7 @@ SunbeamIslandGardenLopunny:
 SunbeamIslandGardenAltaria:
 	opentext
 	writetext SunbeamIslandGardenAltariaText
-	cry HITMONTOP
+	cry ALTARIA
 	waitbutton
 	closetext
 	end
@@ -188,33 +188,64 @@ SunbeamIslandGardenDodrio:
 SunbeamIslandGardenSpruceText
 	text "YOU SHOULDN'T BE"
 	line "HERE!!!!!!"
+	done
 	
 GardenSpruce1Text1:
-	text "TEXT 1"
+	text "My research"
+	line "involves #MON"
+	cont "conservation."
+	
+	para "As such, I run a"
+	line "#MON reserve."
 	done
 	
 GardenSpruce1Text2:
-	text "TEXT 2"
+	text "The #MON here"
+	line "are all very"
+	cont "docile."
 	done
 	
 GardenSpruce1Text3:
-	text "TEXT 3"
+	text "Isn't that right,"
+	line "DONPHAN?"
 	done
 	
 GardenSpruce1Text4:
-	text "TEXT 4"
+	text "I let the #MON"
+	line "live their lives"
+	
+	para "as they would in"
+	line "the wild, and"
+	
+	para "study their behav-"
+	line "iors."
 	done
 	
 GardenSpruce1Text5:
-	text "TEXT 5"
+	text "How are the young"
+	line "ones, NIDOQUEEN?"
 	done
 	
 GardenSpruce1Text6:
-	text "TEXT 6"
+	text "Recently, I have"
+	line "experimented with"
+	
+	para "letting TRAINERS"
+	line "catch some of the"
+	
+	para "#MON in the"
+	line "habitat to see how"
+	
+	para "they react to"
+	line "being trained."
+	
+	para "Feel free to catch"
+	line "a few yourself."
 	done
 	
 GardenSpruce1Text7:
-	text "TEXT 7"
+	text "Let's head back"
+	line "inside."
 	done
 	
 SunbeamIslandGardenNidoqueenText:

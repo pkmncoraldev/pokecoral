@@ -1,6 +1,8 @@
 const_value set 2
-	const SILPHCO1F_RECEPTIONIST
-	const SILPHCO1F_OFFICER
+	const RANCHBARN_DODRIO
+	const RANCHBARN_DODUO1
+	const RANCHBARN_DODUO2
+	const RANCHBARN_NPC
 
 SilphCo1F_MapScriptHeader:
 .MapTriggers:
@@ -9,68 +11,48 @@ SilphCo1F_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-SilphCoReceptionist:
-	jumptextfaceplayer SilphCoReceptionistText
+SilphCo1F_MapEventHeader:: db 0, 0
 
-OfficerScript_0x18abe8:
-	faceplayer
+.Warps: db 2
+	warp_def 7, 3, 4, ROUTE_11
+	warp_def 7, 4, 4, ROUTE_11
+
+.CoordEvents: db 0
+
+.BGEvents: db 0
+
+.ObjectEvents: db 4
+	person_event SPRITE_DODRIO, 5, 9, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, BarnDodrio, -1
+	person_event SPRITE_DODUO, 2, 9, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, RanchDoduo, -1
+	person_event SPRITE_DODUO, 2, 3, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, RanchDoduo, -1
+	person_event SPRITE_YOUNGSTER, 5, 10, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, RanchBarnNPC, -1
+
+BarnDodrio:
 	opentext
-	checkevent EVENT_GOT_UP_GRADE
-	iftrue UnknownScript_0x18abfd
-	writetext UnknownText_0x18ac36
-	buttonsound
-	verbosegiveitem UP_GRADE
-	iffalse UnknownScript_0x18ac01
-	setevent EVENT_GOT_UP_GRADE
-UnknownScript_0x18abfd:
-	writetext UnknownText_0x18aca8
+	writetext BarnDodrioText
+	cry DODRIO
 	waitbutton
-UnknownScript_0x18ac01:
 	closetext
 	end
-
-SilphCoReceptionistText:
-	text "Welcome. This is"
-	line "SILPH CO.'s HEAD"
-	cont "OFFICE BUILDING."
+	
+RanchBarnNPC:
+	faceplayer
+	opentext
+	writetext RanchBarnNPCText
+	waitbutton
+	closetext
+	spriteface RANCHBARN_NPC, LEFT
+	end
+	
+RanchBarnNPCText:
+	text "It's my job to"
+	line "take care of all"
+	cont "the #MON."
+	
+	para "It's real hard"
+	line "work…"
 	done
-
-UnknownText_0x18ac36:
-	text "Only employees are"
-	line "permitted to go"
-	cont "upstairs."
-
-	para "But since you came"
-	line "such a long way,"
-
-	para "have this neat"
-	line "little souvenir."
+	
+BarnDodrioText:
+	text "DODRIO: DRRREEEO!"
 	done
-
-UnknownText_0x18aca8:
-	text "It's SILPH CO.'s"
-	line "latest product."
-
-	para "It's not for sale"
-	line "anywhere yet."
-	done
-
-SilphCo1F_MapEventHeader:
-	; filler
-	db 0, 0
-
-.Warps:
-	db 2
-	warp_def $7, $2, 7, SAFFRON_CITY
-	warp_def $7, $3, 7, SAFFRON_CITY
-
-.XYTriggers:
-	db 0
-
-.Signposts:
-	db 0
-
-.PersonEvents:
-	db 2
-	person_event SPRITE_RECEPTIONIST, 2, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SilphCoReceptionist, -1
-	person_event SPRITE_OFFICER, 1, 13, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, OfficerScript_0x18abe8, -1

@@ -1073,3 +1073,7 @@ givefreepoke: macro
 	db \1 ; trade_id
 	endm
 	
+	enum killsfx_command
+killsfx: macro
+	db killsfx_command
+	endm

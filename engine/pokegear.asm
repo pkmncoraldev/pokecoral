@@ -1,4 +1,11 @@
 PokeGear: ; 90b8d (24:4b8d)
+	ld hl, MapObjectPalsPokegear
+	call AddNTimes
+	ld de, UnknOBPals
+	ld bc, 8 palettes
+	ld a, $5 ; BANK(UnknOBPals)
+	call FarCopyWRAM
+
 	ld hl, Options
 	ld a, [hl]
 	push af
@@ -566,7 +573,7 @@ PokegearMap_KantoMap: ; 90fe9 (24:4fe9)
 	jr PokegearMap_ContinueMap
 
 PokegearMap_JohtoMap: ; 90fee (24:4fee)
-	ld d, OCEAN
+	ld d, VERMILION_CITY
 	ld e, SUNSET_BAY
 PokegearMap_ContinueMap: ; 90ff2 (24:4ff2)
 	ld hl, hJoyLast
@@ -734,17 +741,17 @@ PokegearMap_UpdateCursorPosition: ; 910d4
 ; 910e8
 
 TownMap_GetKantoLandmarkLimits: ; 910e8
-;	ld a, [StatusFlags]
-;	bit 6, a
-;	jr z, .not_hof
+	ld a, [StatusFlags]
+	bit 6, a
+	jr z, .not_hof
 	ld d, ROUTE_28
 	ld e, PALLET_TOWN
 	ret
 
-;.not_hof
-;	ld d, ROUTE_28
-;	ld e, VICTORY_ROAD
-;	ret
+.not_hof
+	ld d, ROUTE_28
+	ld e, VICTORY_ROAD
+	ret
 
 ; 910f9
 
@@ -2051,13 +2058,13 @@ PlayRadio: ; 91a53
 	lb bc, 4, 18
 	call TextBox
 	hlcoord 1, 14
-	ld [hl], $72
+	ld [hl], "<``>"
 	pop de
 	hlcoord 2, 14
 	call PlaceString
 	ld h, b
 	ld l, c
-	ld [hl], $73
+	ld [hl], "<''>"
 	call WaitBGMap
 	ret
 
@@ -2092,17 +2099,17 @@ PlayRadio: ; 91a53
 ; 91ae1
 
 PokegearMap: ; 91ae1
-	ld a, e
-	and a
-	jr nz, .kanto
+;	ld a, e
+;	and a
+;	jr nz, .kanto
 	call LoadTownMapGFX
 	call FillJohtoMap
 	ret
 
-.kanto
-	call LoadTownMapGFX
-	call FillKantoMap
-	ret
+;.kanto
+;	call LoadTownMapGFX
+;	call FillKantoMap
+;	ret
 
 ; 91af3
 
@@ -2183,9 +2190,11 @@ FlyMapScroll: ; 91b73
 	ld a, [hl]
 	and D_DOWN
 	jr nz, .ScrollPrev
+	
 	ld a, [hl]
-	and SELECT
+	and D_LEFT | D_RIGHT
 	jr nz, .SwapRegion
+	
 	ret
 
 .ScrollNext:
@@ -2310,7 +2319,7 @@ TownMapBubble: ; 91bb5
 	ret
 
 .Where:
-	db "Where to?@"
+	db "Where?@"
 
 .Name:
 ; We need the map location of the default flypoint
@@ -2423,22 +2432,21 @@ KANTO_FLYPOINT EQU const_value
 ; 91c8f
 
 ret_91c8f: ; 91c8f
+
 	ld a, c
 	ld [wd008], a
 	ld a, b
 	ld [wd008+1], a
 	ld a, d
 	ld [wd00a], a
+
 	ret
 
 ; 91c90
 
 FlyMap: ; 91c90
-	
-	ld a, $90
-	ld [hWY], a
 	call FlyMapIsInKanto
-	
+
 	jr nc, .KantoFlyMap
 .JohtoFlyMap:
 ; Note that .NoKanto should be modified in tandem with this branch
@@ -2446,10 +2454,13 @@ FlyMap: ; 91c90
 ; Start from New Bark Town
 
 	call GetJohtoFlyParams
+	ld a, $90
+	ld [hWY], a
 	xor a
 	ld [wd007], a
 
 ; Fill out the map
+
 	call .MapHud
 	pop af
 	call TownMapPlayerIcon
@@ -2469,34 +2480,42 @@ FlyMap: ; 91c90
 
 ; visited and its flypoint enabled
 	push af
+
 	call GetKantoFlyParams
 	jr c, .NoKanto
+
 ; Fill out the map
+
 	xor a
 	ld [hWY], a
 	inc a
 	ld [wd007], a
+	
 	call .MapHud
 	pop af
 	call TownMapPlayerIcon
 	ret
 
-.NoKanto
-; If Kanto hasn't been visited, we use Johto's map instead
+.NoKanto:
+; If Indigo Plateau hasn't been visited, we use Johto's map instead
 
-; Start from New Bark Town
 	call GetJohtoFlyParams
 	xor a
 	ld [wd007], a
+
 	pop af
-	
 .MapHud:
+	ld a, [hWY]
+	and a
+	jr nz, .johtobubble
 
 	call FillKantoMap
 	call TownMapBubble
 	call TownMapPals
 	hlbgcoord 0, 0, VBGMap1
 	call TownMapBGUpdate
+	
+.johtobubble
 	call FillJohtoMap
 	call TownMapBubble
 	call TownMapPals
@@ -2522,6 +2541,11 @@ GetJohtoFlyParams:
 	ret
 
 GetKantoFlyParams:
+	ld c, SPAWN_INDIGO
+	call HasVisitedSpawn
+	and a
+	ld b, FLY_INDIGO
+	jr nz, .spawnIndigo
 	ld hl, Flypoints + 2 * KANTO_FLYPOINT
 	ld b, KANTO_FLYPOINT - 1
 .loop_spawns
@@ -2539,6 +2563,7 @@ GetKantoFlyParams:
 	and a
 	jr z, .loop_spawns
 ; Kanto's map is only loaded if we've visited any place in Kanto
+.spawnIndigo
 
 ; Flypoints begin at Pallet Town...
 	ld a, FLY_PALLET
@@ -2549,7 +2574,7 @@ GetKantoFlyParams:
 ; Use the lowest index flypoint the player visits as the default flypoint
 	ld a, b
 	ld [wd002], a
-;	and a
+	and a
 	ret
 
 .NoKanto:
@@ -3214,3 +3239,5 @@ INCBIN "gfx/pokegear/flymap_label_border.2bpp"
 	ret
 
 ; 92402
+MapObjectPalsPokegear::
+INCLUDE "tilesets/ob.pal"

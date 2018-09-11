@@ -30,6 +30,8 @@ KrissNeighborsHouse_BlockData:
 GuideGentsHouse_BlockData:
 CherrygroveEvolutionSpeechHouse_BlockData:
 Route36NationalParkgate_BlockData:
+VioletGym_BlockData:
+PokemonFanClub_BlockData:
 	INCBIN "maps/ElmsHouse.blk"
 
 Route35NationalParkgate_BlockData:
@@ -77,6 +79,7 @@ Route41_BlockData:
 Route33_BlockData:
 	INCBIN "maps/Route33.blk"
 
+DragonShrine_BlockData:
 Route45_BlockData:
 	INCBIN "maps/Route45.blk"
 
@@ -196,7 +199,6 @@ Route26DayofWeekSiblingsHouse_BlockData:
 Route27SandstormHouse_BlockData:
 MrPsychicsHouse_BlockData:
 Route5CleanseTagSpeechHouse_BlockData:
-Route30BerrySpeechHouse_BlockData:
 BattleTower1F_BlockData:
 BattleTowerBattleRoom_BlockData:
 	INCBIN "maps/House1.blk"
@@ -206,6 +208,7 @@ Route39Farmhouse_BlockData:
 
 Route35Goldenrodgate_BlockData:
 Route36RuinsofAlphgate_BlockData:
+Route30BerrySpeechHouse_BlockData:
 	INCBIN "maps/BoatHouse.blk"
 	
 Route19FuchsiaGate_BlockData:

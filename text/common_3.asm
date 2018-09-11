@@ -336,7 +336,7 @@ UnknownText_0x1c0bd8::
 	prompt
 
 UnknownText_0x1c0bee::
-	text "OAK: <PLAYER>!"
+	text "MOM: <PLAYER>!"
 	line "This isn't the"
 	cont "time to use that!"
 	prompt
@@ -731,14 +731,16 @@ UnknownText_0x1c1203::
 	prompt
 
 UnknownText_0x1c123a::
-	text "CURRENT RECORD"
+	text "CURRENT LAP RECORD"
+	
 	para "@"
 	text_from_ram StringBuffer1
-	text " caught by"
-	line "@"
-	text_from_ram wMagikarpRecordHoldersName
-	text_waitbutton
-	db "@@"
+	text "seconds"
+	line "remaining."
+	
+	para "Set by:"
+	line "<PLAYER>."
+	prompt
 
 UnknownText_0x1c1261::
 	text "Congratulations!"
@@ -884,7 +886,7 @@ _OakPCText3::
 	text_from_ram StringBuffer4
 	text " #MON owned"
 
-	para "PROF.OAK's"
+	para "PROF. SPRUCE's"
 	line "Rating:"
 	done
 
@@ -968,10 +970,11 @@ _OakRating11::
 	done
 
 _OakRating12::
-	text "Have you met KURT?"
-	line "His custom BALLS"
-	cont "should help."
-	done
+	text "Wow. You've found"
+	line "more #MON than"
+
+	para "the last #DEX"
+	line "research project."
 
 _OakRating13::
 	text "Wow. You've found"
@@ -1029,7 +1032,7 @@ _OakRating19::
 
 _OakPCText4::
 	text "The link to PROF."
-	line "OAK's PC closed."
+	line "SPRUCE's PC closed."
 	done
 
 UnknownText_0x1c19cd::
@@ -1228,8 +1231,8 @@ _OakText2::
 	para "others prefer to"
 	line "be companions, "
 	
-	para "like CLEFAIRY,"
-	line "here.@"
+	para "like my friend,"
+	line "MUNCHLAX, here.@"
 
 _OakText3::
 	text_waitbutton

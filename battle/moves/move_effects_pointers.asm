@@ -24,7 +24,7 @@
 	dw AccuracyDown
 	dw SweetScent
 	dw Haze
-	dw Bide
+	dw NormalHit
 	dw Rampage
 	dw Whirlwind
 	dw MultiHit
@@ -35,7 +35,7 @@
 	dw PayDay
 	dw LightScreen
 	dw TriAttack
-	dw NormalHit
+	dw Hurricane
 	dw OHKOHit
 	dw RazorWind
 	dw SuperFang
@@ -76,7 +76,7 @@
 	dw SkyAttack
 	dw ConfuseHit
 	dw Twineedle
-	dw NormalHit
+	dw CottonGuard
 	dw Substitute
 	dw HyperBeam
 	dw Rage
@@ -108,7 +108,7 @@
 	dw Nightmare
 	dw FlameWheel
 	dw Curse
-	dw NormalHit
+	dw SpecialAttackUp2
 	dw Protect
 	dw Spikes
 	dw Foresight
@@ -120,15 +120,15 @@
 	dw FuryCutter
 	dw Attract
 	dw Return
-	dw Present
-	dw Frustration
+	dw PlayRough
+	dw AirCutter
 	dw Safeguard
 	dw SacredFire
 	dw Magnitude
 	dw BatonPass
 	dw Pursuit
 	dw RapidSpin
-	dw NormalHit
+	dw CalmMind
 	dw NormalHit
 	dw MorningSun
 	dw Synthesis

@@ -9,7 +9,6 @@ Route37_MapScriptHeader:
 	db 0
 	
 Route1newSign:
-	giveitem SUN_STONE
 	jumptext Route1newSignText
 	
 FruitTreeScript_Route1:
@@ -18,6 +17,21 @@ FruitTreeScript_Route1:
 Route1NPCScript:
 	jumptextfaceplayer Route1NPCText
 
+Route1newClue:
+	checkitem CLUE_1
+	iffalse .end
+	checkitem CLUE_2
+	iftrue .end
+	opentext
+	writetext Route1newClueText
+	waitbutton
+	verbosegiveitem CLUE_2
+	closetext
+	end
+.end
+	killsfx
+	end
+	
 Route1newSignText:
 	text "ROUTE 1"
 	
@@ -42,6 +56,14 @@ Route1NPCText:
 	line "knew that."
 	done
 
+Route1newClueText:
+	text "You find something"
+	line "nestled in the"
+	cont "flower patch…"
+	
+	para "It's another clue!"
+	done
+	
 Route37_MapEventHeader:: db 0, 0
 
 .Warps: db 2
@@ -50,9 +72,10 @@ Route37_MapEventHeader:: db 0, 0
 
 .CoordEvents: db 0
 
-.BGEvents: db 2
+.BGEvents: db 3
 	signpost 25, 21, SIGNPOST_READ, Route1newSign
 	signpost 6, 2, SIGNPOST_READ, FruitTreeScript_Route1
+	signpost 15, 15, SIGNPOST_READ, Route1newClue
 
 .ObjectEvents: db 1
 	person_event SPRITE_SUPER_NERD, 9, 10, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route1NPCScript, -1

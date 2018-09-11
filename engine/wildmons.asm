@@ -249,7 +249,7 @@ ApplyMusicEffectOnEncounterRate:: ; 2a124
 ; Pokemon March and Ruins of Alph signal double encounter rate.
 ; Pokemon Lullaby halves encounter rate.
 	ld a, [wMapMusic]
-	cp MUSIC_POKEMON_MARCH
+	cp MUSIC_POKEMON_LULLABY
 	jr z, .double
 	cp MUSIC_RUINS_OF_ALPH_RADIO
 	jr z, .double

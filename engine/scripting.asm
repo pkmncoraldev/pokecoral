@@ -237,6 +237,8 @@ ENDC
 	dw Script_wait                       ; a8
 	dw Script_check_save                 ; a9
 	dw Script_givefreepoke
+	dw Script_killsfx
+    ret
 
 StartScript:
 	ld hl, ScriptFlags
@@ -543,7 +545,7 @@ ret_96f76:
 
 GiveItemScript:
 	callasm ret_96f76
-	writetext ReceivedItemText
+	writetext ReceivedItemText2
 	iffalse .Full
 	waitsfx
 	specialsound
@@ -556,7 +558,7 @@ GiveItemScript:
 	pocketisfull
 	end
 
-ReceivedItemText:
+ReceivedItemText2:
 	text_jump UnknownText_0x1c4719
 	db "@"
 
@@ -1333,10 +1335,12 @@ Script_showemote:
 	jp ScriptCall
 
 ShowEmoteScript:
+	callasm .makegray
 	loademote EMOTE_MEM
 	applymovement2 .Show
 	pause 0
 	applymovement2 .Hide
+	callasm .makegreen
 	end
 
 .Show:
@@ -1349,6 +1353,61 @@ ShowEmoteScript:
 	step_sleep 1
 	step_end
 
+.makegray
+	ld hl, .palettesgray
+	ld de, OBPals + 8 * 5
+	ld bc, 8
+	ld a, $5
+	call FarCopyWRAM
+	ld a, $1
+	ld [hCGBPalUpdate], a
+	ret
+	
+.palettesgray ; 12451
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 13, 13, 13
+	RGB 00, 00, 00
+	
+.makegreen
+	ld a, [TimeOfDay]
+	cp NITE
+	jr z, .standardnite
+	cp MORN
+	jr z, .standardmorn
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	jr z, .standarddusk
+	ld hl, StandardGrassDayPalette
+	jr .cont
+.standardnite
+	ld hl, StandardGrassNitePalette
+	jr .cont
+.standardmorn
+	ld hl, StandardGrassMornPalette
+	jr .cont
+.standarddusk
+	ld hl, StandardGrassDuskPalette
+.cont
+	ld de, OBPals + 8 * 5
+	ld bc, 8
+	ld a, $5
+	call FarCopyWRAM
+	ld a, $1
+	ld [hCGBPalUpdate], a
+	ret
+	
+StandardGrassMornPalette: ; 4959f
+INCLUDE "tilesets/outsidepals/grasspals/standardmorn.pal"
+	
+StandardGrassDayPalette: ; 4959f
+INCLUDE "tilesets/outsidepals/grasspals/standardday.pal"
+
+StandardGrassDuskPalette: ; 4959f
+INCLUDE "tilesets/outsidepals/grasspals/standarddusk.pal"
+
+StandardGrassNitePalette: ; 4959f
+INCLUDE "tilesets/outsidepals/grasspals/standardnite.pal"
 
 Script_earthquake:
 ; script command 0x78
@@ -3051,3 +3110,19 @@ Script_givefreepoke:
 	ld e, a
 	callba NPCGiveFreePoke
 	ret
+
+Script_killsfx:
+    call KillSFXEntryPoint
+    jp DelayFrame
+
+SFXChannelsOff2::
+; Quickly turn off sound effect channels
+    xor a
+    ld [SoundInput], a
+KillSFXEntryPoint::
+    xor a
+    ld [Channel5Flags], a
+    ld [Channel6Flags], a
+    ld [Channel7Flags], a
+    ld [Channel8Flags], a
+    ret

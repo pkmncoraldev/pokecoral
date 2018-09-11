@@ -28,11 +28,16 @@ CrossChop:
 Swift:
 FaintAttack:
 VitalThrow:
-JumpKick:
 HiJumpKick:
 QuickAttack:
 MachPunch:
 Extremespeed:
+PowerGem:
+AirCutter:
+Boomburst:
+XScissor:
+DragonPulse:
+BulletPunch:
 NormalHit:
 	checkobedience
 	usedmovetext
@@ -256,7 +261,6 @@ MirrorMove:
 	endmove
 
 Meditate:
-Sharpen:
 AttackUp:
 	checkobedience
 	usedmovetext
@@ -298,6 +302,37 @@ SpeedUp:
 	cantusefakeout
 	endmove
 
+CalmMind:
+	checkobedience
+	usedmovetext
+	doturn
+	specialattackup
+	lowersub
+	statupanim
+	raisesub
+	statupmessage
+	statupfailtext
+	specialdefenseup
+	statupmessage
+	statupfailtext
+	cantusefakeout
+	endmove
+	
+CottonGuard:
+	checkobedience
+	usedmovetext
+	doturn
+	defenseup2
+	lowersub
+	statupanim
+	raisesub
+	statupmessage
+	statupfailtext
+	defenseup
+	cantusefakeout
+	endmove
+	
+	
 Growth:
 SpecialAttackUp:
 	checkobedience
@@ -397,6 +432,7 @@ SpeedUp2:
 	cantusefakeout
 	endmove
 
+NastyPlot:
 SpecialAttackUp2:
 	checkobedience
 	usedmovetext
@@ -587,7 +623,6 @@ DefenseDown2:
 	cantusefakeout
 	endmove
 
-CottonSpore:
 ScaryFace:
 SpeedDown2:
 	checkobedience
@@ -660,6 +695,7 @@ EvasionDown2:
 	endmove
 
 AuroraBeam:
+PlayRough:
 AttackDownHit:
 	checkobedience
 	usedmovetext
@@ -712,7 +748,6 @@ DefenseDownHit:
 	endmove
 
 Bubblebeam:
-Constrict:
 Bubble:
 IcyWind:
 SpeedDownHit:
@@ -765,6 +800,8 @@ SpecialAttackDownHit:
 PsychicM:
 Crunch:
 ShadowBall:
+EarthPower:
+BugBuzz:
 SpecialDefenseDownHit:
 	checkobedience
 	usedmovetext
@@ -944,23 +981,6 @@ Haze:
 	cantusefakeout
 	endmove
 
-Bide:
-	storeenergy
-	checkobedience
-	doturn
-	usedmovetext
-	unleashenergy
-	resettypematchup
-	checkhit
-	hittarget
-	effect0xa5
-	checkfaint
-	checkdestinybond
-	buildopponentrage
-	kingsrock
-	cantusefakeout
-	endmove
-
 Thrash:
 PetalDance:
 Outrage:
@@ -1004,7 +1024,6 @@ FuryAttack:
 PinMissile:
 SpikeCannon:
 Barrage:
-FurySwipes:
 BoneRush:
 DoubleKick:
 Bonemerang:
@@ -1065,10 +1084,8 @@ PoisonMultiHit:
 	cantusefakeout
 	endmove
 
-RollingKick:
 Headbutt:
 Bite:
-LowKick:
 BoneClub:
 RockSlide:
 HyperFang:
@@ -1115,7 +1132,6 @@ OHKOHit:
 
 TakeDown:
 DoubleEdge:
-Submission:
 Struggle:
 RecoilHit:
 	checkobedience
@@ -1173,6 +1189,7 @@ Psybeam:
 Confusion:
 DizzyPunch:
 Dynamicpunch:
+SignalBeam:
 ConfuseHit:
 	checkobedience
 	usedmovetext
@@ -1194,7 +1211,30 @@ ConfuseHit:
 	confusetarget
 	cantusefakeout
 	endmove
-
+	
+Hurricane:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	thunderaccuracy
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	hittarget
+	failuretext
+	checkfaint
+	criticaltext
+	supereffectivetext
+	checkdestinybond
+	buildopponentrage
+	confusetarget
+	cantusefakeout
+	endmove
+	
 Recover:
 Softboiled:
 Rest:
@@ -1899,50 +1939,6 @@ Return:
 	cantusefakeout
 	endmove
 
-Present:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	critical
-	damagestats
-	present
-	damagecalc
-	stab
-	damagevariation
-	clearmissdamage
-	failuretext
-	checkfaint
-	criticaltext
-	supereffectivetext
-	checkdestinybond
-	buildopponentrage
-	kingsrock
-	cantusefakeout
-	endmove
-
-Frustration:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	frustrationpower
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	hittarget
-	failuretext
-	checkfaint
-	criticaltext
-	supereffectivetext
-	checkdestinybond
-	buildopponentrage
-	kingsrock
-	cantusefakeout
-	endmove
-
 Safeguard:
 	checkobedience
 	usedmovetext
@@ -2119,9 +2115,9 @@ FakeOut:
 	damagecalc
 	stab
 	damagevariation
-	fakeout
 	checkhit
 	hittarget
+	fakeout
 	failuretext
 	checkfaint
 	criticaltext

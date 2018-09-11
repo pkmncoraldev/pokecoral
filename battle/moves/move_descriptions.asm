@@ -24,8 +24,8 @@
 	dw StompDescription
 	dw DoubleKickDescription
 	dw MegaKickDescription
-	dw JumpKickDescription
-	dw RollingKickDescription
+	dw BugBuzzDescription
+	dw DragonPulseDescription
 	dw SandAttackDescription
 	dw HeadbuttDescription
 	dw HornAttackDescription
@@ -64,8 +64,8 @@
 	dw HyperBeamDescription
 	dw PeckDescription
 	dw DrillPeckDescription
-	dw SubmissionDescription
-	dw LowKickDescription
+	dw BulletPunchDescription
+	dw SignalBeamDescription
 	dw CounterDescription
 	dw SeismicTossDescription
 	dw StrengthDescription
@@ -115,7 +115,7 @@
 	dw HazeDescription
 	dw ReflectDescription
 	dw FocusEnergyDescription
-	dw BideDescription
+	dw XScissorDescription
 	dw MetronomeDescription
 	dw MirrorMoveDescription
 	dw SelfdestructDescription
@@ -129,18 +129,18 @@
 	dw ClampDescription
 	dw SwiftDescription
 	dw SkullBashDescription
-	dw SpikeCannonDescription
-	dw ConstrictDescription
+	dw EarthPowerDescription
+	dw PowerGemDescription
 	dw AmnesiaDescription
 	dw KinesisDescription
-	dw SoftboiledDescription
+	dw NastyPlotDescription
 	dw HiJumpKickDescription
 	dw GlareDescription
 	dw DreamEaterDescription
 	dw PoisonGasDescription
-	dw BarrageDescription
+	dw BoomburstDescription
 	dw LeechLifeDescription
-	dw LovelyKissDescription
+	dw PoisonJabDescription
 	dw RoostDescription
 	dw TransformDescription
 	dw BubbleDescription
@@ -152,7 +152,7 @@
 	dw AcidArmorDescription
 	dw CrabhammerDescription
 	dw ExplosionDescription
-	dw FurySwipesDescription
+	dw CalmMindDescription
 	dw BonemerangDescription
 	dw RestDescription
 	dw RockSlideDescription
@@ -176,7 +176,7 @@
 	dw FlailDescription
 	dw Conversion2Description
 	dw AeroblastDescription
-	dw CottonSporeDescription
+	dw CottonGuardDescription
 	dw ReversalDescription
 	dw SpiteDescription
 	dw PowderSnowDescription
@@ -215,8 +215,8 @@
 	dw SleepTalkDescription
 	dw HealBellDescription
 	dw ReturnDescription
-	dw PresentDescription
-	dw FrustrationDescription
+	dw PlayRoughDescription
+	dw AirCutterDescription
 	dw SafeguardDescription
 	dw AquaJetDescription
 	dw SacredFireDescription
@@ -358,13 +358,13 @@ MegaKickDescription:
 	db   "A powerful kicking"
 	next "attack.@"
 
-JumpKickDescription:
-	db   "May miss, damaging"
-	next "the user.@"
+BugBuzzDescription:
+	db   "An attack that may"
+	next "lower SPCL.DEF.@"
 
-RollingKickDescription:
-	db   "A fast, spinning"
-	next "kick.@"
+DragonPulseDescription:
+	db   "A shockwave from"
+	next "the user's mouth.@"
 
 SandAttackDescription:
 	db   "Reduces accuracy"
@@ -518,13 +518,13 @@ DrillPeckDescription:
 	db   "A strong, spin-"
 	next "ning-peck attack.@"
 
-SubmissionDescription:
-	db   "An attack that al-"
-	next "so hurts the user.@"
+BulletPunchDescription:
+	db   "Lets the user get"
+	next "in the first hit.@"
 
-LowKickDescription:
+SignalBeamDescription:
 	db   "An attack that may"
-	next "cause flinching.@"
+	next "confuse the foe.@"
 
 CounterDescription:
 	db   "Returns a physical"
@@ -718,9 +718,9 @@ FocusEnergyDescription:
 	db   "Raises the criti-"
 	next "cal hit ratio.@"
 
-BideDescription:
-	db   "Waits 2-3 turns &"
-	next "hits back double.@"
+XScissorDescription:
+	db   "A cross slash with"
+	next "claws or scythes.@"
 
 MetronomeDescription:
 	db   "Randomly uses any"
@@ -775,13 +775,13 @@ SkullBashDescription:
 	db   "1st turn: Prepare"
 	next "2nd turn: Attack@"
 
-SpikeCannonDescription:
-	db   "Fires spikes to"
-	next "hit 2-5 times.@"
-
-ConstrictDescription:
+EarthPowerDescription:
 	db   "An attack that may"
-	next "lower SPEED.@"
+	next "lower SPCL.DEF.@"
+
+PowerGemDescription:
+	db   "An attack of light"
+	next "resembling gems.@"
 
 AmnesiaDescription:
 	db   "Sharply raises the"
@@ -791,9 +791,9 @@ KinesisDescription:
 	db   "Reduces the foe's"
 	next "accuracy.@"
 
-SoftboiledDescription:
-	db   "Restores HP by 1/2"
-	next "the user's max HP.@"
+NastyPlotDescription:
+	db   "Sharply raises the"
+	next "user's SPCL.ATK.@"
 
 HiJumpKickDescription:
 	db   "May miss and hurt"
@@ -811,17 +811,17 @@ PoisonGasDescription:
 	db   "A move that may"
 	next "poison the foe.@"
 
-BarrageDescription:
-	db   "Throws orbs to hit"
-	next "2-5 times.@"
+BoomburstDescription:
+	db   "Attacks with an"
+	next "explosive sound.@"
 
 LeechLifeDescription:
 	db   "Steals 1/2 of the"
 	next "damage inflicted.@"
 
-LovelyKissDescription:
-	db   "May cause the foe"
-	next "to fall asleep.@"
+PoisonJabDescription:
+	db   "A move that may"
+	next "poison the foe.@"
 
 RoostDescription:
 	db   "Restores half the"
@@ -867,9 +867,9 @@ ExplosionDescription:
 	db   "Very powerful but"
 	next "makes user faint.@"
 
-FurySwipesDescription:
-	db   "Quickly scratches"
-	next "2-5 times.@"
+CalmMindDescription:
+	db   "Ups SPCL.ATK and"
+	next "SPCL.DEF.@"
 
 BonemerangDescription:
 	db   "An attack that"
@@ -964,9 +964,9 @@ AeroblastDescription:
 	db   "Has a high criti-"
 	next "cal hit ratio.@"
 
-CottonSporeDescription:
-	db   "Sharply reduces"
-	next "the foe's SPEED.@"
+CottonGuardDescription:
+	db   "Increases user's"
+	next "DEFENSE 3 stages.@"
 
 ReversalDescription:
 	db   "Stronger if the"
@@ -1120,13 +1120,13 @@ ReturnDescription:
 	db   "An attack that is"
 	next "based on loyalty.@"
 
-PresentDescription:
-	db   "A bomb that may"
-	next "restore HP.@"
+PlayRoughDescription:
+	db   "An attack that may"
+	next "lower ATTACK.@"
 
-FrustrationDescription:
-	db   "An attack based on"
-	next "lack of loyalty.@"
+AirCutterDescription:
+	db   "Has a high criti-"
+	next "cal hit ratio.@"
 
 SafeguardDescription:
 	db   "Prevents all"

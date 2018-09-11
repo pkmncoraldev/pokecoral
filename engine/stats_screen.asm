@@ -334,9 +334,16 @@ StatsScreen_JoypadAction: ; 4de54 (13:5e54)
 	jr .load_mon
 
 .a_button
-	ld a, c
-	cp $3
-	jr z, .b_button
+	ld a, [wBattleMode]
+	cp $0
+	ret nz
+	ld a, [wcf64]
+	cp $2
+	ret nz
+	ld hl, wJumptableIndex
+	set 7, [hl]
+	farcall ManagePokemonMoves
+	
 .d_right
 	inc c
 	ld a, $3
@@ -711,6 +718,15 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	ld a, SCREEN_WIDTH * 2
 	ld [Buffer1], a
 	predef ListMovePP
+	
+	ld a, [wBattleMode]
+	cp $0
+	ret nz
+	
+	ld de, .PressA
+	hlcoord 0, 17
+	call PlaceString
+	
 	ret
 
 .GetItemName: ; 4e189 (13:6189)
@@ -735,8 +751,11 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 ; 4e1a9
 
 .Move: ; 4e1a9
-	db "MOVE@"
+	db "MOVES@"
 ; 4e1ae
+
+.PressA:
+	db "PRESS A@"
 
 .BluePage: ; 4e1ae (13:61ae)
 	call .PlaceOTInfo

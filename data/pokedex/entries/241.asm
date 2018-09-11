@@ -1,10 +1,10 @@
 ; MiltankPokedexEntry: ; 0x1d1482
-	db "MILK COW@" ; species name
-	dw 311, 1660 ; height, width
+	db "LURING@" ; species name
+	dw 303, 756 ; height, width
 
-	db   "In order to milk a"
-	next "MILTANK, one must"
-	next "have a knack for"
-	page "rhythmically pull-"
-	next "ing up and down"
-	next "on its udders.@"
+	db   "The spirits burned"
+	next "up in its ominous"
+	next "flame lose their"
+	page "way and wander the"
+	next "world until the"
+	next "end of time.@"

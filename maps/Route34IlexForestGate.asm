@@ -39,5 +39,11 @@ Route4GateOfficer:
 	jumptextfaceplayer Route4GateOfficerText
 	
 Route4GateOfficerText:
-	text "TEXT 1"
+	text "EVENTIDE¯FOREST"
+	line "isn't very well"
+	cont "lit."
+	
+	para "It should be safe,"
+	line "but stay aware just"
+	cont "in case."
 	done

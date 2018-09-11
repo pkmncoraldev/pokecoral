@@ -360,6 +360,8 @@ CheckReplaceKrisSprite: ; 154f7
 	jr z, .nope
 	cp PLAYER_SLIP
 	jr z, .nope
+	cp PLAYER_DODRIO
+	jr z, .nope
 	cp PLAYER_SURF
 	jr z, .surfing
 	cp PLAYER_SURF_PIKA

@@ -37,8 +37,8 @@
 	const MUSIC_EVOLUTION                    ; 22
 	const MUSIC_NATIONAL_PARK                ; 23
 	const MUSIC_CREDITS                      ; 24
-	const MUSIC_AZALEA_TOWN                  ; 25
-	const MUSIC_CHERRYGROVE_CITY             ; 26
+	const MUSIC_STARGLOW_VALLEY                  ; 25
+	const MUSIC_SUNBEAM_ISLAND             ; 26
 	const MUSIC_KIMONO_ENCOUNTER             ; 27
 	const MUSIC_UNION_CAVE                   ; 28
 	const MUSIC_WILD_BATTLE            ; 29
@@ -51,7 +51,7 @@
 	const MUSIC_RIVAL_BATTLE                 ; 30
 	const MUSIC_ROCKET_BATTLE                ; 31
 	const MUSIC_PROF_ELM                     ; 32
-	const MUSIC_DARK_CAVE                    ; 33
+	const MUSIC_LAVA                    ; 33
 	const MUSIC_ROUTE_29                     ; 34
 	const MUSIC_ROUTE_36                     ; 35
 	const MUSIC_SS_AQUA                      ; 36
@@ -81,7 +81,7 @@
 	const MUSIC_MOM                          ; 4e
 	const MUSIC_VICTORY_ROAD                 ; 4f
 	const MUSIC_POKEMON_LULLABY              ; 50
-	const MUSIC_POKEMON_MARCH                ; 51
+	const MUSIC_SPOOKY                ; 51
 	const MUSIC_GS_OPENING                   ; 52
 	const MUSIC_GS_OPENING_2                 ; 53
 	const MUSIC_MAIN_MENU                    ; 54
@@ -116,7 +116,9 @@
 	const MUSIC_GLINT_CITY
 	const MUSIC_ROUTE_4_NEW
 	const MUSIC_CORALDEV_1
+	const MUSIC_GLINT_GROVE
 	
 
 MUSIC_MAHOGANY_MART EQU $64 ; leftover from gold
-MUSIC_STARGLOW EQU $71
+MUSIC_STARGLOW EQU $25
+MUSIC_SUNBEAM EQU $26

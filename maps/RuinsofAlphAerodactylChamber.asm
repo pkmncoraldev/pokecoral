@@ -65,7 +65,7 @@ RuinsofAlphAerodactylChamber_MapEventHeader:: db 0, 0
 	signpost 1, 22, SIGNPOST_READ, SpookHouseFlickerLight
 
 .ObjectEvents: db 1
-	person_event SPRITE_TWIN, 2, 40, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_SILVER, PERSONTYPE_SCRIPT, 0, SpookHouseNPC1, EVENT_SPOOKHOUSE_SAW_GHOST_4
+	person_event SPRITE_TWIN, 2, 40, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, SpookHouseNPC1, EVENT_SPOOKHOUSE_SAW_GHOST_4
 
 Movement_SpookHouseGhost4:
 	fix_facing

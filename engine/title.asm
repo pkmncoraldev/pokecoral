@@ -66,6 +66,12 @@ _TitleScreen: ; 10ed67
 	ld bc, 10
 	ld a, 4 ; palette
 	call ByteFill
+	
+; DEMO 2
+	hlbgcoord 5, 9
+	ld bc, 10
+	ld a, 4 ; palette
+	call ByteFill
 		
 	ld a, [wShinyCorsola]
 	and a
@@ -192,14 +198,21 @@ _TitleScreen: ; 10ed67
 
 ; Draw copyright text
 	hlbgcoord 0, 0, VBGMap1
-	lb bc, 1, 15
+	lb bc, 1, 11
 	ld d, $c
 	ld e, $10
 	call DrawTitleGraphic
 	
 ; Draw copyright black
-	hlbgcoord $0f, 0, VBGMap1
-	lb bc, 1, 5
+	hlbgcoord $0b, 0, VBGMap1
+	lb bc, 1, 2
+	ld d, $15
+	ld e, $10
+	call DrawTitleGraphic
+	
+; Draw copyright demo
+	hlbgcoord $0d, 0, VBGMap1
+	lb bc, 1, 7
 	ld d, $15
 	ld e, $10
 	call DrawTitleGraphic

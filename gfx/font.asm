@@ -103,12 +103,12 @@ Functionfb43f: ; fb43f
 ; fb449
 
 _LoadStandardFont:: ; fb449
-	ld de, Font
-	ld hl, VTiles1
-	lb bc, BANK(Font), $80
-	ld a, [rLCDC]
-	bit 7, a
-	jp z, Copy1bpp
+;	ld de, Font
+;	ld hl, VTiles1
+;	lb bc, BANK(Font), $80
+;	ld a, [rLCDC]
+;	bit 7, a
+;	jp z, Copy1bpp
 
 	ld de, Font
 	ld hl, VTiles1
@@ -116,11 +116,13 @@ _LoadStandardFont:: ; fb449
 	call Get1bpp_2
 	ld de, Font + $20 * LEN_1BPP_TILE
 	ld hl, VTiles1 tile $20
-	lb bc, BANK(Font), $20
+;	lb bc, BANK(Font), $20
+	lb bc, BANK(Font), 26 ; "a" to "z" (skip "┌" to "┘")
 	call Get1bpp_2
 	ld de, Font + $40 * LEN_1BPP_TILE
 	ld hl, VTiles1 tile $40
-	lb bc, BANK(Font), $20
+;	lb bc, BANK(Font), $20
+	lb bc, BANK(Font), 32 ; $c0 to "←"
 	call Get1bpp_2
 	ld de, Font + $60 * LEN_1BPP_TILE
 	ld hl, VTiles1 tile $60
@@ -130,27 +132,10 @@ _LoadStandardFont:: ; fb449
 ; fb48a
 
 _LoadFontsExtra1:: ; fb48a
-	ld de, MobilePhoneTilesGFX
-	ld hl, VTiles2 tile $60
-	lb bc, BANK(MobilePhoneTilesGFX), 1
-	call Get1bpp_2
-	ld de, OverworldPhoneIconGFX
-	ld hl, VTiles2 tile $62
-	lb bc, BANK(OverworldPhoneIconGFX), 1
-	call Get2bpp_2
-	ld de, FontExtra + 3 * LEN_2BPP_TILE
-	ld hl, VTiles2 tile $63
-	lb bc, BANK(FontExtra), $16
-	call Get2bpp_2
 	jr LoadFrame
 ; fb4b0
 
 _LoadFontsExtra2:: ; fb4b0
-	ld de, FontsExtra2_UpArrowGFX
-	ld hl, VTiles2 tile $61
-	ld b, BANK(FontsExtra2_UpArrowGFX)
-	ld c, 1
-	call Get2bpp_2
 	ret
 ; fb4be
 
@@ -170,7 +155,8 @@ LoadFrame: ; fb4cc
 	call AddNTimes
 	ld d, h
 	ld e, l
-	ld hl, VTiles2 tile $79
+;	ld hl, VTiles2 tile $79
+	ld hl, VTiles0 tile "┌" ; $ba
 	lb bc, BANK(Frames), TILES_PER_FRAME
 	call Get1bpp_2
 	ld hl, VTiles2 tile $7f

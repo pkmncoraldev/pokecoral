@@ -419,7 +419,6 @@ BrunosRoom_BlockData:
 KarensRoom_BlockData:
 	INCBIN "maps/KarensRoom.blk"
 
-VioletGym_BlockData:
 CherrygroveGymSpeechHouse_BlockData:
 	INCBIN "maps/VioletGym.blk"
 

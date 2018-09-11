@@ -231,7 +231,7 @@ CheckNickErrors:: ; 669f
 	db $35,        "<GREEN>" + 1
 	db "<ENEMY>",  "<ENEMY>" + 1
 	db $49,        "<TM>"    + 1
-	db "<ROCKET>", "┘"       + 1
+	db "<ROCKET>", " "
 	db -1 ; end
 
 INCLUDE "engine/math.asm"
@@ -411,6 +411,10 @@ Special_GiveParkBalls: ; 135db
 	ld [wParkBallsRemaining], a
 	callba StartBugContestTimer
 	ret
+	
+Special_StartRanchRaceTimer:
+	callba StartRanchRaceTimer
+	ret
 
 BugCatchingContestBattleScript:: ; 0x135eb
 	writecode VAR_BATTLETYPE, BATTLETYPE_CONTEST
@@ -448,6 +452,28 @@ BugCatchingContestText_ContestIsOver: ; 0x13614
 	text_jump UnknownText_0x1bd2e7
 	db "@"
 
+RanchRaceOverScript::
+	clearevent EVENT_RANCH_RACE_CHECKPOINT1
+	clearevent EVENT_RANCH_RACE_CHECKPOINT2
+	clearevent EVENT_RANCH_RACE_CHECKPOINT3
+	clearevent EVENT_RANCH_RACE_FINISHED_LAP_1
+	clearevent EVENT_RANCH_RACE_FINISHED_LAP_2
+	clearflag ENGINE_BUG_CONTEST_TIMER
+	dotrigger $2
+	playmusic MUSIC_NONE
+	playsound SFX_WRONG
+	waitsfx
+	pause 10
+	opentext
+	writetext RanchRaceOverText
+	waitbutton
+	warp RUINS_OF_ALPH_HO_OH_ITEM_ROOM, $1d, $11
+	end
+	
+RanchRaceOverText:
+	text_jump RanchRaceOverText_Text
+	db "@"
+	
 RepelWoreOffScript:: ; 0x13619
 	opentext
 	writetext .text
@@ -460,6 +486,20 @@ RepelWoreOffScript:: ; 0x13619
 	text_jump UnknownText_0x1bd308
 	db "@"
 
+UseAnotherRepelScript::
+	opentext
+	writetext .text
+	yesorno
+	iffalse .done
+	callasm DoItemEffect
+.done
+	closetext
+	end
+
+.text:
+	text_jump UseAnotherRepelText
+	db "@"
+	
 HiddenItemScript:: ; 0x13625
 	opentext
 	copybytetovar EngineBuffer3
@@ -526,6 +566,7 @@ CheckFacingTileForStd:: ; 1365b
 	ret
 
 .table1
+	dbw $77, doorlocked
 	dbw $91, magazinebookshelf
 	dbw $93, pcscript
 	dbw $94, radio1
@@ -2153,95 +2194,6 @@ Buena_ExitMenu: ; 4ae5e
 
 SECTION "bank13", ROMX[$4000], BANK[$13]
 
-SwapTextboxPalettes:: ; 4c000
-	hlcoord 0, 0
-	decoord 0, 0, AttrMap
-	ld b, SCREEN_HEIGHT
-.loop
-	push bc
-	ld c, SCREEN_WIDTH
-.innerloop
-	ld a, [hl]
-	push hl
-	srl a
-	jr c, .UpperNybble
-	ld hl, TilesetPalettes
-	add [hl]
-	ld l, a
-	ld a, [TilesetPalettes + 1]
-	adc $0
-	ld h, a
-	ld a, [hl]
-	and $f
-	jr .next
-
-.UpperNybble:
-	ld hl, TilesetPalettes
-	add [hl]
-	ld l, a
-	ld a, [TilesetPalettes + 1]
-	adc $0
-	ld h, a
-	ld a, [hl]
-	swap a
-	and $f
-
-.next
-	pop hl
-	ld [de], a
-	res 7, [hl]
-	inc hl
-	inc de
-	dec c
-	jr nz, .innerloop
-	pop bc
-	dec b
-	jr nz, .loop
-	ret
-
-ScrollBGMapPalettes:: ; 4c03f
-	ld hl, BGMapBuffer
-	ld de, BGMapPalBuffer
-.loop
-	ld a, [hl]
-	push hl
-	srl a
-	jr c, .UpperNybble
-
-; .LowerNybble
-	ld hl, TilesetPalettes
-	add [hl]
-	ld l, a
-	ld a, [TilesetPalettes + 1]
-	adc $0
-	ld h, a
-	ld a, [hl]
-	and $f
-	jr .next
-
-.UpperNybble:
-	ld hl, TilesetPalettes
-	add [hl]
-	ld l, a
-	ld a, [TilesetPalettes + 1]
-	adc $0
-	ld h, a
-	ld a, [hl]
-	swap a
-	and $f
-
-.next
-	pop hl
-	ld [de], a
-	res 7, [hl]
-	inc hl
-	inc de
-	dec c
-	jr nz, .loop
-	ret
-
-INCLUDE "tilesets/palette_maps.asm"
-
 TileCollisionTable:: ; 4ce1f
 INCLUDE "tilesets/collision.asm"
 
@@ -2383,6 +2335,35 @@ _LoadMapPart:: ; 4d15b
 
 .left_column
 	decoord 0, 0
+	call .copy
+
+	ld hl, wSurroundingAttributes
+	ld a, [wMetatileStandingY]
+	and a
+	jr z, .top_row2
+	ld bc, WMISC_WIDTH * 2
+	add hl, bc
+
+.top_row2
+	ld a, [wMetatileStandingX]
+	and a
+	jr z, .left_column2
+	inc hl
+	inc hl
+
+.left_column2
+	decoord 0, 0, AttrMap
+	ld a, [rSVBK]
+	push af
+	ld a, BANK(wSurroundingAttributes)
+	ld [rSVBK], a
+	call .copy
+	pop af
+	ld [rSVBK], a
+	ret
+
+.copy:
+	
 	ld b, SCREEN_HEIGHT
 .loop
 	ld c, SCREEN_WIDTH
@@ -2560,21 +2541,21 @@ LinkTextbox2: ; 4d35b
 	add hl, de
 .loop
 	push hl
-	ld a, "┌"
+	ld a, $79
 	ld [hli], a
 	ld a, " "
 	call .PlaceRow
-	ld [hl], "─"
+	ld [hl], $7a
 	pop hl
 	ld de, SCREEN_WIDTH
 	add hl, de
 	dec b
 	jr nz, .loop
-	ld a, "┐"
+	ld a, $7b
 	ld [hli], a
-	ld a, "│"
+	ld a, $7c
 	call .PlaceRow
-	ld [hl], "└"
+	ld [hl], $7d
 	ret
 
 .PlaceRow: ; 4d3ab
@@ -5054,6 +5035,7 @@ INCLUDE "misc/mobile_22.asm"
 INCLUDE "event/unown.asm"
 INCLUDE "event/buena.asm"
 INCLUDE "event/dratini.asm"
+INCLUDE "event/doduo.asm"
 INCLUDE "event/battle_tower.asm"
 INCLUDE "misc/mobile_22_2.asm"
 
@@ -5347,10 +5329,6 @@ Predef2F:
 Predef38:
 Predef39: ; cc0d5
 	ret
-
-INCLUDE "battle/anim_commands.asm"
-
-INCLUDE "battle/anim_objects.asm"
 
 SECTION "Pic Animations 1", ROMX[$4000], BANK[$34]
 
@@ -6199,4 +6177,21 @@ SECTION "CoralExclusiveStuff2", ROMX
 
 INCLUDE "tilesets/data_10.asm"
 
+SECTION "CoralExclusiveStuff3", ROMX
+
+INCLUDE "engine/scripting.asm"
+
+INCLUDE "tilesets/data_11.asm"
+
+SECTION "CoralExclusiveStuff4", ROMX
+
+INCLUDE "tilesets/data_12.asm"
+
+INCLUDE "text/common_coral.asm"
+
+SECTION "BlehBank", ROMX
+
+INCLUDE "battle/anim_commands.asm"
+
+INCLUDE "battle/anim_objects.asm"
 ENDC

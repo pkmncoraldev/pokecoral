@@ -47,6 +47,6 @@ ENDM
 	object_gfx 35, AnimObjAngelsGFX
 	object_gfx 18, AnimObjWaveGFX
 	object_gfx 24, AnimObjAeroblastGFX
-	object_gfx  1, NULL
+	object_gfx 48, AnimObjLavaGFX
 	object_gfx  1, NULL
 ; cfd9e

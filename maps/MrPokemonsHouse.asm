@@ -63,6 +63,8 @@ SunbeamIslandSurfShopNPC1:
 	faceplayer
 	checkflag ENGINE_BIKINI_CONTEST
 	iftrue .donebikinicontest
+	checkflag ENGINE_PUNKS_IN_STARGLOW
+	iftrue .punksonbeach
 	opentext 
 	writetext SunbeamIslandSurfShopNPC1Text1
 	yesorno
@@ -86,9 +88,15 @@ SunbeamIslandSurfShopNPC1:
 	waitbutton
 	closetext
 	end
+.punksonbeach:
+	opentext 
+	writetext SunbeamIslandSurfShopNPC1Text7
+	waitbutton
+	closetext
+	end
 	
 SunbeamIslandSurfShopNPC2:
-	end
+	jumptextfaceplayer SunbeamIslandSurfShopNPC2Text
 	
 SunbeamIslandSurfShopNPC1Text1:
 	text "Hey dude!"
@@ -99,14 +107,14 @@ SunbeamIslandSurfShopNPC1Text1:
 	para "BEACH BATTLE"
 	line "BEAUTY CONTEST!"
 	
-	para "You'll get to fight"
-	line "some tough TRAINERS,"
+	para "You'll fight some"
+	line "tough TRAINERS,"
 	
-	para "and you'll even get"
-	line "a prize for"
-	cont "participating!"
+	para "and get a prize"
+	line "for participating!"
 	
-	para "So, what do you say?"
+	para "So, what do you"
+	line "say?"
 	
 	para "Wanna be a judge?"
 	done
@@ -150,3 +158,19 @@ SunbeamIslandSurfShopNPC1Text6:
 	line "contest!"	
 	done
 	
+SunbeamIslandSurfShopNPC1Text7:
+	text "Hey dude!"
+	
+	para "I heard there was"
+	line "somthing going on"
+	cont "on the beach."
+	done
+	
+SunbeamIslandSurfShopNPC2Text:
+	text "Leave me alone,"
+	line "kid."
+	
+	para "Come talk to me"
+	line "in the next"
+	cont "release."
+	done

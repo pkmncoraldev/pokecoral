@@ -1,10 +1,10 @@
-; DrowzeePokedexEntry: ; 0x1b8d0a
-	db "HYPNOSIS@" ; species name
-	dw 303, 710 ; height, width
+; MedititePokedexEntry: ; 0x1b8d0a
+	db "MEDITATE@" ; species name
+	dw 200, 247 ; height, width
 
-	db   "When it twitches"
-	next "its nose, it can"
-	next "tell where someone"
-	page "is sleeping and"
-	next "what that person"
-	next "is dreaming about.@"
+	db   "It never skips its"
+	next "daily yoga training."
+	next "It heightens its"
+	page "inner strenght"
+	next "through meditation."
+	next "@"

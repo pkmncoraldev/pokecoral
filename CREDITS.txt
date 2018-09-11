@@ -10,12 +10,17 @@ Solo - Additional Graphics
 Pokémon Grape - Additional Graphics
 JaceDeane - Additional Graphics
 SirWhibbles - Additional Graphics
+Kuroko Aizawa - Additional Graphics
+Pia Carrot - Additional Graphics
 The DS-style 64x64 Pokémon Sprite Resource - Additional Graphics
-Rangi - Magikarp Patterns Idea
-Trev - Magikarp Patterns Sprites
+;Rangi - Magikarp Patterns Idea
+;Trev - Magikarp Patterns Sprites
 
 SPECIAL THANKS-
 Rangi
-FroffestSpirit
+FroggestSpirit
 Padz
 pfero
+Pia Carrot
+MarioDev
+PolandDev

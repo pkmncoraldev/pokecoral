@@ -242,24 +242,24 @@ KantoMonSpecials: ; fb656
 	db 115 ; HAUNTER
 	db 130 ; GENGAR
 	db  30 ; ONIX
-	db  90 ; DROWZEE
-	db 115 ; HYPNO
-	db  25 ; KRABBY
-	db  50 ; KINGLER
+	db  90 ; MEDITITE
+	db 115 ; MEDICHAM
+	db  25 ; CORPHISH
+	db  50 ; CRAWDAUNT
 	db  55 ; VOLTORB
 	db  80 ; ELECTRODE
 	db  60 ; EXEGGCUTE
 	db 125 ; EXEGGUTOR
 	db  40 ; CUBONE
 	db  50 ; MAROWAK
-	db  35 ; HITMONLEE
-	db  35 ; HITMONCHAN
+	db  35 ; BUNEARY
+	db  35 ; LOPUNNY
 	db  60 ; LICKITUNG
 	db  60 ; KOFFING
 	db  85 ; WEEZING
 	db  30 ; RHYHORN
 	db  45 ; RHYDON
-	db 105 ; CHANSEY
+	db 105 ; NUMEL
 	db 100 ; TANGELA
 	db  40 ; KANGASKHAN
 	db  70 ; HORSEA
@@ -270,7 +270,7 @@ KantoMonSpecials: ; fb656
 	db 100 ; STARMIE
 	db 100 ; HAWLUCHA
 	db  55 ; SCYTHER
-	db  95 ; JYNX
+	db  95 ; VOLCARONA
 	db  85 ; ELECTABUZZ
 	db  85 ; MAGMAR
 	db  55 ; PINSIR
@@ -466,15 +466,15 @@ Pokered_MonIndices: ; fb91c
 	db SLOWPOKE
 	db KADABRA
 	db GRAVELER
-	db CHANSEY
+	db NUMEL
 	db MACHOKE
 	db HAWLUCHA
-	db HITMONLEE
-	db HITMONCHAN
+	db BUNEARY
+	db LOPUNNY
 	db ARBOK
 	db CRUSTLE
 	db PSYDUCK
-	db DROWZEE
+	db MEDITITE
 	db GOLEM
 	db HERACROSS
 	db MAGMAR
@@ -498,13 +498,13 @@ Pokered_MonIndices: ; fb91c
 	db PILOSWINE
 	db DODUO
 	db POLIWAG
-	db JYNX
+	db VOLCARONA
 	db MOLTRES
 	db ARTICUNO
 	db ZAPDOS
 	db DITTO
 	db MEOWTH
-	db KRABBY
+	db CORPHISH
 	db CORSOLA
 	db REMORAID
 	db OCTILLERY
@@ -555,7 +555,7 @@ Pokered_MonIndices: ; fb91c
 	db MACHAMP
 	db DONPHAN
 	db GOLDUCK
-	db HYPNO
+	db MEDICHAM
 	db GOLBAT
 	db MEWTWO
 	db SNORLAX
@@ -564,15 +564,15 @@ Pokered_MonIndices: ; fb91c
 	db STANTLER
 	db MUK
 	db SMEARGLE
-	db KINGLER
+	db CRAWDAUNT
 	db CLOYSTER
-	db TYROGUE
+	db SWABLU
 	db ELECTRODE
 	db CLEFABLE
 	db WEEZING
 	db PERSIAN
 	db MAROWAK
-	db HITMONTOP
+	db ALTARIA
 	db HAUNTER
 	db ABRA
 	db ALAKAZAM
@@ -582,13 +582,13 @@ Pokered_MonIndices: ; fb91c
 	db BULBASAUR
 	db VENUSAUR
 	db TENTACRUEL
-	db SMOOCHUM
+	db LARVESTA
 	db GOLDEEN
 	db SEAKING
 	db ELEKID
 	db MAGBY
 	db MILTANK
-	db BLISSEY
+	db CAMERUPT
 	db PONYTA
 	db RAPIDASH
 	db RATTATA
@@ -628,8 +628,8 @@ Pokered_MonIndices: ; fb91c
 	db FERALIGATR
 	db SENTRET
 	db FURRET
-	db HOOTHOOT
-	db NOCTOWL
+	db NOIBAT
+	db NOIVERN
 	db LEDYBA
 	db LEDIAN
 	db JOLTIK
@@ -652,9 +652,9 @@ Pokered_MonIndices: ; fb91c
 	db AZUMARILL
 	db SUDOWOODO
 	db POLITOED
-	db HOPPIP
-	db SKIPLOOM
-	db JUMPLUFF
+	db ARON
+	db LAIRON
+	db AGGRON
 	db AIPOM
 	db SUNKERN
 	db SUNFLORA

@@ -1,10 +1,10 @@
-; KrabbyPokedexEntry: ; 0x1b8ddd
-	db "RIVER CRAB@" ; species name
-	dw 104, 140 ; height, width
+; CorphishPokedexEntry: ; 0x1b8ddd
+	db "RUFFIAN@" ; species name
+	dw 200, 254 ; height, width
 
-	db   "If it is unable"
-	next "to find food, it"
-	next "will absorb"
-	page "nutrients by"
-	next "swallowing a"
-	next "mouthful of sand.@"
+	db   "No matter how"
+	next "dirty the water"
+	next "is, it will adapt"
+	page "and thrive."
+	next "It has a strong"
+	next "will to survive.@"

@@ -55,7 +55,7 @@ _OakTextA::
 _OakTextB::
 	text "So tell me,"
 	
-	para "Are you a boy"
+	para "are you a boy"
 	line "or a girl?"
 	prompt
 	done

@@ -1232,17 +1232,6 @@ BattleCommand_Critical: ; 34631
 .Item:
 	ld c, 0
 
-	cp CHANSEY
-	jr nz, .Farfetchd
-	ld a, [hl]
-	cp LUCKY_PUNCH
-	jr nz, .FocusEnergy
-
-; +2 critical level
-	ld c, 2
-	jr .Tally
-
-.Farfetchd:
 	cp FARFETCH_D
 	jr nz, .FocusEnergy
 	ld a, [hl]
@@ -1299,7 +1288,7 @@ BattleCommand_Critical: ; 34631
 	ret
 
 .Criticals:
-	db KARATE_CHOP, RAZOR_WIND, RAZOR_LEAF, CRABHAMMER, SLASH, AEROBLAST, CROSS_CHOP, $ff
+	db KARATE_CHOP, RAZOR_WIND, RAZOR_LEAF, CRABHAMMER, SLASH, AEROBLAST, CROSS_CHOP, AIR_CUTTER, $ff
 .Chances:
 	; 6.25% 12.1% 24.6% 49.6% 99.6% 99.6% 99.6%
 	db $11,  $20,  $40,  $80,  $ff,  $ff,  $ff
@@ -2790,6 +2779,17 @@ DittoMetalPowder: ; 352b1
 .done
 	scf
 	rr c
+
+	ld a, 999 / $100
+	cp b
+	jr c, .cap
+	ld a, 999 % $100
+	cp c
+	ret nc
+
+.cap
+	ld b, 999 / $100
+	ld c, 999 % $100
 	ret
 
 ; 352dc
@@ -2837,14 +2837,14 @@ PlayerAttackDamage: ; 352e2
 .physicalcrit
 	ld hl, BattleMonAttack
 	call GetDamageStatsCritical
-	jr c, .thickclub
+	jr c, .physicalmonitem
 
 	ld hl, EnemyStats + 2
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
 	ld hl, PlayerStats
-	jr .thickclub
+	jr .physicalmonitem
 
 .special
 	ld hl, EnemyMonSpclDef
@@ -2861,7 +2861,7 @@ PlayerAttackDamage: ; 352e2
 .specialcrit
 	ld hl, BattleMonSpclAtk
 	call GetDamageStatsCritical
-	jr c, .lightball
+	jr c, .specialmonitem
 
 	ld hl, EnemyStats + SP_DEFENSE * 2
 	ld a, [hli]
@@ -2869,14 +2869,41 @@ PlayerAttackDamage: ; 352e2
 	ld c, [hl]
 	ld hl, PlayerStats + SP_ATTACK * 2
 
+.physicalmonitem
+	push hl
+	ld a, MON_SPECIES
+	call BattlePartyAttr
+	ld a, [hl]
+	cp CUBONE
+	jr z, .thickclub
+	cp MAROWAK
+	jr z, .thickclub
+	cp MAROWAK_A
+	jr z, .thickclub
+	jr .coralshard
+	
+.specialmonitem
+	push hl
+	ld a, MON_SPECIES
+	call BattlePartyAttr
+	ld a, [hl]
+	cp PIKACHU
+	jr z, .lightball
+	jr .coralshard
+	
 .lightball
-; Note: Returns player special attack at hl in hl.
+	pop hl
 	call LightBallBoost
 	jr .done
 
 .thickclub
-; Note: Returns player attack at hl in hl.
+	pop hl
 	call ThickClubBoost
+	jr .done
+	
+.coralshard
+	pop hl
+	call CoralShardBoost
 
 .done
 	call TruncateHL_BC
@@ -2994,6 +3021,17 @@ GetDamageStats: ; 3537e
 
 ; 353b5
 
+CoralShardBoost: ; 353b5
+	push bc
+	push de
+	ld b, CORSOLA
+	ld c, CORSOLA
+	ld d, CORSOLA
+	ld e, CORAL_SHARD
+	call SpeciesItemBoost
+	pop de
+	pop bc
+	ret
 
 ThickClubBoost: ; 353b5
 ; Return in hl the stat value at hl.
@@ -3073,6 +3111,17 @@ SpeciesItemBoost: ; 353d1
 ; Double the stat
 	sla l
 	rl h
+
+	ld a, 999 / $100
+	cp h
+	jr c, .cap
+	ld a, 999 % $100
+	cp l
+	ret nc
+
+.cap
+	ld h, 999 / $100
+	ld l, 999 % $100
 	ret
 
 ; 353f6
@@ -3108,14 +3157,14 @@ EnemyAttackDamage: ; 353f6
 .physicalcrit
 	ld hl, EnemyMonAttack
 	call GetDamageStatsCritical
-	jr c, .thickclub
+	jr c, .physicalmonitem
 
 	ld hl, PlayerStats + 2
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
 	ld hl, EnemyStats
-	jr .thickclub
+	jr .physicalmonitem
 
 .Special:
 	ld hl, BattleMonSpclDef
@@ -3132,19 +3181,48 @@ EnemyAttackDamage: ; 353f6
 .specialcrit
 	ld hl, EnemyMonSpclAtk
 	call GetDamageStatsCritical
-	jr c, .lightball
+	jr c, .specialmonitem
 	ld hl, PlayerStats + 8
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
 	ld hl, EnemyStats + 6
 
+.specialmonitem
+	push hl
+	ld a, MON_SPECIES
+	call BattlePartyAttr
+	ld a, [hl]
+	cp PIKACHU
+	jr z, .lightball
+	jr .coralshard
+	
+.physicalmonitem
+	push hl
+	ld a, MON_SPECIES
+	call BattlePartyAttr
+	ld a, [hl]
+	cp CUBONE
+	jr z, .thickclub
+	cp MAROWAK
+	jr z, .thickclub
+	cp MAROWAK_A
+	jr z, .thickclub
+	jr .coralshard
+	
 .lightball
+	pop hl
 	call LightBallBoost
 	jr .done
 
 .thickclub
+	pop hl
 	call ThickClubBoost
+	jr .done
+	
+.coralshard
+	pop hl
+	call CoralShardBoost
 
 .done
 	call TruncateHL_BC
@@ -4988,6 +5066,10 @@ BattleCommand_SleepTarget: ; 35e5c
 	and a
 	jp nz, PrintDidntAffect2
 
+	ld hl, DidntAffect1Text
+	call .CheckAIRandomFail
+	jr c, .fail
+
 	ld a, [de]
 	and a
 	jr nz, .fail
@@ -4996,17 +5078,10 @@ BattleCommand_SleepTarget: ; 35e5c
 	jr nz, .fail
 
 	call AnimateCurrentMove
-	ld b, $7
-	ld a, [InBattleTowerBattle]
-	and a
-	jr z, .random_loop
-	ld b, $3
 
 .random_loop
 	call BattleRandom
-	and b
-	jr z, .random_loop
-	cp 3
+	and 3
 	jr z, .random_loop
 	inc a
 	ld [de], a
@@ -5028,6 +5103,37 @@ BattleCommand_SleepTarget: ; 35e5c
 	jp StdBattleTextBox
 
 ; 35ece
+
+
+.CheckAIRandomFail: ; 35ece
+	; Enemy turn
+	ld a, [hBattleTurn]
+	and a
+	jr z, .dont_fail
+
+	; Not in link battle
+	ld a, [wLinkMode]
+	and a
+	jr nz, .dont_fail
+
+	ld a, [InBattleTowerBattle]
+	and a
+	jr nz, .dont_fail
+
+	; Not locked-on by the enemy
+	ld a, [PlayerSubStatus5]
+	bit SUBSTATUS_LOCK_ON, a
+	jr nz, .dont_fail
+
+	call BattleRandom
+	cp $40 ; 25%
+	ret c
+
+.dont_fail
+	xor a
+	ret
+
+; 35eee
 
 
 BattleCommand_PoisonTarget: ; 35eee
@@ -6490,7 +6596,7 @@ BattleCommand_StoreEnergy: ; 36671
 
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVarAddr
-	ld a, BIDE
+	ld a, TACKLE
 	ld [hl], a
 
 	ld b, unleashenergy_command
@@ -8839,7 +8945,9 @@ BattleCommand_HappinessPower: ; 3784b
 ; 37874
 
 
-INCLUDE "battle/effects/present.asm"
+;INCLUDE "battle/effects/present.asm"
+BattleCommand_Present:
+	ret
 
 BattleCommand_FrustrationPower: ; 3790e
 ; frustrationpower

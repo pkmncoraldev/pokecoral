@@ -17,6 +17,8 @@ Route33_MapScriptHeader:
 	end
 	
 .Trigger1:
+	setevent EVENT_ISLAND_GREEM_MAN
+	variablesprite SPRITE_LEILANI_PSYDUCK, SPRITE_PSYDUCK
 	end
 	
 Route33Sign:

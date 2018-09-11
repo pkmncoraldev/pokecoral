@@ -1,5 +1,4 @@
 const_value set 2
-	const VERMILIONHOUSEFISHINGSPEECHHOUSE_FISHING_GURU
 
 VermilionHouseFishingSpeechHouse_MapScriptHeader:
 .MapTriggers:
@@ -8,64 +7,33 @@ VermilionHouseFishingSpeechHouse_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-FishingDude:
-	jumptextfaceplayer FishingDudeText
+VermilionHouseFishingSpeechHouse_MapEventHeader:: db 0, 0
 
-FishingDudesHousePhoto:
-	jumptext FishingDudesHousePhotoText
+.Warps: db 2
+	warp_def 7, 2, 9, VERMILION_CITY
+	warp_def 7, 3, 9, VERMILION_CITY
 
-FishingDudesHouseBookshelf:
-; unused
-	jumpstd picturebookshelf
+.CoordEvents: db 0
 
-FishingDudeText:
-	text "I am the FISHING"
-	line "DUDE, the elder of"
-	cont "the FISHING BROS."
+.BGEvents: db 0
 
-	para "Have you met the"
-	line "FISHING GURU at"
-	cont "LAKE OF RAGE?"
+.ObjectEvents: db 1
+	person_event SPRITE_TEACHER, 3, 2, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 5, FlickerHouse1NPC, -1
 
-	para "He dreams about"
-	line "seeing the world's"
-	cont "greatest MAGIKARP."
-
-	para "If you don't mind,"
-	line "could you show him"
-
-	para "any MAGIKARP you"
-	line "catch?"
-
-	para "Who knows, you may"
-	line "catch the MAGIKARP"
-	cont "of his dreams."
+FlickerHouse1NPC:
+	jumptextfaceplayer FlickerHouse1NPCText
+	
+FlickerHouse1NPCText:
+	text "Living next to a"
+	line "train station is"
+	cont "great!"
+	
+	para "The sound of the"
+	line "train whistle just"
+	cont "never gets old."
+	
+	para "Even in the middle"
+	line "of the night…"
+	
+	para "It's just great…"
 	done
-
-FishingDudesHousePhotoText:
-	text "It's a photo of"
-	line "people fishing…"
-
-	para "They're having a"
-	line "great time…"
-	done
-
-VermilionHouseFishingSpeechHouse_MapEventHeader:
-	; filler
-	db 0, 0
-
-.Warps:
-	db 2
-	warp_def $7, $2, 1, VERMILION_CITY
-	warp_def $7, $3, 1, VERMILION_CITY
-
-.XYTriggers:
-	db 0
-
-.Signposts:
-	db 1
-	signpost 0, 3, SIGNPOST_READ, FishingDudesHousePhoto
-
-.PersonEvents:
-	db 1
-	person_event SPRITE_FISHING_GURU, 4, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, FishingDude, -1

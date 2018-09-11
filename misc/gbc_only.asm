@@ -4,7 +4,9 @@ GBCOnlyScreen: ; 4ea82
 	and a
 	ret nz
 
-	ld de, MUSIC_NONE
+	call SetPalettes
+	
+	ld de, MUSIC_MOBILE_ADAPTER_MENU
 	call PlayMusic
 
 	call ClearTileMap
@@ -21,7 +23,7 @@ GBCOnlyScreen: ; 4ea82
 
 	ld de, $d000
 	ld hl, VTiles2
-	lb bc, BANK(GBCOnlyGFX), $54
+	lb bc, BANK(GBCOnlyGFX), $7f
 	call Get2bpp
 
 	ld de, Font
@@ -42,26 +44,73 @@ GBCOnlyScreen: ; 4ea82
 
 DrawGBCOnlyScreen: ; 4eac5
 
-	call DrawGBCOnlyBorder
-
 	; Pokemon
+	hlcoord 3, 1
+	ld b, 6
+	ld c, 1
+	ld a, $1
+	call DrawGBCOnlyGraphic
+	
 	hlcoord 3, 2
-	ld b, 14
-	ld c, 4
-	ld a, $8
+	ld b, 75
+	ld c, 1
+	ld a, $9
+	call DrawGBCOnlyGraphic
+	
+	hlcoord 17, 2
+	ld b, 1
+	ld c, 1
+	ld a, $6b
+	call DrawGBCOnlyGraphic
+	
+	hlcoord 17, 3
+	ld b, 2
+	ld c, 1
+	ld a, $6b
+	call DrawGBCOnlyGraphic
+	
+	hlcoord 17, 4
+	ld b, 2
+	ld c, 1
+	ld a, $6b
+	call DrawGBCOnlyGraphic
+	
+	hlcoord 16, 5
+	ld b, 3
+	ld c, 1
+	ld a, $6b
+	call DrawGBCOnlyGraphic
+	
+	hlcoord 1, 5
+	ld b, 1
+	ld c, 1
+	ld a, $6b
 	call DrawGBCOnlyGraphic
 
-	; Crystal
-	hlcoord 5, 6
-	ld b, 10
-	ld c, 2
-	ld a, $40
+	call DrawGBCOnlyBorder
+	
+	hlcoord 5, 0
+	ld b, 2
+	ld c, 1
+	ld a, $7
 	call DrawGBCOnlyGraphic
-
+	
 	ld de, GBCOnlyString
-	hlcoord 1, 10
+	hlcoord 1, 7
 	call PlaceString
 
+	hlcoord 12, 13
+	ld b, 4
+	ld c, 4
+	ld a, $70
+	call DrawGBCOnlyGraphic
+	
+	hlcoord 15, 16
+	ld b, 1
+	ld c, 1
+	ld a, $6f
+	call DrawGBCOnlyGraphic
+	
 	ret
 ; 4eaea
 
@@ -72,27 +121,27 @@ DrawGBCOnlyBorder: ; 4eaea
 	ld [hl], 0 ; top-left
 
 	inc hl
-	ld a, 1 ; top
+	ld a, 0 ; top
 	call .FillRow
 
-	ld [hl], 2 ; top-right
+	ld [hl], 0 ; top-right
 
 	hlcoord 0, 1
-	ld a, 3 ; left
+	ld a, 0 ; left
 	call .FillColumn
 
 	hlcoord 19, 1
-	ld a, 4 ; right
+	ld a, 0 ; right
 	call .FillColumn
 
 	hlcoord 0, 17
-	ld [hl], 5 ; bottom-left
+	ld [hl], 0 ; bottom-left
 
 	inc hl
-	ld a, 6 ; bottom
+	ld a, 0 ; bottom
 	call .FillRow
 
-	ld [hl], 7 ; bottom-right
+	ld [hl], 0 ; bottom-right
 	ret
 ; 4eb15
 
@@ -137,10 +186,11 @@ DrawGBCOnlyGraphic: ; 4eb27
 
 
 GBCOnlyString: ; 4eb38
-	db   "This Game Pak is"
-	next "designed only for"
-	next "use on the"
-	next "Game Boy Color.@"
+	db   "#MON CORAL can"
+	next "only be played on"
+	next "a Game Boy Color."
+	next " "
+	next "Sorry…@"
 ; 4eb76
 
 

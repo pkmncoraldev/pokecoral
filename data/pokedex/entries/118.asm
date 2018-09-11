@@ -1,10 +1,10 @@
 ; GoldeenPokedexEntry: ; 0x1b9626
-	db "GOLDFISH@" ; species name
-	dw 200, 330 ; height, width
+	db "CANDLE@" ; species name
+	dw 100, 68 ; height, width
 
-	db   "During spawning"
-	next "season, they swim"
-	next "gracefully in the"
-	page "water, searching"
-	next "for their perfect"
-	next "mate.@"
+	db   "While shining a"
+	next "light and acting"
+	next "like a guide, it"
+	page "leeches off the"
+	next "life force of"
+	next "any who follow.@"

@@ -96,11 +96,6 @@ GetMapTrigger:: ; 2147
 ; 2173
 
 OverworldTextModeSwitch:: ; 2173
-	call LoadMapPart
-	call FarCallSwapTextboxPalettes
-	ret
-; 217a
-
 LoadMapPart:: ; 217a
 	ld a, [hROMBank]
 	push af
@@ -113,6 +108,10 @@ LoadMapPart:: ; 217a
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	call ByteFill
+
+	ld a, [wTilesetAttributesBank]
+	rst Bankswitch
+	call LoadMetatileAttributes
 
 	ld a, BANK(_LoadMapPart)
 	rst Bankswitch
@@ -169,6 +168,7 @@ LoadMetatiles:: ; 2198
 rept 3
 rept 4
 	ld a, [hli]
+	and $7f
 	ld [de], a
 	inc de
 endr
@@ -181,6 +181,7 @@ endr
 endr
 rept 4
 	ld a, [hli]
+	and $7f
 	ld [de], a
 	inc de
 endr
@@ -208,6 +209,99 @@ endr
 	jp nz, .row
 	ret
 ; 222a
+
+LoadMetatileAttributes::
+	; de <- wOverworldMapAnchor
+	ld a, [wOverworldMapAnchor]
+	ld e, a
+	ld a, [wOverworldMapAnchor + 1]
+	ld d, a
+	ld hl, wSurroundingAttributes
+	ld b, WMISC_HEIGHT / 4 ; 5
+
+.row
+	push de
+	push hl
+	ld c, WMISC_WIDTH / 4 ; 6
+
+.col
+	push de
+	push hl
+	; Load the current map block.
+	; If the current map block is a border block, load the border block.
+	ld a, [de]
+	and a
+	jr nz, .ok
+	ld a, [MapBorderBlock]
+
+.ok
+	; Load the current wSurroundingAttributes address into de.
+	ld e, l
+	ld d, h
+	; Set hl to the address of the current metatile attribute data ([wTilesetAttributesAddress] + (a) tiles).
+	ld l, a
+	ld h, 0
+rept 4
+	add hl, hl
+endr
+	ld a, [wTilesetAttributesAddress]
+	add l
+	ld l, a
+	ld a, [wTilesetAttributesAddress + 1]
+	adc h
+	ld h, a
+
+	ld a, [rSVBK]
+	push af
+	ld a, BANK(wSurroundingAttributes)
+	ld [rSVBK], a
+
+	; copy the 4x4 metatile
+rept 3
+rept 4
+	ld a, [hli]
+	ld [de], a
+	inc de
+endr
+	ld a, e
+	add WMISC_WIDTH - 4
+	ld e, a
+	jr nc, .next\@
+	inc d
+.next\@
+endr
+rept 4
+	ld a, [hli]
+	ld [de], a
+	inc de
+endr
+
+	pop af
+	ld [rSVBK], a
+
+	; Next metatile
+	pop hl
+	ld de, 4
+	add hl, de
+	pop de
+	inc de
+	dec c
+	jp nz, .col
+	; Next metarow
+	pop hl
+	ld de, WMISC_WIDTH * 4
+	add hl, de
+	pop de
+	ld a, [MapWidth]
+	add 6
+	add e
+	ld e, a
+	jr nc, .ok2
+	inc d
+.ok2
+	dec b
+	jp nz, .row
+	ret
 
 ReturnToMapFromSubmenu:: ; 222a
 	ld a, MAPSETUP_SUBMENU
@@ -364,6 +458,8 @@ CopyWarpData:: ; 22a7
 ; 22ee
 
 CheckOutdoorMap:: ; 22ee
+	cp DARK_FOREST
+	ret z
 	cp ROUTE
 	ret z
 	cp TOWN
@@ -1214,8 +1310,9 @@ ScrollMapDown:: ; 272a
 	hlcoord 0, 0
 	ld de, BGMapBuffer
 	call BackupBGMapRow
-	ld c, 2 * SCREEN_WIDTH
-	call FarCallScrollBGMapPalettes
+	hlcoord 0, 0, AttrMap
+	ld de, BGMapPalBuffer
+	call BackupBGMapRow
 	ld a, [wBGMapAnchor]
 	ld e, a
 	ld a, [wBGMapAnchor + 1]
@@ -1230,8 +1327,9 @@ ScrollMapUp:: ; 2748
 	hlcoord 0, SCREEN_HEIGHT - 2
 	ld de, BGMapBuffer
 	call BackupBGMapRow
-	ld c, 2 * SCREEN_WIDTH
-	call FarCallScrollBGMapPalettes
+	hlcoord 0, SCREEN_HEIGHT - 2, AttrMap
+	ld de, BGMapPalBuffer
+	call BackupBGMapRow
 	ld a, [wBGMapAnchor]
 	ld l, a
 	ld a, [wBGMapAnchor + 1]
@@ -1254,8 +1352,9 @@ ScrollMapRight:: ; 2771
 	hlcoord 0, 0
 	ld de, BGMapBuffer
 	call BackupBGMapColumn
-	ld c, 2 * SCREEN_HEIGHT
-	call FarCallScrollBGMapPalettes
+	hlcoord 0, 0, AttrMap
+	ld de, BGMapPalBuffer
+	call BackupBGMapColumn
 	ld a, [wBGMapAnchor]
 	ld e, a
 	ld a, [wBGMapAnchor + 1]
@@ -1270,8 +1369,9 @@ ScrollMapLeft:: ; 278f
 	hlcoord SCREEN_WIDTH - 2, 0
 	ld de, BGMapBuffer
 	call BackupBGMapColumn
-	ld c, 2 * SCREEN_HEIGHT
-	call FarCallScrollBGMapPalettes
+	hlcoord SCREEN_WIDTH - 2, 0, AttrMap
+	ld de, BGMapPalBuffer
+	call BackupBGMapColumn
 	ld a, [wBGMapAnchor]
 	ld e, a
 	and %11100000
@@ -1380,12 +1480,6 @@ UpdateBGMapColumn:: ; 27f8
 	ret
 ; 2816
 
-; unreferenced
-	ld hl, BGMapBuffer
-	ld bc, BGMapBufferEnd - BGMapBuffer
-	xor a
-	call ByteFill
-	ret
 ; 2821
 
 LoadTileset:: ; 2821
@@ -1407,7 +1501,7 @@ LoadTileset:: ; 2821
 
 	ld hl, wDecompressScratch
 	ld de, VTiles2
-	ld bc, $60 tiles
+	ld bc, $7f tiles
 	call CopyBytes
 
 	ld a, [rVBK]
@@ -1415,9 +1509,9 @@ LoadTileset:: ; 2821
 	ld a, $1
 	ld [rVBK], a
 
-	ld hl, w6_d600
+	ld hl, wDecompressScratch + $80 tiles
 	ld de, VTiles2
-	ld bc, $60 tiles
+	ld bc, $80 tiles
 	call CopyBytes
 
 	pop af
@@ -1427,15 +1521,9 @@ LoadTileset:: ; 2821
 	ld [rSVBK], a
 
 	ld a, [wTileset]
-	cp TILESET_SUNSET_BAY
-	jr z, .load_roof
 	cp TILESET_GLINT
 	jr z, .load_roof
-	cp TILESET_JOHTO_2
-	jr z, .load_roof
-	cp TILESET_ISLAND
-	jr z, .load_roof
-	cp TILESET_SPOOKY_FOREST
+	cp TILESET_SPOOKY
 	jr z, .load_roof
 	jr .skip_roof
 
@@ -2297,10 +2385,23 @@ RADIO_TOWER_MUSIC EQU 7
 	ld a, c
 	cp MUSIC_STARGLOW
 	jr z, .starglow
+;	cp MUSIC_SUNBEAM
 	cp MUSIC_MAHOGANY_MART
 	jr z, .mahoganymart
-	bit RADIO_TOWER_MUSIC, c
-	jr nz, .radiotower
+	
+	ld a, [MapGroup]
+	cp GROUP_ROUTE_29
+	jr nz, .cont
+	ld a, [MapNumber]
+	cp MAP_ROUTE_29
+	jr z, .sunbeam
+	cp MAP_VIOLET_GYM
+	jr z, .sunbeam
+	cp MAP_ROUTE_30_BERRY_SPEECH_HOUSE
+	jr z, .sunbeam
+.cont
+;	bit RADIO_TOWER_MUSIC, c
+;	jr nz, .radiotower
 	callba Function8b342
 	ld e, c
 	ld d, 0
@@ -2309,20 +2410,20 @@ RADIO_TOWER_MUSIC EQU 7
 	pop hl
 	ret
 
-.radiotower
-	ld a, [StatusFlags2]
-	bit 0, a
-	jr z, .clearedradiotower
-	ld de, MUSIC_ROCKET_OVERTURE
-	jr .done
+;.radiotower
+;	ld a, [StatusFlags2]
+;	bit 0, a
+;	jr z, .clearedradiotower
+;	ld de, MUSIC_ROCKET_OVERTURE
+;	jr .done
 
-.clearedradiotower
-	; the rest of the byte
-	ld a, c
-	and 1 << RADIO_TOWER_MUSIC - 1
-	ld e, a
-	ld d, 0
-	jr .done
+;.clearedradiotower
+;	; the rest of the byte
+;	ld a, c
+;	and 1 << RADIO_TOWER_MUSIC - 1
+;	ld e, a
+;	ld d, 0
+;	jr .done
 
 .mahoganymart
 	ld a, [StatusFlags2]
@@ -2332,7 +2433,7 @@ RADIO_TOWER_MUSIC EQU 7
 	jr .done
 
 .clearedmahogany
-	ld de, MUSIC_CHERRYGROVE_CITY
+	ld de, MUSIC_SUNBEAM_ISLAND
 	jr .done
 	
 .starglow
@@ -2341,9 +2442,20 @@ RADIO_TOWER_MUSIC EQU 7
 	jr z, .clearedstarglow
 	ld de, MUSIC_ROCKET_HIDEOUT
 	jr .done
+	
+.sunbeam
+	ld a, [StatusFlags3]
+	bit 0, a
+	jr z, .clearedsunbeam
+	ld de, MUSIC_ROCKET_HIDEOUT
+	jr .done
 
 .clearedstarglow
-	ld de, MUSIC_GLINT_CITY
+	ld de, MUSIC_STARGLOW_VALLEY
+	jr .done
+	
+.clearedsunbeam
+	ld de, MUSIC_SUNBEAM_ISLAND
 	jr .done
 ; 2cff
 

@@ -2121,8 +2121,9 @@ ShakeGrass: ; 5556
 	ret
 
 .data_5562
-	db $00, PAL_OW_GREEN, SPRITEMOVEDATA_GRASS
+	db $00, PAL_OW_SILVER, SPRITEMOVEDATA_GRASS
 ; 5565
+
 ShakeScreen: ; 5565
 	push bc
 	push af
@@ -2469,11 +2470,14 @@ Function56cd: ; 56cd
 	jr nc, .ok8
 	ld c, a
 	push bc
-	call Coord2Tile
+	call Coord2Attr
 	pop bc
 	ld a, [hl]
-	cp $60
-	jr nc, .nope
+;	cp $60
+;	jr nc, .nope
+	and OAM_PALETTE
+	cp PAL_BG_TEXT
+	jr z, .nope
 .ok8
 	dec d
 	jr nz, .next

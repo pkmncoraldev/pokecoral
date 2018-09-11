@@ -1,10 +1,10 @@
-; HitmontopPokedexEntry: ; 0x1d12c0
-	db "HANDSTAND@" ; species name
-	dw 407, 1060 ; height, width
+; AltariaPokedexEntry: ; 0x1d12c0
+	db "HUMMING@" ; species name
+	dw 307, 454 ; height, width
 
-	db   "After doing a"
-	next "handstand to"
-	next "throw off the"
-	page "opponent's timing,"
-	next "it presents its"
-	next "fancy kick moves.@"
+	db   "It looks like a"
+	next "fluffy cloud when"
+	next "it is in flight."
+	page "It hums with its"
+	next "soprano voice."
+	next "@"

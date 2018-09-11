@@ -32,14 +32,14 @@ endr
 
 RestartClock: ; 20021 (8:4021)
 ; If we're here, we had an RTC overflow.
-	ld hl, .Text_ClockTimeMayBeWrong
-	call PrintText
+;	ld hl, .Text_ClockTimeMayBeWrong
+;	call PrintText
 	ld hl, Options
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
 	call LoadStandardMenuDataHeader
-	call ClearTileMap
+;	call ClearTileMap
 	ld hl, .Text_SetWithControlPad
 	call PrintText
 	call .SetClock
@@ -97,9 +97,8 @@ RestartClock: ; 20021 (8:4021)
 	ld [StringBuffer2 + 3], a
 	call InitTime
 	call .PrintTime
-	ld hl, .Text_ClockReset
-	call PrintText
-	call WaitPressAorB_BlinkCursor
+;	ld hl, .Text_ClockReset
+;	call PrintText
 	xor a
 	ret
 

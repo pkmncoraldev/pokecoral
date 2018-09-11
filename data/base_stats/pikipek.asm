@@ -1,6 +1,6 @@
 	db PIKIPEK ; 010
 
-	db  35,  75,  30,  65,  30,  30
+	db 35,  75,  30,  65,  30,  30
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, FLYING
@@ -12,7 +12,7 @@
 	db 100 ; unknown
 	db 15 ; step cycles to hatch
 	db 5 ; unknown
-	dn 7, 7 ; frontpic dimensions
+	dn 5, 5 ; frontpic dimensions
 	db 0, 0, 0, 0 ; padding
 	db MEDIUM_FAST ; growth rate
 	dn AVIAN, AVIAN ; egg groups

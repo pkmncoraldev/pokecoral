@@ -94,24 +94,24 @@ AnimationExtraPointers:
 	dw HaunterAnimationExtra
 	dw GengarAnimationExtra
 	dw OnixAnimationExtra
-	dw DrowzeeAnimationExtra
-	dw HypnoAnimationExtra
-	dw KrabbyAnimationExtra
-	dw KinglerAnimationExtra
+	dw MedititeAnimationExtra
+	dw MedichamAnimationExtra
+	dw CorphishAnimationExtra
+	dw CrawdauntAnimationExtra
 	dw VoltorbAnimationExtra
 	dw ElectrodeAnimationExtra
 	dw ExeggcuteAnimationExtra
 	dw ExeggutorAnimationExtra
 	dw CuboneAnimationExtra
 	dw MarowakAnimationExtra
-	dw HitmonleeAnimationExtra
-	dw HitmonchanAnimationExtra
+	dw BunearyAnimationExtra
+	dw LopunnyAnimationExtra
 	dw LickitungAnimationExtra
 	dw KoffingAnimationExtra
 	dw WeezingAnimationExtra
 	dw RhyhornAnimationExtra
 	dw RhydonAnimationExtra
-	dw ChanseyAnimationExtra
+	dw NumelAnimationExtra
 	dw TangelaAnimationExtra
 	dw KangaskhanAnimationExtra
 	dw HorseaAnimationExtra
@@ -122,7 +122,7 @@ AnimationExtraPointers:
 	dw StarmieAnimationExtra
 	dw HawluchaAnimationExtra
 	dw ScytherAnimationExtra
-	dw JynxAnimationExtra
+	dw VolcaronaAnimationExtra
 	dw ElectabuzzAnimationExtra
 	dw MagmarAnimationExtra
 	dw PinsirAnimationExtra
@@ -161,8 +161,8 @@ AnimationExtraPointers:
 	dw FeraligatrAnimationExtra
 	dw SentretAnimationExtra
 	dw FurretAnimationExtra
-	dw HoothootAnimationExtra
-	dw NoctowlAnimationExtra
+	dw NoibatAnimationExtra
+	dw NoivernAnimationExtra
 	dw LedybaAnimationExtra
 	dw LedianAnimationExtra
 	dw JoltikAnimationExtra
@@ -185,9 +185,9 @@ AnimationExtraPointers:
 	dw AzumarillAnimationExtra
 	dw SudowoodoAnimationExtra
 	dw PolitoedAnimationExtra
-	dw HoppipAnimationExtra
-	dw SkiploomAnimationExtra
-	dw JumpluffAnimationExtra
+	dw AronAnimationExtra
+	dw LaironAnimationExtra
+	dw AggronAnimationExtra
 	dw AipomAnimationExtra
 	dw SunkernAnimationExtra
 	dw SunfloraAnimationExtra
@@ -234,13 +234,13 @@ AnimationExtraPointers:
 	dw Porygon2AnimationExtra
 	dw StantlerAnimationExtra
 	dw SmeargleAnimationExtra
-	dw TyrogueAnimationExtra
-	dw HitmontopAnimationExtra
-	dw SmoochumAnimationExtra
+	dw SwabluAnimationExtra
+	dw AltariaAnimationExtra
+	dw LarvestaAnimationExtra
 	dw ElekidAnimationExtra
 	dw MagbyAnimationExtra
 	dw MiltankAnimationExtra
-	dw BlisseyAnimationExtra
+	dw CameruptAnimationExtra
 	dw RaikouAnimationExtra
 	dw EnteiAnimationExtra
 	dw SuicuneAnimationExtra

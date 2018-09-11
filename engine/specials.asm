@@ -190,6 +190,8 @@ SpecialsPointers:: ; c029
 	add_special FindItemInPCOrBag
 	add_special Special_InitialSetDSTFlag
 	add_special Special_InitialClearDSTFlag
+	add_special Special_StartRanchRaceTimer
+	add_special SpecialDoduo
 	add_special SpecialNone
 ; c224
 

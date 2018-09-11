@@ -6,18 +6,13 @@ const_value set 2
 
 AzaleaPokeCenter1F_MapScriptHeader:
 .MapTriggers:
-	db 1
-
-	; triggers
-	dw UnknownScript_0x18db27, 0
+	db 0
 
 .MapCallbacks:
 	db 0
 
-UnknownScript_0x18db27:
-	end
-
 NurseScript_0x18db28:
+	blackoutmod AZALEA_TOWN
 	jumpstd pokecenternurse
 
 GlintPokeCenterNpc1:

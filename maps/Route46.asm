@@ -28,8 +28,8 @@ Route46_MapEventHeader:: db 0, 0
 	person_event SPRITE_POKE_BALL, 7, 32, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_ITEMBALL, 0, LavaCaveBF1PokeBall2, EVENT_LAVA_CAVE_BF1_POKE_BALL2
 	person_event SPRITE_POKE_BALL, 18, 10, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_ITEMBALL, 0, LavaCaveBF1PokeBall3, EVENT_LAVA_CAVE_BF1_POKE_BALL3
 	person_event SPRITE_FISHER, 26, 17, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 2, LavaCaveBF1Trainer1, -1
-	person_event SPRITE_FISHER, 23, 4, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, LavaCaveBF1Trainer1, -1
-	person_event SPRITE_FISHER, 23, 29, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, LavaCaveBF1Trainer1, -1
+	person_event SPRITE_FISHER, 23, 4, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, LavaCaveBF1Trainer2, -1
+	person_event SPRITE_FISHER, 23, 29, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, LavaCaveBF1Trainer3, -1
 	person_event SPRITE_ROCKER, 6, 20, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_YELLOW, PERSONTYPE_SCRIPT, 0, LavaCaveBF1NPC1, -1
 	person_event SPRITE_ROCKER, 21, 19, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, LavaCaveBF1NPC2, -1
 
@@ -43,6 +43,36 @@ LavaCaveBF1PokeBall3:
 	itemball BURN_HEAL
 	
 LavaCaveBF1Trainer1:
+	trainer EVENT_BEAT_LAVA_CAVE_BF1_TRAINER_1, FIREBREATHER, 1, LavaCaveBF1Trainer1SeenText, LavaCaveBF1Trainer1BeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext LavaCaveBF1Trainer1NormalText
+	waitbutton
+	closetext
+	end
+	
+LavaCaveBF1Trainer2:
+	trainer EVENT_BEAT_LAVA_CAVE_BF1_TRAINER_2, FIREBREATHER, 2, LavaCaveBF1Trainer2SeenText, LavaCaveBF1Trainer2BeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext LavaCaveBF1Trainer2NormalText
+	waitbutton
+	closetext
+	end
+	
+LavaCaveBF1Trainer3:
+	trainer EVENT_BEAT_LAVA_CAVE_BF1_TRAINER_3, FIREBREATHER, 3, LavaCaveBF1Trainer3SeenText, LavaCaveBF1Trainer3BeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext LavaCaveBF1Trainer3NormalText
+	waitbutton
+	closetext
 	end
 	
 LavaCaveBF1NPC1:
@@ -151,4 +181,63 @@ LavaCaveBF1NPC2Text_girl:
 	
 	para "You should try it,"
 	line "mama."
+	done
+	
+LavaCaveBF1Trainer1SeenText:
+	text "You can't beat me"
+	line "in this heat."
+	
+	para "I'm in my element!"
+	done
+	
+LavaCaveBF1Trainer1BeatenText:
+	text "Maybe fire isn't"
+	line "my element after"
+	cont "all…"
+	done
+	
+LavaCaveBF1Trainer1NormalText:
+	text "Maybe I should"
+	line "catch a WATER-type"
+	cont "#MON."
+	done
+	
+LavaCaveBF1Trainer2SeenText:
+	text "What's wrong, kid?"
+	
+	para "Too hot for ya?"
+	done
+	
+LavaCaveBF1Trainer2BeatenText:
+	text "Wow!"
+	
+	para "What a red-hot"
+	line "battle!"
+	done
+	
+LavaCaveBF1Trainer2NormalText:
+	text "If you can't take"
+	line "the heat, stay"
+	cont "outta the kitchen."
+	done
+	
+LavaCaveBF1Trainer3SeenText:
+	text "If you got here,"
+	line "you must have a"
+	cont "FIRE-type #MON."
+	
+	para "Why don't we"
+	line "compare?"
+	done
+	
+LavaCaveBF1Trainer3BeatenText:
+	text "Huh."
+	
+	para "I see."
+	done
+	
+LavaCaveBF1Trainer3NormalText:
+	text "Looks like your"
+	line "fire burns hotter"
+	cont "than mine."
 	done

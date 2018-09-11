@@ -53,7 +53,6 @@ MAP_NONE   EQU 0
 	mapgroup SUNSET_CAPE_ROUTE_1_GATE, 4, 5
 	mapgroup RUINS_OF_ALPH_INNER_CHAMBER,                14, 10 ; 27
 	mapgroup RUINS_OF_ALPH_RESEARCH_CENTER,               4,  4 ; 28
-	mapgroup RUINS_OF_ALPH_HO_OH_ITEM_ROOM,               5,  4 ; 29
 	mapgroup RUINS_OF_ALPH_KABUTO_ITEM_ROOM,              5,  4 ; 30
 	mapgroup RUINS_OF_ALPH_HO_OH_WORD_ROOM,              12, 10 ; 33
 	mapgroup RUINS_OF_ALPH_KABUTO_WORD_ROOM,              7, 10 ; 34
@@ -74,7 +73,7 @@ MAP_NONE   EQU 0
 	mapgroup SPOOKY_FOREST_7, 8, 8
 	mapgroup SPOOKY_FOREST_8, 8, 8
 	mapgroup SPOOKY_FOREST_9, 8, 8
-	mapgroup UNDERGROUND_PATH_SWITCH_ROOM_ENTRANCES, 34, 27
+	mapgroup UNDERGROUND_PATH_SWITCH_ROOM_ENTRANCES, 10, 13
 	mapgroup GOLDENROD_DEPT_STORE_B1F,                    9, 10 ; 55
 	mapgroup UNDERGROUND_WAREHOUSE,                       9, 10 ; 56
 	mapgroup MOUNT_MORTAR_1F_OUTSIDE,                    18, 20 ; 57
@@ -102,8 +101,6 @@ MAP_NONE   EQU 0
 	mapgroup DARK_CAVE_BLACKTHORN_ENTRANCE,              18, 15 ; 79
 	mapgroup DRAGONS_DEN_1F,                              9,  5 ; 80
 	mapgroup DRAGONS_DEN_B1F,                            18, 20 ; 81
-	mapgroup DRAGON_SHRINE,                               5,  5 ; 82
-	mapgroup TOHJO_FALLS,                                 9, 15 ; 83
 	mapgroup DIGLETTS_CAVE,                              18, 10 ; 84
 	mapgroup MOUNT_MOON,                                  9, 15 ; 85
 	mapgroup SUNSET_LIGHTHOUSE, 5, 5
@@ -123,7 +120,7 @@ MAP_NONE   EQU 0
 	mapgroup ECRUTEAK_GYM,                                9,  5 ;  7
 	mapgroup ECRUTEAK_ITEMFINDER_HOUSE,                   4,  4 ;  8
 	mapgroup ECRUTEAK_CITY,                              18, 20 ;  9
-	mapgroup SUNSET_BAY, 								 18, 18
+	mapgroup SUNSET_BAY, 18, 18
 	mapgroup SUNSET_CAPE, 19, 13
 	mapgroup OCEAN_1, 7, 13
 	mapgroup OCEAN_2, 11, 17
@@ -145,19 +142,18 @@ MAP_NONE   EQU 0
 	mapgroup CINNABAR_POKECENTER_1F,                      4,  5 ;  1
 	mapgroup CINNABAR_POKECENTER_2F_BETA, 4, 6
 	mapgroup ROUTE_19___FUCHSIA_GATE, 13, 14
-	mapgroup ROUTE_19, 10, 13
+	mapgroup ROUTE_19, 12, 13
 	mapgroup ROUTE_20, 14, 17
-	mapgroup DANCE_THEATRE, 19, 20
 	mapgroup ROUTE_21, 9, 5
 	mapgroup ROUTE_46, 20, 18
 	mapgroup ROUTE_44, 15, 23
 	mapgroup ROUTE_31, 14, 11
 	mapgroup CINNABAR_ISLAND,                             9, 10 ;  8
-	mapgroup ROUTE_30, 26, 31
 	mapgroup ROUTE_35_GOLDENROD_GATE, 3, 3
 	mapgroup ROUTE_36_RUINS_OF_ALPH_GATE, 3, 3
 	mapgroup ROUTE_35_NATIONAL_PARK_GATE, 4, 4
 	mapgroup ROUTE_36_NATIONAL_PARK_GATE, 4, 4
+	mapgroup ROUTE_30, 26, 31
 
 	newgroup                                                    ;  7
 
@@ -184,14 +180,14 @@ MAP_NONE   EQU 0
 	mapgroup OLIVINE_LIGHTHOUSE_4F, 4, 4
 	mapgroup OLIVINE_LIGHTHOUSE_5F, 4, 6
 	mapgroup OLIVINE_LIGHTHOUSE_6F, 4, 6
-	mapgroup SEAFOAM_GYM, 20, 20
+	mapgroup SEAFOAM_GYM, 11, 6
 	mapgroup ROUTE_33, 8, 6
 	mapgroup ROUTE_34, 12, 23
+	mapgroup TOHJO_FALLS, 12, 15
 	mapgroup ROUTE_42, 28, 18
 	mapgroup ROUTE_40, 8, 8
 
-	newgroup                                                    ;  8
-
+	newgroup
 	mapgroup AZALEA_POKECENTER_1F, 4, 6
 	mapgroup CHARCOAL_KILN, 4, 4
 	mapgroup AZALEA_MART, 4, 6
@@ -199,27 +195,27 @@ MAP_NONE   EQU 0
 	mapgroup BILLS_HOUSE, 4, 4
 	mapgroup LAKE_OF_RAGE_HIDDEN_POWER_HOUSE, 4, 4
 	mapgroup AZALEA_GYM, 9, 5
-	mapgroup ROUTE_45, 18, 43
-	mapgroup ROUTE_41, 12, 12
-	mapgroup CHERRYGROVE_CITY, 29, 19
+	mapgroup ROUTE_45, 18, 37
+	mapgroup DRAGON_SHRINE, 18, 37
+	mapgroup ROUTE_41, 12, 20
+	mapgroup CHERRYGROVE_CITY, 29, 21
 	mapgroup NATIONAL_PARK, 10, 14
 	mapgroup NATIONAL_PARK_BUG_CONTEST, 5, 6
-	mapgroup ROUTE_29, 29, 14
+	mapgroup ROUTE_29, 29, 12
 	mapgroup ROUTE_27, 17, 8
-	mapgroup CHERRYGROVE_MART,                            4,  6 ;  4
+	mapgroup CHERRYGROVE_MART, 4, 6
 	mapgroup CHERRYGROVE_POKECENTER_1F, 4, 6
 	mapgroup CHERRYGROVE_GYM_SPEECH_HOUSE, 16, 16
 	mapgroup ELMS_HOUSE, 4, 4
 	mapgroup KRISS_NEIGHBORS_HOUSE, 4, 4
-	mapgroup GUIDE_GENTS_HOUSE,                           4,  4 ;  7
-	mapgroup CHERRYGROVE_EVOLUTION_SPEECH_HOUSE,          4,  4 ;  8
-	mapgroup ROUTE_30_BERRY_SPEECH_HOUSE,                 4,  4 ;  9
+	mapgroup GUIDE_GENTS_HOUSE, 4, 4
+	mapgroup CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, 4, 4
+	mapgroup ROUTE_30_BERRY_SPEECH_HOUSE, 3, 3
 	mapgroup MR_POKEMONS_HOUSE, 4, 4
-	mapgroup VIOLET_GYM,                                  8,  5 ;  7
+	mapgroup VIOLET_GYM, 4, 4
 	mapgroup ROUTE_43_MAHOGANY_GATE, 4, 5
 
 	newgroup                                                    ;  9
-
 	mapgroup LAKE_OF_RAGE_MAGIKARP_HOUSE,                 4,  4 ;  2
 	mapgroup ROUTE_43_GATE, 20, 8
 	mapgroup ROUTE_43, 14, 30
@@ -231,7 +227,7 @@ MAP_NONE   EQU 0
 
 	newgroup                                                    ; 10
 
-	mapgroup ROUTE_36, 24, 18
+	mapgroup ROUTE_36, 24, 19
 	mapgroup ROUTE_37, 17, 14
 	mapgroup VIOLET_CITY, 10, 13
 	mapgroup VIOLET_MART, 7, 9
@@ -250,7 +246,7 @@ MAP_NONE   EQU 0
 
 	newgroup                                                    ; 11
 
-	mapgroup GOLDENROD_CITY,                             18, 20 ;  2
+	mapgroup GOLDENROD_CITY, 28, 28
 	mapgroup GOLDENROD_GYM,                               9, 10 ;  3
 	mapgroup GOLDENROD_BIKE_SHOP,                         4,  4 ;  4
 	mapgroup GOLDENROD_HAPPINESS_RATER,                   4,  4 ;  5
@@ -277,21 +273,23 @@ MAP_NONE   EQU 0
 	newgroup                                                    ; 12
 
 	mapgroup ROUTE_6,                                     9, 10 ;  1
-	mapgroup ROUTE_11,                                    9, 20 ;  2
-	mapgroup VERMILION_CITY,                             18, 20 ;  3
-	mapgroup VERMILION_HOUSE_FISHING_SPEECH_HOUSE,        4,  4 ;  4
-	mapgroup VERMILION_POKECENTER_1F,                     4,  5 ;  5
+	mapgroup ROUTE_11, 17, 19
+	mapgroup RUINS_OF_ALPH_HO_OH_ITEM_ROOM, 17, 24
+	mapgroup SILPH_CO_1F, 4, 7
+	mapgroup VERMILION_HOUSE_FISHING_SPEECH_HOUSE, 4, 4
+	mapgroup VERMILION_POKECENTER_1F, 4, 6
 	mapgroup VERMILION_POKECENTER_2F_BETA,                4,  8 ;  6
-	mapgroup POKEMON_FAN_CLUB,                            4,  5 ;  7
+	mapgroup POKEMON_FAN_CLUB, 4, 4
 	mapgroup VERMILION_MAGNET_TRAIN_SPEECH_HOUSE,         4,  4 ;  8
-	mapgroup VERMILION_MART,                              4,  6 ;  9
-	mapgroup VERMILION_HOUSE_DIGLETTS_CAVE_SPEECH_HOUSE,  4,  4 ; 10
+	mapgroup VERMILION_MART, 4, 6
+	mapgroup VERMILION_HOUSE_DIGLETTS_CAVE_SPEECH_HOUSE, 4, 4
 	mapgroup VERMILION_GYM,                               9,  5 ; 11
 	mapgroup ROUTE_6_SAFFRON_GATE,                        4,  5 ; 12
-	mapgroup ROUTE_6_UNDERGROUND_ENTRANCE,                4,  4 ; 13
+	mapgroup ROUTE_6_UNDERGROUND_ENTRANCE, 4, 15
 
 	newgroup                                                    ; 13
 
+	mapgroup VERMILION_CITY, 16, 19
 	mapgroup ROUTE_1,                                    18, 10 ;  1
 	mapgroup PALLET_TOWN, 9, 10
 	mapgroup REDS_HOUSE_1F,                               4,  4 ;  3
@@ -470,7 +468,6 @@ MAP_NONE   EQU 0
 	mapgroup SAFFRON_POKECENTER_2F_BETA,                  4,  8 ;  7
 	mapgroup MR_PSYCHICS_HOUSE,                           4,  4 ;  8
 	mapgroup SAFFRON_TRAIN_STATION,                       9, 10 ;  9
-	mapgroup SILPH_CO_1F,                                 4,  8 ; 10
 	mapgroup COPYCATS_HOUSE_1F,                           4,  4 ; 11
 	mapgroup COPYCATS_HOUSE_2F,                           3,  5 ; 12
 	mapgroup ROUTE_5_UNDERGROUND_ENTRANCE,                4,  4 ; 13
@@ -480,6 +477,7 @@ MAP_NONE   EQU 0
 	newgroup                                                    ; 26
 
 	mapgroup ROUTE_31_VIOLET_GATE,                        4,  5 ; 11
+	mapgroup DANCE_THEATRE, 20, 20
 	
 	newgroup
 	
@@ -528,6 +526,7 @@ const_value SET 1
 	const PERM_5
 	const GATE
 	const DUNGEON
+	const DARK_FOREST
 
 ; object struct
 	const_def
@@ -627,6 +626,14 @@ const_value = -1
 	const SPAWN_N_A
 
 	const SPAWN_HOME
+	const SPAWN_SUNSET
+	const SPAWN_DAYBREAK
+	const SPAWN_GLINT
+	const SPAWN_STARGLOW
+	const SPAWN_LAKE_ONWA
+	const SPAWN_SUNBEAM
+	const SPAWN_VERMILION
+	
 	const SPAWN_DEBUG
 
 	const SPAWN_PALLET
@@ -634,7 +641,6 @@ const_value = -1
 	const SPAWN_PEWTER
 	const SPAWN_CERULEAN
 	const SPAWN_ROCK_TUNNEL
-	const SPAWN_VERMILION
 	const SPAWN_LAVENDER
 	const SPAWN_SAFFRON
 	const SPAWN_CELADON
@@ -643,16 +649,11 @@ const_value = -1
 	const SPAWN_INDIGO
 
 	const SPAWN_NEW_BARK
-	const SPAWN_SUNBEAM
-	const SPAWN_DAYBREAK
 	const SPAWN_UNION_CAVE
-	const SPAWN_GLINT
 	const SPAWN_CIANWOOD
 	const SPAWN_GOLDENROD
-	const SPAWN_SUNSET
 	const SPAWN_ECRUTEAK
 	const SPAWN_MAHOGANY
-	const SPAWN_STARGLOW
 	const SPAWN_BLACKTHORN
 	const SPAWN_MT_SILVER
 	const SPAWN_FAST_SHIP
@@ -689,12 +690,12 @@ const_value SET 1
 	const FRUITTREE_ROUTE_4     ; 06
 	const FRUITTREE_ROUTE_5_1      ; 07
 	const FRUITTREE_ROUTE_5_2   ; 08
-;	const FRUITTREE_VIOLET_CITY   ; 09
-;	const FRUITTREE_ROUTE_46_2    ; 0a
-;	const FRUITTREE_ROUTE_35      ; 0b
-;	const FRUITTREE_ROUTE_45      ; 0c
-;	const FRUITTREE_ROUTE_36      ; 0d
-;	const FRUITTREE_ROUTE_26      ; 0e
+	const FRUITTREE_HUNTERS   ; 09
+	const FRUITTREE_RANCH	      ; 0a
+	const FRUITTREE_RANCHRIDE1    ; 0b
+	const FRUITTREE_RANCHRIDE2     ; 0c
+	const FRUITTREE_RANCHRIDE3     ; 0d
+	const FRUITTREE_EVENTIDE      ; 0e
 ;	const FRUITTREE_ROUTE_44      ; 10
 ;	const FRUITTREE_ROUTE_37_1    ; 11
 ;	const FRUITTREE_ROUTE_37_2    ; 12

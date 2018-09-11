@@ -72,107 +72,33 @@ BillPhoneScript2: ; 0xbd007
 
 ; Elm
 
-ElmPhoneScript1: ; 0xbd00d
+SprucePhoneScript: ; 0xbd00d
 	checkcode VAR_SPECIALPHONECALL
-	if_equal $1, .pokerus
-	checkevent EVENT_SHOWED_TOGEPI_TO_ELM
-	iftrue .discovery
-	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
-	iffalse .next
-	checkevent EVENT_TOGEPI_HATCHED
-	iftrue .egghatched
-.next
-	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
-	iftrue .eggunhatched
-	checkevent EVENT_ELMS_AIDE_IN_LAB
-	iftrue .assistant
-	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
-	iftrue .checkingegg
-	checkevent EVENT_ELM_CALLED_ABOUT_STOLEN_POKEMON
-	iftrue .stolen
-	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
-	iftrue .sawmrpokemon
-	farwritetext ElmPhoneStartText
+	if_equal $1, .cometoisland
+	checkevent EVENT_GOT_POKEFLUTE
+	iffalse .cometoisland2
+	farwritetext SprucePhoneNormalText
+	special ProfOaksPCBoot
+	farwritetext SprucePhoneNormalText2
+	waitbutton
 	end
-
-.sawmrpokemon ; 0xbd048
-	farwritetext ElmPhoneSawMrPokemonText
-	end
-
-.stolen ; 0xbd04d
-	farwritetext ElmPhonePokemonStolenText
-	end
-
-.checkingegg ; 0xbd052
-	farwritetext ElmPhoneCheckingEggText
-	end
-
-.assistant ; 0xbd057
-	farwritetext ElmPhoneAssistantText
-	end
-
-.eggunhatched ; 0xbd05c
-	farwritetext ElmPhoneEggUnhatchedText
-	end
-
-.egghatched ; 0xbd061
-	farwritetext ElmPhoneEggHatchedText
-	setevent EVENT_TOLD_ELM_ABOUT_TOGEPI_OVER_THE_PHONE
-	end
-
-.discovery ; 0xbd069
-	random $2
-	if_equal $0, .nextdiscovery
-	farwritetext ElmPhoneDiscovery1Text
-	end
-
-.nextdiscovery ; 0xbd074
-	farwritetext ElmPhoneDiscovery2Text
-	end
-
-.pokerus ; 0xbd079
-	farwritetext ElmPhonePokerusText
+.cometoisland
+	farwritetext SprucePhoneComeToIslandText
 	specialphonecall SPECIALCALL_NONE
+	setevent EVENT_SPRUCE_CALLED_COME_TO_ISLAND
+	addcellnum PHONE_SPRUCE
+	end
+.cometoisland2
+	checkevent EVENT_RIVAL_ROUTE_6
+	iftrue .cometoisland3
+	farwritetext SprucePhoneComeToIsland2Text
+	waitbutton
+	end
+.cometoisland3
+	farwritetext SprucePhoneComeToIsland3Text
+	waitbutton
 	end
 
-ElmPhoneScript2: ; 0xbd081
-	checkcode VAR_SPECIALPHONECALL
-	if_equal $2, .disaster
-	if_equal $3, .assistant
-	if_equal $4, .rocket
-	if_equal $5, .gift
-	if_equal $8, .gift
-	farwritetext ElmPhonePokerusText
-	specialphonecall SPECIALCALL_NONE
-	end
-
-.disaster ; 0xbd09f
-	farwritetext ElmPhoneDisasterText
-	specialphonecall SPECIALCALL_NONE
-	setevent EVENT_ELM_CALLED_ABOUT_STOLEN_POKEMON
-	end
-
-.assistant ; 0xbd0aa
-	farwritetext ElmPhoneEggAssistantText
-	specialphonecall SPECIALCALL_NONE
-	clearevent EVENT_ELMS_AIDE_IN_VIOLET_POKEMON_CENTER
-	setevent EVENT_ELMS_AIDE_IN_LAB
-	end
-
-.rocket ; 0xbd0b8
-	farwritetext ElmPhoneRocketText
-	specialphonecall SPECIALCALL_NONE
-	end
-
-.gift ; 0xbd0c0
-	farwritetext ElmPhoneGiftText
-	specialphonecall SPECIALCALL_NONE
-	end
-
-.unused ; 0xbd0c8
-	farwritetext ElmPhoneUnusedText
-	specialphonecall SPECIALCALL_NONE
-	end
 ; bd0d0
 
 ; Jack
@@ -313,24 +239,10 @@ AnthonyPhoneScript2:
 ; Irwin
 
 IrwinPhoneScript1:
-	trainertotext JUGGLER, IRWIN1, $0
-	farscall PhoneScript_AnswerPhone_Male
-	checkflag ENGINE_ROCKETS_IN_RADIO_TOWER
-	iftrue UnknownScript_0xbd7f9
-	farjump UnknownScript_0xa09c8
-
-UnknownScript_0xbd7f9:
-	farjump UnknownScript_0xa05be
+	end
 
 IrwinPhoneScript2:
-	trainertotext JUGGLER, IRWIN1, $0
-	farscall PhoneScript_GreetPhone_Male
-	checkflag ENGINE_ROCKETS_IN_RADIO_TOWER
-	iftrue UnknownScript_0xbd80f
-	farjump UnknownScript_0xa0848
-
-UnknownScript_0xbd80f:
-	farjump UnknownScript_0xa05be
+	end
 
 ; Arnie
 

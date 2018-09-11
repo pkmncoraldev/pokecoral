@@ -255,8 +255,6 @@ InitBattleAnimBuffer: ; ccaaa
 	ld a, [FXAnimIDLo]
 	cp KINESIS
 	jr z, .kinesis
-	cp SOFTBOILED
-	jr z, .softboiled
 	cp MILK_DRINK
 	jr nz, .no_sub
 .kinesis

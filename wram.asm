@@ -2014,12 +2014,11 @@ TilesetCollisionBank:: ; d1df
 	ds 1
 TilesetCollisionAddress:: ; d1e0
 	ds 2
+wTilesetAttributesBank::
+	ds 1
+wTilesetAttributesAddress::
+	ds 2	
 TilesetAnim:: ; d1e2
-; bank 3f
-	ds 2
-; unused ; d1e4
-	ds 2
-TilesetPalettes:: ; d1e6
 ; bank 3f
 	ds 2
 
@@ -2420,8 +2419,7 @@ MapObjectsEnd::
 
 wObjectMasks:: ds NUM_OBJECTS ; d81e
 
-VariableSprites:: ; d82e
-	ds $10
+VariableSprites:: ds $100 - SPRITE_VARS
 
 wEnteredMapFromContinue:: ds 1 ; d83e
 	ds 2
@@ -2632,8 +2630,15 @@ wMrPokemonsHouseTrigger::					 ds 1
 wCherrygroveCityTrigger::					 ds 1
 wIlexForestTrigger::						 ds 1
 wSpookyForest1Trigger::						 ds 1
+wWarehouseEntranceTrigger::					 ds 1
+wRuinsofAlphHoOhItemRoomTrigger::			 ds 1
+wRoute35Trigger::							 ds 1
+wVioletGymTrigger::							 ds 1
+wRoute30BerrySpeechHouse::					 ds 1
+wCherrygroveGymSpeechHouse::				 ds 1
+wRoute6UndergroundEntrance::				 ds 1
 
-	ds 34
+	ds 27
 
 
 ;SECTION "Events", WRAMX, BANK [1]
@@ -2777,7 +2782,10 @@ StepCount:: ; dc73
 PoisonStepCount:: ; dc74
 	ds 1
 
-	ds 2
+wRepelType::
+	ds 1
+	
+	ds 1
 wHappinessStepCount:: ds 1
 	ds 1
 wParkBallsRemaining::
@@ -3020,6 +3028,10 @@ w3_dd68:: ds SCREEN_WIDTH * SCREEN_HEIGHT
 	ds $11c
 w3_dfec:: ds $10
 w3_dffc:: ds 4
+
+SECTION "Surrounding Attributes", WRAMX
+
+wSurroundingAttributes:: ds WMISC_WIDTH * WMISC_HEIGHT
 
 SECTION "GBC Video", WRAMX [$d000], BANK [5]
 

@@ -1,8 +1,8 @@
 AzaleaGym_BlockData:
 	INCBIN "maps/AzaleaGym.blk"
 
-BetaCave2_BlockData:
-;	INCBIN "maps/BetaCave2.blk"
+UndergroundPathSwitchRoomEntrances_BlockData:
+	INCBIN "maps/UndergroundPathSwitchRoomEntrances.blk"
 
 SlowpokeWellB1F_BlockData:
 	INCBIN "maps/SlowpokeWellB1F.blk"
@@ -92,7 +92,6 @@ SaffronGym_BlockData:
 PowerPlant_BlockData:
 	INCBIN "maps/PowerPlant.blk"
 
-PokemonFanClub_BlockData:
 SafariZoneWardensHome_BlockData:
 	INCBIN "maps/PokemonFanClub.blk"
 
@@ -224,6 +223,8 @@ TohjoFalls_BlockData:
 	INCBIN "maps/TohjoFalls.blk"
 
 RuinsofAlphHoOhItemRoom_BlockData:
+	INCBIN "maps/RanchRide.blk"
+	
 RuinsofAlphKabutoItemRoom_BlockData:
 RuinsofAlphOmanyteItemRoom_BlockData:
 	INCBIN "maps/RuinsofAlphItemRoom.blk"
@@ -241,8 +242,7 @@ RuinsofAlphAerodactylWordRoom_BlockData:
 RuinsofAlphAerodactylItemRoom_BlockData:
 	INCBIN "maps/RuinsofAlphAerodactylWordRoom.blk"
 
-DragonShrine_BlockData:
-	INCBIN "maps/DragonShrine.blk"
+;	INCBIN "maps/DragonShrine.blk"
 
 ;	INCBIN "maps/BattleTower1F.blk"
 

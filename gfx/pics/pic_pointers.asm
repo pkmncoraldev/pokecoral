@@ -189,14 +189,14 @@
 	add_pic GengarBackpic
 	add_pic OnixFrontpic
 	add_pic OnixBackpic
-	add_pic DrowzeeFrontpic
-	add_pic DrowzeeBackpic
-	add_pic HypnoFrontpic
-	add_pic HypnoBackpic
-	add_pic KrabbyFrontpic
-	add_pic KrabbyBackpic
-	add_pic KinglerFrontpic
-	add_pic KinglerBackpic
+	add_pic MedititeFrontpic
+	add_pic MedititeBackpic
+	add_pic MedichamFrontpic
+	add_pic MedichamBackpic
+	add_pic CorphishFrontpic
+	add_pic CorphishBackpic
+	add_pic CrawdauntFrontpic
+	add_pic CrawdauntBackpic
 	add_pic VoltorbFrontpic
 	add_pic VoltorbBackpic
 	add_pic ElectrodeFrontpic
@@ -209,10 +209,10 @@
 	add_pic CuboneBackpic
 	add_pic MarowakFrontpic
 	add_pic MarowakBackpic
-	add_pic HitmonleeFrontpic
-	add_pic HitmonleeBackpic
-	add_pic HitmonchanFrontpic
-	add_pic HitmonchanBackpic
+	add_pic BunearyFrontpic
+	add_pic BunearyBackpic
+	add_pic LopunnyFrontpic
+	add_pic LopunnyBackpic
 	add_pic LickitungFrontpic
 	add_pic LickitungBackpic
 	add_pic KoffingFrontpic
@@ -223,8 +223,8 @@
 	add_pic RhyhornBackpic
 	add_pic RhydonFrontpic
 	add_pic RhydonBackpic
-	add_pic ChanseyFrontpic
-	add_pic ChanseyBackpic
+	add_pic NumelFrontpic
+	add_pic NumelBackpic
 	add_pic TangelaFrontpic
 	add_pic TangelaBackpic
 	add_pic KangaskhanFrontpic
@@ -245,8 +245,8 @@
 	add_pic HawluchaBackpic
 	add_pic ScytherFrontpic
 	add_pic ScytherBackpic
-	add_pic JynxFrontpic
-	add_pic JynxBackpic
+	add_pic VolcaronaFrontpic
+	add_pic VolcaronaBackpic
 	add_pic ElectabuzzFrontpic
 	add_pic ElectabuzzBackpic
 	add_pic MagmarFrontpic
@@ -323,10 +323,10 @@
 	add_pic SentretBackpic
 	add_pic FurretFrontpic
 	add_pic FurretBackpic
-	add_pic HoothootFrontpic
-	add_pic HoothootBackpic
-	add_pic NoctowlFrontpic
-	add_pic NoctowlBackpic
+	add_pic NoibatFrontpic
+	add_pic NoibatBackpic
+	add_pic NoivernFrontpic
+	add_pic NoivernBackpic
 	add_pic LedybaFrontpic
 	add_pic LedybaBackpic
 	add_pic LedianFrontpic
@@ -371,12 +371,12 @@
 	add_pic SudowoodoBackpic
 	add_pic PolitoedFrontpic
 	add_pic PolitoedBackpic
-	add_pic HoppipFrontpic
-	add_pic HoppipBackpic
-	add_pic SkiploomFrontpic
-	add_pic SkiploomBackpic
-	add_pic JumpluffFrontpic
-	add_pic JumpluffBackpic
+	add_pic AronFrontpic
+	add_pic AronBackpic
+	add_pic LaironFrontpic
+	add_pic LaironBackpic
+	add_pic AggronFrontpic
+	add_pic AggronBackpic
 	add_pic AipomFrontpic
 	add_pic AipomBackpic
 	add_pic SunkernFrontpic
@@ -472,20 +472,20 @@
 	add_pic StantlerBackpic
 	add_pic SmeargleFrontpic
 	add_pic SmeargleBackpic
-	add_pic TyrogueFrontpic
-	add_pic TyrogueBackpic
-	add_pic HitmontopFrontpic
-	add_pic HitmontopBackpic
-	add_pic SmoochumFrontpic
-	add_pic SmoochumBackpic
+	add_pic SwabluFrontpic
+	add_pic SwabluBackpic
+	add_pic AltariaFrontpic
+	add_pic AltariaBackpic
+	add_pic LarvestaFrontpic
+	add_pic LarvestaBackpic
 	add_pic ElekidFrontpic
 	add_pic ElekidBackpic
 	add_pic MagbyFrontpic
 	add_pic MagbyBackpic
 	add_pic MiltankFrontpic
 	add_pic MiltankBackpic
-	add_pic BlisseyFrontpic
-	add_pic BlisseyBackpic
+	add_pic CameruptFrontpic
+	add_pic CameruptBackpic
 	add_pic RaikouFrontpic
 	add_pic RaikouBackpic
 	add_pic EnteiFrontpic

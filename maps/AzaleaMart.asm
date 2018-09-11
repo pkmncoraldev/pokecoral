@@ -12,7 +12,7 @@ AzaleaMart_MapScriptHeader:
 
 GlintMartClerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_AZALEA
+	pokemart MARTTYPE_STANDARD, MART_GLINT
 	closetext
 	end
 

@@ -96,24 +96,24 @@ const_value set 1
 	const HAUNTER
 	const GENGAR
 	const ONIX
-	const DROWZEE
-	const HYPNO
-	const KRABBY
-	const KINGLER
+	const MEDITITE
+	const MEDICHAM
+	const CORPHISH
+	const CRAWDAUNT
 	const VOLTORB
 	const ELECTRODE
 	const EXEGGCUTE
 	const EXEGGUTOR
 	const CUBONE
 	const MAROWAK
-	const HITMONLEE
-	const HITMONCHAN
+	const BUNEARY
+	const LOPUNNY
 	const LICKITUNG
 	const KOFFING
 	const WEEZING
 	const RHYHORN
 	const RHYDON
-	const CHANSEY
+	const NUMEL
 	const TANGELA
 	const KANGASKHAN
 	const HORSEA
@@ -124,7 +124,7 @@ const_value set 1
 	const STARMIE
 	const HAWLUCHA
 	const SCYTHER
-	const JYNX
+	const VOLCARONA
 	const ELECTABUZZ
 	const MAGMAR
 	const PINSIR
@@ -163,8 +163,8 @@ const_value set 1
 	const FERALIGATR
 	const SENTRET
 	const FURRET
-	const HOOTHOOT
-	const NOCTOWL
+	const NOIBAT
+	const NOIVERN
 	const LEDYBA
 	const LEDIAN
 	const JOLTIK
@@ -187,9 +187,9 @@ const_value set 1
 	const AZUMARILL
 	const SUDOWOODO
 	const POLITOED
-	const HOPPIP
-	const SKIPLOOM
-	const JUMPLUFF
+	const ARON
+	const LAIRON
+	const AGGRON
 	const AIPOM
 	const SUNKERN
 	const SUNFLORA
@@ -236,13 +236,13 @@ const_value set 1
 	const PORYGON2
 	const STANTLER
 	const SMEARGLE
-	const TYROGUE
-	const HITMONTOP
-	const SMOOCHUM
+	const SWABLU
+	const ALTARIA
+	const LARVESTA
 	const ELEKID
 	const MAGBY
 	const MILTANK
-	const BLISSEY
+	const CAMERUPT
 	const RAIKOU
 	const ENTEI
 	const SUICUNE

@@ -52,7 +52,7 @@
 	db 12, NIDORAN_F
 	db 12, YANMA
 	db 14, YANMA
-	db 14, HOOTHOOT
+	db 14, NOIBAT
 	db 10, DITTO
 	db 10, DITTO
 

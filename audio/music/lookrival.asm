@@ -12,349 +12,342 @@ Music_LookRival_Ch1: ; f4f85
 	tone $0001
 	vibrato $12, $15
 	stereopanning $f
-	notetype $c, $b2
+	notetype $c, $95
 	octave 4
-	note C_, 1
+	note D#, 6
+	note C#, 6
 	octave 3
-	note A#, 1
-	note G#, 2
-	note A#, 1
-	note G#, 1
-	note F#, 2
-	note F_, 6
-	intensity $b7
-	note G#, 6
-	intensity $b2
 	note A#, 4
-	note F_, 2
-	note G#, 4
-	intensity $a0
-	note G#, 10
-	intensity $a5
-	note G#, 8
-	intensity $a6
-	note F#, 8
-Music_AfterTheRivalFight_branch_f4fb1: ; f4fb1
-Music_LookRival_branch_f4fb1: ; f4fb1
-	intensity $b5
-	note F_, 4
-	note D#, 2
-	note F_, 6
-	note F_, 2
-	note G_, 2
-	note G#, 4
-	note A#, 4
-	note G#, 2
-	note G_, 4
-	intensity $a0
-	note F_, 2
-	intensity $a7
-	note F_, 16
-	intensity $66
-	note __, 2
-	note F_, 2
-	note G_, 4
-	intensity $b6
-	note G#, 4
 	octave 4
+	note C_, 2
+	note __, 2
+	note __, 12
+Music_LookRival_Ch1_Loop:
+	dutycycle $0
+	octave 3
+	note A#, 2
+	note __, 4
+	note A#, 2
+	note __, 8
+	note A#, 2
+	note __, 4
+	octave 4
+	note C#, 4
+	note __, 2
+	octave 3
+	note G#, 3
+	note __, 1
+	note __, 2
+	note A#, 2
+	note __, 2
+	note A#, 2
+	note __, 8
+	note A#, 2
+	note __, 4
+	octave 4
+	note C#, 4
+	note __, 2
+	note D_, 4
+	note __, 2
+	note D#, 2
+	note __, 2
+	note D#, 2
+	octave 3
+	note A#, 4
+	note __, 4
+	octave 4
+	note D#, 2
+	note __, 4
+	octave 3
+	note A#, 4
+	note __, 6
+	octave 4
+	note D#, 2
+	note __, 4
+	note D#, 2
+	note __, 2
+	note D#, 2
+	note __, 4
+	note D#, 2
+	note __, 4
+	octave 3
+	note A#, 4
+	note __, 6
+	octave 4
+	note F_, 16
+	note G#, 12
+	note __, 4
+	note D#, 6
+	note F_, 6
+	note C#, 2
+	note __, 2
 	note C_, 4
 	octave 3
-	note A#, 4
-	note G#, 2
-	note A#, 6
-	intensity $b4
-	note A#, 2
+	note A#, 1
+	note F_, 1
 	octave 4
-	note C_, 2
-	note C#, 2
-	note C#, 2
-	note D#, 2
-	note D#, 2
-	note C#, 2
-	note C_, 6
-	intensity $b7
-	octave 3
-	note A#, 12
-	note G#, 2
-	note G_, 2
-	note G#, 2
-	note A#, 10
-	note B_, 4
-	octave 4
-	note C_, 6
-	octave 3
-	note A#, 6
-	octave 4
-	note D_, 2
-	note C_, 2
-	octave 3
-	note A#, 6
-	note G_, 10
-	note A#, 6
-	note G#, 6
-	octave 4
-	note C_, 2
+	note C#, 4
 	octave 3
 	note A#, 2
-	note G#, 8
-	note F_, 6
-	note C_, 2
-Music_LookRival_branch_f4ff7: ; f4ff7
-	intensity $b2
-	note F_, 6
-	intensity $b7
-	note G#, 4
-	note F#, 2
-	note F_, 2
-	note D#, 2
-	loopchannel 3, Music_LookRival_branch_f4ff7
-	intensity $b2
-	note F_, 2
-	note G#, 4
-	intensity $b7
-	note G#, 6
-	note F#, 4
-	loopchannel 0, Music_LookRival_branch_f4fb1
+	note A_, 2
+	octave 4
+	note C_, 2	
+	loopchannel 0, Music_LookRival_Ch1_Loop
+	endchannel
 ; f5010
 
 Music_LookRival_Ch2: ; f5010
-	dutycycle $3
+	dutycycle $1
 	vibrato $8, $36
 	stereopanning $f0
-	notetype $c, $c2
+	notetype $c, $b5
+	octave 5
+	note C_, 3
 	octave 4
-	note F#, 2
+	note B_, 3
+	note A#, 2
+	note G#, 3
+	note F#, 3
+	note E_, 2
 	note F_, 2
-	note D#, 2
+	note __, 10
+;	dutycycle $1
 	note C#, 2
-	note C_, 6
-	intensity $c7
-	note D#, 6
-	intensity $c2
-	note F_, 4
-	note C_, 2
-	note D#, 4
-	intensity $b0
-	note D#, 10
-	intensity $b7
-	note D#, 16
-Music_AfterTheRivalFight_branch_f502e: ; f502e
-Music_LookRival_branch_f502e: ; f502e
-	intensity $c7
-	note C_, 12
-	intensity $c4
-	note C_, 2
-	note D_, 2
-	note D#, 4
-	note D_, 4
-	note C_, 2
-	note D_, 4
-	intensity $b0
-	note C_, 6
-	intensity $b7
-	note C_, 8
-	intensity $b4
-	octave 3
-	note A_, 2
-	note G_, 2
-	note A_, 2
-	intensity $c6
-	octave 4
-	note C_, 6
-	intensity $c7
-	note D#, 8
-	note F_, 12
-	intensity $c4
-	note F_, 2
-	note G_, 2
-	note G#, 2
-	note G#, 2
-	note G_, 2
-	note G_, 2
-	note F_, 2
-	intensity $c4
-	note G_, 6
-	intensity $b0
-	note F_, 16
-	intensity $b7
-	note F_, 16
-	intensity $b0
-	note G_, 12
-	note F_, 4
-	note E_, 16
-	note F_, 12
-	note D#, 4
-	intensity $c7
-	note D_, 8
-	intensity $c4
-	note C_, 2
-	note D_, 2
-	note D#, 1
-	note D_, 1
 	note D#, 2
-Music_LookRival_branch_f5070: ; f5070
-	intensity $c2
-	note C_, 6
-	intensity $c7
-	note D#, 6
-	intensity $c2
-	note F_, 4
-	loopchannel 3, Music_LookRival_branch_f5070
-	note C_, 2
+Music_LookRival_Ch2_Loop:
+	note F_, 3
+	note C#, 3
+	note G#, 2
+	note __, 2
+	note A#, 4
+	note A_, 2
+	note G#, 8
+	note __, 2
+	note F#, 2
+	note D#, 2
+	note E_, 4
+	note F_, 2
+	note __, 2
+	note C#, 2
+	note G#, 3
+	note A#, 3
+	note A_, 2
+	note G#, 8
+	note __, 2
+	octave 5
+	note C#, 2
+	octave 4
+	note G#, 2
+	note A_, 4
+	note A#, 2
+	note __, 2
+	note F#, 2
+	octave 5
+	note C#, 3
+	note D#, 3
+	note D_, 2
+	note C#, 8
+	note __, 6
+	octave 4
+	note G#, 1
+	note A_, 1
+	note A#, 3
+	note F#, 3
+	octave 5
+	note C#, 2
+	note __, 2
 	note D#, 4
-	intensity $c7
-	note D#, 10
-	loopchannel 0, Music_LookRival_branch_f502e
+	note D_, 2
+	note C#, 8
+	note __, 4
+	note D#, 2
+	note E_, 2
+	
+	note F_, 6
+	dutycycle $0
+	note C_, 6
+	note D#, 12
+	note __, 2
+	dutycycle $1
+	note C_, 2
+	note F_, 2
+	note E_, 2
+	note D#, 6
+	dutycycle $0
+	octave 4
+	note A#, 6
+	octave 5
+	note C#, 12
+	note __, 4
+	octave 4
+	dutycycle $1
+	note D#, 2
+	note E_, 2
+	loopchannel 0, Music_LookRival_Ch2_Loop
+	endchannel
 ; f5086
 
 Music_LookRival_Ch3: ; f5086
-	notetype $c, $28
+	notetype $c, $16
+	octave 2
+	note F_, 12
+	octave 3
+	note C_, 4
+	note F_, 2
 	note __, 2
-	octave 4
-	note C_, 2
-	octave 3
-	note G#, 2
-	note F#, 2
-	note F_, 4
-	note G#, 2
-	note D#, 4
-	note C_, 2
-	note D_, 2
-	note D#, 2
-	note G#, 2
-	note F#, 2
 	note F_, 2
-	note D#, 10
-	note D#, 10
-	note C_, 2
-	note D#, 2
-	note F#, 2
-Music_AfterTheRivalFight_branch_f509d: ; f509d
-Music_LookRival_branch_f509d: ; f509d
-	callchannel Music_LookRival_branch_f50ef
-	loopchannel 3, Music_LookRival_branch_f509d
-	note F_, 4
-	note C_, 2
-	note D#, 4
-	note G#, 2
-	note G_, 2
-	note F#, 2
-	callchannel Music_LookRival_branch_f50f7
-	note A#, 2
+	note __, 2
 	note F_, 2
-	note G_, 2
-	note G#, 4
-	note F_, 2
-	note G_, 2
-	note G#, 1
-	note A_, 1
-	callchannel Music_LookRival_branch_f50ff
-	note A#, 2
-	note F_, 2
-	note G_, 2
-	note G#, 4
-	note F_, 2
-	note A#, 2
-	note B_, 2
-	octave 4
-	note C_, 4
-	octave 3
-	note G_, 2
-	note A#, 4
-	note G_, 2
-	note A_, 2
-	note A#, 2
-	octave 4
-	note C_, 4
-	octave 3
-	note G_, 2
-	note A#, 4
-	note G_, 2
-	note A_, 2
-	note A#, 1
-	note A_, 1
-	callchannel Music_LookRival_branch_f50f7
-	callchannel Music_LookRival_branch_f50ff
-	callchannel Music_LookRival_branch_f50ef
-	callchannel Music_LookRival_branch_f50ef
-	note F_, 2
-	note C_, 2
-	note D_, 2
-	note D#, 4
-	note C_, 2
-	note D_, 2
-	note D#, 1
-	note E_, 1
-	note F_, 2
-	note C_, 2
-	note D_, 2
-	note D#, 4
-	note C_, 2
-	note F#, 2
 	note E_, 2
-	loopchannel 0, Music_LookRival_branch_f509d
+	note D#, 2
+	note C#, 2
+Music_LookRival_Ch3_Loop:
+	octave 2
+	note A#, 6
+	note F_, 2
+	note __, 8
+	note A#, 6
+	note F_, 2
+	note __, 4
+	octave 3
+	note C#, 2
+	note __, 2
+	octave 2
+	note __, 2
+	note A#, 2
+	note __, 2
+	note F_, 2
+	note __, 8
+	note A#, 6
+	note F_, 2
+	note __, 4
+	octave 3
+	note F_, 2
+	note __, 2
+	
+	note __, 2
+	note D#, 2
+	note __, 2
+	octave 2
+	note A#, 2
+	note __, 8
+	octave 3
+	note D#, 6
+	octave 2
+	note A#, 2
+	note __, 8
+	octave 3
+	note D#, 6
+	octave 2
+	note A#, 2
+	note __, 8
+	octave 3
+	note D#, 6
+	octave 2
+	note A#, 2
+	note __, 8
+	octave 3
+	note F_, 6
+	note C_, 2
+	note __, 4
+	octave 2
+	note F_, 4
+	octave 3
+	note F_, 4
+	note E_, 4
+	note D#, 8
+	note D#, 6
+	note G_, 2
+	note A#, 2
+	octave 4
+	note C#, 2
+	note __, 4
+	octave 3
+	note A_, 6
+	octave 2
+	note A_, 2
+	octave 3
+	note D#, 2
+	note __, 2
+	note F_, 2
+	note __, 2
+	loopchannel 0, Music_LookRival_Ch3_Loop
+	endchannel
 ; f50ef
 
-Music_LookRival_branch_f50ef: ; f50ef
-	note F_, 2
-	note C_, 2
-	note D_, 2
-	note D#, 4
-	note C_, 2
-	note D_, 2
-	note D#, 2
-	endchannel
-; f50f7
-
-Music_LookRival_branch_f50f7: ; f50f7
-	note A#, 2
-	note F_, 2
-	note G_, 2
-	note G#, 4
-	note F_, 2
-	note G_, 2
-	note G#, 2
-	endchannel
-; f50ff
-
-Music_LookRival_branch_f50ff: ; f50ff
-	note A#, 4
-	note F_, 2
-	note G#, 4
-	note F_, 2
-	note G_, 2
-	note G#, 2
-	endchannel
-; f5106
-
 Music_LookRival_Ch4: ; f5106
-	stereopanning $f0
 	togglenoise $3
 	notetype $c
-	note __, 8
 	note __, 16
+	note __, 2
+	note D#, 2
+	note D#, 2
+	note __, 2
+	note D_, 4
+	note D_, 1
+	note D_, 1
+	note D_, 1
+	note D_, 1
+Music_LookRival_Ch4_Loop: ; f5aea	
+	
+	callchannel Music_LookRival_Ch4_1
+	callchannel Music_LookRival_Ch4_1
+	callchannel Music_LookRival_Ch4_1
+	callchannel Music_LookRival_Ch4_2
+	callchannel Music_LookRival_Ch4_1
+	callchannel Music_LookRival_Ch4_1
+	callchannel Music_LookRival_Ch4_1
+	callchannel Music_LookRival_Ch4_3
+	callchannel Music_LookRival_Ch4_1
+	callchannel Music_LookRival_Ch4_1
+	callchannel Music_LookRival_Ch4_1
+	callchannel Music_LookRival_Ch4_4
+	loopchannel 0, Music_LookRival_Ch4_Loop
+	
+Music_LookRival_Ch4_1:
+	note D#, 3
+	note D#, 1
+	note D_, 2
+	note D#, 2
+	note __, 2
 	note D#, 2
 	note D_, 4
-	note D_, 6
-	note D_, 4
-	note D#, 4
-	note D#, 4
+	endchannel
+
+Music_LookRival_Ch4_2:
+	note D#, 3
+	note D#, 1
 	note D_, 2
-	note D_, 2
-	note D_, 2
-	note D_, 2
-Music_AfterTheRivalFight_branch_f5118: ; f5118
-Music_LookRival_branch_f5118: ; f5118
-	note D#, 4
-	note D_, 2
-	note D#, 4
 	note D#, 2
-	note D_, 4
-	note D#, 4
-	note D_, 2
-	note D#, 4
+	note __, 2
 	note D#, 2
+	note D_, 1
+	note D_, 1
 	note D_, 2
+	endchannel
+	
+Music_LookRival_Ch4_3:
+	note D#, 3
+	note D#, 1
 	note D_, 2
-	loopchannel 0, Music_LookRival_branch_f5118
+	note D#, 2
+	note __, 2
+	note D#, 2
+	note D_, 1
+	note D_, 1
+	note D_, 1
+	note D_, 1
+	endchannel
+	
+Music_LookRival_Ch4_4:
+	note D#, 3
+	note __, 3
+	note D#, 2
+	note __, 2
+	note D#, 2
+	note D_, 1
+	note D_, 1
+	note D_, 1
+	note D_, 1
+	endchannel
 ; f5127

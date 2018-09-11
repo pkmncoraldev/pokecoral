@@ -1,5 +1,14 @@
 StartMenu:: ; 125cd
+	
+	ld a, [MapNumber]
+	cp MAP_RUINS_OF_ALPH_HO_OH_ITEM_ROOM
+	jp nz, .notranchride
+	
+	ld hl, StatusFlags2
+	bit 2, [hl] ; bug catching contest
+	ret nz
 
+.notranchride
 	call ClearWindowData
 
 	ld de, SFX_MENU
@@ -406,7 +415,6 @@ endr
 	callba StartMenu_PrintBugContestStatus
 	ret
 ; 128ed
-
 
 StartMenu_Exit: ; 128ed
 ; Exit the menu.
@@ -1228,10 +1236,10 @@ OpenPartyStats: ; 12e00
 	predef StatsScreenInit
 	call MaxVolume
 	call Call_ExitMenu
+	call ClearTileMap
 	ld a, 0
 	ret
 ; 12e1b
-
 
 MonMenu_Cut: ; 12e1b
 	callba CutFunction
@@ -1543,6 +1551,11 @@ MoveScreenLoop: ; 12fd5
 	ld de, MoveScreenAttributes
 	call SetMenuAttributes
 .loop
+
+	ld b, SCGB_DIPLOMA
+	call GetSGBLayout
+	call SetPalettes
+
 	call SetUpMoveList
 	ld hl, w2DMenuFlags1
 	set 6, [hl]
@@ -1741,7 +1754,10 @@ MoveScreenLoop: ; 12fd5
 	ld hl, w2DMenuFlags1
 	res 6, [hl]
 	call ClearSprites
-	jp ClearTileMap
+	
+	call OpenPartyStats
+	
+;	jp ClearTileMap
 ; 13163
 
 MoveScreenAttributes: ; 13163

@@ -71,21 +71,21 @@ INCLUDE "maps/UnionCaveB1F.asm"
 INCLUDE "maps/UnionCaveB2F.asm"
 INCLUDE "maps/SlowpokeWellB1F.asm"
 INCLUDE "maps/SlowpokeWellB2F.asm"
-INCLUDE "maps/OlivineLighthouse1F.asm"
 INCLUDE "maps/OlivineLighthouse2F.asm"
 INCLUDE "maps/OlivineLighthouse3F.asm"
 INCLUDE "maps/OlivineLighthouse4F.asm"
-INCLUDE "maps/Route39Farmhouse.asm"
 
 
 SECTION "Map Scripts 3", ROMX[$4000], BANK[MAP_SCRIPTS_3]
 
+INCLUDE "maps/OlivineLighthouse1F.asm"
 INCLUDE "maps/NationalPark.asm"
 INCLUDE "maps/NationalParkBugContest.asm"
 INCLUDE "maps/RadioTower1F.asm"
 INCLUDE "maps/RadioTower2F.asm"
 INCLUDE "maps/RadioTower3F.asm"
 INCLUDE "maps/RadioTower4F.asm"
+INCLUDE "maps/Route39Farmhouse.asm"
 
 
 SECTION "Map Scripts 4", ROMX[$4000], BANK[MAP_SCRIPTS_4]
@@ -343,7 +343,7 @@ INCLUDE "maps/WhirlIslandLugiaChamber.asm"
 INCLUDE "maps/SilverCaveRoom1.asm"
 INCLUDE "maps/SilverCaveRoom2.asm"
 INCLUDE "maps/SilverCaveRoom3.asm"
-INCLUDE "maps/SilverCaveItemRooms.asm"
+
 INCLUDE "maps/DarkCaveVioletEntrance.asm"
 INCLUDE "maps/DarkCaveBlackthornEntrance.asm"
 INCLUDE "maps/DragonsDen1F.asm"
@@ -377,6 +377,7 @@ INCLUDE "maps/Colosseum.asm"
 INCLUDE "maps/TimeCapsule.asm"
 INCLUDE "maps/MobileTradeRoomMobile.asm"
 INCLUDE "maps/MobileBattleRoom.asm"
+INCLUDE "maps/SilverCaveItemRooms.asm"
 
 
 SECTION "Map Scripts 18", ROMX[$4000], BANK[MAP_SCRIPTS_18]

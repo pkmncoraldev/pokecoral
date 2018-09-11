@@ -33,7 +33,7 @@ MarcusMomText:
 	line "remember what"
 	
 	para "NORMAL was weak"
-	line "weak to…"
+	line "to…"
 	done
 
 MarcusHouseBreloomText:

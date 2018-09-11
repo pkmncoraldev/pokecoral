@@ -217,6 +217,12 @@ BattleAnimOAMData: ; ceeae
 	dbbw $00,  6, .OAMData_d5 ; d5
 	dbbw $00, 14, .OAMData_d6 ; d6
 	dbbw $00, 12, .OAMData_d7 ; d7
+	dbbw $00,  9, .OAMData_lava ; d8
+	dbbw $09,  9, .OAMData_lava ; d9
+	dbbw $12,  9, .OAMData_lava ; da
+	dbbw $00,  6, .OAMData_lava ; db
+	dbbw $09,  3, .OAMData_lava ; dc
+	
 
 .OAMData_11:
 	dsprite  -1, 0,  -1, 4, $00, $00
@@ -1014,6 +1020,17 @@ BattleAnimOAMData: ; ceeae
 	dsprite   0, 4,  -2, 4, $00, $40
 	dsprite   0, 4,  -1, 4, $01, $40
 	dsprite   0, 4,   0, 4, $02, $40
+	
+.OAMData_lava:
+	dsprite  -2, 4,  -2, 4, $00, $00
+	dsprite  -2, 4,  -1, 4, $01, $00
+	dsprite  -2, 4,   0, 4, $02, $00
+	dsprite  -1, 4,  -2, 4, $03, $00
+	dsprite  -1, 4,  -1, 4, $04, $00
+	dsprite  -1, 4,   0, 4, $05, $00
+	dsprite   0, 4,  -2, 4, $06, $00
+	dsprite   0, 4,  -1, 4, $07, $00
+	dsprite   0, 4,   0, 4, $08, $00
 
 .OAMData_ac:
 	dsprite  -1, 4,  -2, 0, $00, $00

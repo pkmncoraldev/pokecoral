@@ -1,4 +1,4 @@
-ColorTest: ; 818ac
+ColorTest:: ; 818ac
 ; A debug menu to test monster and trainer palettes at runtime.
 
 	ld a, [hCGB]
@@ -443,9 +443,9 @@ Function81adb: ; 81adb
 	ret
 ; 81baf
 
-String_81baf: db "レア", $6f, $6f, "@" ; rare (shiny)
-String_81bb4: db "ノーマル@" ; normal
-String_81bb9: db $7a, "きりかえ▶@" ; (A) switches
+String_81baf: db "SHINY@" ; rare (shiny)
+String_81bb4: db "NORMAL@" ; normal
+String_81bb9: db $7a, "▶@" ; (A) switches
 ; 81bc0
 
 Function81bc0: ; 81bc0

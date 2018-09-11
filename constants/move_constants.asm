@@ -26,8 +26,8 @@
 	const STOMP        ; $17
 	const DOUBLE_KICK  ; $18
 	const MEGA_KICK    ; $19
-	const JUMP_KICK    ; $1a
-	const ROLLING_KICK ; $1b
+	const BUG_BUZZ     ; $1a
+	const DRAGON_PULSE ; $1b
 	const SAND_ATTACK  ; $1c
 	const HEADBUTT     ; $1d
 	const HORN_ATTACK  ; $1e
@@ -66,8 +66,8 @@
 	const HYPER_BEAM   ; $3f
 	const PECK         ; $40
 	const DRILL_PECK   ; $41
-	const SUBMISSION   ; $42
-	const LOW_KICK     ; $43
+	const BULLET_PUNCH ; $42
+	const SIGNAL_BEAM  ; $43
 	const COUNTER      ; $44
 	const SEISMIC_TOSS ; $45
 	const STRENGTH     ; $46
@@ -117,7 +117,7 @@
 	const HAZE         ; $72
 	const REFLECT      ; $73
 	const FOCUS_ENERGY ; $74
-	const BIDE         ; $75
+	const X_SCISSOR    ; $75
 	const METRONOME    ; $76
 	const MIRROR_MOVE  ; $77
 	const SELFDESTRUCT ; $78
@@ -131,18 +131,18 @@
 	const CLAMP        ; $80
 	const SWIFT        ; $81
 	const SKULL_BASH   ; $82
-	const SPIKE_CANNON ; $83
-	const CONSTRICT    ; $84
+	const EARTH_POWER  ; $83
+	const POWER_GEM    ; $84
 	const AMNESIA      ; $85
 	const KINESIS      ; $86
-	const SOFTBOILED   ; $87
+	const NASTY_PLOT   ; $87
 	const HI_JUMP_KICK ; $88
 	const GLARE        ; $89
 	const DREAM_EATER  ; $8a
 	const POISON_GAS   ; $8b
-	const BARRAGE      ; $8c
+	const FRUSTRATION  ; $8c
 	const LEECH_LIFE   ; $8d
-	const LOVELY_KISS  ; $8e
+	const POISON_JAB   ; $8e
 	const ROOST		   ; $8f
 	const TRANSFORM    ; $90
 	const BUBBLE       ; $91
@@ -154,12 +154,12 @@
 	const ACID_ARMOR   ; $97
 	const CRABHAMMER   ; $98
 	const EXPLOSION    ; $99
-	const FURY_SWIPES  ; $9a
+	const CALM_MIND    ; $9a
 	const BONEMERANG   ; $9b
 	const REST         ; $9c
 	const ROCK_SLIDE   ; $9d
 	const HYPER_FANG   ; $9e
-	const SHARPEN      ; $9f
+	const HURRICANE    ; $9f
 	const CONVERSION   ; $a0
 	const TRI_ATTACK   ; $a1
 	const SUPER_FANG   ; $a2
@@ -178,7 +178,7 @@
 	const FLAIL        ; $af
 	const CONVERSION2  ; $b0
 	const AEROBLAST    ; $b1
-	const COTTON_SPORE ; $b2
+	const COTTON_GUARD ; $b2
 	const REVERSAL     ; $b3
 	const SPITE        ; $b4
 	const POWDER_SNOW  ; $b5
@@ -217,8 +217,8 @@
 	const SLEEP_TALK   ; $d6
 	const HEAL_BELL    ; $d7
 	const RETURN       ; $d8
-	const PRESENT      ; $d9
-	const FRUSTRATION  ; $da
+	const PLAY_ROUGH   ; $d9
+	const AIR_CUTTER   ; $da
 	const SAFEGUARD    ; $db
 	const PAIN_SPLIT   ; $dc
 	const AQUA_JET	   ; $dd

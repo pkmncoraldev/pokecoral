@@ -3,7 +3,8 @@ Copyright_GFPresents: ; e4579
 	call PlayMusic
 	call ClearBGPalettes
 	call ClearTileMap
-	callba GBCOnlyScreen
+	
+	farcall GBCOnlyScreen
 	ld a, VBGMap0 / $100
 	ld [hBGMapAddress + 1], a
 	xor a
@@ -57,9 +58,8 @@ Copyright_GFPresents: ; e4579
 	call DelayFrames
 	call RotateFourPalettesLeft
 	call ClearTileMap
-	
 	ret
-	
+
 	call .GetGFLogoGFX
 .joy_loop
 	call JoyTextDelay
@@ -86,6 +86,7 @@ Copyright_GFPresents: ; e4579
 ; e45e8
 
 .GetGFLogoGFX: ; e45e8
+
 	ld de, GameFreakLogo
 	ld hl, VTiles2
 	lb bc, BANK(GameFreakLogo), $1c

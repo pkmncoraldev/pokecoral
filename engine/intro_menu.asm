@@ -255,18 +255,20 @@ SetDefaultBoxNames: ; 5ca6
 ; 5cd3
 
 InitializeMagikarpHouse: ; 5cd3
-	ld hl, wBestMagikarpLengthFeet
-	ld a, $3
-	ld [hli], a
-	ld a, $6
-	ld [hli], a
-	ld de, .Ralph
-	call CopyName2
+	ld a, 0
+	ld [wBestMagikarpLengthInches], a
+;	ld hl, wBestMagikarpLengthFeet
+;	ld a, $3
+;	ld [hli], a
+;	ld a, $6
+;	ld [hli], a
+;	ld de, .Ralph
+;	call CopyName2
 	ret
 ; 5ce3
 
-.Ralph: ; 5ce3
-	db "RALPH@"
+;.Ralph: ; 5ce3
+;	db "RALPH@"
 ; 5ce9
 
 InitializeNPCNames: ; 5ce9
@@ -677,7 +679,7 @@ OakSpeech: ; 0x5f99
 	call RotateThreePalettesRight
 	call ClearTileMap
 
-	ld a, CLEFAIRY
+	ld a, LUGIA
 	ld [CurSpecies], a
 	ld [CurPartySpecies], a
 	call GetBaseData
@@ -842,7 +844,7 @@ OakText1: ; 0x6045
 OakText2: ; 0x604a
 	text_jump _OakText2
 	start_asm
-	ld a, WOOPER
+	ld a, SNORLAX
 	call PlayCry
 	call WaitSFX
 	ld hl, OakText3
@@ -932,18 +934,18 @@ NamePlayer: ; 0x6074
 	call RotateThreePalettesLeft
 
 	ld hl, PlayerName
-	ld de, .Chris
+	ld de, .Cory
 	ld a, [PlayerGender]
 	bit 0, a
 	jr z, .Male
-	ld de, .Kris
+	ld de, .Cora
 .Male:
 	call InitName
 	ret
 
-.Chris:
+.Cory:
 	db "CORY@@@@@@@"
-.Kris:
+.Cora:
 	db "CORA@@@@@@@"
 ; 60e9
 
@@ -984,17 +986,6 @@ NameRival: ; 0xc29d
 	
 .Rival:
 	db "COLBY@@@@@@"
-;	ld b, $2 ; rival
-;	ld de, RivalName
-;	callba _NamingScreen
-	; default to "SILVER"
-	
-	
-	
-;	ld hl, RivalName
-;	ld de, DefaultRivalName
-;	call InitName
-;	ret
 
 Function60e9: ; Unreferenced
 	call LoadMenuDataHeader
@@ -1730,42 +1721,7 @@ CoralDevScreenString1:
 	
 CoralDevScreenPalettes:
 	RGB 00, 00, 00
-	RGB 19, 05, 05
-	RGB 31, 20, 19
-	RGB 31, 31, 31
-
-	RGB 00, 00, 00
-	RGB 11, 11, 19
-	RGB 31, 20, 19
-	RGB 31, 31, 31
-
-	RGB 00, 00, 00
-	RGB 11, 11, 19
-	RGB 31, 20, 19
-	RGB 31, 31, 31
-
-	RGB 00, 00, 00
-	RGB 11, 11, 19
-	RGB 31, 20, 19
-	RGB 31, 31, 31
-
-	RGB 00, 00, 00
-	RGB 11, 11, 19
-	RGB 31, 20, 19
-	RGB 31, 31, 31
-
-	RGB 00, 00, 00
-	RGB 11, 11, 19
-	RGB 31, 20, 19
-	RGB 31, 31, 31
-
-	RGB 00, 00, 00
-	RGB 11, 11, 19
-	RGB 31, 20, 19
-	RGB 31, 31, 31
-
-	RGB 00, 00, 00
-	RGB 11, 11, 19
+	RGB 15, 09, 00
 	RGB 31, 20, 19
 	RGB 31, 31, 31
 	

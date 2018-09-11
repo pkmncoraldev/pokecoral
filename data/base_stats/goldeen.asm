@@ -1,11 +1,11 @@
 	db GOLDEEN ; 118
 
-	db  45,  67,  60,  63,  35,  50
+	db  50,  30,  55,  20,  65,  55
 	;   hp  atk  def  spd  sat  sdf
 
-	db WATER, WATER
-	db 225 ; catch rate
-	db 111 ; base exp
+	db GHOST, FIRE
+	db 190 ; catch rate
+	db 55 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 127 ; gender
@@ -14,9 +14,9 @@
 	db 5 ; unknown
 	dn 6, 6 ; frontpic dimensions
 	db 0, 0, 0, 0 ; padding
-	db MEDIUM_FAST ; growth rate
-	dn FISH, FISH ; egg groups
+	db MEDIUM_SLOW ; growth rate
+	dn AMORPHOUS, AMORPHOUS ; egg groups
 
 	; tmhm
-	tmhm CURSE, TOXIC, HIDDEN_POWER, SNORE, BLIZZARD, ICY_WIND, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, RETURN, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, SWIFT, REST, ATTRACT, SURF, WATERFALL, ICE_BEAM
+	tmhm CURSE, TOXIC, PSYCH_UP, HIDDEN_POWER, SUNNY_DAY, SNORE, PROTECT, ENDURE, SOLARBEAM, RETURN, PSYCHIC, SHADOW_BALL, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, FIRE_BLAST, SWIFT, DREAM_EATER, DETECT, REST, ATTRACT, THIEF, FIRE_PUNCH, NIGHTMARE, FLAMETHROWER
 	; end

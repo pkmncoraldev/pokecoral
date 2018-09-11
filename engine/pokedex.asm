@@ -432,6 +432,10 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	dw .Print
 
 .Area: ; 402fa
+	ld de, SFX_WRONG
+	call PlaySFX
+	ret
+
 	call Pokedex_BlackOutBG
 	xor a
 	ld [hSCX], a
@@ -1151,7 +1155,7 @@ Pokedex_DrawDexEntryScreenBG: ; 407fd
 	call ByteFill
 	hlcoord 1, 17
 	ld bc, 18
-	ld a, " "
+	ld a, "."
 	call ByteFill
 	hlcoord 9, 7
 	ld de, .Height
@@ -1168,7 +1172,7 @@ Pokedex_DrawDexEntryScreenBG: ; 407fd
 .Unused: ; 4084f
 	db $5c, $5d, $ff ; No.
 .Height: ; 40852
-	db "HT  ?", $5e, "??", $5f, $ff ; HT  ?'??"
+	db "HT  ?", $ce, "??", $5f, $ff ; HT  ?'??"
 .Weight: ; 4085c
 	db "WT   ???lb", $ff ; WT   ???lb
 .MenuItems: ; 40867
@@ -1561,16 +1565,16 @@ Pokedex_PlaceDefaultStringIfNotSeen: ; 40b8d (10:4b8d)
 	db "-----@"
 
 Pokedex_DrawFootprint: ; 40ba0
-	hlcoord 18, 1
-	ld a, $62
-	ld [hli], a
-	inc a
-	ld [hl], a
-	hlcoord 18, 2
-	ld a, $64
-	ld [hli], a
-	inc a
-	ld [hl], a
+;	hlcoord 18, 1
+;	ld a, $62
+;	ld [hli], a
+;	inc a
+;	ld [hl], a
+;	hlcoord 18, 2
+;	ld a, $64
+;	ld [hli], a
+;	inc a
+;	ld [hl], a
 	ret
 
 

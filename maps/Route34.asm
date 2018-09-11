@@ -29,7 +29,7 @@ Route34_MapEventHeader:: db 0, 0
 	signpost 8, 16, SIGNPOST_READ, FruitTreeScript_Route4new
 
 .ObjectEvents: db 8
-	person_event SPRITE_LASS, 7, 7, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 2, TrainerRoute4_1, -1
+	person_event SPRITE_LASS, 7, 7, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 2, TrainerRoute4_1, -1
 	person_event SPRITE_RODNEY_FISHER, 11, 12, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 0, TrainerRoute4_2, -1
 	person_event SPRITE_RODNEY_FISHER, 16, 11, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 0, TrainerRoute4_3, -1
 	person_event SPRITE_RODNEY_FISHER, 16, 15, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 0, TrainerRoute4_4, -1
@@ -39,7 +39,7 @@ Route34_MapEventHeader:: db 0, 0
 	person_event SPRITE_POKEFAN_M, 11, 23, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route4NPC8, EVENT_FOUGHT_SNORLAX_ROUTE_4
 
 TrainerRoute4_1:
-	trainer EVENT_BEAT_ROUTE4_TRAINER_1, LASS, JUNE_LASS, TrainerRoute4_1SeenText, TrainerRoute4_1BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE4_TRAINER_1, LASS, 4, TrainerRoute4_1SeenText, TrainerRoute4_1BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -50,7 +50,7 @@ TrainerRoute4_1:
 	end
 	
 TrainerRoute4_2:
-	trainer EVENT_BEAT_ROUTE4_TRAINER_2, FISHER, HOMER_FISHER, TrainerRoute4_2SeenText, TrainerRoute4_2BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE4_TRAINER_2, FISHER, 2, TrainerRoute4_2SeenText, TrainerRoute4_2BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -61,7 +61,7 @@ TrainerRoute4_2:
 	end
 	
 TrainerRoute4_3:
-	trainer EVENT_BEAT_ROUTE4_TRAINER_3, FISHER, HUE_FISHER, TrainerRoute4_3SeenText, TrainerRoute4_3BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE4_TRAINER_3, FISHER, 3, TrainerRoute4_3SeenText, TrainerRoute4_3BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -72,7 +72,7 @@ TrainerRoute4_3:
 	end
 	
 TrainerRoute4_4:
-	trainer EVENT_BEAT_ROUTE4_TRAINER_4, FISHER, DARREN_FISHER, TrainerRoute4_4SeenText, TrainerRoute4_4BeatenText, 0, .Script
+	trainer EVENT_BEAT_ROUTE4_TRAINER_4, FISHER, 4, TrainerRoute4_4SeenText, TrainerRoute4_4BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -113,7 +113,7 @@ Route4PlayedFluteForSnorlax::
 	cry SNORLAX
 	waitbutton
 	closetext
-	loadwildmon SNORLAX, 1
+	loadwildmon SNORLAX, 30
 	startbattle
 	if_equal $2, DidntBeatSnorlaxRoute4
 	disappear ROUTE4SNORLAX
@@ -162,14 +162,14 @@ Route4SignText:
 	line "STARGLOW VALLEY"
 	
 	para "EAST:"
-	line "FOREST"
+	line "EVENTIDE FOREST"
 	
 	para "SOUTH:"
 	line "ROUTE 5"
 	done
 	
 Route4ForestSignText:
-	text "SIGN TEXT"
+	text "EVENTIDE¯FOREST"
 	done
 	
 Route4SnorlaxTextHaveFlute:
@@ -267,49 +267,75 @@ Route4NPC8Text:
 	done
 	
 TrainerRoute4_1SeenText:
-	text "SEEN TEXT"
+	text "Ew…"
+	
+	para "Quit staring!"
 	done
 	
 TrainerRoute4_1BeatenText:
-	text "BEATEN TEXT"
+	text "How could you?"
 	done
 	
 TrainerRoute4_1NormalText:
-	text "NORMAL TEXT"
+	text "You weren't looking"
+	line "at me?"
+
+	para "Yeah, right!"	
 	done
 	
 TrainerRoute4_2SeenText:
-	text "SEEN TEXT"
+	text "I love fishin',"
+	line "yes I do!"
+	
+	para "I love fishin',"
+	line "how 'bout you?"
 	done
 	
 TrainerRoute4_2BeatenText:
-	text "BEATEN TEXT"
+	text "You seem more like"
+	line "the battling type."
 	done
 	
 TrainerRoute4_2NormalText:
-	text "NORMAL TEXT"
+	text "To each their own,"
+	line "I suppose."
 	done
 	
 TrainerRoute4_3SeenText:
-	text "SEEN TEXT"
+	text "What's that?"
+	
+	para "You say you beat"
+	line "RODNEY?"
+	
+	para "There's no way!"
 	done
 	
 TrainerRoute4_3BeatenText:
-	text "BEATEN TEXT"
+	text "Well I'll be!"
 	done
 	
 TrainerRoute4_3NormalText:
-	text "NORMAL TEXT"
+	text "Maybe you DID beat"
+	line "RODNEY."
 	done
 	
 TrainerRoute4_4SeenText:
-	text "SEEN TEXT"
+	text "I knew someone"
+	line "would come along"
+	
+	para "looking for a"
+	line "battle."
+	
+	para "Hook, line, and"
+	line "sinker!"
 	done
 	
 TrainerRoute4_4BeatenText:
-	text "BEATEN TEXT"
+	text "I'm fin-ished!"
 	done
 	
 TrainerRoute4_4NormalText:
-	text "NORMAL TEXT"
+	text "That's one fishing"
+	line "story I won't be"
+	cont "sharing…"
 	done

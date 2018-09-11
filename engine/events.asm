@@ -543,12 +543,24 @@ CheckTimeEvents: ; 9693a
 	ret
 
 .end_bug_contest
+
+	ld a, [MapNumber]
+	cp MAP_ROUTE_35_NATIONAL_PARK_GATE
+	jr nz, .endranchrace
+
 	ld a, BANK(BugCatchingContestOverScript)
 	ld hl, BugCatchingContestOverScript
 	call CallScript
 	scf
 	ret
 ; 96970
+
+.endranchrace
+	ld a, BANK(RanchRaceOverScript)
+	ld hl, RanchRaceOverScript
+	call CallScript
+	scf
+	ret
 
 .unused ; 96970
 	ld a, 8
@@ -1044,9 +1056,17 @@ DoRepelStep: ; 96bd7
 	dec a
 	ld [wRepelEffect], a
 	ret nz
-
+	
+	ld a, [wRepelType]
+	ld [CurItem], a
+	ld hl, NumItems
+	call CheckItem
 	ld a, BANK(RepelWoreOffScript)
 	ld hl, RepelWoreOffScript
+	jr nc, .got_script
+	ld a, BANK(UseAnotherRepelScript)
+	ld hl, UseAnotherRepelScript
+.got_script
 	call CallScript
 	scf
 	ret
@@ -1140,5 +1160,4 @@ ChangeDirectionScript: ; 9
 	end
 ; 96c56
 
-INCLUDE "engine/scripting.asm"
 INCLUDE "engine/events_2.asm"

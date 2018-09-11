@@ -2028,11 +2028,12 @@ LoadMapPals:
 
 	; Which palette group is based on whether we're outside or inside
 	ld a, [wTileset]
-	cp TILESET_ISLAND
-	jr nz, .skipisland
+	cp TILESET_GLINT
+	jr z, .island
 	cp TILESET_JUNGLE
-	jr nz, .skipisland
-	ld a, 1
+	jr z, .island
+	ld a, [wPermission]
+	and 7
 	ld e, a
 	ld d, 0
 	ld hl, .TilesetColorsPointers
@@ -2044,9 +2045,8 @@ LoadMapPals:
 	jr .cont
 	
 	
-.skipisland
-	ld a, [wPermission]
-	and 7
+.island
+	ld a, 1
 	ld e, a
 	ld d, 0
 	ld hl, .TilesetColorsPointers
@@ -2055,6 +2055,7 @@ LoadMapPals:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+
 .cont
 	; Futher refine by time of day
 	ld a, [TimeOfDayPal]
@@ -2103,7 +2104,38 @@ LoadMapPals:
 	ld [rSVBK], a
 
 .got_pals
-
+	ld a, [MapGroup]
+	cp GROUP_ROUTE_11
+	jr nz, .normal
+	ld a, [MapNumber]
+	cp MAP_ROUTE_11
+	jr z, .ranch
+	cp MAP_RUINS_OF_ALPH_HO_OH_ITEM_ROOM
+	jr nz, .normal
+.ranch
+	ld a, [TimeOfDayPal]
+	and 3
+	ld bc, 8 palettes
+	ld hl, MapObjectPalsRanch
+	call AddNTimes
+	ld de, UnknOBPals
+	ld bc, 8 palettes
+	ld a, $5 ; BANK(UnknOBPals)
+	call FarCopyWRAM
+	
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	jr nz, .notdusk
+	ld hl, MapObjectPalsRanchDusk
+	call AddNTimes
+	ld de, UnknOBPals
+	ld bc, 8 palettes
+	ld a, $5 ; BANK(UnknOBPals)
+	call FarCopyWRAM
+	jr .duskcont
+;	ret
+	
+.normal
 	ld a, [TimeOfDayPal]
 	and 3
 	ld bc, 8 palettes
@@ -2113,9 +2145,8 @@ LoadMapPals:
 	ld bc, 8 palettes
 	ld a, $5 ; BANK(UnknOBPals)
 	call FarCopyWRAM
-
 	ld a, [wTileset]
-	cp TILESET_ISLAND
+	cp TILESET_GLINT
 	jr z, .outside
 	cp TILESET_JUNGLE
 	jr z, .outside
@@ -2125,6 +2156,8 @@ LoadMapPals:
 	cp TOWN
 	jr z, .outside
 	cp ROUTE
+;	jr z, .outside
+;	cp DARK_FOREST
 	ret nz
 .outside
 	ld a, [hHours]
@@ -2138,6 +2171,10 @@ LoadMapPals:
 	ld bc, 8 palettes
 	ld a, $5 ; BANK(UnknOBPals)
 	call FarCopyWRAM
+.duskcont
+	ld a, [wTileset]
+	cp TILESET_MOUNTAIN
+	ret z
 	ld a, [MapGroup]
 	ld l, a
 	ld h, 0
@@ -2153,6 +2190,9 @@ LoadMapPals:
 	ret
 	
 .notdusk
+	ld a, [wTileset]
+	cp TILESET_MOUNTAIN
+	ret z
 	ld a, [MapGroup]
 	ld l, a
 	ld h, 0
@@ -2229,7 +2269,13 @@ MapObjectPals::
 INCLUDE "tilesets/ob.pal"
 
 MapObjectPals2::
-INCLUDE "tilesets/ob2.pal"
+INCLUDE "tilesets/obdusk.pal"
+
+MapObjectPalsRanch:
+INCLUDE "tilesets/outsidepals/spritepals/obranch.pal"
+
+MapObjectPalsRanchDusk:
+INCLUDE "tilesets/outsidepals/spritepals/obranchdusk.pal"
 
 RoofPals:
 INCLUDE "tilesets/roof.pal"

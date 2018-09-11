@@ -111,7 +111,7 @@ prob_total = 0
 ; Igglybuff
 	prob 16
 	prob 3
-; Smoochum
+; Larvesta
 	prob 14
 	prob 2
 ; Magby
@@ -286,7 +286,7 @@ OddEgg2:
 	bigdw 8 ; SDef
 	db "EGG@@@@@@@@"
 
-	db SMOOCHUM
+	db LARVESTA
 	db NO_ITEM
 	db POUND, LICK, DIZZY_PUNCH, 0
 	dw 03584 ; OT ID
@@ -312,7 +312,7 @@ OddEgg2:
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
 
-	db SMOOCHUM
+	db LARVESTA
 	db NO_ITEM
 	db POUND, LICK, DIZZY_PUNCH, 0
 	dw 00512 ; OT ID
@@ -442,7 +442,7 @@ OddEgg2:
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
 
-	db TYROGUE
+	db SWABLU
 	db NO_ITEM
 	db TACKLE, DIZZY_PUNCH, 0, 0
 	dw 02560 ; OT ID
@@ -468,7 +468,7 @@ OddEgg2:
 	bigdw 8 ; SDef
 	db "EGG@@@@@@@@"
 
-	db TYROGUE
+	db SWABLU
 	db NO_ITEM
 	db TACKLE, DIZZY_PUNCH, 0, 0
 	dw 00256 ; OT ID

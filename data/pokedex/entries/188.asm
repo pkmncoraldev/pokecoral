@@ -1,10 +1,10 @@
-; SkiploomPokedexEntry: ; 0x1cd928
-	db "COTTONWEED@" ; species name
-	dw 200, 20 ; height, width
+; LaironPokedexEntry: ; 0x1cd928
+	db "IRON ARMOR@" ; species name
+	dw 211, 2646 ; height, width
 
-	db   "As soon as it"
-	next "rains, it closes"
-	next "its flower and"
-	page "hides in the shade"
-	next "of a tree to avoid"
-	next "getting wet.@"
+	db   "It habtiually"
+	next "shows off its"
+	next "power with the size"
+	page "of sparks it makes"
+	next "by ramming its body"
+	next "into rocks.@"

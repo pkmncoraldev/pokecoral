@@ -127,19 +127,11 @@ MagazineBookshelfText:
 	para "#MON HANDBOOK,"
 	line "#MON GRAPH…"
 	done
-
-TeamRocketOathText:
-	text "TEAM ROCKET OATH"
-
-	para "Steal #MON for"
-	line "profit!"
-
-	para "Exploit #MON"
-	line "for profit!"
-
-	para "All #MON exist"
-	line "for the glory of"
-	cont "TEAM ROCKET!"
+	
+DoorLockedText:
+	text "It seems to be"
+	line "locked from the"
+	cont "other side."
 	done
 
 IncenseBurnerText:

@@ -39,7 +39,7 @@ OlivineLighthouse5F_MapEventHeader:: db 0, 0
 	person_event SPRITE_GAMEBOY_KID, 5, 8, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, StarglowCenterGameboyKid, -1
 	person_event SPRITE_GENTLEMAN, 5, 1, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, StarglowCenterGramps, -1
 	person_event SPRITE_TEACHER, 2, 9, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, StarglowCenterGirl, -1
-	person_event SPRITE_ROCKET, -6, -6, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, -1, -1
+	person_event SPRITE_ROCKET, -6, -6, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, -1, -1
 
 StarglowCenterRocketStopsYouR:
 	moveperson STARGLOWCENTER_ROCKET, $5, $8
@@ -95,6 +95,7 @@ StarglowCenterRocketStopsYou:
 	ret
 	
 StarglowCenterNurse:
+	blackoutmod LAKE_OF_RAGE
 	checkevent EVENT_HEALED_AT_STARGLOW_CENTER
 	iftrue .normal
 	dotrigger $1
@@ -171,7 +172,7 @@ StarglowCenterRocketText1:
 	
 	para "I have all of the"
 	line "#MON in this"
-	cont "# CENTER!"
+	cont "#MON CENTER!"
 	
 	para "Hand 'em over,"
 	line "kid!"

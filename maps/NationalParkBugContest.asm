@@ -1,13 +1,12 @@
 const_value set 2
-	const SUNBEAMCONTESTBIKINIP
-	const SUNBEAMCONTESTBIKINIR
 	const SUNBEAMCONTESTBIKINIY
+	const SUNBEAMCONTESTBIKINIR
+	const SUNBEAMCONTESTBIKINIP
 	const SUNBEAMCONTESTCROWD1
 	const SUNBEAMCONTESTCROWD2
 	const SUNBEAMCONTESTCROWD3
 	const SUNBEAMCONTESTCROWD4
 	const SUNBEAMCONTESTCROWD5
-	const SUNBEAMCONTESTCROWD6
 
 NationalParkBugContest_MapScriptHeader:
 .MapTriggers:
@@ -38,11 +37,7 @@ NationalParkBugContest_MapScriptHeader:
 	pause 10
 	spriteface SUNBEAMCONTESTCROWD1, UP
 	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, LEFT
-	pause 10
 	spriteface SUNBEAMCONTESTCROWD5, UP
-	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, UP
 	pause 10
 	spriteface PLAYER, UP
 	opentext
@@ -59,7 +54,7 @@ NationalParkBugContest_MapScriptHeader:
 	closetext
 	winlosstext SunBeamContestBikiniPWinText, SunBeamContestBikiniPWinText
 	setlasttalked SUNBEAMCONTESTBIKINIP
-	loadtrainer BIKINIP, 1
+	loadtrainer BIKINIY, 1
 	startbattle
 	reloadmapafterbattle
 	opentext
@@ -76,11 +71,7 @@ NationalParkBugContest_MapScriptHeader:
 	pause 10
 	spriteface SUNBEAMCONTESTCROWD1, UP
 	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, LEFT
-	pause 10
 	spriteface SUNBEAMCONTESTCROWD5, UP
-	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, UP
 	pause 10
 	applymovement SUNBEAMCONTESTBIKINIP, Movement_SunbeamContestBikini2
 	disappear SUNBEAMCONTESTBIKINIP
@@ -119,11 +110,7 @@ NationalParkBugContest_MapScriptHeader:
 	pause 10
 	spriteface SUNBEAMCONTESTCROWD1, UP
 	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, LEFT
-	pause 10
 	spriteface SUNBEAMCONTESTCROWD5, UP
-	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, UP
 	pause 10
 	applymovement SUNBEAMCONTESTBIKINIR, Movement_SunbeamContestBikini2
 	disappear SUNBEAMCONTESTBIKINIR
@@ -144,7 +131,7 @@ NationalParkBugContest_MapScriptHeader:
 	closetext
 	winlosstext SunBeamContestBikiniYWinText, SunBeamContestBikiniYWinText
 	setlasttalked SUNBEAMCONTESTBIKINIY
-	loadtrainer BIKINIY, 1
+	loadtrainer BIKINIP, 1
 	startbattle
 	reloadmapafterbattle
 	opentext
@@ -161,11 +148,7 @@ NationalParkBugContest_MapScriptHeader:
 	pause 10
 	spriteface SUNBEAMCONTESTCROWD1, UP
 	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, LEFT
-	pause 10
 	spriteface SUNBEAMCONTESTCROWD5, UP
-	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, UP
 	pause 10
 	applymovement SUNBEAMCONTESTBIKINIY, Movement_SunbeamContestBikini2
 	disappear SUNBEAMCONTESTBIKINIY
@@ -274,11 +257,7 @@ NationalParkBugContest_MapScriptHeader:
 	pause 10
 	spriteface SUNBEAMCONTESTCROWD1, UP
 	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, LEFT
-	pause 10
 	spriteface SUNBEAMCONTESTCROWD5, UP
-	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, UP
 	pause 10
 	applymovement SUNBEAMCONTESTBIKINIP, Movement_SunbeamContestBikini5
 	disappear SUNBEAMCONTESTBIKINIP
@@ -326,11 +305,7 @@ NationalParkBugContest_MapScriptHeader:
 	pause 10
 	spriteface SUNBEAMCONTESTCROWD1, UP
 	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, LEFT
-	pause 10
 	spriteface SUNBEAMCONTESTCROWD5, UP
-	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, UP
 	pause 10
 	applymovement SUNBEAMCONTESTBIKINIR, Movement_SunbeamContestBikini5
 	disappear SUNBEAMCONTESTBIKINIR
@@ -378,11 +353,7 @@ NationalParkBugContest_MapScriptHeader:
 	pause 10
 	spriteface SUNBEAMCONTESTCROWD1, UP
 	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, LEFT
-	pause 10
 	spriteface SUNBEAMCONTESTCROWD5, UP
-	pause 10
-	spriteface SUNBEAMCONTESTCROWD6, UP
 	pause 10
 	applymovement SUNBEAMCONTESTBIKINIY, Movement_SunbeamContestBikini5
 	disappear SUNBEAMCONTESTBIKINIY
@@ -409,9 +380,9 @@ NationalParkBugContest_MapScriptHeader:
 .MenuData:
 	db $81 ; flags
 	db 3 ; items
-	db "LILAC@"
-	db "ROSE@"
 	db "HAZEL@"
+	db "ASTER@"
+	db "LILAC@"
 	end
 	
 NationalParkBugContest_MapEventHeader:: db 0, 0
@@ -422,16 +393,15 @@ NationalParkBugContest_MapEventHeader:: db 0, 0
 
 .BGEvents: db 0
 
-.ObjectEvents: db 9
+.ObjectEvents: db 8
 	person_event SPRITE_LASS, 3, 7, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, SunBeamContestBikiniP, EVENT_INITIALIZED_EVENTS
-	person_event SPRITE_COOLTRAINER_F, 3, 7, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, SunBeamContestBikiniR, EVENT_INITIALIZED_EVENTS
+	person_event SPRITE_COOLTRAINER_F, 3, 7, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SunBeamContestBikiniR, EVENT_INITIALIZED_EVENTS
 	person_event SPRITE_COOLTRAINER_F, 3, 7, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_YELLOW, PERSONTYPE_SCRIPT, 0, SunBeamContestBikiniY, EVENT_INITIALIZED_EVENTS
-	person_event SPRITE_FISHER, 5, 7, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, SunbeamIslandDonphan, -1
-	person_event SPRITE_POKEFAN_M, 5, 6, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, SunbeamIslandDonphan, -1
-	person_event SPRITE_COOLTRAINER_F, 6, 7, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunbeamIslandDonphan, -1
-	person_event SPRITE_YOUNGSTER, 6, 5, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, SunbeamIslandDonphan, -1
-	person_event SPRITE_YOUNGSTER, 5, 4, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SunbeamIslandDonphan, -1
-	person_event SPRITE_LASS, 5, 9, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, SunbeamIslandDonphan, -1
+	person_event SPRITE_YOUNGSTER, 5, 7, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunbeamIslandDonphan, -1
+	person_event SPRITE_FISHER, 5, 6, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, SunbeamIslandDonphan, -1
+	person_event SPRITE_LASS, 5, 9, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, SunbeamIslandDonphan, -1
+	person_event SPRITE_YOUNGSTER, 6, 7, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SunbeamIslandDonphan, -1
+	person_event SPRITE_LASS, 6, 5, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_YELLOW, PERSONTYPE_SCRIPT, 0, SunbeamIslandDonphan, -1
 
 SunBeamContestBikiniP:
 	end
@@ -472,13 +442,14 @@ SunbeamContestText2:
 	para "What a battle!"
 	
 	para "Give it up for"
-	line "LILAC!"
+	line "HAZEL!"
 	done
 	
 SunbeamContestText3:
 	text "Next up is our"
 	line "second contestant,"
-	cont "the radiant ROSE!"
+	cont "the astonishing"
+	cont "ASTER!"
 	done
 	
 SunbeamContestText4:
@@ -488,7 +459,7 @@ SunbeamContestText4:
 	line "both sides!"
 	
 	para "Make some noise"
-	line "for ROSE!"
+	line "for ASTER!"
 	done
 	
 SunbeamContestText5:
@@ -496,7 +467,7 @@ SunbeamContestText5:
 	line "least, our third"
 	
 	para "contestant, the"
-	line "heavenly HAZEL!"
+	line "lovely LILAC!"
 	done
 	
 SunbeamContestText6:
@@ -505,7 +476,7 @@ SunbeamContestText6:
 	para "Expertly fought!"
 	
 	para "Show some love for"
-	line "HAZEL, everybody!"	
+	line "LILAC, everybody!"	
 	done
 	
 SunbeamContestText7:
@@ -519,15 +490,15 @@ SunbeamContestText7:
 	
 SunbeamContestText8:
 	text "Give it up for"
-	line "LILAC!"
+	line "HAZEL!"
 	done
 	
 SunbeamContestText9:
-	text "ROSE!"
+	text "ASTER!"
 	done
 	
 SunbeamContestText10:
-	text "and HAZEL!"
+	text "and LILAC!"
 	done
 	
 SunbeamContestText11:
@@ -547,8 +518,8 @@ SunbeamContestText12:
 	line "ado, let's get"
 	
 	para "this started with"
-	line "contestant 1,"
-	cont "the lovely LILAC!"
+	line "contestant 1, the"
+	cont "heavenly HAZEL!"
 	done
 	
 SunbeamContestText13:
@@ -563,15 +534,15 @@ SunbeamContestText13:
 	done
 	
 SunbeamContestText14:
-	text "LILAC!"
+	text "HAZEL!"
 	done
 	
 SunbeamContestText15:
-	text "ROSE!"
+	text "ASTER!"
 	done
 	
 SunbeamContestText16:
-	text "HAZEL!"
+	text "LILAC!"
 	done
 	
 SunbeamContestText17:
@@ -585,25 +556,25 @@ SunbeamContestText18:
 	line "all for today!"
 	
 	para "Join us next time"
-	line "for another feirce"
+	line "for another fierce"
 	cont "competition!"
 	done
 	
-SunBeamContestBikiniPText1:
+SunBeamContestBikiniYText1:
 	text "A battle in a"
 	line "bikini?"
 	
 	para "How exciting!"
 	done
 	
-SunBeamContestBikiniPText2:
+SunBeamContestBikiniYText2:
 	text "I can't believe I"
 	line "won!"
 	
 	para "Thanks everyone!"
 	done
 	
-SunBeamContestBikiniPWinText:
+SunBeamContestBikiniYWinText:
 	text "Whew!"
 	
 	para "I'm so excited!"
@@ -627,19 +598,19 @@ SunBeamContestBikiniRWinText:
 	text "Oh my!"
 	done
 	
-SunBeamContestBikiniYText1:
+SunBeamContestBikiniPText1:
 	text "Haha!"
 	
 	para "This'll be fun!"
 	done
 	
-SunBeamContestBikiniYText2:
+SunBeamContestBikiniPText2:
 	text "Nice!"
 	
 	para "I won!"
 	done
 	
-SunBeamContestBikiniYWinText:
+SunBeamContestBikiniPWinText:
 	text "Yes!"
 	
 	para "Great battle!"

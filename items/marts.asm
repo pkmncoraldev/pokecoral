@@ -38,11 +38,12 @@ MartsEnd
 
 
 Mart0: ; 160ed
-	db 4 ; # items
-	db POTION
-	db ANTIDOTE
-	db PARLYZ_HEAL
-	db AWAKENING
+	db 5 ; # items
+	db BERRY_JUICE
+	db FRESH_WATER 
+	db BERRY
+	db PSNCUREBERRY
+	db PRZCUREBERRY
 	db $ff
 ; 160f3
 
@@ -57,41 +58,41 @@ Mart1: ; 160f3
 ; 160fa
 
 Mart2: ; 160fa
-	db 10 ; # items
+	db 6 ; # items
 	db POKE_BALL
 	db POTION
-	db ESCAPE_ROPE
+	db SUPER_POTION
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
-	db X_DEFEND
-	db X_ATTACK
-	db X_SPEED
-	db FLOWER_MAIL
 	db $ff
 ; 16106
 
 Mart3: ; 16106
-	db 9 ; # items
-	db CHARCOAL
+	db 8 ; # items
 	db POKE_BALL
+	db GREAT_BALL
 	db POTION
 	db SUPER_POTION
 	db ESCAPE_ROPE
 	db REPEL
 	db ANTIDOTE
 	db PARLYZ_HEAL
-	db FLOWER_MAIL
 	db $ff
 ; 16111
 
 Mart4: ; 16111
-	db 5 ; # items
-	db POTION
+	db 10 ; # items
+	db POKE_BALL
+	db GREAT_BALL
 	db SUPER_POTION
-	db HYPER_POTION
-	db FULL_HEAL
-	db REVIVE
+	db ESCAPE_ROPE
+	db REPEL
+	db ANTIDOTE
+	db PARLYZ_HEAL
+	db AWAKENING
+	db BURN_HEAL
+	db ICE_HEAL
 	db $ff
 ; 16118
 

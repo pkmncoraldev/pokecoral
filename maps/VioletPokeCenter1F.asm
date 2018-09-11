@@ -12,6 +12,7 @@ VioletPokeCenter1F_MapScriptHeader:
 	db 0
 
 DaybreakPokeCenterNurse:
+	blackoutmod VIOLET_CITY
 	jumpstd pokecenternurse
 
 DaybreakPokeCenterNPC1:
@@ -47,7 +48,7 @@ MovementData_AideFinishesLeavingPokecenter:
 	step_end
 
 DaybreakPokeCenterNPC1Text:
-	text "Your a #MON"
+	text "You're a #MON"
 	line "TRAINER, right?"
 	
 	para "We have quite the"

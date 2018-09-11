@@ -2,20 +2,20 @@ TrainerClassAttributes: ; 3959c
 
 ; Stanley
 	db 0, 0 ; items
-	db 25 ; base reward
+	db 30 ; base reward
 	dw AI_BASIC + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
 	dw CONTEXT_USE
 
 ; Rodney
-	db 0, 0 ; items
-	db 25 ; base reward
+	db SUPER_POTION, 0 ; items
+	db 30 ; base reward
 	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Leilani
-	db 0, 0 ; items
-	db 25 ; base reward
-	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	db FULL_HEAL, 0 ; items
+	db 30 ; base reward
+	dw AI_BASIC + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Morty
@@ -430,5 +430,53 @@ TrainerClassAttributes: ; 3959c
 	db 0, 0 ; items
 	db 25 ; base reward
 	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+	
+;Lady
+	db 0, 0 ; items
+	db 18 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+	
+;BikiniP
+	db 0, 0 ; items
+	db 25 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+	
+;BikiniR
+	db 0, 0 ; items
+	db 25 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+	
+;BikiniY
+	db 0, 0 ; items
+	db 25 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+	
+;Couple
+	db 0, 0 ; items
+	db 25 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+	
+;Delinquentm
+	db 0, 0 ; items
+	db 10 ; base reward
+	dw AI_BASIC + AI_TYPES + AI_OPPORTUNIST + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+	
+;Delinquentf
+	db 0, 0 ; items
+	db 10 ; base reward
+	dw AI_BASIC + AI_TYPES + AI_OPPORTUNIST + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+	
+;Safari
+	db 0, 0 ; items
+	db 15 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_OFFENSIVE + AI_AGGRESSIVE + AI_STATUS
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 ; 39771

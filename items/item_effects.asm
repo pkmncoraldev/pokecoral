@@ -79,7 +79,7 @@ ItemEffects: ; e73c
 	dw Ether
 	dw MaxEther
 	dw Elixer
-	dw RedScale
+	dw CoralShard
 	dw Secretpotion
 	dw SSTicket
 	dw MysteryEgg
@@ -133,7 +133,7 @@ ItemEffects: ; e73c
 	dw MiracleSeed
 	dw ThickClub
 	dw FocusBand
-	dw Item78
+	dw Skateboard
 	dw Energypowder
 	dw EnergyRoot
 	dw HealPowder
@@ -149,16 +149,16 @@ ItemEffects: ; e73c
 	dw BasementKey
 	dw Pass
 	dw LinkCable_Item
-	dw Item88
-	dw Item89
+	dw Clue1
+	dw Clue2
 	dw Charcoal
 	dw BerryJuice
 	dw ScopeLens
-	dw Item8D
-	dw Item8E
+	dw Clue3
+	dw Clue4
 	dw MetalCoat
 	dw DragonFang
-	dw Item91
+	dw Clue5
 	dw Leftovers
 	dw Item93
 	dw Item94
@@ -1181,6 +1181,10 @@ Bicycle: ; ee08
 	callba BikeFunction
 	ret
 ; ee0f
+
+Skateboard:
+;	callba SkateboardFunction
+	ret
 
 
 MoonStone:
@@ -2261,6 +2265,8 @@ UseRepel: ; f46c
 
 	ld a, b
 	ld [wRepelEffect], a
+	ld a, [CurItem]
+	ld [wRepelType], a
 	jp UseItemText
 
 
@@ -2733,6 +2739,21 @@ OpenBox: ; f769
 	db "@"
 ; 0xf77d
 
+Clue1:
+jp Clue1Message
+
+Clue2:
+jp Clue2Message
+
+Clue3:
+jp Clue3Message
+
+Clue4:
+jp Clue4Message
+
+Clue5:
+jp Clue5Message
+
 IslandPass:
 Brightpowder:
 RivalDex:
@@ -2743,7 +2764,7 @@ LibraryCard:
 OldKey:
 ExpShare:
 SilverLeaf:
-RedScale:
+CoralShard:
 Secretpotion:
 SSTicket:
 MysteryEgg:
@@ -2785,7 +2806,6 @@ GsBall:
 MiracleSeed:
 ThickClub:
 FocusBand:
-Item78:
 HardStone:
 LuckyEgg:
 MachinePart:
@@ -2795,7 +2815,6 @@ Stardust:
 StarPiece:
 Pass:
 Item87:
-Item88:
 Item89:
 Charcoal:
 ScopeLens:
@@ -2825,7 +2844,6 @@ ItemB3:
 TeruSama: ; f77d
 	jp IsntTheTimeMessage
 ; f780
-
 
 Play_SFX_FULL_HEAL: ; f780
 	push de
@@ -2890,6 +2908,26 @@ Ball_BoxIsFullMessage: ; f7dc
 	ld [wItemEffectSucceeded], a
 	ret
 ; f7e8
+
+Clue1Message:
+	ld hl, Clue1MessageText
+	jr CantUseItemMessage
+	
+Clue2Message:
+	ld hl, Clue2MessageText
+	jr CantUseItemMessage
+	
+Clue3Message:
+	ld hl, Clue3MessageText
+	jr CantUseItemMessage
+	
+Clue4Message:
+	ld hl, Clue4MessageText
+	jr CantUseItemMessage
+	
+Clue5Message:
+	ld hl, Clue5MessageText
+	jr CantUseItemMessage
 
 CantUseOnEggMessage: ; f7e8
 	ld hl, CantUseOnEggText
@@ -2999,7 +3037,26 @@ GotOffTheItemText: ; 0xf847
 	db "@"
 ; 0xf84c
 
-
+Clue1MessageText:
+	text_jump Clue1Text
+	db "@"
+	
+Clue2MessageText:
+	text_jump Clue2Text
+	db "@"
+	
+Clue3MessageText:
+	text_jump Clue3Text
+	db "@"
+	
+Clue4MessageText:
+	text_jump Clue4Text
+	db "@"
+	
+Clue5MessageText:
+	text_jump Clue5Text
+	db "@"
+	
 ApplyPPUp: ; f84c
 	ld a, MON_MOVES
 	call GetPartyParamLocation

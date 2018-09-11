@@ -24,6 +24,7 @@ RuinsofAlphOmanyteWordRoom_MapScriptHeader:
 	return
 	
 .Trigger0:
+	clearevent EVENT_SPOOKHOUSE_BALL_WILL_MOVE_LEFT
 	end
 	
 .Trigger1:
@@ -56,7 +57,7 @@ RuinsofAlphOmanyteWordRoom_MapEventHeader:: db 0, 0
 	signpost 2, -1, SIGNPOST_READ, SpookHouseLockedDoor2
 
 .ObjectEvents: db 1
-	person_event SPRITE_TWIN, 2, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_SILVER, PERSONTYPE_SCRIPT, 0, SpookHouseNPC1, EVENT_SPOOKHOUSE_SAW_GHOST_1
+	person_event SPRITE_TWIN, 2, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, SpookHouseNPC1, EVENT_SPOOKHOUSE_SAW_GHOST_1
 
 SpookHouseGhost1_0:
 	checkevent EVENT_SPOOKHOUSE_GHOST_WILL_APPEAR
@@ -104,7 +105,8 @@ SpookHouseLockedDoor2:
 	jumptext SpookHouseLockedDoorText2
 	
 .unlockeddoor:
-	jumptext SpookHouseLockedDoor2Text
+	killsfx
+	end
 	
 .unlockdoor:
 	changeblock $0, $3, $51
@@ -115,6 +117,10 @@ SpookHouseLockedDoor2:
 	waitbutton
 	closetext
 	end
+	
+.enditall
+	xor a
+	ret
 	
 SpookHouseFlickerLight:
 	jumptext SpookHouseFlickerLightText

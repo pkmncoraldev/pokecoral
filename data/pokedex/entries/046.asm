@@ -1,10 +1,10 @@
-; ParasPokedexEntry: ; 0x18297f
-	db "MUSHROOM@" ; species name
-	dw 100, 120 ; height, width
+; DwebblePokedexEntry: ; 0x18297f
+	db "ROCK INN@" ; species name
+	dw 100, 320 ; height, width
 
-	db   "The tochukaso"
-	next "growing on this"
-	next "#MON's back"
-	page "orders it to"
-	next "extract juice from"
-	next "tree trunks.@"
+	db   "This #MON can"
+	next "easily melt holes"
+	next "in hard rocks with"
+	page "a liquid secreted"
+	next "from its mouth."
+	next "@"

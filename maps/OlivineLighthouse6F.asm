@@ -25,7 +25,7 @@ OlivineLighthouse6F_MapEventHeader:: db 0, 0
 
 StarglowMartClerk:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_AZALEA
+	pokemart MARTTYPE_STANDARD, MART_STARGLOW
 	closetext
 	end
 	

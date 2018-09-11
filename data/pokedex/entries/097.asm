@@ -1,10 +1,10 @@
-; HypnoPokedexEntry: ; 0x1b8d80
-	db "HYPNOSIS@" ; species name
-	dw 503, 1670 ; height, width
+; MedichamPokedexEntry: ; 0x1b8d80
+	db "MEDITATE@" ; species name
+	dw 403, 694 ; height, width
 
-	db   "The longer it"
-	next "swings its"
-	next "pendulum, the"
-	page "longer the effects"
-	next "of its hypnosis"
-	next "last.@"
+	db   "It elegantly avoids"
+	next "attacks with dance-"
+	next "like steps, then"
+	page "launches a deva-"
+	next "stating blow in the"
+	next "same motion.@"

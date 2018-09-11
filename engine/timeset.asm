@@ -40,12 +40,21 @@ InitClock: ; 90672 (24:4672)
 	call RotateFourPalettesRight
 	ld hl, Text_WokeUpOak
 	call PrintText
+	callba RestartClock
+	
 	ld hl, wc608
 	ld bc, 50
 	xor a
 	call ByteFill
 	ld a, $a
 	ld [wInitHourBuffer], a
+	
+	ld hl, OakText_ResponseToSetTime
+	call PrintText
+	call WaitPressAorB_BlinkCursor
+	pop af
+	ld [hInMenu], a
+	ret
 
 .loop
 	ld hl, Text_WhatTimeIsIt

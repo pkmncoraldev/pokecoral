@@ -203,7 +203,6 @@ MoveGrammar: ; 105e7a
 	db ACID_ARMOR
 	db BONEMERANG
 	db REST
-	db SHARPEN
 	db SUBSTITUTE
 	db MIND_READER
 	db SNORE
@@ -221,7 +220,6 @@ MoveGrammar: ; 105e7a
 ; 1
 	db RECOVER
 	db TELEPORT
-	db BIDE
 	db SELFDESTRUCT
 	db AMNESIA
 	db FLAIL
@@ -232,7 +230,6 @@ MoveGrammar: ; 105e7a
 	db AGILITY
 	db MIMIC
 	db DOUBLE_TEAM
-	db BARRAGE
 	db TRANSFORM
 	db STRUGGLE
 	db SCARY_FACE
@@ -266,7 +263,6 @@ MoveGrammar: ; 105e7a
 	db METRONOME
 	db LICK
 	db CLAMP
-	db CONSTRICT
 	db POISON_GAS
 	db BUBBLE
 	db SLASH

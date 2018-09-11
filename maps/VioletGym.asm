@@ -1,306 +1,343 @@
 const_value set 2
-	const VIOLETGYM_FALKNER
-	const VIOLETGYM_YOUNGSTER1
-	const VIOLETGYM_YOUNGSTER2
-	const VIOLETGYM_GYM_GUY
+	const SUNBEAMDOCKHOUSE1NPC
+	const SUNBEAMDOCKHOUSE1GREEM1
+	const SUNBEAMDOCKHOUSE1GREEM2
 
 VioletGym_MapScriptHeader:
 .MapTriggers:
-	db 0
+	db 2
+	
+	maptrigger .Trigger0
+	maptrigger .Trigger1
 
 .MapCallbacks:
 	db 0
 
-FalknerScript_0x683c2:
-	faceplayer
+.Trigger0:
+	end
+	
+.Trigger1:
 	opentext
-	checkevent EVENT_BEAT_FALKNER
-	iftrue .FightDone
-	writetext UnknownText_0x68473
+	writetext SunbeamDockHouse1GreemText
 	waitbutton
 	closetext
-	winlosstext UnknownText_0x6854a, 0
-	loadtrainer STANLEY, 1
+	playsound SFX_PAY_DAY
+	spriteface SUNBEAMDOCKHOUSE1GREEM1, RIGHT
+	showemote EMOTE_SHOCK, SUNBEAMDOCKHOUSE1GREEM1,  15
+	playmusic MUSIC_ROCKET_ENCOUNTER
+	spriteface PLAYER, LEFT
+	opentext
+	writetext SunbeamDockHouse1Greem1_1
+	waitbutton
+	closetext
+	pause 5
+	playsound SFX_PAY_DAY
+	spriteface SUNBEAMDOCKHOUSE1GREEM2, LEFT
+	showemote EMOTE_SHOCK, SUNBEAMDOCKHOUSE1GREEM2,  15
+	pause 5
+	applymovement SUNBEAMDOCKHOUSE1GREEM2, Movement_SunbeamDockHouse1GreemLeft
+	spriteface PLAYER, RIGHT
+	opentext
+	writetext SunbeamDockHouse1Greem2_1
+	waitbutton
+	closetext
+	pause 5
+	spriteface PLAYER, LEFT
+	opentext
+	writetext SunbeamDockHouse1Greem1_2
+	waitbutton
+	
+	winlosstext SunbeamDockHouse1Greem1WinText, 0
+	setlasttalked SUNBEAMDOCKHOUSE1GREEM1
+	loadtrainer GRUNTF, 4
 	startbattle
+	dontrestartmapmusic
 	reloadmapafterbattle
-	setevent EVENT_BEAT_FALKNER
+	playmusic MUSIC_ROCKET_ENCOUNTER
+	
 	opentext
-	writetext UnknownText_0x685af
-	playsound SFX_GET_BADGE
-	waitsfx
-;	setflag ENGINE_ZEPHYRBADGE
-	checkcode VAR_BADGES
-	scall VioletGymTriggerRockets
-.FightDone:
-;	checkevent EVENT_GOT_TM31_MUD_SLAP
-;	iftrue .SpeechAfterTM
-	setevent EVENT_BEAT_BIRD_KEEPER_ROD
-	setevent EVENT_BEAT_BIRD_KEEPER_ABE
-	domaptrigger ELMS_LAB, $2
-	specialphonecall SPECIALCALL_ASSISTANT
-	writetext UnknownText_0x685c8
-	buttonsound
-	verbosegiveitem TM_MUD_SLAP
-	iffalse .NoRoomForMudSlap
-;	setevent EVENT_GOT_TM31_MUD_SLAP
-	writetext UnknownText_0x68648
+	writetext SunbeamDockHouse1Greem1_3
+	applymovement SUNBEAMDOCKHOUSE1GREEM1, Movement_SunbeamDockHouse1Greem1_1
 	waitbutton
 	closetext
-	end
-
-.SpeechAfterTM:
-	writetext UnknownText_0x68735
-	waitbutton
-.NoRoomForMudSlap:
-	closetext
-	end
-
-VioletGymTriggerRockets:
-	if_equal 7, .RadioTowerRockets
-	if_equal 6, .GoldenrodRockets
-	end
-
-.GoldenrodRockets:
-	jumpstd goldenrodrockets
-
-.RadioTowerRockets:
-	jumpstd radiotowerrockets
-
-TrainerBird_keeperRod:
-	trainer EVENT_BEAT_BIRD_KEEPER_ROD, BIRD_KEEPER, ROD, Bird_keeperRodSeenText, Bird_keeperRodBeatenText, 0, Bird_keeperRodScript
-
-Bird_keeperRodScript:
-	end_if_just_battled
+	pause 5
+	spriteface PLAYER, RIGHT
 	opentext
-	writetext UnknownText_0x68837
+	writetext SunbeamDockHouse1Greem2_2
 	waitbutton
-	closetext
-	end
-
-TrainerBird_keeperAbe:
-	trainer EVENT_BEAT_BIRD_KEEPER_ABE, BIRD_KEEPER, ABE, Bird_keeperAbeSeenText, Bird_keeperAbeBeatenText, 0, Bird_keeperAbeScript
-
-Bird_keeperAbeScript:
-	end_if_just_battled
+	
+	winlosstext SunbeamDockHouse1Greem2WinText, 0
+	setlasttalked SUNBEAMDOCKHOUSE1GREEM2
+	loadtrainer GRUNTM, 3
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	playmusic MUSIC_ROCKET_ENCOUNTER
+	
 	opentext
-	writetext UnknownText_0x688c7
+	writetext SunbeamDockHouse1Greem2_3
+	applymovement SUNBEAMDOCKHOUSE1GREEM2, Movement_SunbeamDockHouse1Greem2_1
 	waitbutton
 	closetext
-	end
-
-VioletGymGuyScript:
-	faceplayer
+	pause 5
 	opentext
-	checkevent EVENT_BEAT_FALKNER
-	iftrue .VioletGymGuyWinScript
-	writetext VioletGymGuyText
+	writetext SunbeamDockHouse1GreemRunAway
+	waitbutton
+	closetext
+	
+	applymovement SUNBEAMDOCKHOUSE1GREEM2, Movement_SunbeamDockHouse1Greem2_2
+	spriteface SUNBEAMDOCKHOUSE1GREEM2, DOWN
+	pause 5
+	playsound SFX_EXIT_BUILDING
+	disappear SUNBEAMDOCKHOUSE1GREEM2
+	applymovement SUNBEAMDOCKHOUSE1GREEM1, Movement_SunbeamDockHouse1Greem1_2
+	playsound SFX_EXIT_BUILDING
+	disappear SUNBEAMDOCKHOUSE1GREEM1
+	setevent EVENT_ISLAND_SAVED_LADY_CHAN
+	pause 10
+	special Special_FadeOutMusic
+	pause 20
+	special PlayMapMusic
+	dotrigger $0
+	end
+
+VioletGym_MapEventHeader:: db 0, 0
+
+.Warps: db 2
+	warp_def 7, 2, 2, ROUTE_29
+	warp_def 7, 3, 2, ROUTE_29
+
+.CoordEvents: db 0
+
+.BGEvents: db 0
+
+.ObjectEvents: db 3
+	person_event SPRITE_GRANNY, 4, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, SunbeamDockHouse1NPC, -1
+	person_event SPRITE_ROCKET_GIRL, 7, 1, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunbeamDockHouse1Greem, EVENT_ISLAND_SAVED_LADY_CHAN
+	person_event SPRITE_ROCKET, 7, 4, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunbeamDockHouse1Greem, EVENT_ISLAND_SAVED_LADY_CHAN
+
+SunbeamDockHouse1NPC:
+	checkflag ENGINE_THIRDBADGE
+	iffalse .getout
+	checkevent EVENT_ISLAND_LADY_CHAN_LEMONADE
+	iftrue .gotlemonade
+	opentext
+	writetext SunbeamDockHouse1NPCText1
+	yesorno
+	iftrue .restlemonade
+	writetext SunbeamDockHouse1NPCText2
+	waitbutton
+	verbosegiveitem LEMONADE
+	writetext SunbeamDockHouse1NPCText3
+	waitbutton
+	closetext
+	setevent EVENT_ISLAND_LADY_CHAN_LEMONADE
+	end
+		
+.restlemonade
+	closetext
+	special Special_FadeBlackQuickly
+	special Special_ReloadSpritesNoPalettes
+	special TrainerRankings_Healings
+	playmusic MUSIC_HEAL
+	special HealParty
+	pause 60
+	special Special_FadeInQuickly
+	special RestartMapMusic
+	opentext
+	writetext SunbeamDockHouse1NPCText4
+	waitbutton
+	verbosegiveitem LEMONADE
+	writetext SunbeamDockHouse1NPCText3
+	waitbutton
+	closetext
+	setevent EVENT_ISLAND_LADY_CHAN_LEMONADE
+	end
+	
+.gotlemonade
+	opentext
+	writetext SunbeamDockHouse1NPCText5
+	yesorno
+	iftrue .rest
+	writetext SunbeamDockHouse1NPCText6
 	waitbutton
 	closetext
 	end
-
-.VioletGymGuyWinScript:
-	writetext VioletGymGuyWinText
+	
+.rest
+	closetext
+	special Special_FadeBlackQuickly
+	special Special_ReloadSpritesNoPalettes
+	special TrainerRankings_Healings
+	playmusic MUSIC_HEAL
+	special HealParty
+	pause 60
+	special Special_FadeInQuickly
+	special RestartMapMusic
+	opentext
+	writetext SunbeamDockHouse1NPCText7
 	waitbutton
 	closetext
 	end
-
-VioletGymStatue:
-;	checkflag ENGINE_ZEPHYRBADGE
-;	iftrue .Beaten
-	jumpstd gymstatue1
-.Beaten:
-	trainertotext STANLEY, 1, $1
-	jumpstd gymstatue2
-
-UnknownText_0x68473:
-	text "I'm FALKNER, the"
-	line "VIOLET #MON GYM"
-	cont "leader!"
-
-	para "People say you can"
-	line "clip flying-type"
-
-	para "#MON's wings"
-	line "with a jolt of"
-	cont "electricity…"
-
-	para "I won't allow such"
-	line "insults to bird"
-	cont "#MON!"
-
-	para "I'll show you the"
-	line "real power of the"
-
-	para "magnificent bird"
-	line "#MON!"
+	
+.getout
+	jumptextfaceplayer SunbeamDockHouse1NPCText8
+	
+SunbeamDockHouse1Greem:
+	end
+	
+SunbeamDockHouse1NPCText1:
+	text "Thank you so much,"
+	line "you brave child!"
+	
+	para "They just barged"
+	line "in and demanded my"
+	cont "#MON."
+	
+	para "I don't even had a"
+	line "#MON, but they"
+	
+	para "wouldn't take no"
+	line "for an answer."
+	
+	para "I hope your #-"
+	line "MON aren't injured…"
+	
+	para "Would you like to"
+	line "rest here for a"
+	cont "little while?"
 	done
-
-UnknownText_0x6854a:
-	text "…Darn! My dad's"
-	line "cherished bird"
-	cont "#MON…"
-
-	para "All right."
-	line "Take this."
-
-	para "It's the official"
-	line "#MON LEAGUE"
-	cont "ZEPHYRBADGE."
+	
+SunbeamDockHouse1NPCText2:
+	text "Oh…"
+	
+	para "Ok, well at least"
+	line "have a drink"
+	cont "before you leave."
 	done
-
-UnknownText_0x685af:
-	text "<PLAYER> received"
-	line "ZEPHYRBADGE."
+	
+SunbeamDockHouse1NPCText3:
+	text "Thank you again"
+	line "for your help."
 	done
-
-UnknownText_0x685c8:
-	text "ZEPHYRBADGE"
-	line "raises the attack"
-	cont "power of #MON."
-
-	para "It also enables"
-	line "#MON to use"
-
-	para "FLASH, if they"
-	line "have it, anytime."
-
-	para "Here--take this"
-	line "too."
+	
+SunbeamDockHouse1NPCText4:
+	text "Feeling better?"
+	
+	para "Have a drink"
+	line "before you leave."
 	done
-
-UnknownText_0x68648:
-	text "By using a TM, a"
-	line "#MON will"
-
-	para "instantly learn a"
-	line "new move."
-
-	para "Think before you"
-	line "act--a TM can be"
-	cont "used only once."
-
-	para "TM31 contains"
-	line "MUD-SLAP."
-
-	para "It reduces the"
-	line "enemy's accuracy"
-
-	para "while it causes"
-	line "damage."
-
-	para "In other words, it"
-	line "is both defensive"
-	cont "and offensive."
+	
+SunbeamDockHouse1NPCText5:
+	text "Would you like to"
+	line "rest here for a"
+	cont "little while?"
 	done
-
-UnknownText_0x68735:
-	text "There are #MON"
-	line "GYMS in cities and"
-	cont "towns ahead."
-
-	para "You should test"
-	line "your skills at"
-	cont "these GYMS."
-
-	para "I'm going to train"
-	line "harder to become"
-
-	para "the greatest bird"
-	line "master!"
+	
+SunbeamDockHouse1NPCText6:
+	text "Oh…"
+	
+	para "Ok."
+	
+	para "Thank you for"
+	line "stopping by."
 	done
-
-Bird_keeperRodSeenText:
-	text "The keyword is"
-	line "guts!"
-
-	para "Those here are"
-	line "training night and"
-
-	para "day to become bird"
-	line "#MON masters."
-
-	para "Come on!"
+	
+SunbeamDockHouse1NPCText7:
+	text "Thank you for"
+	line "stopping by."
 	done
-
-Bird_keeperRodBeatenText:
-	text "Gaaah!"
+	
+SunbeamDockHouse1NPCText8:
+	text "I don't have a"
+	line "#MON."
+	
+	para "Sometimes I think"
+	line "I should get one"
+	cont "for protection."
+	
+	para "What if someone"
+	line "were to break in?"
 	done
-
-UnknownText_0x68837:
-	text "FALKNER's skills"
-	line "are for real!"
-
-	para "Don't get cocky"
-	line "just because you"
-	cont "beat me!"
+	
+SunbeamDockHouse1GreemText:
+	text "Come on, old lady!"
+	
+	para "Hand your #MON"
+	line "over!"
 	done
-
-Bird_keeperAbeSeenText:
-	text "Let me see if you"
-	line "are good enough to"
-	cont "face FALKNER!"
+	
+SunbeamDockHouse1Greem1_1:
+	text "Huh?"
+	
+	para "A kid!"
 	done
-
-Bird_keeperAbeBeatenText:
-	text "This can't be"
-	line "true!"
+	
+SunbeamDockHouse1Greem1_2:
+	text "Don't worry."
+	
+	para "I'll take care of"
+	line "you real quick!"
 	done
-
-UnknownText_0x688c7:
-	text "This is pathetic,"
-	line "losing to some"
-	cont "rookie trainer…"
+	
+SunbeamDockHouse1Greem1_3:
+	text "How did you-?"
 	done
-
-VioletGymGuyText:
-	text "Hey! I'm no train-"
-	line "er but I can give"
-	cont "some advice!"
-
-	para "Believe me!"
-	line "If you believe, a"
-
-	para "championship dream"
-	line "can come true."
-
-	para "You believe?"
-	line "Then listen."
-
-	para "The grass-type is"
-	line "weak against the"
-
-	para "flying-type. Keep"
-	line "this in mind."
+	
+SunbeamDockHouse1Greem2_1:
+	text "What do you think"
+	line "you're doing here,"
+	cont "twerp?"
 	done
-
-VioletGymGuyWinText:
-	text "Nice battle! Keep"
-	line "it up, and you'll"
-
-	para "be the CHAMP in no"
-	line "time at all!"
+	
+SunbeamDockHouse1Greem2_2:
+	text "Well, you're weak"
+	line "now."
+	
+	para "I'll finish you"
+	line "off!"
 	done
-
-VioletGym_MapEventHeader:
-	; filler
-	db 0, 0
-
-.Warps:
-	db 2
-	warp_def $f, $4, 2, VIOLET_CITY
-	warp_def $f, $5, 2, VIOLET_CITY
-
-.XYTriggers:
-	db 0
-
-.Signposts:
-	db 2
-	signpost 13, 3, SIGNPOST_READ, VioletGymStatue
-	signpost 13, 6, SIGNPOST_READ, VioletGymStatue
-
-.PersonEvents:
-	db 4
-	person_event SPRITE_STANLEY, 1, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, FalknerScript_0x683c2, -1
-	person_event SPRITE_YOUNGSTER, 6, 7, SPRITEMOVEDATA_STANDING_LEFT, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerBird_keeperRod, -1
-	person_event SPRITE_YOUNGSTER, 10, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerBird_keeperAbe, -1
-	person_event SPRITE_GYM_GUY, 13, 7, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, VioletGymGuyScript, -1
+	
+SunbeamDockHouse1Greem2_3:
+	text "Both of us!?"
+	done
+	
+SunbeamDockHouse1GreemRunAway:
+	text "RUN AWAY!"
+	done
+	
+SunbeamDockHouse1Greem1WinText:
+	text "Wait, what!?"
+	done
+	
+SunbeamDockHouse1Greem2WinText:
+	text "Me too!?"
+	done
+	
+Movement_SunbeamDockHouse1GreemLeft:
+	step LEFT
+	step_end
+	
+Movement_SunbeamDockHouse1Greem1_1:
+	fix_facing
+	big_step LEFT
+	remove_fixed_facing
+	step_end
+	
+Movement_SunbeamDockHouse1Greem1_2:
+	big_step UP
+	big_step RIGHT
+	big_step RIGHT
+	big_step RIGHT
+	big_step DOWN
+	step_end
+	
+Movement_SunbeamDockHouse1Greem2_1:
+	fix_facing
+	big_step RIGHT
+	remove_fixed_facing
+	step_end
+	
+Movement_SunbeamDockHouse1Greem2_2:
+	big_step LEFT
+	step_end

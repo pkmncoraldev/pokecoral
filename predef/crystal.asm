@@ -232,34 +232,28 @@ Function49496: ; 49496
 
 LoadSpecialMapPalette: ; 494ac
 	ld a, [wTileset]
-	cp TILESET_POKECOM_CENTER
-	jr z, .pokecom_2f
-	cp TILESET_BATTLE_TOWER
-	jr z, .battle_tower
-	cp TILESET_ICE_PATH
-	jr z, .ice_path
 	cp TILESET_HOUSE_1
 	jr z, .house
-	cp TILESET_RADIO_TOWER
-	jr z, .radio_tower
-	cp TILESET_CELADON_MANSION
-	jr z, .mansion_mobile
-	cp TILESET_OMANYTE_WORD_ROOM
+	cp TILESET_HAUNTED
 	jr z, .spookhouse
-	cp TILESET_KABUTO_WORD_ROOM
+	cp TILESET_HAUNTED_TV
 	jr z, .spookhouse2
 	cp TILESET_CAVE
 	jr z, .cave
 	cp TILESET_STARGLOW_CAVERN
 	jr z, .starglow_cavern
-	cp TILESET_SPOOKY_FOREST
+	cp TILESET_SPOOKY
 	jr z, .spookyforest
 	cp TILESET_LAVA_CAVE
 	jr z, .lavacave
-	cp TILESET_ISLAND
+	cp TILESET_GLINT
 	jr z, .outside
+	cp TILESET_MOUNTAIN
+	jp z, .mountain
 	cp TILESET_JUNGLE
-	jr z, .outside
+	jp z, .jungle
+	cp TILESET_RANCH
+	jp z, .checkranch
 	ld a, [wPermission]
 	cp TOWN
 	jr z, .outside
@@ -287,7 +281,7 @@ LoadSpecialMapPalette: ; 494ac
 	ld a, [wPermission] ; permission
 	and 7
 	cp 3 ; Hall of Fame
-	jr z, .do_nothing
+	jp z, .do_nothing
 	call LoadIcePathPalette
 	scf
 	ret
@@ -332,17 +326,44 @@ LoadSpecialMapPalette: ; 494ac
 	scf
 	ret
 	
+.checkranch
+	ld a, [wPermission]
+	cp INDOOR
+	jr nz, .outside
+	and a
+	ret
+	
+.checkmountain
+	ld a, [wPermission]
+	cp INDOOR
+	jp nz, .mountain
+	and a
+	ret
+	
 .outside
 	ld a, [MapGroup]
-	cp GROUP_CHERRYGROVE_CITY
-	jr z, .deepblueocean
 	cp GROUP_SUNSET_BAY
 	jr z, .deepblueocean
+	cp GROUP_CHERRYGROVE_CITY
+	jr nz, .skipdeepblue
+	ld a, [MapNumber]
+	cp MAP_ROUTE_30
+	jr z, .skipdeepblue
+	jr .deepblueocean
+.skipdeepblue
+	cp GROUP_ROUTE_11
+	jr z, .ranch
+	cp GROUP_VERMILION_CITY
+	jr nz, .notranch
+	ld a, [MapNumber]
+	cp MAP_VERMILION_CITY
+	jr z, .ranch
+.notranch
 	ld a, [hHours]
 	cp 17 ; 5:00 PM to 5:59 PM = dusk
-	jr nz, .do_nothing
+	jp nz, .do_nothing
 	ld hl, OutsideDuskPalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .deepblueocean
 	ld a, [TimeOfDay]
@@ -354,23 +375,96 @@ LoadSpecialMapPalette: ; 494ac
 	cp 17 ; 5:00 PM to 5:59 PM = dusk
 	jr z, .deepbluedusk
 	ld hl, OutsideDayDeepBluePalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .deepbluemorn
 	ld hl, OutsideMornDeepBluePalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .deepbluenite
 	ld hl, OutsideNitePalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .deepbluedusk
 	ld hl, OutsideDuskPalette
+	jp LoadEightBGPalettes
+	
+.ranch
+	ld a, [TimeOfDay]
+	cp NITE
+	jr z, .ranchnite
+	cp MORN
+	jr z, .ranchmorn
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	jr z, .ranchdusk
+	ld hl, OutsideDayRanchPalette
+	jr LoadEightBGPalettes
+	
+.ranchmorn
+	ld hl, OutsideMornRanchPalette
+	jr LoadEightBGPalettes
+	
+.ranchnite
+	ld hl, OutsideNiteRanchPalette
+	jr LoadEightBGPalettes
+	
+.ranchdusk
+	ld hl, OutsideDuskPalette
+	jr LoadEightBGPalettes
+	
+.mountain
+	ld a, [TimeOfDay]
+	cp NITE
+	jr z, .mountainnite
+	cp MORN
+	jr z, .mountainmorn
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	jr z, .mountaindusk
+	ld hl, OutsideDayMountainPalette
+	jr LoadEightBGPalettes
+	
+.mountainmorn
+	ld hl, OutsideMornMountainPalette
+	jr LoadEightBGPalettes
+	
+.mountainnite
+	ld hl, OutsideNiteMountainPalette
+	jr LoadEightBGPalettes
+	
+.mountaindusk
+	ld hl, OutsideDuskMountainPalette
+	jr LoadEightBGPalettes
+	
+.jungle
+	ld a, [TimeOfDay]
+	cp NITE
+	jr z, .junglenite
+	cp MORN
+	jr z, .junglemorn
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	jr z, .jungledusk
+	ld hl, OutsideDayJunglePalette
+	jr LoadEightBGPalettes
+	
+.junglemorn
+	ld hl, OutsideMornJunglePalette
+	jr LoadEightBGPalettes
+	
+.junglenite
+	ld hl, OutsideNiteJunglePalette
+	jr LoadEightBGPalettes
+	
+.jungledusk
+	ld hl, OutsideDuskJunglePalette
 	jr LoadEightBGPalettes
 
 .do_nothing
 	and a
 	ret
+; 494f2
 ; 494f2
 
 
@@ -532,17 +626,49 @@ INCLUDE "tilesets/radio_tower.pal"
 ; 4967d
 
 OutsideMornDeepBluePalette:
-INCLUDE "tilesets/morndeepblue.pal"
+INCLUDE "tilesets/outsidepals//deepblue/morndeepblue.pal"
 
 OutsideDayDeepBluePalette:
-INCLUDE "tilesets/daydeepblue.pal"
+INCLUDE "tilesets/outsidepals//deepblue/daydeepblue.pal"
 
 OutsideDuskPalette:
-INCLUDE "tilesets/dusk.pal"
+INCLUDE "tilesets/outsidepals/dusk.pal"
 
 OutsideNitePalette:
-INCLUDE "tilesets/nite.pal"
+INCLUDE "tilesets/outsidepals/nite.pal"
 
+OutsideMornRanchPalette:
+INCLUDE "tilesets/outsidepals/ranch/mornranch.pal"
+
+OutsideDayRanchPalette:
+INCLUDE "tilesets/outsidepals/ranch/dayranch.pal"
+
+OutsideNiteRanchPalette:
+INCLUDE "tilesets/outsidepals/ranch/niteranch.pal"
+
+OutsideMornMountainPalette:
+INCLUDE "tilesets/outsidepals/mountain/mornmountain.pal"
+
+OutsideDayMountainPalette:
+INCLUDE "tilesets/outsidepals/mountain/daymountain.pal"
+
+OutsideDuskMountainPalette:
+INCLUDE "tilesets/outsidepals/mountain/duskmountain.pal"
+
+OutsideNiteMountainPalette:
+INCLUDE "tilesets/outsidepals/mountain/nitemountain.pal"
+
+OutsideMornJunglePalette:
+INCLUDE "tilesets/outsidepals/jungle/mornjungle.pal"
+
+OutsideDayJunglePalette:
+INCLUDE "tilesets/outsidepals/jungle/dayjungle.pal"
+
+OutsideDuskJunglePalette:
+INCLUDE "tilesets/outsidepals/jungle/duskjungle.pal"
+
+OutsideNiteJunglePalette:
+INCLUDE "tilesets/outsidepals/jungle/nitejungle.pal"
 
 MansionPalette1: ; 4967d
 	RGB 30, 28, 26

@@ -1028,18 +1028,6 @@ Text_PlaySound:: ; 1500
 	ret
 ; 1522
 
-Function1522:: ; 1522
-; XXX
-; TX_CRY
-	push de
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	call PlayCry
-	pop de
-	pop hl
-	pop bc
-	ret
 ; 152d
 
 TextSFX:: ; 152d

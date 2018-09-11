@@ -82,7 +82,7 @@ FruitTreeScript_SunsetCape:
 	fruittree FRUITTREE_SUNSET_CAPE
 	
 TrainerSunsetCape:
-	trainer EVENT_BEAT_SUNSET_CAPE_TRAINER, SWIMMERF, MICHAELA_SWIMMERF, TrainerSunsetCapeSeenText, TrainerSunsetCapeBeatenText, 0, .Script
+	trainer EVENT_BEAT_SUNSET_CAPE_TRAINER, SWIMMERF, 1, TrainerSunsetCapeSeenText, TrainerSunsetCapeBeatenText, 0, .Script
 	
 .Script:
 	end_if_just_battled

@@ -1,10 +1,10 @@
-; TyroguePokedexEntry: ; 0x1d124b
-	db "SCUFFLE@" ; species name
-	dw 204, 460 ; height, width
+; SwabluPokedexEntry: ; 0x1d124b
+	db "COTTON BIRD@" ; species name
+	dw 104, 26 ; height, width
 
-	db   "To brush up on its"
-	next "fighting skills,"
-	next "it will challenge"
-	page "anyone. It has a"
-	next "very strong com-"
-	next "petitive spirit.@"
+	db 	 "Its wings are like"
+	next "cotton tufts."
+	next "If it perches on"
+	page "someone's head, it"
+	next "looks like a cotton"
+	next "hat.@"

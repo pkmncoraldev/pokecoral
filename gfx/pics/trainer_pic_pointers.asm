@@ -75,3 +75,7 @@
 	add_pic BikiniPPic
 	add_pic BikiniRPic
 	add_pic BikiniYPic
+	add_pic CouplePic
+	add_pic DelinquentmPic
+	add_pic DelinquentfPic
+	add_pic SafariPic

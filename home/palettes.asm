@@ -338,14 +338,3 @@ Special_ReloadSpritesNoPalettes:: ; d91
 	call DelayFrame
 	ret
 ; db1
-
-
-FarCallSwapTextboxPalettes:: ; db1
-	homecall SwapTextboxPalettes
-	ret
-; dbd
-
-FarCallScrollBGMapPalettes:: ; dbd
-	homecall ScrollBGMapPalettes
-	ret
-; dc9

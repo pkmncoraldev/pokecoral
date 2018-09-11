@@ -46,8 +46,12 @@ DoPlayerMovement:: ; 80000
 	jr z, .Surf
 	cp PLAYER_BIKE
 	jr z, .Normal
+	cp PLAYER_DODRIO
+	jr z, .Normal
 	cp PLAYER_SLIP
 	jr z, .Ice
+	cp PLAYER_INVISIBLE
+	jr z, .Normal
 
 .Normal:
 	call .CheckForced
@@ -797,6 +801,8 @@ DoPlayerMovement:: ; 80000
 
 	ld a, [PlayerState]
 	cp PLAYER_BIKE
+	ret z
+	cp PLAYER_DODRIO
 	ret z
 	cp PLAYER_SLIP
 	ret

@@ -72,7 +72,7 @@ LakeofRage_MapEventHeader:: db 0, 0
 	xy_trigger 0, 7, 5, 0, StarglowGirlDontGo2, 0, 0
 	xy_trigger 2, 18, 36, 0, StarglowRocketStopsYou, 0, 0
 
-.BGEvents: db 8
+.BGEvents: db 9
 	signpost 4, 14, SIGNPOST_READ, StarglowValleySign
 	signpost 22, 5, SIGNPOST_READ, StarglowGymSign
 	signpost 29, 33, SIGNPOST_READ, StarglowGuruSign
@@ -81,13 +81,14 @@ LakeofRage_MapEventHeader:: db 0, 0
 	signpost 16, 6, SIGNPOST_ITEM, StarglowHiddenRareCandy
 	signpost 13, 35, SIGNPOST_ITEM, StarglowHiddenGreatBall
 	signpost 27, 26, SIGNPOST_READ, FruitTreeScript_Starglow
+	signpost 8, 14, SIGNPOST_READ, StarglowClue
 
-.ObjectEvents: db 15
-	person_event SPRITE_TWIN, 5, 10, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, StarglowLittleGirl, EVENT_STARGLOW_HELPED_LITTLEGIRL
-	person_event SPRITE_ROCKET, 6, 23, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, StarglowRocket1, EVENT_BEAT_STARGLOW_ROCKET_1
-	person_event SPRITE_ROCKET, 10, 31, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, StarglowRocket2, EVENT_BEAT_STARGLOW_ROCKET_2
-	person_event SPRITE_ROCKET, 22, 6, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, StarglowRocket3, EVENT_PUNKS_LEAVE_STARGLOW
-	person_event SPRITE_ROCKET, 19, 36, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, StarglowRocket4, EVENT_PUNKS_LEAVE_STARGLOW
+.ObjectEvents: db 14
+	person_event SPRITE_RODNEY_FISHER, 5, 10, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, StarglowLittleGirl, EVENT_STARGLOW_HELPED_LITTLEGIRL
+	person_event SPRITE_ROCKET, 6, 23, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, StarglowRocket1, EVENT_BEAT_STARGLOW_ROCKET_1
+	person_event SPRITE_RODNEY_FISHER, 10, 31, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, StarglowRocket2, EVENT_BEAT_STARGLOW_ROCKET_2
+	person_event SPRITE_ROCKET, 22, 6, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, StarglowRocket3, EVENT_PUNKS_LEAVE_STARGLOW
+	person_event SPRITE_ROCKET, 19, 36, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, StarglowRocket4, EVENT_PUNKS_LEAVE_STARGLOW
 	person_event SPRITE_GRAMPS, 10, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, StarglowGramps, -1
 	person_event SPRITE_YOUNGSTER, 14, 26, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, StarglowYoungster, -1
 	person_event SPRITE_LASS, 19, 29, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, (1 << 3) | PAL_OW_YELLOW, PERSONTYPE_SCRIPT, 0, StarglowLass, EVENT_PUNKS_LEAVE_STARGLOW
@@ -98,6 +99,29 @@ LakeofRage_MapEventHeader:: db 0, 0
 	person_event SPRITE_POLIWHIRL, 20, 32, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, StarglowPoliwhirl, EVENT_PUNKS_HAVENT_LEFT_STARGLOW
 	person_event SPRITE_COOLTRAINER_F, 18, 13, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 1, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, StarglowLass2, EVENT_PUNKS_HAVENT_LEFT_STARGLOW
 
+StarglowClue:
+	checkitem CLUE_3
+	iffalse .end
+	checkitem CLUE_4
+	iftrue .end
+	opentext
+	writetext StarglowClueText
+	waitbutton
+	verbosegiveitem CLUE_4
+	closetext
+	end
+.end
+	killsfx
+	end
+	
+StarglowClueText:
+	text "You find something"
+	line "in the knot of the"
+	cont "tree…"
+	
+	para "It's another clue!"
+	done
+	
 FruitTreeScript_Starglow:
 	fruittree FRUITTREE_STARGLOW
 	
@@ -189,7 +213,6 @@ StarglowPoliwhirl:
 	end
 	
 StarglowValleySign:
-	giveitem BICYCLE
 	jumptext StarglowValleySignText
 	
 StarglowGymSign:
@@ -256,7 +279,7 @@ StarglowRocket2:
 	waitbutton
 	winlosstext StarglowRocket2WinText, 0
 	setlasttalked STARGLOWROCKET2
-	loadtrainer GRUNTM, 3
+	loadtrainer GRUNTF, 1
 	startbattle
 	reloadmapafterbattle
 	opentext
@@ -293,6 +316,7 @@ StarglowRocket3:
 	spriteface PLAYER, LEFT
 .cont
 	callasm .MetRodney
+	disappear STARGLOWROCKET4
 	faceplayer
 	opentext
 	writetext StarglowRocket3Text2
@@ -301,12 +325,13 @@ StarglowRocket3:
 	closetext
 	appear STARGLOWFISHER2
 	variablesprite SPRITE_RODNEY_FISHER, SPRITE_RODNEY
+	variablesprite SPRITE_GENTLEMAN_GRUNTF, SPRITE_GENTLEMAN
 	special MapCallbackSprites_LoadUsedSpritesGFX
 	moveperson STARGLOWROCKET1, $d, $16
 	appear STARGLOWROCKET1
-	moveperson STARGLOWROCKET2, $d, $16
-	appear STARGLOWROCKET2
-	follow STARGLOWROCKET1, STARGLOWROCKET2
+	moveperson STARGLOWROCKET4, $d, $16
+	appear STARGLOWROCKET4
+	follow STARGLOWROCKET1, STARGLOWROCKET4
 	applymovement STARGLOWROCKET1, Movement_StarglowDummyRocket1
 	stopfollow
 	applymovement STARGLOWROCKET1, Movement_StarglowDummyRocket1cont
@@ -363,10 +388,10 @@ StarglowRocket3:
 	writetext StarglowRocket3Text6
 	waitbutton
 	closetext
-	follow STARGLOWROCKET2, STARGLOWROCKET1
-	applymovement STARGLOWROCKET2, Movement_StarglowDummyRocket2
+	follow STARGLOWROCKET4, STARGLOWROCKET1
+	applymovement STARGLOWROCKET4, Movement_StarglowDummyRocket2
 	disappear STARGLOWROCKET1
-	disappear STARGLOWROCKET2
+	disappear STARGLOWROCKET4
 	spriteface STARGLOWROCKET3, UP
 	opentext
 	writetext StarglowRocket3Text7
@@ -469,6 +494,10 @@ StarglowRocketStopsYou:
 StarglowGirlStopsYou1:
 	checkevent EVENT_STARGLOW_HELPED_LITTLEGIRL
 	iftrue .end
+	checkevent EVENT_STARGLOW_HAVENT_HELPED_GIRL
+	iffalse .cont
+	setevent EVENT_STARGLOW_HOUSE
+.cont
 	setevent EVENT_STARGLOW_HAVENT_HELPED_GIRL
 	setevent EVENT_STARGLOW_HAVENT_HELPED_GIRL_TOGEPI
 	applymovement PLAYER, Movement_StarglowPlayerWalkDown
@@ -903,7 +932,7 @@ StarglowRocket3Text2:
 	line "all those other"
 	
 	para "guys, then I can't"
-	line "take any chances"
+	line "take any chances."
 	
 	para "BOYS!"
 	done
@@ -937,7 +966,7 @@ StarglowRocket3Text7:
 	
 	para "You haven't heard"
 	line "the last of TEAM"
-	cont "EVIL!"
+	cont "SNARE!"
 	done
 	
 StarglowRocket3Text8:

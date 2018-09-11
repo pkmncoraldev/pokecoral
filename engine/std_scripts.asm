@@ -3,7 +3,7 @@ StdScripts::
 	dba DifficultBookshelfScript
 	dba PictureBookshelfScript
 	dba MagazineBookshelfScript
-	dba TeamRocketOathScript
+	dba DoorLockedScript
 	dba IncenseBurnerScript
 	dba MerchandiseShelfScript
 	dba TownMapScript
@@ -168,7 +168,7 @@ PokeCenterNurseScript:
 .pokerus_done
 	callasm ResetPalsAfterNurse
 	setflag ENGINE_POKERUS
-	specialphonecall SPECIALCALL_POKERUS
+;	specialphonecall SPECIALCALL_POKERUS
 	end
 .NurseNoPokemonText:
 	text "Oh!"
@@ -191,8 +191,8 @@ PictureBookshelfScript:
 MagazineBookshelfScript:
 	farjumptext MagazineBookshelfText
 
-TeamRocketOathScript:
-	farjumptext TeamRocketOathText
+DoorLockedScript:
+	farjumptext DoorLockedText
 
 IncenseBurnerScript:
 	farjumptext IncenseBurnerText
@@ -317,7 +317,7 @@ RadioTowerRocketsScript:
 	clearevent EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	clearevent EVENT_USED_THE_CARD_KEY_IN_THE_RADIO_TOWER
 	setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_EAST
-	specialphonecall SPECIALCALL_WEIRDBROADCAST
+;	specialphonecall SPECIALCALL_WEIRDBROADCAST
 	domaptrigger MAHOGANY_TOWN, $1
 	end
 
@@ -644,6 +644,15 @@ InitializeEventsScript:
 	setevent EVENT_SPRUCELAB_SPRUCE2_GONE
 	setevent EVENT_SPRUCELAB_MUNCH2_GONE
 	setevent EVENT_SPRUCELAB_MUNCH3_GONE
+	setevent EVENT_ISLAND_GREEM_MAN
+	setevent EVENT_SPOOKHOUSE_TV_ROOM_GIRLS_GONE
+	setevent EVENT_TRAIN_STATION_GUY_2
+	setevent EVENT_ISLAND_BLUE_CORSOLA
+	setevent EVENT_STARGLOW_CAVERN_DISGUISEMAN_2
+	setevent EVENT_STARGLOW_HOUSE
+	setevent EVENT_GLINT_CONTACT_GUY_2
+	setevent EVENT_MT_ONWA_CUTSCENE
+	setevent EVENT_ISLAND_SAVED_LADY_CHAN
 ;	variablesprite SPRITE_WEIRD_TREE, SPRITE_SUDOWOODO
 ;	variablesprite SPRITE_OLIVINE_RIVAL, SPRITE_SILVER
 ;	variablesprite SPRITE_AZALEA_ROCKET, SPRITE_ROCKET
@@ -652,9 +661,11 @@ InitializeEventsScript:
 ;	variablesprite SPRITE_FUCHSIA_GYM_3, SPRITE_JANINE
 ;	variablesprite SPRITE_FUCHSIA_GYM_4, SPRITE_JANINE
 ;	variablesprite SPRITE_COPYCAT, SPRITE_LASS
-	variablesprite SPRITE_RODNEY_FISHER, SPRITE_FISHER
+	variablesprite SPRITE_RODNEY_FISHER, SPRITE_TWIN
 	variablesprite SPRITE_DISGUISEMAN, SPRITE_POKE_BALL
-	variablesprite SPRITE_LEILANI_DONPHAN, SPRITE_DONPHAN
+	variablesprite SPRITE_LEILANI_PSYDUCK, SPRITE_PSYDUCK
+	variablesprite SPRITE_GENTLEMAN_GRUNTF, SPRITE_GENTLEMAN
+	variablesprite SPRITE_PLAYER_CUTSCENE, SPRITE_CHRIS_CUTSCENE
 	return
 
 AskNumber1MScript:
@@ -1715,7 +1726,7 @@ HappinessCheckScript:
 	waitbutton
 	closetext
 	end
-
+	
 Movement_ContestResults_WalkAfterWarp: ; bcea1
 	step RIGHT
 	step DOWN

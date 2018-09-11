@@ -44,7 +44,7 @@ HallOfFameScript:
 	special HealParty
 	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
 	iftrue .SkipPhoneCall
-	specialphonecall SPECIALCALL_SSTICKET
+;	specialphonecall SPECIALCALL_SSTICKET
 .SkipPhoneCall:
 	halloffame
 	end

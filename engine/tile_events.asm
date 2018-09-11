@@ -89,13 +89,23 @@ CheckCutCollision: ; 149f5
 
 .blocks ; 14a00
 	db $12 ; cut tree
-	db $1a ; cut tree
 	db $10 ; tall grass
 	db $18 ; tall grass
 	db $14 ; tall grass
 	db $1c ; tall grass
 	db -1
 ; 14a07
+
+CheckRockSmashCollision: ; 149f5
+	ld a, c
+	ld hl, .blocks
+	ld de, 1
+	call IsInArray
+	ret
+	
+.blocks ; 14a00
+	db $1a ; rock smash rock
+	db -1
 
 Function14a07:: ; 14a07
 	ld a, [PlayerStandingTile]

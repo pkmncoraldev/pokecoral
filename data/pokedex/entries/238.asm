@@ -1,10 +1,10 @@
-; SmoochumPokedexEntry: ; 0x1d132b
-	db "KISS@" ; species name
-	dw 104, 130 ; height, width
+; LarvestaPokedexEntry: ; 0x1d132b
+	db "TORCH@" ; species name
+	dw 307, 635 ; height, width
 
-	db   "The sensitivity of"
-	next "its lips develops"
-	next "most quickly."
-	page "It uses them to"
-	next "try to identify"
-	next "unknown objects.@"
+	db   "It is said to"
+	next "have been born"
+	next "from the sun."
+	page "It shoots fire"
+	next "from it's horns"
+	next "to repel enemies.@"

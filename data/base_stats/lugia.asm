@@ -12,7 +12,7 @@
 	db 100 ; unknown
 	db 120 ; step cycles to hatch
 	db 5 ; unknown
-	dn 7, 7 ; frontpic dimensions
+	dn 6, 6 ; frontpic dimensions
 	db 0, 0, 0, 0 ; padding
 	db SLOW ; growth rate
 	dn NO_EGGS, NO_EGGS ; egg groups

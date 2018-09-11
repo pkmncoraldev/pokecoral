@@ -1,8 +1,6 @@
 tileset: macro
-	dba \1GFX, \1Meta, \1Coll
+	dba \1GFX, \1Meta, \1Coll, \1Attr
 	dw \1Anim
-	dw NULL
-	dw \1PalMap
 endm
 
 Tileset00::
@@ -31,20 +29,3 @@ Tileset01::
 	tileset Tileset21
 	tileset Tileset22
 	tileset Tileset23
-	tileset Tileset24
-	tileset Tileset25
-	tileset Tileset26
-	tileset Tileset27
-	tileset Tileset28
-	tileset Tileset29
-	tileset Tileset30
-	tileset Tileset31
-	tileset Tileset32
-	tileset Tileset33
-	tileset Tileset34
-	tileset Tileset35
-	tileset Tileset36
-	tileset Tileset37
-	tileset Tileset38
-	tileset Tileset39
-	tileset Tileset40

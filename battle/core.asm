@@ -2438,16 +2438,18 @@ WinTrainerBattle: ; 3cfa4
 	ld a, [TrainerClass]
 	ld b, 61
 	cp b
-	jr nz, .nottwins
-	callab Battle_GetTrainerName
-	ld hl, BattleText_EnemyWasDefeated2
-	call StdBattleTextBox
-	jp .cont
-.nottwins
+	jr z, .twins
+	ld b, 77
+	cp b
+	jr z, .twins
 	callab Battle_GetTrainerName
 	ld hl, BattleText_EnemyWasDefeated
 	call StdBattleTextBox
-
+	jp .cont
+.twins
+	callab Battle_GetTrainerName
+	ld hl, BattleText_EnemyWasDefeated2
+	call StdBattleTextBox
 .cont
 	call IsMobileBattle
 	jr z, .mobile
@@ -3655,14 +3657,17 @@ OfferSwitch: ; 3d74b
 	ld a, [TrainerClass]
 	ld b, 61
 	cp b
-	jr nz, .nottwins
-	callab Battle_GetTrainerName
-	ld hl, BattleText_EnemyIsAboutToUseWillPlayerChangePkmn2
-	call StdBattleTextBox
-	jp .cont
-.nottwins:
+	jr z, .twins
+	ld b, 77
+	cp b
+	jr z, .twins
 	callab Battle_GetTrainerName
 	ld hl, BattleText_EnemyIsAboutToUseWillPlayerChangePkmn
+	call StdBattleTextBox
+	jp .cont
+.twins:
+	callab Battle_GetTrainerName
+	ld hl, BattleText_EnemyIsAboutToUseWillPlayerChangePkmn2
 	call StdBattleTextBox
 .cont
 	lb bc, 1, 7
@@ -6501,10 +6506,19 @@ LoadEnemyMon: ; 3e8eb
 .TreeMon:
 ; If we're headbutting trees, some monsters enter battle asleep
 	call CheckSleepingTreeMon
-	ld a, SLP ; Asleep for 7 turns
-	jr c, .UpdateStatus
+;	ld a, SLP ; Asleep for 7 turns
+;	jr c, .UpdateStatus
 ; Otherwise, no status
-	xor a
+;	xor a
+
+	ld a, 0 ; keep carry flag
+	jr nc, .UpdateStatus
+;Otherwise, set random sleep
+.random_sleep
+	call BattleRandom
+	and 3
+	jr z, .random_sleep
+	inc a
 
 .UpdateStatus:
 	ld hl, EnemyMonStatus
@@ -9419,12 +9433,15 @@ BattleStartMessage: ; 3fc8b
 	ld a, [TrainerClass]
 	ld b, 61
 	cp b
-	jr nz, .nottwins
-	ld hl, WantsToBattleText2
+	jr z, .twins
+	ld b, 77
+	cp b
+	jr z, .twins
+	ld hl, WantsToBattleText
 	jr .PlaceBattleStartText2
 	
-.nottwins:
-	ld hl, WantsToBattleText
+.twins:
+	ld hl, WantsToBattleText2
 	jr .PlaceBattleStartText2
 
 .wild

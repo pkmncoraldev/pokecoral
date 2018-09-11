@@ -68,24 +68,6 @@ UnknownScript_0x54c33:
 	end
 
 BillsSister:
-	faceplayer
-	opentext
-	checkcellnum PHONE_BILL
-	iftrue UnknownScript_0x54c58
-	writetext UnknownText_0x54f9e
-	askforphonenumber PHONE_BILL
-	if_equal $1, UnknownScript_0x54c64
-	if_equal $2, UnknownScript_0x54c5e
-	waitsfx
-	addcellnum PHONE_BILL
-	writetext UnknownText_0x54fd9
-	playsound SFX_REGISTER_PHONE_NUMBER
-	waitsfx
-	buttonsound
-UnknownScript_0x54c58: ;0x54c58
-	writetext UnknownText_0x55069
-	waitbutton
-	closetext
 	end
 
 UnknownScript_0x54c5e:

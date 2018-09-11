@@ -1,6 +1,5 @@
 const_value set 2
 	const GLINT_RIVALHOUSE_MOM
-	const GLINT_RIVALHOUSE_RIVAL
 
 BattleTowerBattleRoom_MapScriptHeader:
 .MapTriggers:
@@ -22,42 +21,15 @@ BattleTowerBattleRoom_MapEventHeader:: db 0, 0
 
 .BGEvents: db 0
 
-.ObjectEvents: db 2
+.ObjectEvents: db 1
 	person_event SPRITE_TEACHER, 4, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, GlintRivalHouseMom, -1
-	person_event SPRITE_SILVER, 4, 5, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, GlintRivalHouseRival, EVENT_GLINT_RIVAL_NOT_IN_HOUSE
-
-GlintRivalHouseRival:
-	checkcode VAR_FACING
-	if_equal LEFT, .YouAreFacingLeft
-	checkcode VAR_FACING
-	if_equal UP, .YouAreFacingUp
-	spriteface GLINT_RIVALHOUSE_RIVAL, DOWN
-	opentext
-	writetext GlintRivalHouseRivalHmphText
-	waitbutton
-	closetext
-	end
-.YouAreFacingLeft:
-	spriteface GLINT_RIVALHOUSE_RIVAL, LEFT
-	opentext
-	writetext GlintRivalHouseRivalHmphText
-	waitbutton
-	closetext
-	end
-.YouAreFacingUp:
-	spriteface GLINT_RIVALHOUSE_RIVAL, UP
-	opentext
-	writetext GlintRivalHouseRivalHmphText
-	waitbutton
-	closetext
-	end
 	
 GlintRivalHouseMom:
 	faceplayer
 	opentext
 	checkitem RIVAL_POKEDEX
 	iffalse .GlintRivalHouseMomLoop
-	domaptrigger AZALEA_TOWN, $1
+	domaptrigger ROUTE_35, $1
 	takeitem RIVAL_POKEDEX
 	writetext GlintRivalMomText1
 	buttonsound
@@ -68,10 +40,9 @@ GlintRivalHouseMom:
 	buttonsound
 	writetext GlintRivalMomText2
 	buttonsound
-	clearevent EVENT_GLINT_RIVAL_WILL_BUMP
-	checkevent EVENT_BEAT_STANLEY
-	iffalse .GlintRivalHouseMomLoop
-	setevent EVENT_GLINT_BIRDS
+	setevent EVENT_GLINT_CONTACT_GUY_1
+	clearevent EVENT_GLINT_CONTACT_GUY_2
+	domaptrigger ROUTE_35, $1
 
 .GlintRivalHouseMomLoop:
 	writetext GlintRivalMomText3
@@ -128,7 +99,15 @@ GlintRivalMomText1:
 	para "Well, thanks for"
 	line "bringing it by."
 	
-	para "You have a"
+	para "<RIVAL> went off"
+	line "to GLINT GROVE to"
+	cont "do some training."
+	
+	para "I'll be sure to"
+	line "give this to him"
+	cont "when he gets back."
+	
+	para "Say, you have a"
 	line "#GEAR, right?"
 	
 	para "Why don't you take"

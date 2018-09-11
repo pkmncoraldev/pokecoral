@@ -14,6 +14,26 @@ BattleCommand_FakeOut: ; 37683
 	call GetBattleVarAddr
 	bit SUBSTATUS_USED_FAKEOUT, [hl]
 	jp nz, .failed
+	
+	ld de, EnemyMonType1
+	ld bc, EnemyStatLevels
+	ld a, [hBattleTurn]
+	and a
+	jr z, .go
+	ld de, BattleMonType1
+	ld bc, PlayerStatLevels
+
+.go
+
+; Curse is different for Ghost-types.
+
+	ld a, [de]
+	cp GHOST
+	jr z, .failed
+	inc de
+	ld a, [de]
+	cp GHOST
+	jr z, .failed
 ;	ld a, [EnemyTurnsTaken]
 ;	and a
 ;	jr nz, .failed

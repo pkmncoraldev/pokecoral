@@ -33,28 +33,29 @@
 	charmap "<DEXEND>", $5f
 
 ; Actual characters
-	charmap "▲",        $61
-	charmap "_",        $62
-	charmap "<COLON>",  $6d ; necessary because ":" is already used
-	charmap "′",        $6e
+	charmap "■",         $d7
+	charmap "▲",        $d8
+	charmap "_",        $cd
+	charmap "<COLON>",  $dc ; necessary because ":" is already used
+	charmap "′",        $ce
 	charmap "<LV>",     $6e
-	charmap "″",        $6f
+	charmap "″",        $cf
 
-	charmap "<PO>",     $70
-	charmap "<KE>",     $71
+	charmap "<PO>",     $e4
+	charmap "<KE>",     $e5
 	charmap "◀",        $71
-	charmap "<``>",     $72
-	charmap "<''>",     $73
+	charmap "<``>",  	    $dd
+	charmap "<''>", 	    $de
 	charmap "<ID>",     $73
 	charmap "№",        $74
-	charmap "…",        $75
+	charmap "…",        $f2
 
-	charmap "┌",        $79
-	charmap "─",        $7a
-	charmap "┐",        $7b
-	charmap "│",        $7c
-	charmap "└",        $7d
-	charmap "┘",        $7e
+	charmap "┌",        $ba
+	charmap "─",        $bb
+	charmap "┐",        $bc
+	charmap "│",        $bd
+	charmap "└",        $be
+	charmap "┘",        $bf
 	charmap " ",        $7f
 
 	charmap "A",        $80
@@ -118,13 +119,6 @@
 	charmap "y",        $b8
 	charmap "z",        $b9
 	
-	charmap "phys1",	$ba
-	charmap "phys2",	$bb
-	charmap "spec1",	$bc
-	charmap "spec2",	$bd
-	charmap "stat1",	$be
-	charmap "stat2",	$bf
-
 	charmap "Ä",        $c0
 	charmap "Ö",        $c1
 	charmap "Ü",        $c2
@@ -132,6 +126,13 @@
 	charmap "ö",        $c4
 	charmap "ü",        $c5
 	charmap "+",		$c6
+	
+	charmap "phys1",	$c7
+	charmap "phys2",	$c8
+	charmap "spec1",	$c9
+	charmap "spec2",	$ca
+	charmap "stat1",	$cb
+	charmap "stat2",	$cc
 
 	charmap "'d",       $d0
 	charmap "'l",       $d1

@@ -94,9 +94,9 @@ EggMovePointers:: ; 0x23b11
 	dw NoEggMoves
 	dw NoEggMoves
 	dw OnixEggMoves
-	dw DrowzeeEggMoves
+	dw MedititeEggMoves
 	dw NoEggMoves
-	dw KrabbyEggMoves
+	dw CorphishEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
@@ -111,7 +111,7 @@ EggMovePointers:: ; 0x23b11
 	dw NoEggMoves
 	dw RhyhornEggMoves
 	dw NoEggMoves
-	dw ChanseyEggMoves
+	dw NumelEggMoves
 	dw TangelaEggMoves
 	dw KangaskhanEggMoves
 	dw HorseaEggMoves
@@ -165,7 +165,7 @@ endc
 	dw NoEggMoves
 	dw SentretEggMoves
 	dw NoEggMoves
-	dw HoothootEggMoves
+	dw NoibatEggMoves
 	dw NoEggMoves
 	dw LedybaEggMoves
 	dw NoEggMoves
@@ -189,7 +189,7 @@ endc
 	dw NoEggMoves
 	dw SudowoodoEggMoves
 	dw NoEggMoves
-	dw HoppipEggMoves
+	dw AronEggMoves
 	dw NoEggMoves
 	dw NoEggMoves
 	dw AipomEggMoves
@@ -238,9 +238,9 @@ endc
 	dw NoEggMoves
 	dw StantlerEggMoves
 	dw NoEggMoves
-	dw TyrogueEggMoves
+	dw SwabluEggMoves
 	dw NoEggMoves
-	dw SmoochumEggMoves
+	dw LarvestaEggMoves
 	dw ElekidEggMoves
 	dw MagbyEggMoves
 	dw MiltankEggMoves

@@ -65,7 +65,7 @@
 	const ETHER        ; $3F
 	const MAX_ETHER    ; $40
 	const ELIXER       ; $41
-	const RED_SCALE    ; $42
+	const CORAL_SHARD  ; $42
 	const SECRETPOTION ; $43
 	const S_S_TICKET   ; $44
 	const MYSTERY_EGG  ; $45
@@ -119,7 +119,7 @@
 	const MIRACLE_SEED ; $75
 	const THICK_CLUB   ; $76
 	const FOCUS_BAND   ; $77
-	const ITEM_78      ; $78
+	const SKATEBOARD   ; $78
 	const ENERGYPOWDER ; $79
 	const ENERGY_ROOT  ; $7A
 	const HEAL_POWDER  ; $7B
@@ -135,16 +135,16 @@
 	const BASEMENT_KEY ; $85
 	const PASS         ; $86
 	const LINK_CABLE_ITEM      ; $87
-	const ITEM_88      ; $88
-	const ITEM_89      ; $89
+	const CLUE_1      ; $88
+	const CLUE_2      ; $89
 	const CHARCOAL     ; $8A
 	const BERRY_JUICE  ; $8B
 	const SCOPE_LENS   ; $8C
-	const ITEM_8D      ; $8D
-	const ITEM_8E      ; $8E
+	const CLUE_3      ; $8D
+	const CLUE_4      ; $8E
 	const METAL_COAT   ; $8F
 	const DRAGON_FANG  ; $90
-	const ITEM_91      ; $91
+	const CLUE_5      ; $91
 	const LEFTOVERS    ; $92
 	const ITEM_93      ; $93
 	const ITEM_94      ; $94
@@ -380,10 +380,11 @@ ITEMMENU_CLOSE              EQU 6
 	const MARTTYPE_ROOFTOP
 
 	const_def
-	const MART_CHERRYGROVE
-	const MART_AZALEA
-	const MART_VIOLET
-	const MART_CHERRYGROVE_DEX
+	const MART_SUNSET
+	const MART_GLINT
+	const MART_STARGLOW
+	const MART_SUNBEAM
+	const MART_STATION
 	const MART_CIANWOOD
 	const MART_GOLDENROD_2F_1
 	const MART_GOLDENROD_2F_2
@@ -402,7 +403,6 @@ ITEMMENU_CLOSE              EQU 6
 	const MART_PEWTER
 	const MART_CERULEAN
 	const MART_LAVENDER
-	const MART_VERMILION
 	const MART_CELADON_2F_1
 	const MART_CELADON_2F_2
 	const MART_CELADON_3F

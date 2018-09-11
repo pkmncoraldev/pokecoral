@@ -8,14 +8,21 @@ spawn: MACRO
 ENDM
 
 	spawn KRISS_HOUSE_2F,              3,  3
+	spawn SUNSET_BAY,                 17,  8
+	spawn VIOLET_CITY,                13,  8
+	spawn AZALEA_TOWN,                27, 16
+	spawn LAKE_OF_RAGE,               17, 18
+	spawn ROUTE_30,                   17, 18
+	spawn CHERRYGROVE_CITY,           25, 10
+	spawn VERMILION_CITY,              7, 22
+	
+	
 	spawn VIRIDIAN_POKECENTER_1F,      5,  3
-
 	spawn PALLET_TOWN,                 5,  6
 	spawn VIRIDIAN_CITY,              23, 26
 	spawn PEWTER_CITY,                13, 26
 	spawn CERULEAN_CITY,              19, 22
 	spawn ROUTE_10_NORTH,             11,  2
-	spawn VERMILION_CITY,              9,  6
 	spawn LAVENDER_TOWN,               5,  6
 	spawn SAFFRON_CITY,                9, 30
 	spawn CELADON_CITY,               29, 10
@@ -24,16 +31,11 @@ ENDM
 	spawn ROUTE_23,                    9,  6
 
 	spawn NEW_BARK_TOWN,              13,  6
-	spawn CHERRYGROVE_CITY,           29,  4
-	spawn VIOLET_CITY,                13, 8
 	spawn ROUTE_32,                   11, 74
-	spawn AZALEA_TOWN,                27, 16
 	spawn CIANWOOD_CITY,              23, 44
 	spawn GOLDENROD_CITY,             15, 28
-	spawn SUNSET_BAY,                 17, 8
 	spawn ECRUTEAK_CITY,              23, 28
 	spawn MAHOGANY_TOWN,              15, 14
-	spawn LAKE_OF_RAGE,               21, 29
 	spawn BLACKTHORN_CITY,            21, 30
 	spawn SILVER_CAVE_OUTSIDE,        23, 20
 	spawn FAST_SHIP_CABINS_SW_SSW_NW,  6,  2

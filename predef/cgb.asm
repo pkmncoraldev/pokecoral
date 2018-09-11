@@ -701,25 +701,25 @@ _CGB_TrainerCard: ; 9289
 	sub $1
 	jr z, .pink
 .yellow
-	ld a, $53
+	ld a, $57
 	jr .cont
 .red
-	ld a, $4d
-	jr .cont
-.blue
-	ld a, $4e
-	jr .cont
-.green
-	ld a, $4f
-	jr .cont
-.brown
-	ld a, $50
-	jr .cont
-.purple
 	ld a, $51
 	jr .cont
-.pink
+.blue
 	ld a, $52
+	jr .cont
+.green
+	ld a, $53
+	jr .cont
+.brown
+	ld a, $54
+	jr .cont
+.purple
+	ld a, $55
+	jr .cont
+.pink
+	ld a, $56
 .cont
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black

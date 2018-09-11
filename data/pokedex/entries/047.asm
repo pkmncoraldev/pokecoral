@@ -1,10 +1,10 @@
-; ParasectPokedexEntry: ; 0x1829e2
-	db "MUSHROOM@" ; species name
-	dw 303, 650 ; height, width
+; CrustlePokedexEntry: ; 0x1829e2
+	db "STONEHOME@" ; species name
+	dw 407, 4409 ; height, width
 
-	db   "When nothing's"
-	next "left to extract"
-	next "from the bug, the"
-	page "mushrooms on its"
-	next "back leave spores"
-	next "on the bug's egg.@"
+	db   "Competing for"
+	next "territory, CRUSTLE"
+	next "fight viciously."
+	page "The one whose rock"
+	next "is broken is the"
+	next "loser of the battle.@"

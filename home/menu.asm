@@ -453,15 +453,6 @@ PlaceNthMenuStrings:: ; 1f8d
 	ret
 ; 1f9e
 
-Function1f9e:: ; 1f9e
-; unreferenced
-	call GetMenuDataPointerTableEntry
-	inc hl
-	inc hl
-	ld a, [hli]
-	ld d, [hl]
-	ld e, a
-	ret
 ; 1fa7
 
 MenuJumptable:: ; 1fa7

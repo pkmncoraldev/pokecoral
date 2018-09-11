@@ -30,8 +30,6 @@ Route32_MapScriptHeader:
 	end
 
 .Trigger1:
-;	priorityjump GlintGroveTrio
-;	dotrigger $2
 	end
 	
 .Trigger2:
@@ -47,7 +45,7 @@ GlintGroveTrioRed:
 	
 	winlosstext GlintGrove_TrioRedWinText, GlintGrove_TrioRedLoseText
 	setlasttalked GLINTGROVE_TRIO_RED
-	loadtrainer TRIOBROR, REDBRO_TRIOBROR
+	loadtrainer TRIOBROR, 1
 	writecode VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	reloadmap
@@ -77,7 +75,7 @@ GlintGroveTrioBlue:
 	
 	winlosstext GlintGrove_TrioBlueWinText, GlintGrove_TrioBlueLoseText
 	setlasttalked GLINTGROVE_TRIO_BLUE
-	loadtrainer TRIOBROB, BLUEBRO_TRIOBROB
+	loadtrainer TRIOBROB, 1
 	writecode VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	reloadmap
@@ -107,7 +105,7 @@ GlintGroveTrioYellow:
 	
 	winlosstext GlintGrove_TrioYellowWinText, GlintGrove_TrioYellowLoseText
 	setlasttalked GLINTGROVE_TRIO_YELLOW
-	loadtrainer TRIOBROY, YELLOWBRO_TRIOBROY
+	loadtrainer TRIOBROY, 1
 	writecode VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	reloadmap
@@ -451,7 +449,7 @@ GlintGroveTrioWait:
 	end
 	
 TrainerGlintGrove_1:
-	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_2, LASS, VERONICA_LASS, TrainerGlintGrove_2SeenText, TrainerGlintGrove_2BeatenText, 0, .Script
+	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_2, LASS, 3, TrainerGlintGrove_2SeenText, TrainerGlintGrove_2BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -462,7 +460,7 @@ TrainerGlintGrove_1:
 	end
 	
 TrainerGlintGrove_2:
-	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_1, PICNICKER, MOLLY_PICNICKER, TrainerGlintGrove_1SeenText, TrainerGlintGrove_1BeatenText, 0, .Script
+	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_1, PICNICKER, 3, TrainerGlintGrove_1SeenText, TrainerGlintGrove_1BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -473,7 +471,7 @@ TrainerGlintGrove_2:
 	end
 	
 TrainerGlintGrove_3:
-	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_3, CAMPER, BART_CAMPER, TrainerGlintGrove_3SeenText, TrainerGlintGrove_3BeatenText, 0, .Script
+	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_3, CAMPER, 3, TrainerGlintGrove_3SeenText, TrainerGlintGrove_3BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -484,7 +482,7 @@ TrainerGlintGrove_3:
 	end
 	
 TrainerGlintGrove_4:
-	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_4, TWINS, JENANDJAN1_TWINS, TrainerGlintGrove_4SeenText, TrainerGlintGrove_4BeatenText, 0, .Script
+	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_4, TWINS, 1, TrainerGlintGrove_4SeenText, TrainerGlintGrove_4BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -495,7 +493,7 @@ TrainerGlintGrove_4:
 	end
 	
 TrainerGlintGrove_5:
-	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_4, TWINS, JENANDJAN2_TWINS, TrainerGlintGrove_5SeenText, TrainerGlintGrove_5BeatenText, 0, .Script
+	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_4, TWINS, 2, TrainerGlintGrove_5SeenText, TrainerGlintGrove_5BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -506,7 +504,7 @@ TrainerGlintGrove_5:
 	end
 	
 TrainerGlintGrove_6:
-	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_6, BUG_CATCHER, BARNEY_BUG_CATCHER, TrainerGlintGrove_6SeenText, TrainerGlintGrove_6BeatenText, 0, .Script
+	trainer EVENT_BEAT_GLINT_GROVE_TRAINER_6, BUG_CATCHER, 1, TrainerGlintGrove_6SeenText, TrainerGlintGrove_6BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -1166,7 +1164,7 @@ GlintGroveNPC2Text:
 	
 GlintGroveNPC3Text:
 	text "This grove is such"
-	line "a pleasent place"
+	line "a pleasant place"
 	cont "for a hike."
 	
 	para "I can see why the"
@@ -1198,6 +1196,28 @@ GlintGroveNPC4Text2:
 	line "learn how to swim."
 	done
 	
+GlintGroveClue:
+	checkitem CLUE_2
+	iffalse .end
+	checkitem CLUE_3
+	iftrue .end
+	opentext
+	writetext GlintGroveClueText
+	waitbutton
+	verbosegiveitem CLUE_3
+	closetext
+	end
+.end
+	killsfx
+	end
+	
+GlintGroveClueText:
+	text "You find something"
+	line "under the bench…"
+	
+	para "It's another clue!"
+	done
+	
 Route32_MapEventHeader:: db 0, 0
 
 .Warps: db 4
@@ -1210,10 +1230,11 @@ Route32_MapEventHeader:: db 0, 0
 	xy_trigger 0, 47, 48, 0, GlintGroveTrioTrigger1, 0, 0
 	xy_trigger 0, 47, 49, 0, GlintGroveTrioTrigger2, 0, 0
 
-.BGEvents: db 0
+.BGEvents: db 1
+	signpost 50, 22, SIGNPOST_READ, GlintGroveClue
 
 .ObjectEvents: db 15
-	person_event SPRITE_LASS, 40, 34, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 1, TrainerGlintGrove_1, -1
+	person_event SPRITE_LASS, 40, 34, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 1, TrainerGlintGrove_1, -1
 	person_event SPRITE_LASS, 46, 6, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerGlintGrove_2, -1
 	person_event SPRITE_YOUNGSTER, 17, 7, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 4, TrainerGlintGrove_3, -1
 	person_event SPRITE_TWIN, 17, 31, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_TRAINER, 1, TrainerGlintGrove_4, -1

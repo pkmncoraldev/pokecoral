@@ -2,9 +2,9 @@
 	db "ATTACHING@" ; species name
 	dw 4, 13 ; height, width
 
-	db   "Scine it can't"
+	db   "Since it can't"
 	next "generate its own"
 	next "electricity, it"
 	page "sticks onto larger"
-	next "#MON and absorbs"
+	next "#MON to absorb"
 	next "static electricity.@"

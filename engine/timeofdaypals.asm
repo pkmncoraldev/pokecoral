@@ -15,6 +15,10 @@ _TimeOfDayPals:: ; 8c011
 	ld hl, wTimeOfDayPalFlags
 	bit 7, [hl]
 	jr nz, .dontchange
+	
+	call GetMapPermission
+	cp DARK_FOREST
+	jr z, .dontchange
 
 	ld a, [hHours]
 	cp 17 ; 5:00 PM to 5:59 PM = dusk

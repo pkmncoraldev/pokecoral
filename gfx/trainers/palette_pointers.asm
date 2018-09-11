@@ -87,6 +87,10 @@ LadyPalette			 INCLUDE "gfx/trainers/lady.pal"
 BikiniPPalette:		 INCLUDE "gfx/trainers/bikinip.pal"
 BikiniRPalette:		 INCLUDE "gfx/trainers/bikinir.pal"
 BikiniYPalette:		 INCLUDE "gfx/trainers/bikiniy.pal"
+CouplePalette:		 INCLUDE "gfx/trainers/bikinir.pal"
+DelinquentmPalette:	 INCLUDE "gfx/trainers/delinquent_m.pal"
+DelinquentfPalette:	 INCLUDE "gfx/trainers/delinquent_f.pal"
+SafariPalette:		 INCLUDE "gfx/trainers/safari.pal"
 
 ; b1de
 PlayerPalette:		 INCLUDE "gfx/trainers/player1.pal"

@@ -1,8 +1,3 @@
-
-	
-UndergroundPathSwitchRoomEntrances_BlockData:
-	INCBIN "maps/UndergroundPathSwitchRoomEntrances.blk"
-	
 BetaUnknown_BlockData:
 	INCBIN "maps/BetaUnknown.blk"
 	
@@ -35,7 +30,9 @@ BetaSproutTowerCutOut2_BlockData:
 	
 BetaSproutTowerCutOut1_BlockData:
 	INCBIN "maps/BetaSproutTowerCutOut1.blk"
-
+	
+BetaCave2_BlockData:
+;	INCBIN "maps/BetaCave2.blk"
 
 	INCBIN "maps/OlivineLighthouse1F.blk"
 

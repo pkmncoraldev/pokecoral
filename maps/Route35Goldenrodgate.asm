@@ -17,11 +17,15 @@ Route35Goldenrodgate_MapEventHeader:: db 0, 0
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 1
+	signpost 1, 5, SIGNPOST_READ, LakeBoat1Trashcan
 
 .ObjectEvents: db 1
 	person_event SPRITE_FISHER, 1, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, LakeBoatMan1, -1
 
+LakeBoat1Trashcan:
+	jumptext LakeBoatTrashcanText
+	
 LakeBoatMan1:
 	opentext
 	writetext LakeBoatManText1
@@ -34,20 +38,6 @@ LakeBoatMan1:
 	takemoney $0, 500
 	special PlaceMoneyTopRight
 .doit
-	checkevent EVENT_LAKE_BOAT_RIGHT_GONE
-	iffalse .boatishere
-	writetext LakeBoatManText4
-	waitbutton
-	closetext
-	applymovement LAKEBOATMAN1, Movement_LakeBoatManPhone1
-	opentext
-	writetext LakeBoatManText5
-	waitbutton
-	closetext
-	applymovement LAKEBOATMAN1, Movement_LakeBoatManPhone2
-	faceplayer
-	opentext
-.boatishere
 	writetext LakeBoatManText3
 	waitbutton
 	closetext

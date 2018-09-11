@@ -77,3 +77,7 @@ TrainerGroups: ; 0x39999
 	dw BikiniPGroup
 	dw BikiniRGroup
 	dw BikiniYGroup
+	dw CoupleGroup
+	dw DelinquentMGroup
+	dw DelinquentFGroup
+	dw SafariGroup
