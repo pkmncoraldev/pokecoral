@@ -24,8 +24,8 @@ StanleyGroup:
 	; party
 	
 	db 11, SMEARGLE, NO_ITEM
-		db TACKLE
-		db TACKLE
+		db DOUBLE_EDGE
+		db CONFUSION
 		db THUNDER_WAVE
 		db FAKE_OUT
 
@@ -50,18 +50,24 @@ RodneyGroup:
 	db 3 ; moves + item
 
 	; party
-	
-	db 18, WOOPER, NO_ITEM
+		
+	db 18, WARTORTLE, NO_ITEM
 		db RAIN_DANCE
 		db WATER_GUN
-		db MUD_SLAP
-		db SLAM
-	
-	db 20, POLIWAG, MYSTIC_WATER
+		db BITE
+		db 0
+		
+	db 20, POLIWHIRL, NO_ITEM
 		db RAIN_DANCE
 		db WATER_GUN
 		db HYPNOSIS
-		db 0
+		db MUD_SLAP
+		
+	db 22, AZUMARILL, MYSTIC_WATER
+		db RAIN_DANCE
+		db AQUA_JET
+		db FAIRY_WIND
+		db ICE_PUNCH
 		
 	db $ff ; end
 
@@ -79,17 +85,23 @@ LeilaniGroup:
 
 	; party
 	
-	db 29, IVYSAUR, MIRACLE_SEED
+	db 28, IVYSAUR, NO_ITEM
 		db SUNNY_DAY
 		db VINE_WHIP
-		db TACKLE
+		db BODY_SLAM
 		db SYNTHESIS
 		
-	db 31, BELLOSSOM, NO_ITEM
+	db 29, WHIMSICOTT, NO_ITEM
+		db LEECH_SEED
+		db LIGHT_SCREEN
+		db REFLECT
+		db STUN_SPORE
+		
+	db 31, BELLOSSOM, MIRACLE_SEED
 		db SUNNY_DAY
 		db SOLARBEAM
-		db 0
-		db 0
+		db MEGA_DRAIN
+		db SLUDGE_BOMB
 
 	db $ff ; end
 
