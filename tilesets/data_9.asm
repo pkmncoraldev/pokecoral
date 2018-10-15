@@ -5,7 +5,7 @@ Tileset09Meta:
 INCBIN "tilesets/09_metatiles.bin"
 
 Tileset09Coll:
-INCBIN "tilesets/09_collision.bin"
+INCLUDE "tilesets/09_collision.asm"
 
 Tileset09Attr:
 INCBIN "tilesets/09_attributes.bin"

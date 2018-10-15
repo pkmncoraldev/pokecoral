@@ -5,7 +5,7 @@ Tileset18Meta:
 INCBIN "tilesets/18_metatiles.bin"
 
 Tileset18Coll:
-INCBIN "tilesets/18_collision.bin"
+INCLUDE "tilesets/18_collision.asm"
 
 Tileset18Attr:
 INCBIN "tilesets/18_attributes.bin"

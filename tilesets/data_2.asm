@@ -5,7 +5,7 @@ Tileset06Meta:
 INCBIN "tilesets/06_metatiles.bin"
 
 Tileset06Coll:
-INCBIN "tilesets/06_collision.bin"
+INCLUDE "tilesets/06_collision.asm"
 
 Tileset06Attr:
 INCBIN "tilesets/06_attributes.bin"
@@ -18,7 +18,7 @@ Tileset07Meta:
 INCBIN "tilesets/07_metatiles.bin"
 
 Tileset07Coll:
-INCBIN "tilesets/07_collision.bin"
+INCLUDE "tilesets/07_collision.asm"
 
 Tileset07Attr:
 INCBIN "tilesets/07_attributes.bin"
@@ -31,7 +31,7 @@ Tileset08Meta:
 INCBIN "tilesets/08_metatiles.bin"
 
 Tileset08Coll:
-INCBIN "tilesets/08_collision.bin"
+INCLUDE "tilesets/08_collision.asm"
 
 Tileset08Attr:
 INCBIN "tilesets/08_attributes.bin"

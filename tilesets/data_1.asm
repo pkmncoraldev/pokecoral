@@ -4,7 +4,7 @@ INCBIN "tilesets/01_metatiles.bin"
 
 Tileset00Coll:
 Tileset01Coll:
-INCBIN "tilesets/01_collision.bin"
+INCLUDE "tilesets/01_collision.asm"
 
 
 Tileset02GFX:
@@ -14,7 +14,7 @@ Tileset02Meta:
 INCBIN "tilesets/02_metatiles.bin"
 
 Tileset02Coll:
-INCBIN "tilesets/02_collision.bin"
+INCLUDE "tilesets/02_collision.asm"
 
 Tileset02Attr:
 INCBIN "tilesets/02_attributes.bin"
@@ -27,4 +27,4 @@ Tileset03Meta:
 INCBIN "tilesets/03_metatiles.bin"
 
 Tileset03Coll:
-INCBIN "tilesets/03_collision.bin"
+INCLUDE "tilesets/03_collision.asm"

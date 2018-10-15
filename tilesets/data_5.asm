@@ -5,7 +5,7 @@ Tileset05Meta:
 INCBIN "tilesets/05_metatiles.bin"
 
 Tileset05Coll:
-INCBIN "tilesets/05_collision.bin"
+INCLUDE "tilesets/05_collision.asm"
 
 Tileset05Attr:
 INCBIN "tilesets/05_attributes.bin"
@@ -21,7 +21,7 @@ INCBIN "tilesets/15_metatiles.bin"
 
 Tileset15Coll:
 Tileset21Coll:
-INCBIN "tilesets/15_collision.bin"
+INCLUDE "tilesets/15_collision.asm"
 
 Tileset15Attr:
 Tileset21Attr:

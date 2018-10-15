@@ -9,7 +9,7 @@ Tileset23Meta:
 INCBIN "tilesets/23_metatiles.bin"
 
 Tileset23Coll:
-INCBIN "tilesets/23_collision.bin"
+INCLUDE "tilesets/23_collision.asm"
 
 Tileset23Attr:
 INCBIN "tilesets/23_attributes.bin"

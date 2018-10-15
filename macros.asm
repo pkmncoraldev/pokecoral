@@ -1,3 +1,5 @@
+tilecoll EQUS "db"
+
 INCLUDE "macros/enum.asm"
 INCLUDE "macros/basestats.asm"
 

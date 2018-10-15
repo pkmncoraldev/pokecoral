@@ -5,7 +5,7 @@ Tileset16Meta:
 INCBIN "tilesets/16_metatiles.bin"
 
 Tileset16Coll:
-INCBIN "tilesets/16_collision.bin"
+INCLUDE "tilesets/16_collision.asm"
 
 Tileset16Attr:
 INCBIN "tilesets/16_attributes.bin"
@@ -18,7 +18,7 @@ Tileset17Meta:
 INCBIN "tilesets/17_metatiles.bin"
 
 Tileset17Coll:
-INCBIN "tilesets/17_collision.bin"
+INCLUDE "tilesets/17_collision.asm"
 
 Tileset17Attr:
 INCBIN "tilesets/17_attributes.bin"
