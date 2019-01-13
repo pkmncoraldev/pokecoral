@@ -204,6 +204,33 @@ SunbeamDockHouse2NPC:
 	jumptextfaceplayer SunbeamDockHouse2NPCText1
 	end
 .islandsaved
+	checkevent EVENT_ISLAND_SAVED_HEALED
+	iftrue .islandsavedhealed
+	opentext
+	writetext SunbeamDockHouse2NPCText3
+	yesorno
+	iftrue .rest
+	setevent EVENT_ISLAND_SAVED_HEALED
+	writetext SunbeamDockHouse2NPCText2
+	waitbutton
+	closetext
+	end
+	
+.rest
+	closetext
+	special Special_FadeBlackQuickly
+	special Special_ReloadSpritesNoPalettes
+	special TrainerRankings_Healings
+	playmusic MUSIC_HEAL
+	special HealParty
+	pause 60
+	special Special_FadeInQuickly
+	special RestartMapMusic
+	setevent EVENT_ISLAND_SAVED_HEALED
+	jumptextfaceplayer SunbeamDockHouse2NPCText2
+	end
+	
+.islandsavedhealed
 	jumptextfaceplayer SunbeamDockHouse2NPCText2
 	end
 	
@@ -239,6 +266,19 @@ SunbeamDockHouse2NPCText2:
 	
 	para "make off with all"
 	line "those CORSOLA."
+	done
+	
+SunbeamDockHouse2NPCText3:
+	text "Oh man…"
+	
+	para "Thanks a lot,"
+	line "kid!"
+	
+	para "Are you #MON"
+	line "hurt?"
+	
+	para "You should rest"
+	line "for a minute."
 	done
 	
 SunbeamDockHouse2ExecText1:

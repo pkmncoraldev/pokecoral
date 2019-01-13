@@ -247,6 +247,9 @@
 	tilecoll $29, $29, $29, $07 ; f6
 	tilecoll $07, $07, $29, $29 ; f7
 	tilecoll $00, $00, $a3, $00 ; f8
-	tilecoll $ff, $ff, $ff, $ff ; f9
+	tilecoll $29, $29, $29, $29 ; f9
 	tilecoll $ff, $ff, $ff, $ff ; fa
 	tilecoll $ff, $ff, $ff, $ff ; fb
+	tilecoll , , ,  ; fc
+	tilecoll , , ,  ; fd
+	tilecoll , , ,  ; fe

@@ -54,8 +54,8 @@ Copyright_GFPresents: ; e4579
 	call DelayFrames
 	callab CoralDevScreenWink2
 	call WaitBGMap
-	ld c, 50
-	call DelayFrames
+;	ld c, 10
+;	call DelayFrames
 	call RotateFourPalettesLeft
 	call ClearTileMap
 	ret

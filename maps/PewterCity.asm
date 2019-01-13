@@ -8,18 +8,14 @@ PewterCity_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-PewterCity_MapEventHeader:
-	; filler
-	db 0, 0
+PewterCity_MapEventHeader:: db 0, 0
 
-.Warps:
-	db 0
+.Warps: db 1
+	warp_def 21, 10, 1, KRISS_HOUSE_1F
 
-.XYTriggers:
-	db 0
+.CoordEvents: db 0
 
-.Signposts:
-	db 0
+.BGEvents: db 0
 
-.PersonEvents:
-	db 0
+.ObjectEvents: db 0
+

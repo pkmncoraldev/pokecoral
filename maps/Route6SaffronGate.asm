@@ -59,23 +59,18 @@ UnknownText_0x1927cb:
 	line "FRON."
 	done
 
-Route6SaffronGate_MapEventHeader:
-	; filler
-	db 0, 0
+Route6SaffronGate_MapEventHeader:: db 0, 0
 
-.Warps:
-	db 4
-	warp_def $0, $4, 12, SAFFRON_CITY
-	warp_def $0, $5, 13, SAFFRON_CITY
-	warp_def $7, $4, 2, ROUTE_6
-	warp_def $7, $5, 2, ROUTE_6
+.Warps: db 4
+	warp_def 0, 4, 6, GOLDENROD_CITY
+	warp_def 0, 5, 7, GOLDENROD_CITY
+	warp_def 7, 4, 2, ROUTE_6
+	warp_def 7, 5, 2, ROUTE_6
 
-.XYTriggers:
-	db 0
+.CoordEvents: db 0
 
-.Signposts:
-	db 0
+.BGEvents: db 0
 
-.PersonEvents:
-	db 1
+.ObjectEvents: db 1
 	person_event SPRITE_OFFICER, 4, 0, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, OfficerScript_0x1926ea, -1
+

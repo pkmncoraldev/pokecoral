@@ -7,10 +7,6 @@ INCBIN "tilesets/16_metatiles.bin"
 Tileset16Coll:
 INCLUDE "tilesets/16_collision.asm"
 
-Tileset16Attr:
-INCBIN "tilesets/16_attributes.bin"
-
-
 Tileset17GFX:
 INCBIN "gfx/tilesets/17.2bpp.lz"
 

@@ -44,8 +44,6 @@ MAP_NONE   EQU 0
 	mapgroup TIN_TOWER_9F,                                9, 10 ; 12
 	mapgroup BURNED_TOWER_1F,                             9, 10 ; 13
 	mapgroup BURNED_TOWER_B1F,                            9, 10 ; 14
-	mapgroup RADIO_TOWER_1F,                              4,  9 ; 17
-	mapgroup RADIO_TOWER_2F,                              4,  9 ; 18
 	mapgroup RADIO_TOWER_3F,                              4,  9 ; 19
 	mapgroup RADIO_TOWER_4F,                              4,  9 ; 20
 	mapgroup RADIO_TOWER_5F,                              4,  9 ; 21
@@ -218,7 +216,7 @@ MAP_NONE   EQU 0
 	newgroup                                                    ;  9
 	mapgroup LAKE_OF_RAGE_MAGIKARP_HOUSE,                 4,  4 ;  2
 	mapgroup ROUTE_43_GATE, 20, 8
-	mapgroup ROUTE_43, 14, 30
+	mapgroup ROUTE_43, 17, 30
 	mapgroup AZALEA_TOWN, 11, 19
 	mapgroup ROUTE_35, 9, 9
 	mapgroup UNION_CAVE_1F, 16, 19
@@ -246,7 +244,9 @@ MAP_NONE   EQU 0
 
 	newgroup                                                    ; 11
 
-	mapgroup GOLDENROD_CITY, 28, 28
+	mapgroup GOLDENROD_CITY, 36, 15
+	mapgroup RADIO_TOWER_1F, 36, 13
+	mapgroup RADIO_TOWER_2F,                              36, 28 ; 18
 	mapgroup GOLDENROD_GYM,                               9, 10 ;  3
 	mapgroup GOLDENROD_BIKE_SHOP,                         4,  4 ;  4
 	mapgroup GOLDENROD_HAPPINESS_RATER,                   4,  4 ;  5
@@ -272,7 +272,7 @@ MAP_NONE   EQU 0
 
 	newgroup                                                    ; 12
 
-	mapgroup ROUTE_6,                                     9, 10 ;  1
+	mapgroup ROUTE_6, 31, 25
 	mapgroup ROUTE_11, 17, 19
 	mapgroup RUINS_OF_ALPH_HO_OH_ITEM_ROOM, 17, 24
 	mapgroup SILPH_CO_1F, 4, 7
@@ -284,12 +284,12 @@ MAP_NONE   EQU 0
 	mapgroup VERMILION_MART, 4, 6
 	mapgroup VERMILION_HOUSE_DIGLETTS_CAVE_SPEECH_HOUSE, 4, 4
 	mapgroup VERMILION_GYM,                               9,  5 ; 11
-	mapgroup ROUTE_6_SAFFRON_GATE,                        4,  5 ; 12
+	mapgroup ROUTE_6_SAFFRON_GATE, 4, 5
 	mapgroup ROUTE_6_UNDERGROUND_ENTRANCE, 4, 15
 
 	newgroup                                                    ; 13
 
-	mapgroup VERMILION_CITY, 16, 19
+	mapgroup VERMILION_CITY, 19, 21
 	mapgroup ROUTE_1,                                    18, 10 ;  1
 	mapgroup PALLET_TOWN, 9, 10
 	mapgroup REDS_HOUSE_1F,                               4,  4 ;  3
@@ -299,8 +299,8 @@ MAP_NONE   EQU 0
 
 	newgroup                                                    ; 14
 
-	mapgroup ROUTE_3,                                     9, 30 ;  1
-	mapgroup PEWTER_CITY,                                18, 20 ;  2
+	mapgroup ROUTE_2, 26, 27
+	mapgroup PEWTER_CITY, 27, 23
 	mapgroup PEWTER_NIDORAN_SPEECH_HOUSE,                 4,  4 ;  3
 	mapgroup PEWTER_GYM,                                  7,  5 ;  4
 	mapgroup PEWTER_MART,                                 4,  6 ;  5
@@ -353,7 +353,7 @@ MAP_NONE   EQU 0
 	newgroup                                                    ; 18
 
 	mapgroup ROUTE_8,                                     9, 20 ;  1
-	mapgroup ROUTE_12,                                   27, 10 ;  2
+	mapgroup ROUTE_12, 16, 36
 	mapgroup ROUTE_10_SOUTH,                              9, 10 ;  3
 	mapgroup LAVENDER_TOWN,                               9, 10 ;  4
 	mapgroup LAVENDER_POKECENTER_1F,                      4,  5 ;  5
@@ -406,7 +406,7 @@ MAP_NONE   EQU 0
 	mapgroup CELADON_GAME_CORNER,                         7, 10 ; 19
 	mapgroup CELADON_GAME_CORNER_PRIZE_ROOM,              3,  3 ; 20
 	mapgroup CELADON_GYM,                                 9,  5 ; 21
-	mapgroup CELADON_CAFE,                                4,  6 ; 22
+	mapgroup CELADON_CAFE, 3, 2
 	mapgroup ROUTE_16_FUCHSIA_SPEECH_HOUSE,               4,  4 ; 23
 	mapgroup ROUTE_16_GATE,                               4,  5 ; 24
 	mapgroup ROUTE_7_SAFFRON_GATE,                        4,  5 ; 25
@@ -431,7 +431,7 @@ MAP_NONE   EQU 0
 
 	newgroup                                                    ; 23
 
-	mapgroup ROUTE_2,                                    27, 10 ;  1
+	mapgroup ROUTE_3, 14, 12
 	mapgroup ROUTE_22,                                    9, 20 ;  2
 	mapgroup VIRIDIAN_CITY, 18, 20
 	mapgroup VIRIDIAN_GYM,                                9,  5 ;  4

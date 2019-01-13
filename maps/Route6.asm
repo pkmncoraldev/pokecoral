@@ -8,18 +8,15 @@ Route6_MapScriptHeader:
 	db 0
 
 
-Route6_MapEventHeader:
-	; filler
-	db 0, 0
+Route6_MapEventHeader:: db 0, 0
 
-.Warps:
-	db 0
+.Warps: db 2
+	warp_def 5, 36, 2, ROUTE_6_SAFFRON_GATE
+	warp_def 5, 37, 2, ROUTE_6_SAFFRON_GATE
 
-.XYTriggers:
-	db 0
+.CoordEvents: db 0
 
-.Signposts:
-	db 0
+.BGEvents: db 0
 
-.PersonEvents:
-	db 0
+.ObjectEvents: db 0
+

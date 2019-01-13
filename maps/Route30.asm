@@ -90,11 +90,13 @@ Route30_MapEventHeader:: db 0, 0
 	warp_def 16, 11, 1, ROUTE_36_NATIONAL_PARK_GATE
 	warp_def 17, 17, 1, CINNABAR_POKECENTER_2F_BETA
 
-.CoordEvents: db 4
+.CoordEvents: db 6
 	xy_trigger 3, 24, 54, 0, LakeSnareWalk, 0, 0
 	xy_trigger 3, 25, 54, 0, LakeSnareWalk, 0, 0
 	xy_trigger 3, 26, 54, 0, LakeSnareWalk, 0, 0
 	xy_trigger 3, 27, 54, 0, LakeSnareWalk, 0, 0
+	xy_trigger 3, 23, 57, 0, LakeSnareWalk, 0, 0
+	xy_trigger 3, 23, 56, 0, LakeSnareWalk, 0, 0
 
 .BGEvents: db 6
 	signpost 25, 57, SIGNPOST_READ, LakeSign
@@ -104,7 +106,7 @@ Route30_MapEventHeader:: db 0, 0
 	signpost 17, 18, SIGNPOST_READ, LakeCenterSign
 	signpost 8, 30, SIGNPOST_READ, MtOnwaSign
 
-.ObjectEvents: db 13
+.ObjectEvents: db 14
 	person_event SPRITE_FISHER, 30, 39, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, LakeBoatManDummy, EVENT_BOAT_BOYS_BEGONE
 	person_event SPRITE_FISHER, 24, 24, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, LakeBoatManDummy, EVENT_BOAT_BOYS_BEGONE
 	person_event SPRITE_BOAT_L, 32, 38, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, LakeBoat, -1
@@ -115,9 +117,10 @@ Route30_MapEventHeader:: db 0, 0
 	person_event SPRITE_FISHER, 27, 10, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, LakeNpc2, -1
 	person_event SPRITE_LASS, 12, 24, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_YELLOW, PERSONTYPE_SCRIPT, 0, LakeNpc3, -1
 	person_event SPRITE_GRANNY, 20, 8, SPRITEMOVEDATA_WANDER, 0, 1, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LakeNpc4, -1
-	person_event SPRITE_LEILANI_PSYDUCK, 27, 56, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LakeBoatManDummy, EVENT_ISLAND_GREEM_MAN
+	person_event SPRITE_LEILANI_PSYDUCK, 26, 56, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LakeBoatManDummy, EVENT_ISLAND_GREEM_MAN
 	person_event SPRITE_POKE_BALL, -6, -6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, LakePokeBall, EVENT_LAKE_ONWA_POKE_BALL
 	person_event SPRITE_POKE_BALL, 6, 26, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_ITEMBALL, 0, LakePokeBall2, EVENT_LAKE_ONWA_POKE_BALL2
+	person_event SPRITE_FISHER, 8, 60, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerLake, -1
 
 MtOnwaSign:
 	jumptext MtOnwaSignText
@@ -203,6 +206,29 @@ LakeBoat:
 LakeBoatManDummy:
 	end
 
+TrainerLake:
+	trainer EVENT_BEAT_LAKE_TRAINER, HIKER, 13, TrainerLakeSeenText, TrainerLakeBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext TrainerLakeNormalText
+	waitbutton
+	closetext
+	end
+	
+TrainerLakeSeenText:
+	text "SEEN TEXT"
+	done
+	
+TrainerLakeBeatenText:
+	text "BEATEN TEXT"
+	done
+	
+TrainerLakeNormalText:
+	text "TEXT"
+	done
+	
 MtOnwaSignText:
 	text "MT. ONWA ahead."
 	done

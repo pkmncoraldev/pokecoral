@@ -31,6 +31,9 @@ BetaSproutTowerCutOut2_BlockData:
 BetaSproutTowerCutOut1_BlockData:
 	INCBIN "maps/BetaSproutTowerCutOut1.blk"
 	
+BetaCaveTestMap_BlockData:
+	INCBIN "maps/BetaCaveTestMap.blk"
+	
 BetaCave2_BlockData:
 ;	INCBIN "maps/BetaCave2.blk"
 

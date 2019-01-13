@@ -2075,6 +2075,17 @@ FisherGroup:
 	db $ff ; end
 
 ; ================
+
+; FISHER (9)
+	db "UNNAMED@"
+	db 0 ; normal
+
+	; party
+	db 1, BULBASAUR
+
+	db $ff ; end
+
+; ================
 ; ================================
 
 
@@ -2981,6 +2992,28 @@ HikerGroup:
 	db $ff ; end
 
 ; ================
+
+; HIKER (12)
+	db "UNNAMED@"
+	db 0 ; normal
+
+	; party
+	db 1, BULBASAUR
+
+	db $ff ; end
+
+; ================
+
+; HIKER (13)
+	db "UNNAMED@"
+	db 0 ; normal
+
+	; party
+	db 1, BULBASAUR
+
+	db $ff ; end
+
+; ================
 ; ================================
 
 
@@ -3459,7 +3492,7 @@ ExecutiveMGroup:
 
 	db 25, AZUMARILL
 	db 23, ARBOK
-	db 30, URSARING
+	db 27, URSARING
 
 	db $ff ; end
 
@@ -4184,6 +4217,17 @@ PokefanMGroup:
 	db $ff ; end
 
 ; ================
+
+	; POKEFANM (4)
+	db "UNNAMED@"
+	db 0 ; normal
+
+	; party
+	db 1, BULBASAUR
+
+	db $ff ; end
+
+; ================
 ; ================================
 
 
@@ -4334,6 +4378,17 @@ PokefanFGroup:
 
 	; party
 	db 24, RHYDON
+
+	db $ff ; end
+
+; ================
+
+	; POKEFANF (3)
+	db "UNNAMED@"
+	db 0 ; normal
+
+	; party
+	db 1, BULBASAUR
 
 	db $ff ; end
 
@@ -4755,8 +4810,8 @@ DelinquentMGroup
 ; ================================
 ; ================
 
-	; COUPLE (1)
-	db "JD & MEG@"
+	; DELINQUENT (1)
+	db "1@"
 	db 0 ; moves
 
 	; party
@@ -4772,8 +4827,8 @@ DelinquentFGroup
 ; ================================
 ; ================
 
-	; COUPLE (1)
-	db "JD & MEG@"
+	; DELINQUENT (1)
+	db "1@"
 	db 0 ; moves
 
 	; party

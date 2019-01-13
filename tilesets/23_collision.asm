@@ -1,9 +1,9 @@
 	tilecoll $01, $01, $01, $01 ; 00
 	tilecoll $00, $00, $00, $00 ; 01
 	tilecoll $00, $00, $00, $00 ; 02
-	tilecoll $18, $18, $18, $18 ; 03
+	tilecoll $07, $07, $07, $07 ; 03
 	tilecoll $00, $00, $00, $00 ; 04
-	tilecoll $07, $07, $07, $07 ; 05
+	tilecoll $00, $00, $00, $00 ; 05
 	tilecoll $72, $72, $72, $72 ; 06
 	tilecoll $07, $07, $07, $07 ; 07
 	tilecoll $00, $00, $00, $00 ; 08
@@ -13,15 +13,15 @@
 	tilecoll $00, $00, $00, $00 ; 0c
 	tilecoll $00, $00, $00, $00 ; 0d
 	tilecoll $00, $00, $00, $00 ; 0e
-	tilecoll $07, $07, $07, $07 ; 0f
+	tilecoll $07, $00, $07, $07 ; 0f
 	tilecoll $07, $07, $07, $07 ; 10
 	tilecoll $07, $07, $07, $07 ; 11
 	tilecoll $07, $07, $07, $07 ; 12
-	tilecoll $00, $00, $00, $00 ; 13
+	tilecoll $00, $00, $07, $07 ; 13
 	tilecoll $07, $07, $07, $07 ; 14
 	tilecoll $07, $07, $07, $07 ; 15
-	tilecoll $07, $07, $07, $71 ; 16
-	tilecoll $07, $07, $71, $07 ; 17
+	tilecoll $00, $00, $00, $00 ; 16
+	tilecoll $00, $00, $00, $00 ; 17
 	tilecoll $07, $07, $07, $07 ; 18
 	tilecoll $07, $07, $07, $07 ; 19
 	tilecoll $07, $07, $07, $71 ; 1a
@@ -41,39 +41,39 @@
 	tilecoll $07, $07, $07, $07 ; 28
 	tilecoll $00, $00, $00, $00 ; 29
 	tilecoll $00, $00, $00, $00 ; 2a
-	tilecoll $07, $07, $07, $07 ; 2b
-	tilecoll $07, $07, $07, $07 ; 2c
+	tilecoll $07, $00, $07, $00 ; 2b
+	tilecoll $00, $00, $00, $07 ; 2c
 	tilecoll $07, $07, $07, $07 ; 2d
 	tilecoll $07, $07, $07, $07 ; 2e
 	tilecoll $07, $07, $07, $07 ; 2f
 	tilecoll $00, $00, $07, $07 ; 30
-	tilecoll $07, $07, $07, $07 ; 31
+	tilecoll $07, $07, $00, $00 ; 31
 	tilecoll $00, $00, $00, $07 ; 32
 	tilecoll $07, $07, $07, $07 ; 33
-	tilecoll $00, $00, $00, $00 ; 34
-	tilecoll $00, $00, $00, $07 ; 35
-	tilecoll $00, $00, $07, $00 ; 36
+	tilecoll $76, $00, $76, $00 ; 34
+	tilecoll $07, $07, $07, $07 ; 35
+	tilecoll $07, $07, $07, $07 ; 36
 	tilecoll $07, $07, $71, $71 ; 37
-	tilecoll $00, $00, $00, $00 ; 38
-	tilecoll $00, $07, $00, $00 ; 39
-	tilecoll $07, $00, $00, $00 ; 3a
+	tilecoll $76, $00, $76, $00 ; 38
+	tilecoll $00, $00, $00, $00 ; 39
+	tilecoll $07, $07, $07, $07 ; 3a
 	tilecoll $07, $07, $07, $07 ; 3b
-	tilecoll $07, $07, $07, $07 ; 3c
-	tilecoll $07, $07, $07, $00 ; 3d
+	tilecoll $a1, $00, $a5, $a3 ; 3c
+	tilecoll $00, $00, $07, $07 ; 3d
 	tilecoll $07, $00, $07, $00 ; 3e
-	tilecoll $15, $15, $15, $15 ; 3f
+	tilecoll $07, $07, $07, $07 ; 3f
 	tilecoll $07, $07, $07, $00 ; 40
 	tilecoll $07, $07, $00, $00 ; 41
-	tilecoll $07, $07, $00, $07 ; 42
-	tilecoll $ff, $ff, $ff, $ff ; 43
+	tilecoll $00, $00, $07, $07 ; 42
+	tilecoll $07, $07, $00, $07 ; 43
 	tilecoll $07, $00, $07, $00 ; 44
-	tilecoll $07, $00, $00, $00 ; 45
+	tilecoll $00, $00, $07, $00 ; 45
 	tilecoll $00, $07, $00, $07 ; 46
-	tilecoll $00, $07, $00, $00 ; 47
-	tilecoll $07, $00, $07, $07 ; 48
+	tilecoll $07, $00, $07, $00 ; 47
+	tilecoll $07, $07, $00, $00 ; 48
 	tilecoll $00, $00, $07, $07 ; 49
-	tilecoll $00, $07, $07, $07 ; 4a
-	tilecoll $a3, $00, $07, $00 ; 4b
+	tilecoll $07, $07, $00, $00 ; 4a
+	tilecoll $00, $00, $07, $07 ; 4b
 	tilecoll $00, $00, $07, $00 ; 4c
 	tilecoll $00, $00, $07, $00 ; 4d
 	tilecoll $00, $07, $00, $00 ; 4e
@@ -82,16 +82,16 @@
 	tilecoll $00, $00, $07, $07 ; 51
 	tilecoll $00, $07, $00, $00 ; 52
 	tilecoll $07, $00, $00, $00 ; 53
-	tilecoll $29, $29, $29, $29 ; 54
-	tilecoll $29, $29, $29, $29 ; 55
+	tilecoll $00, $00, $a3, $a3 ; 54
+	tilecoll $00, $00, $00, $00 ; 55
 	tilecoll $00, $00, $07, $07 ; 56
 	tilecoll $00, $00, $70, $70 ; 57
-	tilecoll $29, $29, $29, $29 ; 58
-	tilecoll $29, $29, $29, $29 ; 59
+	tilecoll $07, $07, $00, $00 ; 58
+	tilecoll $15, $15, $07, $07 ; 59
 	tilecoll $7a, $00, $00, $00 ; 5a
 	tilecoll $00, $00, $00, $00 ; 5b
 	tilecoll $07, $07, $07, $71 ; 5c
-	tilecoll $07, $07, $07, $71 ; 5d
+	tilecoll $00, $07, $00, $07 ; 5d
 	tilecoll $00, $00, $00, $00 ; 5e
 	tilecoll $00, $00, $00, $00 ; 5f
 	tilecoll $00, $00, $00, $00 ; 60
@@ -99,7 +99,7 @@
 	tilecoll $00, $00, $00, $00 ; 62
 	tilecoll $00, $00, $00, $00 ; 63
 	tilecoll $07, $07, $00, $00 ; 64
-	tilecoll $00, $00, $07, $00 ; 65
+	tilecoll $07, $07, $07, $07 ; 65
 	tilecoll $07, $07, $07, $07 ; 66
 	tilecoll $07, $07, $07, $07 ; 67
 	tilecoll $07, $00, $07, $00 ; 68
@@ -113,23 +113,23 @@
 	tilecoll $b2, $b2, $00, $00 ; 70
 	tilecoll $00, $00, $00, $00 ; 71
 	tilecoll $00, $00, $07, $07 ; 72
-	tilecoll $00, $00, $7b, $07 ; 73
-	tilecoll $07, $07, $07, $00 ; 74
+	tilecoll $00, $00, $07, $7b ; 73
+	tilecoll $07, $07, $07, $07 ; 74
 	tilecoll $00, $00, $07, $07 ; 75
-	tilecoll $29, $29, $29, $29 ; 76
-	tilecoll $00, $00, $07, $00 ; 77
+	tilecoll $07, $07, $07, $07 ; 76
+	tilecoll $07, $07, $07, $07 ; 77
 	tilecoll $07, $07, $00, $00 ; 78
 	tilecoll $00, $00, $00, $00 ; 79
 	tilecoll $07, $00, $07, $00 ; 7a
 	tilecoll $07, $07, $00, $07 ; 7b
 	tilecoll $07, $07, $07, $07 ; 7c
 	tilecoll $07, $07, $07, $07 ; 7d
-	tilecoll $00, $00, $07, $07 ; 7e
-	tilecoll $ff, $ff, $ff, $ff ; 7f
-	tilecoll $07, $07, $07, $00 ; 80
+	tilecoll $07, $07, $07, $07 ; 7e
+	tilecoll $07, $07, $07, $07 ; 7f
+	tilecoll $07, $07, $07, $07 ; 80
 	tilecoll $00, $00, $00, $00 ; 81
 	tilecoll $07, $07, $00, $00 ; 82
-	tilecoll $07, $07, $00, $07 ; 83
+	tilecoll $00, $00, $00, $00 ; 83
 	tilecoll $07, $00, $07, $00 ; 84
 	tilecoll $00, $07, $00, $07 ; 85
 	tilecoll $07, $00, $07, $07 ; 86
@@ -139,7 +139,7 @@
 	tilecoll $00, $00, $00, $00 ; 8a
 	tilecoll $00, $00, $00, $00 ; 8b
 	tilecoll $00, $00, $00, $00 ; 8c
-	tilecoll $ff, $ff, $ff, $ff ; 8d
+	tilecoll $00, $a0, $00, $a4 ; 8d
 	tilecoll $00, $00, $00, $00 ; 8e
 	tilecoll $00, $00, $00, $00 ; 8f
 	tilecoll $00, $00, $00, $00 ; 90
@@ -147,7 +147,7 @@
 	tilecoll $00, $00, $00, $00 ; 92
 	tilecoll $00, $00, $00, $00 ; 93
 	tilecoll $00, $00, $00, $00 ; 94
-	tilecoll $00, $00, $00, $00 ; 95
+	tilecoll $00, $00, $07, $07 ; 95
 	tilecoll $00, $00, $00, $00 ; 96
 	tilecoll $00, $00, $00, $00 ; 97
 	tilecoll $00, $00, $00, $00 ; 98
@@ -155,7 +155,7 @@
 	tilecoll $00, $00, $00, $00 ; 9a
 	tilecoll $00, $00, $00, $00 ; 9b
 	tilecoll $00, $00, $00, $00 ; 9c
-	tilecoll $ff, $ff, $ff, $ff ; 9d
+	tilecoll $07, $07, $07, $07 ; 9d
 	tilecoll $00, $00, $00, $00 ; 9e
 	tilecoll $00, $00, $00, $00 ; 9f
 	tilecoll $00, $00, $00, $00 ; a0
@@ -184,9 +184,9 @@
 	tilecoll $00, $00, $00, $00 ; b7
 	tilecoll $00, $00, $00, $00 ; b8
 	tilecoll $00, $00, $00, $00 ; b9
-	tilecoll $00, $00, $00, $00 ; ba
+	tilecoll $00, $b0, $00, $b0 ; ba
 	tilecoll $00, $00, $07, $07 ; bb
-	tilecoll $00, $00, $00, $00 ; bc
+	tilecoll $b1, $00, $b1, $00 ; bc
 	tilecoll $00, $00, $00, $00 ; bd
 	tilecoll $00, $00, $00, $00 ; be
 	tilecoll $00, $00, $00, $00 ; bf
@@ -206,8 +206,8 @@
 	tilecoll $07, $00, $07, $00 ; cd
 	tilecoll $07, $00, $07, $00 ; ce
 	tilecoll $00, $00, $00, $00 ; cf
-	tilecoll $00, $07, $00, $07 ; d0
-	tilecoll $07, $07, $07, $07 ; d1
+	tilecoll $07, $07, $07, $07 ; d0
+	tilecoll $00, $00, $00, $00 ; d1
 	tilecoll $07, $00, $07, $00 ; d2
 	tilecoll $07, $00, $07, $00 ; d3
 	tilecoll $07, $00, $07, $00 ; d4
@@ -215,7 +215,7 @@
 	tilecoll $00, $07, $00, $07 ; d6
 	tilecoll $00, $07, $00, $07 ; d7
 	tilecoll $00, $00, $07, $07 ; d8
-	tilecoll $07, $00, $07, $00 ; d9
+	tilecoll $15, $15, $07, $07 ; d9
 	tilecoll $07, $07, $07, $07 ; da
 	tilecoll $07, $07, $07, $07 ; db
 	tilecoll $07, $07, $07, $07 ; dc
@@ -242,7 +242,7 @@
 	tilecoll $07, $00, $07, $00 ; f1
 	tilecoll $00, $07, $00, $07 ; f2
 	tilecoll $07, $00, $07, $00 ; f3
-	tilecoll $07, $07, $07, $07 ; f4
+	tilecoll $07, $07, $00, $00 ; f4
 	tilecoll $71, $07, $00, $07 ; f5
 	tilecoll $00, $07, $00, $07 ; f6
 	tilecoll $07, $00, $00, $00 ; f7
@@ -251,6 +251,6 @@
 	tilecoll $07, $07, $07, $07 ; fa
 	tilecoll $07, $07, $07, $07 ; fb
 	tilecoll $00, $07, $00, $07 ; fc
-	tilecoll $00, $07, $00, $07 ; fd
+	tilecoll $00, $00, $00, $00 ; fd
 	tilecoll $07, $07, $00, $00 ; fe
 	tilecoll $07, $07, $00, $00 ; ff

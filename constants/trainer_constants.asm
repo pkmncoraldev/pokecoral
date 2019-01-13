@@ -360,7 +360,7 @@ KRIS  EQU __enum__
 	trainerclass DELINQUENT_M
 ;1
 
-	trainerclass DELINQUENT_M
+	trainerclass DELINQUENT_F
 ;1
 
 	trainerclass SAFARI

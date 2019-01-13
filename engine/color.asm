@@ -2106,13 +2106,17 @@ LoadMapPals:
 .got_pals
 	ld a, [MapGroup]
 	cp GROUP_ROUTE_11
-	jr nz, .normal
+	jr z, .ranch
+	cp GROUP_PEWTER_CITY
+	jr z, .snow
+	cp GROUP_ROUTE_3
+	jr z, .snow2
+	cp MAP_RUINS_OF_ALPH_HO_OH_ITEM_ROOM
+	jp nz, .normal
+.ranch
 	ld a, [MapNumber]
 	cp MAP_ROUTE_11
-	jr z, .ranch
-	cp MAP_RUINS_OF_ALPH_HO_OH_ITEM_ROOM
-	jr nz, .normal
-.ranch
+	jp nz, .normal
 	ld a, [TimeOfDayPal]
 	and 3
 	ld bc, 8 palettes
@@ -2125,15 +2129,73 @@ LoadMapPals:
 	
 	ld a, [hHours]
 	cp 17 ; 5:00 PM to 5:59 PM = dusk
-	jr nz, .notdusk
+	jp nz, .notdusk
 	ld hl, MapObjectPalsRanchDusk
 	call AddNTimes
 	ld de, UnknOBPals
 	ld bc, 8 palettes
 	ld a, $5 ; BANK(UnknOBPals)
 	call FarCopyWRAM
-	jr .duskcont
+	jp .duskcont
 ;	ret
+	
+.snow
+	ld a, [MapNumber]
+	cp MAP_PEWTER_CITY
+	jr z, .snowcont
+	cp MAP_ROUTE_2
+	jr z, .snowcont
+	jp .normal
+	
+.snow2
+	ld a, [MapNumber]
+	cp MAP_ROUTE_3
+	jr z, .snowtentcont
+	jp .normal
+	
+.snowcont
+	ld a, [TimeOfDayPal]
+	and 3
+	ld bc, 8 palettes
+	ld hl, MapObjectPalsSnow
+	call AddNTimes
+	ld de, UnknOBPals
+	ld bc, 8 palettes
+	ld a, $5 ; BANK(UnknOBPals)
+	call FarCopyWRAM
+	
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	jp nz, .notdusk
+	ld hl, MapObjectPalsSnowDusk
+	call AddNTimes
+	ld de, UnknOBPals
+	ld bc, 8 palettes
+	ld a, $5 ; BANK(UnknOBPals)
+	call FarCopyWRAM
+	jr .duskcont
+	
+.snowtentcont
+	ld a, [TimeOfDayPal]
+	and 3
+	ld bc, 8 palettes
+	ld hl, MapObjectPalsSnowFire
+	call AddNTimes
+	ld de, UnknOBPals
+	ld bc, 8 palettes
+	ld a, $5 ; BANK(UnknOBPals)
+	call FarCopyWRAM
+	
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	jr nz, .notdusk
+	ld hl, MapObjectPalsSnowFireDusk
+	call AddNTimes
+	ld de, UnknOBPals
+	ld bc, 8 palettes
+	ld a, $5 ; BANK(UnknOBPals)
+	call FarCopyWRAM
+	jr .duskcont
 	
 .normal
 	ld a, [TimeOfDayPal]
@@ -2156,8 +2218,6 @@ LoadMapPals:
 	cp TOWN
 	jr z, .outside
 	cp ROUTE
-;	jr z, .outside
-;	cp DARK_FOREST
 	ret nz
 .outside
 	ld a, [hHours]
@@ -2174,6 +2234,8 @@ LoadMapPals:
 .duskcont
 	ld a, [wTileset]
 	cp TILESET_MOUNTAIN
+	ret z
+	cp TILESET_SNOW
 	ret z
 	ld a, [MapGroup]
 	ld l, a
@@ -2192,6 +2254,8 @@ LoadMapPals:
 .notdusk
 	ld a, [wTileset]
 	cp TILESET_MOUNTAIN
+	ret z
+	cp TILESET_SNOW
 	ret z
 	ld a, [MapGroup]
 	ld l, a
@@ -2276,6 +2340,18 @@ INCLUDE "tilesets/outsidepals/spritepals/obranch.pal"
 
 MapObjectPalsRanchDusk:
 INCLUDE "tilesets/outsidepals/spritepals/obranchdusk.pal"
+
+MapObjectPalsSnow:
+INCLUDE "tilesets/outsidepals/spritepals/obsnow.pal"
+
+MapObjectPalsSnowDusk:
+INCLUDE "tilesets/outsidepals/spritepals/obsnowdusk.pal"
+
+MapObjectPalsSnowFire:
+INCLUDE "tilesets/outsidepals/spritepals/obsnowfire.pal"
+
+MapObjectPalsSnowFireDusk:
+INCLUDE "tilesets/outsidepals/spritepals/obsnowfiredusk.pal"
 
 RoofPals:
 INCLUDE "tilesets/roof.pal"

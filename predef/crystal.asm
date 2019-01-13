@@ -247,11 +247,13 @@ LoadSpecialMapPalette: ; 494ac
 	cp TILESET_LAVA_CAVE
 	jr z, .lavacave
 	cp TILESET_GLINT
-	jr z, .outside
+	jp z, .outside
 	cp TILESET_MOUNTAIN
 	jp z, .mountain
 	cp TILESET_JUNGLE
 	jp z, .jungle
+	cp TILESET_SNOW
+	jp z, .checktent
 	cp TILESET_RANCH
 	jp z, .checkranch
 	ld a, [wPermission]
@@ -340,6 +342,12 @@ LoadSpecialMapPalette: ; 494ac
 	and a
 	ret
 	
+.checktent
+	ld a, [MapGroup]
+	cp GROUP_ROUTE_3
+	jp z, .snowtent
+	jp .snow
+	
 .outside
 	ld a, [MapGroup]
 	cp GROUP_SUNSET_BAY
@@ -399,19 +407,19 @@ LoadSpecialMapPalette: ; 494ac
 	cp 17 ; 5:00 PM to 5:59 PM = dusk
 	jr z, .ranchdusk
 	ld hl, OutsideDayRanchPalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .ranchmorn
 	ld hl, OutsideMornRanchPalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .ranchnite
 	ld hl, OutsideNiteRanchPalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .ranchdusk
 	ld hl, OutsideDuskPalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .mountain
 	ld a, [TimeOfDay]
@@ -423,19 +431,19 @@ LoadSpecialMapPalette: ; 494ac
 	cp 17 ; 5:00 PM to 5:59 PM = dusk
 	jr z, .mountaindusk
 	ld hl, OutsideDayMountainPalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .mountainmorn
 	ld hl, OutsideMornMountainPalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .mountainnite
 	ld hl, OutsideNiteMountainPalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .mountaindusk
 	ld hl, OutsideDuskMountainPalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 	
 .jungle
 	ld a, [TimeOfDay]
@@ -459,6 +467,54 @@ LoadSpecialMapPalette: ; 494ac
 	
 .jungledusk
 	ld hl, OutsideDuskJunglePalette
+	jr LoadEightBGPalettes
+	
+.snow
+	ld a, [TimeOfDay]
+	cp NITE
+	jr z, .snownite
+	cp MORN
+	jr z, .snowmorn
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	jr z, .snowdusk
+	ld hl, OutsideDaySnowPalette
+	jr LoadEightBGPalettes
+	
+.snowmorn
+	ld hl, OutsideMornSnowPalette
+	jr LoadEightBGPalettes
+	
+.snownite
+	ld hl, OutsideNiteSnowPalette
+	jr LoadEightBGPalettes
+	
+.snowdusk
+	ld hl, OutsideDuskSnowPalette
+	jr LoadEightBGPalettes
+	
+.snowtent
+	ld a, [TimeOfDay]
+	cp NITE
+	jr z, .snowtentnite
+	cp MORN
+	jr z, .snowtentmorn
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	jr z, .snowtentdusk
+	ld hl, OutsideDaySnowtentPalette
+	jr LoadEightBGPalettes
+	
+.snowtentmorn
+	ld hl, OutsideMornSnowtentPalette
+	jr LoadEightBGPalettes
+	
+.snowtentnite
+	ld hl, OutsideNiteSnowtentPalette
+	jr LoadEightBGPalettes
+	
+.snowtentdusk
+	ld hl, OutsideDuskSnowtentPalette
 	jr LoadEightBGPalettes
 
 .do_nothing
@@ -669,6 +725,30 @@ INCLUDE "tilesets/outsidepals/jungle/duskjungle.pal"
 
 OutsideNiteJunglePalette:
 INCLUDE "tilesets/outsidepals/jungle/nitejungle.pal"
+
+OutsideMornSnowPalette:
+INCLUDE "tilesets/outsidepals/snow/mornsnow.pal"
+
+OutsideDaySnowPalette:
+INCLUDE "tilesets/outsidepals/snow/daysnow.pal"
+
+OutsideDuskSnowPalette:
+INCLUDE "tilesets/outsidepals/snow/dusksnow.pal"
+
+OutsideNiteSnowPalette:
+INCLUDE "tilesets/outsidepals/snow/nitesnow.pal"
+
+OutsideMornSnowtentPalette:
+INCLUDE "tilesets/outsidepals/snowtent/mornsnowtent.pal"
+
+OutsideDaySnowtentPalette:
+INCLUDE "tilesets/outsidepals/snowtent/daysnowtent.pal"
+
+OutsideDuskSnowtentPalette:
+INCLUDE "tilesets/outsidepals/snowtent/dusksnowtent.pal"
+
+OutsideNiteSnowtentPalette:
+INCLUDE "tilesets/outsidepals/snowtent/nitesnowtent.pal"
 
 MansionPalette1: ; 4967d
 	RGB 30, 28, 26

@@ -143,6 +143,10 @@ InitMapNameFrame: ; b80d3
 	ld b, 2
 	ld c, 18
 	call InitMapSignAttrMap
+;	hlcoord 1, 1
+;	call InitMapSignAttrMap2
+;	hlcoord 1, 2
+;	call InitMapSignAttrMap2
 	call PlaceMapNameFrame
 	ret
 ; b80e1
@@ -189,6 +193,7 @@ InitMapSignAttrMap: ; b8115
 	inc c
 	inc c
 	ld a, $87
+;	ld a, $86
 .loop
 	push bc
 	push hl
@@ -205,6 +210,31 @@ InitMapSignAttrMap: ; b8115
 	ret
 ; b812f
 
+InitMapSignAttrMap2:
+	ld de, AttrMap - TileMap
+	add hl, de
+	ld b, 18
+;	inc b
+;	inc b
+;	inc b
+	ld a, $87
+.loop
+	push bc
+	push hl
+;.inner_loop
+	ld [hli], a
+	dec c
+;	jr nz, .inner_loop
+	pop hl
+	ld de, 1;SCREEN_WIDTH
+	add hl, de
+	pop bc
+	dec b
+	jr nz, .loop
+	ret
+; b812f
+
+
 PlaceMapNameFrame: ; b812f
 	hlcoord 0, 0
 	; top left
@@ -217,12 +247,12 @@ PlaceMapNameFrame: ; b812f
 	ld a, $c4
 	ld [hli], a
 	; left, first line
-	ld a, $c5
+	ld a, $c6
 	ld [hli], a
 	; first line
 	call .FillMiddle
 	; right, first line
-	ld a, $cb
+	ld a, $cc
 	ld [hli], a
 	; left, second line
 	ld a, $c6

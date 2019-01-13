@@ -13,3 +13,9 @@ INCBIN "tilesets/09_attributes.bin"
 Tileset00Attr:
 Tileset01Attr:
 INCBIN "tilesets/01_attributes.bin"
+
+Tileset24Attr:
+INCBIN "tilesets/24_attributes.bin"
+
+Tileset24Coll:
+INCLUDE "tilesets/24_collision.asm"

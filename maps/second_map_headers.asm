@@ -19,9 +19,11 @@
 	map_header_2 CianwoodCity, CIANWOOD_CITY, $35, EAST
 	connection east, ROUTE_41, Route41, 0, 0, 27, CIANWOOD_CITY
 
-	map_header_2 GoldenrodCity, GOLDENROD_CITY, 53, NORTH | SOUTH
-	connection north, ROUTE_35, Route35, 5, 0, 10, GOLDENROD_CITY
-	connection south, ROUTE_34, Route34, 5, 0, 10, GOLDENROD_CITY
+	map_header_2 GoldenrodCity, GOLDENROD_CITY, 113, EAST
+	connection east, RADIO_TOWER_1F, RadioTower1F, 0, 0, 36, GOLDENROD_CITY
+	
+	map_header_2 RadioTower1F, RADIO_TOWER_1F, 113, WEST
+	connection west, GOLDENROD_CITY, GoldenrodCity, 0, 0, 36, RADIO_TOWER_1F
 
 	map_header_2 SunsetBay, SUNSET_BAY, 113, SOUTH | EAST
 	connection south, OCEAN_2, Ocean2, 1, 0, 17, SUNSET_BAY
@@ -37,8 +39,9 @@
 	connection west, ROUTE_42, Route42, 0, 0, 9, MAHOGANY_TOWN
 	connection east, ROUTE_44, Route44, 0, 0, 9, MAHOGANY_TOWN
 
-	map_header_2 LakeofRage, LAKE_OF_RAGE, 5, NORTH | EAST
+	map_header_2 LakeofRage, LAKE_OF_RAGE, 5, NORTH | WEST | EAST
 	connection north, ROUTE_33, Route33, 3, 0, 5, LAKE_OF_RAGE
+	connection west, ROUTE_12, Route12, 4, 0, 4, LAKE_OF_RAGE
 	connection east, ROUTE_34, Route34, 6, 0, 11, LAKE_OF_RAGE
 
 	map_header_2 BlackthornCity, BLACKTHORN_CITY, $71, SOUTH | WEST
@@ -61,7 +64,8 @@
 	connection north, DRAGON_SHRINE, DragonShrine, 2, 6, 12, ROUTE_29
 	connection east, CHERRYGROVE_CITY, CherrygroveCity, 0, 0, 29, ROUTE_29
 
-	map_header_2 Route30, ROUTE_30, 97, EAST
+	map_header_2 Route30, ROUTE_30, 97, NORTH | EAST
+	connection north, ROUTE_12, Route12, 0, 0, 31, ROUTE_30
 	connection east, ROUTE_41, Route41, 11, 0, 9, ROUTE_30
 
 	map_header_2 Route31, ROUTE_31, 9, 0
@@ -172,9 +176,14 @@
 	map_header_2 SpookyForest9, SPOOKY_FOREST_9, 92, EAST
 	connection east, SPOOKY_FOREST_8, SpookyForest8, 0, 0, 8, SPOOKY_FOREST_7
 	
-	map_header_2 Route43, ROUTE_43, 5, WEST
-	connection west, AZALEA_TOWN, AzaleaTown, 0, 0, 11, ROUTE_43
-;	connection south, MAHOGANY_TOWN, MahoganyTown, 0, 0, 10, ROUTE_43
+	map_header_2 Route43, ROUTE_43, 5, SOUTH | WEST
+	connection south, ROUTE_12, Route12, 1, 0, 25, ROUTE_43
+	connection west, AZALEA_TOWN, AzaleaTown, 0, 0, 36, ROUTE_43
+	
+	map_header_2 Route12, ROUTE_12, 5, NORTH | SOUTH | EAST
+	connection north, ROUTE_43, Route43, 0, 1, 36, ROUTE_12
+	connection south, ROUTE_30, Route30, 0, 0, 36, ROUTE_12
+	connection east, LAKE_OF_RAGE, LakeofRage, -3, 1, 10, ROUTE_12
 
 	map_header_2 Route44, ROUTE_44, 9, 0
 ;	connection west, MAHOGANY_TOWN, MahoganyTown, 0, 0, 9, ROUTE_44
@@ -191,13 +200,13 @@
 ;	connection south, ROUTE_29, Route29, -3, 7, 16, ROUTE_46
 ;	connection east, ROUTE_45, Route45, -3, 33, 12, ROUTE_46
 
-	map_header_2 PewterCity, PEWTER_CITY, $f, SOUTH | EAST
-;	connection south, ROUTE_2, Route2, 5, 0, 10, PEWTER_CITY
-;	connection east, ROUTE_3, Route3, 5, 0, 9, PEWTER_CITY
+	map_header_2 PewterCity, PEWTER_CITY, 5, SOUTH
+	connection south, ROUTE_2, Route2, -3, 0, 20, PEWTER_CITY
 
-	map_header_2 Route2, ROUTE_2, $f, NORTH | SOUTH
-;	connection north, PEWTER_CITY, PewterCity, -3, 2, 16, ROUTE_2
-;	connection south, VIRIDIAN_CITY, ViridianCity, -3, 2, 16, ROUTE_2
+
+	map_header_2 Route2, ROUTE_2, 5, NORTH | EAST
+	connection north, PEWTER_CITY, PewterCity, 3, 0, 20, ROUTE_2
+	connection east, ROUTE_3, Route3, 5, 6, 8, ROUTE_2
 
 	map_header_2 ViridianCity, VIRIDIAN_CITY, 15, NORTH | SOUTH | WEST
 ;	connection north, ROUTE_2, Route2, 5, 0, 10, VIRIDIAN_CITY
@@ -256,13 +265,8 @@
 	connection north, ROUTE_12, Route12, 20, 0, 10, ROUTE_13
 	connection south, ROUTE_14, Route14, 0, 0, 10, ROUTE_13
 
-	map_header_2 Route12, ROUTE_12, $43, NORTH | SOUTH | WEST
-	connection north, LAVENDER_TOWN, LavenderTown, 0, 0, 10, ROUTE_12
-	connection south, ROUTE_13, Route13, -3, 17, 13, ROUTE_12
-	connection west, ROUTE_11, Route11, 9, 0, 9, ROUTE_12
-
 	map_header_2 Route11, ROUTE_11, 5, NORTH
-	connection north, VERMILION_CITY, VermilionCity, 8, 4, 12, ROUTE_11
+	connection north, VERMILION_CITY, VermilionCity, 6, 4, 12, ROUTE_11
 ;	connection east, ROUTE_12, Route12, -3, 6, 15, ROUTE_11
 
 	map_header_2 LavenderTown, LAVENDER_TOWN, $2c, NORTH | SOUTH | WEST
@@ -271,11 +275,9 @@
 	connection west, ROUTE_8, Route8, 0, 0, 9, LAVENDER_TOWN
 
 	map_header_2 VermilionCity, VERMILION_CITY, 113, SOUTH
-	connection south, ROUTE_11, Route11, 1, 5, 10, VERMILION_CITY
+	connection south, ROUTE_11, Route11, 3, 5, 10, VERMILION_CITY
 
-	map_header_2 Route6, ROUTE_6, $f, NORTH | SOUTH
-	connection north, SAFFRON_CITY, SaffronCity, -3, 2, 16, ROUTE_6
-	connection south, VERMILION_CITY, VermilionCity, -3, 2, 16, ROUTE_6
+	map_header_2 Route6, ROUTE_6, 51, 0
 
 	map_header_2 SaffronCity, SAFFRON_CITY, 15, NORTH | SOUTH | WEST | EAST
 	connection north, ROUTE_5, Route5, 5, 0, 10, SAFFRON_CITY
@@ -304,9 +306,8 @@
 	map_header_2 Route25, ROUTE_25, $2c, SOUTH
 	connection south, ROUTE_24, Route24, 0, 0, 10, ROUTE_25
 
-	map_header_2 Route3, ROUTE_3, $2c, WEST | EAST
-	connection west, PEWTER_CITY, PewterCity, -3, 2, 15, ROUTE_3
-	connection east, ROUTE_4, Route4, 0, 0, 9, ROUTE_3
+	map_header_2 Route3, ROUTE_3, 5, WEST
+	connection west, ROUTE_2, Route2, 2, 1, 15, ROUTE_3
 
 	map_header_2 Route4, ROUTE_4, $2c, WEST | EAST
 	connection west, ROUTE_3, Route3, 0, 0, 9, ROUTE_4
@@ -344,7 +345,6 @@
 	map_header_2 BurnedTower1F, BURNED_TOWER_1F, $0, 0
 	map_header_2 BurnedTowerB1F, BURNED_TOWER_B1F, $9, 0
 	map_header_2 NationalParkBugContest, NATIONAL_PARK_BUG_CONTEST, 0, 0
-	map_header_2 RadioTower1F, RADIO_TOWER_1F, $0, 0
 	map_header_2 RadioTower2F, RADIO_TOWER_2F, $0, 0
 	map_header_2 RadioTower3F, RADIO_TOWER_3F, $0, 0
 	map_header_2 RadioTower4F, RADIO_TOWER_4F, $0, 0
@@ -511,7 +511,7 @@
 	map_header_2 VermilionMart, VERMILION_MART, 0, 0
 	map_header_2 VermilionHouseDiglettsCaveSpeechHouse, VERMILION_HOUSE_DIGLETTS_CAVE_SPEECH_HOUSE, 0, 0
 	map_header_2 VermilionGym, VERMILION_GYM, $0, 0
-	map_header_2 Route6SaffronGate, ROUTE_6_SAFFRON_GATE, $0, 0
+	map_header_2 Route6SaffronGate, ROUTE_6_SAFFRON_GATE, 0, 0
 	map_header_2 Route6UndergroundEntrance, ROUTE_6_UNDERGROUND_ENTRANCE, 175, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0
 	map_header_2 RedsHouse2F, REDS_HOUSE_2F, $0, 0
@@ -585,7 +585,7 @@
 	map_header_2 CeladonGameCorner, CELADON_GAME_CORNER, $0, 0
 	map_header_2 CeladonGameCornerPrizeRoom, CELADON_GAME_CORNER_PRIZE_ROOM, $0, 0
 	map_header_2 CeladonGym, CELADON_GYM, $0, 0
-	map_header_2 CeladonCafe, CELADON_CAFE, $0, 0
+	map_header_2 CeladonCafe, CELADON_CAFE, 0, 0
 	map_header_2 Route16FuchsiaSpeechHouse, ROUTE_16_FUCHSIA_SPEECH_HOUSE, $0, 0
 	map_header_2 Route16Gate, ROUTE_16_GATE, $0, 0
 	map_header_2 Route7SaffronGate, ROUTE_7_SAFFRON_GATE, $0, 0

@@ -28,6 +28,8 @@ const_value SET 1
 	const TILESET_HAUNTED_TV	;21
 	const TILESET_LIBRARY	;22
 	const TILESET_LUSTER	;23
+	const TILESET_SNOW		;24
+	const TILESET_PARK		;25
 
 	const_def
 	const PAL_BG_GRAY

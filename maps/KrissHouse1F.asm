@@ -472,7 +472,7 @@ TVText:
 KrissHouse1F_MapEventHeader:: db 0, 0
 
 .Warps: db 3
-	warp_def 7, 6, 1, GOLDENROD_CITY
+	warp_def 7, 6, 1, PEWTER_CITY
 	warp_def 7, 7, 1, SUNSET_BAY
 	warp_def 0, 9, 1, KRISS_HOUSE_2F
 

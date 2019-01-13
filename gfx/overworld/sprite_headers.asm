@@ -444,8 +444,17 @@ ScarecrowSprite:
 ExecSprite:
 	sprite_header ExecSpriteGFX, 3, WALKING_SPRITE, PAL_OW_GREEN
 	
+DelinqMSprite:
+	sprite_header DelinqMGFX, 3, WALKING_SPRITE, PAL_OW_GREEN
+	
+DelinqFSprite:
+	sprite_header DelinqFGFX, 3, WALKING_SPRITE, PAL_OW_GREEN
+	
 InvisibleSprite:
 	sprite_header InvisibleSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED
+	
+CampfireSprite:
+	sprite_header CampfireSpriteGFX, 3, STANDING_SPRITE, PAL_OW_SILVER
 	
 ChrisCutsceneSprite:
 	sprite_header ChrisSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED

@@ -249,7 +249,6 @@ Predef1: ; 747a
 SECTION "bank2", ROMX[$4000], BANK[$2]
 
 INCLUDE "engine/player_object.asm"
-INCLUDE "engine/sine.asm"
 INCLUDE "engine/predef.asm"
 INCLUDE "engine/color.asm"
 
@@ -6161,7 +6160,7 @@ INCBIN "misc/stadium2_2.bin"
 ELSE
 INCBIN "misc/stadium2_1.bin"
 
-SECTION "CoralExclusiveStuff", ROMX
+SECTION "CoralBank1", ROMX
 
 INCLUDE "tilesets/data_9.asm"
 
@@ -6173,25 +6172,31 @@ INCBIN "gfx/misc/coraldev.2bpp"
 CoralDevScreenWinkGFX:: ; e4000
 INCBIN "gfx/misc/coraldevwink.2bpp"
 
-SECTION "CoralExclusiveStuff2", ROMX
+SECTION "CoralBank2", ROMX
 
 INCLUDE "tilesets/data_10.asm"
 
-SECTION "CoralExclusiveStuff3", ROMX
+SECTION "CoralBank3", ROMX
 
 INCLUDE "engine/scripting.asm"
 
 INCLUDE "tilesets/data_11.asm"
 
-SECTION "CoralExclusiveStuff4", ROMX
+SECTION "CoralBank4", ROMX
 
 INCLUDE "tilesets/data_12.asm"
 
 INCLUDE "text/common_coral.asm"
 
-SECTION "BlehBank", ROMX
+SECTION "CoralBank5", ROMX
 
 INCLUDE "battle/anim_commands.asm"
 
 INCLUDE "battle/anim_objects.asm"
+
+SECTION "CoralBank6", ROMX
+
+INCLUDE "engine/sine.asm"
+
+INCLUDE "tilesets/data_13.asm"
 ENDC

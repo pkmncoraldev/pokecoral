@@ -50,9 +50,9 @@ GetTimeOfDay:: ; 14032
 
 TimesOfDay: ; 14044
 ; hours for the time of day
-; 04-09 morn | 10-17 day | 18-03 nite
-	db 04, NITE
-	db 10, MORN
+; 05-10 morn | 11-17 day | 18-03 nite
+	db 06, NITE
+	db 11, MORN
 	db 18, DAY
 	db 24, NITE
 	db -1, MORN

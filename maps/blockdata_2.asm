@@ -253,9 +253,6 @@ BlackthornCity_BlockData:
 SilverCaveOutside_BlockData:
 	INCBIN "maps/SilverCaveOutside.blk"
 
-Route6_BlockData:
-	INCBIN "maps/Route6.blk"
-
 Route7_BlockData:
 	INCBIN "maps/Route7.blk"
 
@@ -313,8 +310,8 @@ BurnedTower1F_BlockData:
 BurnedTowerB1F_BlockData:
 	INCBIN "maps/BurnedTowerB1F.blk"
 
-BetaCaveTestMap_BlockData:
-	INCBIN "maps/BetaCaveTestMap.blk"
+Route6_BlockData:
+	INCBIN "maps/Route6.blk"
 
 MountMortar1FOutside_BlockData:
 	INCBIN "maps/MountMortar1FOutside.blk"

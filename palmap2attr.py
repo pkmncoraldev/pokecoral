@@ -9,7 +9,7 @@ color_attrs = {
 	'PRIORITY_ROOF': 0x86, 'PRIORITY_TEXT': 0x87,
 }
 
-palette_map_names = glob.glob('gfx/tilesets/*_palette_map.asm')
+palette_map_names = glob.glob('tilesets/*_palette_map.asm')
 for palette_map_name in palette_map_names:
 
 	if 'unused_museum_palette_map' in palette_map_name:

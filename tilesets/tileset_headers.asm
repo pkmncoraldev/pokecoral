@@ -29,3 +29,5 @@ Tileset01::
 	tileset Tileset21
 	tileset Tileset22
 	tileset Tileset23
+	tileset Tileset24
+	tileset Tileset25

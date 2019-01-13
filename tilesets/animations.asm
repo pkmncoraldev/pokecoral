@@ -47,6 +47,8 @@ Tileset09Anim:
 Tileset17Anim:
 Tileset18Anim:
 Tileset22Anim:
+Tileset24Anim:
+Tileset25Anim:
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
