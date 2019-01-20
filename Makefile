@@ -1,6 +1,12 @@
 PYTHON := python
 MD5 := md5sum -c --quiet
 
+ifneq ($(wildcard rgbds/.*),)
+RGBDS_DIR = rgbds/
+else
+RGBDS_DIR =
+endif
+
 .SUFFIXES:
 .PHONY: all clean crystal crystal11
 .SECONDEXPANSION:
@@ -45,19 +51,19 @@ compare: pokecrystal.gbc pokecrystal11.gbc
 
 %11.o: dep = $(shell $(includes) $(@D)/$*.asm)
 %11.o: %.asm $$(dep)
-	rgbasm -D CRYSTAL11 -o $@ $<
+	$(RGBDS_DIR)rgbasm -D CRYSTAL11 -o $@ $<
 
 %.o: dep = $(shell $(includes) $(@D)/$*.asm)
 %.o: %.asm $$(dep)
-	rgbasm -o $@ $<
+	$(RGBDS_DIR)rgbasm -o $@ $<
 
 pokecrystal11.gbc: $(crystal11_obj)
-	rgblink -n pokecrystal11.sym -m pokecrystal11.map -o $@ $^
-	rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0 -r 3 -t PM_CRYSTAL $@
+	$(RGBDS_DIR)rgblink -n pokecrystal11.sym -m pokecrystal11.map -o $@ $^
+	$(RGBDS_DIR)rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0 -r 3 -t PM_CRYSTAL $@
 
 pokecrystal.gbc: $(crystal_obj)
-	rgblink -n pokecrystal.sym -m pokecrystal.map -o $@ $^
-	rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -p 0 -r 3 -t PM_CRYSTAL $@
+	$(RGBDS_DIR)rgblink -n pokecrystal.sym -m pokecrystal.map -o $@ $^
+	$(RGBDS_DIR)rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -p 0 -r 3 -t PM_CRYSTAL $@
 
 %.png: ;
 %.2bpp: %.png ; $(gfx) 2bpp $<
@@ -68,4 +74,5 @@ pokecrystal.gbc: $(crystal_obj)
 gfx/pics/%/normal.pal gfx/pics/%/bitmask.asm gfx/pics/%/frames.asm: gfx/pics/%/front.2bpp ;
 %.bin: ;
 %.blk: ;
+%.ablk: ;
 %.tilemap: ;
