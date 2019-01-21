@@ -2318,7 +2318,7 @@ CheckSave:: ; 4cffe
 INCLUDE "engine/map_triggers.asm"
 
 _LoadMapPart:: ; 4d15b
-	ld hl, wMisc
+	ld hl, wSurroundingTiles
 	decoord 0, 0
 	call .copy
 	ld hl, wSurroundingAttributes
