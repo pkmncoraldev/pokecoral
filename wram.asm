@@ -1886,7 +1886,9 @@ wd173:: ds 1 ; related to command queue type 3
 	ds 13
 wd181:: ds 1
 wd182:: ds 1
-	ds 14
+	ds 12
+	
+wTilesetDataAddress:: ds 2
 
 wd191:: ds 1
 wd192:: ds 1

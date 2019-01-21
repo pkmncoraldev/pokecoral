@@ -102,7 +102,33 @@ GoldenrodCity_MapEventHeader:: db 0, 0
 	person_event SPRITE_PIKACHU, 37, 14, SPRITEMOVEDATA_POKEMON, 2, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Luster1NPC12, -1
 
 Luster1NPC1:
-	jumptextfaceplayer Luster1NPC1Text
+	checkcode VAR_FACING
+	if_equal UP, .YouAreFacingUP
+	checkitem TRAIN_TICKET
+	iffalse .noticket
+	
+	faceplayer
+	opentext
+	writetext Luster1NPC1TextRideTrain1
+	yesorno
+	iffalse .end
+	writetext Luster1NPC1TextRideTrain2
+	waitbutton
+	closetext
+	applymovement LUSTER1NPC1, Movement_LusterTrainGuy
+	spriteface LUSTER1NPC1, DOWN
+	applymovement PLAYER, Movement_LusterTrainPlayer
+	spriteface PLAYER, DOWN
+	
+.end
+.noticket
+	writetext Luster1NPC1TextRideTrain3
+	waitbutton
+	closetext
+	end
+	
+.YouAreFacingUP
+	jumptextfaceplayer Luster1NPC1TextGetOffTracks
 		
 Luster1NPC2:
 	jumptextfaceplayer Luster1NPC2Text
@@ -271,3 +297,31 @@ Luster1NPC11Text:
 Luster1NPC12Text:
 	text "TEXT 12"
 	done
+	
+Luster1NPC1TextRideTrain1:
+	text "TEXT 1"
+	done
+	
+Luster1NPC1TextRideTrain2:
+	text "TEXT 2"
+	done
+	
+Luster1NPC1TextRideTrain3:
+	text "TEXT 3"
+	done
+	
+Luster1NPC1TextGetOffTracks:
+	text "TEXT"
+	done
+	
+Movement_LusterTrainGuy:
+	step DOWN
+	step RIGHT
+	step_end
+	
+Movement_LusterTrainPlayer:
+	step DOWN
+	step DOWN
+	step RIGHT
+	step RIGHT
+	step_end

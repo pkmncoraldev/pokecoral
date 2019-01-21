@@ -65,7 +65,7 @@
 	db "ELIXER@"
 	db "CORAL SHARD@"
 	db "SECRETPOTION@"
-	db "S.S.TICKET@"
+	db "TRAIN TICKET@"
 	db "MYSTERY EGG@"
 	db "CLEAR BELL@"
 	db "SILVER WING@"

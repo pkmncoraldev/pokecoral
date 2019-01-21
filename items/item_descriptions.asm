@@ -99,7 +99,7 @@ ItemDescriptions:
 	dw ElixerDesc
 	dw CoralShardDesc
 	dw SecretPotionDesc
-	dw SSTicketDesc
+	dw TrainTicketDesc
 	dw MysteryEggDesc
 	dw ClearBellDesc
 	dw SilverWingDesc
@@ -554,9 +554,9 @@ SecretPotionDesc:
 	db   "Fully heals any"
 	next "#MON.@"
 
-SSTicketDesc:
+TrainTicketDesc:
 	db   "A ticket for the"
-	next "S.S.AQUA.@"
+	next "TRAIN.@"
 
 MysteryEggDesc:
 	db   "An EGG obtained"

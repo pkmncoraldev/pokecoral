@@ -81,7 +81,7 @@ ItemEffects: ; e73c
 	dw Elixer
 	dw CoralShard
 	dw Secretpotion
-	dw SSTicket
+	dw TrainTicket
 	dw MysteryEgg
 	dw ClearBell
 	dw SilverWing
@@ -2766,7 +2766,7 @@ ExpShare:
 SilverLeaf:
 CoralShard:
 Secretpotion:
-SSTicket:
+TrainTicket:
 MysteryEgg:
 ClearBell:
 SilverWing:

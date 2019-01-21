@@ -2322,7 +2322,7 @@ _LoadMapPart:: ; 4d15b
 	decoord 0, 0
 	call .copy
 	ld hl, wSurroundingAttributes
-	decoord 0, 0, wAttrMap
+	decoord 0, 0, AttrMap
 .copy:
 	ld a, [wMetatileStandingY]
 	and a

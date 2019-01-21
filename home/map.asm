@@ -124,7 +124,7 @@ LoadMapPart:: ; 217a
 
 LoadMetatiles:: ; 2198
 	ld hl, wSurroundingTiles
-	ld de, wTilesetBlocksAddress
+	ld de, TilesetBlocksAddress
 	jr _LoadMetatilesOrAttributes
 
 LoadMetatileAttributes::

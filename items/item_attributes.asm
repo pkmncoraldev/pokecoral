@@ -210,7 +210,7 @@ Item2Attributes:
 ; SECRETPOTION
 	item_attribute     0, 0,                 0, CANT_SELECT | CANT_TOSS, KEY_ITEM, ITEMMENU_NOUSE,   ITEMMENU_NOUSE
 
-; S.S.TICKET
+; TRAINTICKET
 	item_attribute     0, 0,                 0, CANT_SELECT | CANT_TOSS, KEY_ITEM, ITEMMENU_NOUSE,   ITEMMENU_NOUSE
 
 ; MYSTERY EGG
