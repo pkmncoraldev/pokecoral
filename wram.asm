@@ -3031,6 +3031,7 @@ w3_dffc:: ds 4
 
 SECTION "Surrounding Attributes", WRAMX
 
+wSurroundingTiles:: ds WMISC_WIDTH * WMISC_HEIGHT
 wSurroundingAttributes:: ds WMISC_WIDTH * WMISC_HEIGHT
 
 SECTION "GBC Video", WRAMX [$d000], BANK [5]

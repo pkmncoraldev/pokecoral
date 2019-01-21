@@ -102,8 +102,8 @@ LoadMapPart:: ; 217a
 
 	ld a, [TilesetBlocksBank]
 	rst Bankswitch
-
 	call LoadMetatiles
+
 	ld a, $60
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
@@ -123,12 +123,27 @@ LoadMapPart:: ; 217a
 ; 2198
 
 LoadMetatiles:: ; 2198
+	ld hl, wSurroundingTiles
+	ld de, wTilesetBlocksAddress
+	jr _LoadMetatilesOrAttributes
+
+LoadMetatileAttributes::
+	ld hl, wSurroundingAttributes
+	ld de, wTilesetAttributesAddress
+	; fallthrough
+
+_LoadMetatilesOrAttributes:
+	ld a, [de]
+	ld [wTilesetDataAddress], a
+	inc de
+	ld a, [de]
+	ld [wTilesetDataAddress + 1], a
+
 	; de <- wOverworldMapAnchor
 	ld a, [wOverworldMapAnchor]
 	ld e, a
 	ld a, [wOverworldMapAnchor + 1]
 	ld d, a
-	ld hl, wMisc
 	ld b, WMISC_HEIGHT / 4 ; 5
 
 .row
@@ -147,107 +162,20 @@ LoadMetatiles:: ; 2198
 	ld a, [MapBorderBlock]
 
 .ok
-	; Load the current wMisc address into de.
+	; Load the current wSurrounding* address into de.
 	ld e, l
 	ld d, h
-	; Set hl to the address of the current metatile data ([TilesetBlocksAddress] + (a) tiles).
+	; Set hl to the address of the current metatile data ([wTilesetDataAddress] + (a) tiles).
 	ld l, a
     ld h, 0
     add hl, hl
     add hl, hl
     add hl, hl
     add hl, hl
-	ld a, [TilesetBlocksAddress]
+	ld a, [wTilesetDataAddress]
 	add l
 	ld l, a
-	ld a, [TilesetBlocksAddress + 1]
-	adc h
-	ld h, a
-
-	; copy the 4x4 metatile
-rept 3
-rept 4
-	ld a, [hli]
-	and $7f
-	ld [de], a
-	inc de
-endr
-	ld a, e
-	add WMISC_WIDTH - 4
-	ld e, a
-	jr nc, .next\@
-	inc d
-.next\@
-endr
-rept 4
-	ld a, [hli]
-	and $7f
-	ld [de], a
-	inc de
-endr
-	; Next metatile
-	pop hl
-	ld de, 4
-	add hl, de
-	pop de
-	inc de
-	dec c
-	jp nz, .col
-	; Next metarow
-	pop hl
-	ld de, WMISC_WIDTH * 4
-	add hl, de
-	pop de
-	ld a, [MapWidth]
-	add 6
-	add e
-	ld e, a
-	jr nc, .ok2
-	inc d
-.ok2
-	dec b
-	jp nz, .row
-	ret
-; 222a
-
-LoadMetatileAttributes::
-	; de <- wOverworldMapAnchor
-	ld a, [wOverworldMapAnchor]
-	ld e, a
-	ld a, [wOverworldMapAnchor + 1]
-	ld d, a
-	ld hl, wSurroundingAttributes
-	ld b, WMISC_HEIGHT / 4 ; 5
-
-.row
-	push de
-	push hl
-	ld c, WMISC_WIDTH / 4 ; 6
-
-.col
-	push de
-	push hl
-	; Load the current map block.
-	; If the current map block is a border block, load the border block.
-	ld a, [de]
-	and a
-	jr nz, .ok
-	ld a, [MapBorderBlock]
-
-.ok
-	; Load the current wSurroundingAttributes address into de.
-	ld e, l
-	ld d, h
-	; Set hl to the address of the current metatile attribute data ([wTilesetAttributesAddress] + (a) tiles).
-	ld l, a
-	ld h, 0
-rept 4
-	add hl, hl
-endr
-	ld a, [wTilesetAttributesAddress]
-	add l
-	ld l, a
-	ld a, [wTilesetAttributesAddress + 1]
+	ld a, [wTilesetDataAddress + 1]
 	adc h
 	ld h, a
 
@@ -302,6 +230,7 @@ endr
 	dec b
 	jp nz, .row
 	ret
+; 222a
 
 ReturnToMapFromSubmenu:: ; 222a
 	ld a, MAPSETUP_SUBMENU
