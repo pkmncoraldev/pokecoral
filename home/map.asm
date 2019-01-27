@@ -2025,7 +2025,7 @@ ExitAllMenus:: ; 2b4d
 FinishExitMenu:: ; 2b5c
 	ld b, SCGB_MAPPALS
 	call GetSGBLayout
-	callba LoadOW_BGPal7
+;	callba LoadOW_BGPal7
 	call WaitBGMap2
 	callba FadeInPalettes
 	call EnableSpriteUpdates
@@ -2048,7 +2048,7 @@ ReturnToMapWithSpeechTextbox:: ; 0x2b74
 	call WaitBGMap2
 	ld b, SCGB_MAPPALS
 	call GetSGBLayout
-	callba LoadOW_BGPal7
+;	callba LoadOW_BGPal7
 	call UpdateTimePals
 	call DelayFrame
 	ld a, $1
