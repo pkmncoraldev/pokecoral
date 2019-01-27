@@ -80,7 +80,7 @@
 	tilecoll $07, $07, $00, $00 ; 4f
 	tilecoll $00, $00, $00, $00 ; 50
 	tilecoll $00, $00, $07, $00 ; 51
-	tilecoll $07, $07, $71, $07 ; 52
+	tilecoll $00, $07, $07, $07 ; 52
 	tilecoll $b0, $a3, $76, $b2 ; 53
 	tilecoll $07, $07, $07, $07 ; 54
 	tilecoll $07, $07, $07, $07 ; 55
@@ -104,8 +104,8 @@
 	tilecoll $07, $07, $07, $15 ; 67
 	tilecoll $07, $00, $07, $00 ; 68
 	tilecoll $00, $07, $00, $07 ; 69
-	tilecoll $a3, $b1, $b2, $7e ; 6a
-	tilecoll $07, $07, $00, $07 ; 6b
+	tilecoll $00, $07, $00, $07 ; 6a
+	tilecoll $00, $07, $00, $07 ; 6b
 	tilecoll $07, $00, $07, $07 ; 6c
 	tilecoll $00, $07, $07, $07 ; 6d
 	tilecoll $00, $00, $07, $00 ; 6e
@@ -171,7 +171,7 @@
 	tilecoll $a7, $a2, $a5, $a3 ; aa
 	tilecoll $00, $b0, $00, $b0 ; ab
 	tilecoll $07, $07, $07, $07 ; ac
-	tilecoll $07, $07, $07, $07 ; ad
+	tilecoll $00, $00, $00, $00 ; ad
 	tilecoll $76, $7e, $07, $07 ; ae
 	tilecoll $00, $00, $00, $00 ; af
 	tilecoll $15, $15, $07, $07 ; b0
@@ -184,36 +184,36 @@
 	tilecoll $07, $00, $07, $07 ; b7
 	tilecoll $07, $07, $07, $07 ; b8
 	tilecoll $07, $07, $07, $07 ; b9
-	tilecoll , , ,  ; ba
-	tilecoll , , ,  ; bb
-	tilecoll , , ,  ; bc
-	tilecoll , , ,  ; bd
-	tilecoll , , ,  ; be
-	tilecoll , , ,  ; bf
-	tilecoll , , ,  ; c0
-	tilecoll , , ,  ; c1
-	tilecoll , , ,  ; c2
-	tilecoll , , ,  ; c3
-	tilecoll , , ,  ; c4
+	tilecoll $00, $07, $00, $07 ; ba
+	tilecoll $07, $00, $07, $00 ; bb
+	tilecoll $00, $00, $00, $07 ; bc
+	tilecoll $00, $00, $07, $07 ; bd
+	tilecoll $00, $00, $07, $07 ; be
+	tilecoll $00, $00, $07, $00 ; bf
+	tilecoll $00, $07, $00, $00 ; c0
+	tilecoll $07, $07, $00, $00 ; c1
+	tilecoll $07, $07, $00, $00 ; c2
+	tilecoll $07, $00, $00, $00 ; c3
+	tilecoll $07, $07, $07, $07 ; c4
 	tilecoll , , ,  ; c5
 	tilecoll , , ,  ; c6
 	tilecoll , , ,  ; c7
 	tilecoll , , ,  ; c8
-	tilecoll , , ,  ; c9
-	tilecoll , , ,  ; ca
-	tilecoll , , ,  ; cb
-	tilecoll , , ,  ; cc
-	tilecoll , , ,  ; cd
-	tilecoll , , ,  ; ce
-	tilecoll , , ,  ; cf
-	tilecoll , , ,  ; d0
-	tilecoll , , ,  ; d1
-	tilecoll , , ,  ; d2
-	tilecoll , , ,  ; d3
-	tilecoll , , ,  ; d4
-	tilecoll , , ,  ; d5
-	tilecoll , , ,  ; d6
-	tilecoll , , ,  ; d7
+	tilecoll $00, $07, $00, $07 ; c9
+	tilecoll $00, $00, $07, $07 ; ca
+	tilecoll $00, $07, $00, $07 ; cb
+	tilecoll $00, $07, $00, $07 ; cc
+	tilecoll $07, $07, $07, $07 ; cd
+	tilecoll $07, $07, $07, $07 ; ce
+	tilecoll $07, $07, $07, $07 ; cf
+	tilecoll $07, $07, $00, $00 ; d0
+	tilecoll $00, $00, $00, $00 ; d1
+	tilecoll $00, $07, $00, $07 ; d2
+	tilecoll $00, $07, $00, $07 ; d3
+	tilecoll $07, $07, $07, $07 ; d4
+	tilecoll $07, $07, $00, $00 ; d5
+	tilecoll $00, $07, $00, $00 ; d6
+	tilecoll $07, $07, $00, $07 ; d7
 	tilecoll , , ,  ; d8
 	tilecoll , , ,  ; d9
 	tilecoll , , ,  ; da

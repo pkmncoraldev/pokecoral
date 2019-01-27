@@ -289,7 +289,8 @@ MAP_NONE   EQU 0
 
 	newgroup                                                    ; 13
 
-	mapgroup VERMILION_CITY, 19, 21
+	mapgroup VERMILION_CITY, 19, 19
+	mapgroup VERMILION_PORT,                             14, 16 ;  2
 	mapgroup ROUTE_1,                                    18, 10 ;  1
 	mapgroup PALLET_TOWN, 9, 10
 	mapgroup REDS_HOUSE_1F,                               4,  4 ;  3
@@ -311,7 +312,6 @@ MAP_NONE   EQU 0
 	newgroup                                                    ; 15
 
 	mapgroup OLIVINE_PORT,                               18, 10 ;  1
-	mapgroup VERMILION_PORT,                             18, 10 ;  2
 	mapgroup FAST_SHIP_1F,                                9, 16 ;  3
 	mapgroup FAST_SHIP_CABINS_NNW_NNE_NE,                16,  4 ;  4
 	mapgroup FAST_SHIP_CABINS_SW_SSW_NW,                 16,  4 ;  5

@@ -274,8 +274,12 @@
 	connection south, ROUTE_12, Route12, 0, 0, 10, LAVENDER_TOWN
 	connection west, ROUTE_8, Route8, 0, 0, 9, LAVENDER_TOWN
 
-	map_header_2 VermilionCity, VERMILION_CITY, 113, SOUTH
-	connection south, ROUTE_11, Route11, 3, 5, 10, VERMILION_CITY
+	map_header_2 VermilionCity, VERMILION_CITY, 113, SOUTH | WEST
+	connection south, ROUTE_11, Route11, 1, 5, 10, VERMILION_CITY
+	connection west, VERMILION_PORT, VermilionPort, 3, 0, 11, VERMILION_CITY
+	
+	map_header_2 VermilionPort, VERMILION_PORT, 113, EAST
+	connection east, VERMILION_CITY, VermilionCity, 0, 3, 11, VERMILION_PORT
 
 	map_header_2 Route6, ROUTE_6, 51, 0
 
@@ -524,7 +528,6 @@
 	map_header_2 PewterPokeCEnter2FBeta, PEWTER_POKECENTER_2F_BETA, $0, 0
 	map_header_2 PewterSnoozeSpeechHouse, PEWTER_SNOOZE_SPEECH_HOUSE, $0, 0
 	map_header_2 OlivinePort, OLIVINE_PORT, $a, 0
-	map_header_2 VermilionPort, VERMILION_PORT, $a, 0
 	map_header_2 FastShip1F, FAST_SHIP_1F, $0, 0
 	map_header_2 FastShipCabins_NNW_NNE_NE, FAST_SHIP_CABINS_NNW_NNE_NE, $0, 0
 	map_header_2 FastShipCabins_SW_SSW_NW, FAST_SHIP_CABINS_SW_SSW_NW, $0, 0
