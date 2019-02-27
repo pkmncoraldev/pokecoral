@@ -1,4 +1,4 @@
-	db HO_OH ; 250
+	db RAICHU_A ; 250
 
 	db  60,  85,  50, 110,  95,  85
 	;   hp  atk  def  spd  sat  sdf

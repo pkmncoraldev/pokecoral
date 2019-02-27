@@ -394,7 +394,7 @@ ArbokEvosAttacks:
 
 PikachuEvosAttacks:
 	db EVOLVE_ITEM, THUNDERSTONE, RAICHU
-	db EVOLVE_ITEM, BIG_MALASADA, HO_OH
+	db EVOLVE_ITEM, BIG_MALASADA, RAICHU_A
 	db 0 ; no more evolutions
 	db 1, THUNDERSHOCK
 	db 1, TAIL_WHIP
@@ -3815,7 +3815,7 @@ LugiaEvosAttacks:
 	db 99, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
-HoOhEvosAttacks:
+RaichuAEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PSYCHIC_M
 	db 1, THUNDERSHOCK

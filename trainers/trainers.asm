@@ -4821,6 +4821,30 @@ DelinquentMGroup
 	db $ff ; end
 
 ; ================
+
+	; DELINQUENT (2)
+	db "2@"
+	db 0 ; moves
+
+	; party
+
+	db 1, BULBASAUR
+
+	db $ff ; end
+
+; ================
+
+	; DELINQUENT (3)
+	db "3@"
+	db 0 ; moves
+
+	; party
+
+	db 1, BULBASAUR
+
+	db $ff ; end
+
+; ================
 ; ================================
 
 DelinquentFGroup
@@ -4829,6 +4853,42 @@ DelinquentFGroup
 
 	; DELINQUENT (1)
 	db "1@"
+	db 0 ; moves
+
+	; party
+
+	db 1, BULBASAUR
+
+	db $ff ; end
+
+; ================
+
+	; DELINQUENT (2)
+	db "2@"
+	db 0 ; moves
+
+	; party
+
+	db 1, BULBASAUR
+
+	db $ff ; end
+
+; ================
+
+	; DELINQUENT (3)
+	db "3@"
+	db 0 ; moves
+
+	; party
+
+	db 1, BULBASAUR
+
+	db $ff ; end
+
+; ================
+
+	; DELINQUENT (4)
+	db "4@"
 	db 0 ; moves
 
 	; party

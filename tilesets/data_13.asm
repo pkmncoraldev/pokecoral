@@ -9,3 +9,6 @@ INCLUDE "tilesets/25_collision.asm"
 
 Tileset25Attr:
 INCBIN "tilesets/25_attributes.bin"
+
+Tileset03GFX:
+INCBIN "gfx/tilesets/03.2bpp.lz"

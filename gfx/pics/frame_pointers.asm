@@ -248,5 +248,5 @@ FramesPointers:
 	dw PupitarFrames
 	dw TyranitarFrames
 	dw LugiaFrames
-	dw HoOhFrames
+	dw RaichuAFrames
 	dw Marowak_AFrames

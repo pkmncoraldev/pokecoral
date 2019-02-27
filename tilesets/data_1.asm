@@ -20,9 +20,6 @@ Tileset02Attr:
 INCBIN "tilesets/02_attributes.bin"
 
 
-Tileset03GFX:
-INCBIN "gfx/tilesets/03.2bpp.lz"
-
 Tileset03Meta:
 INCBIN "tilesets/03_metatiles.bin"
 

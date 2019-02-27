@@ -157,7 +157,7 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_SNORLAX ; 9f
 	const SPRITE_GYARADOS ; a0
 	const SPRITE_LUGIA ; a1
-	const SPRITE_HO_OH ; a2
+	const SPRITE_RAICHU_A ; a2
 	const SPRITE_LEDYBA ; a3
 	const SPRITE_BRELOOM ; a4
 	const SPRITE_CUBONE ; a5

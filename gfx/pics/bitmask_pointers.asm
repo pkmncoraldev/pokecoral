@@ -248,5 +248,5 @@ BitmasksPointers:
 	dw PupitarBitmasks
 	dw TyranitarBitmasks
 	dw LugiaBitmasks
-	dw HoOhBitmasks
+	dw RaichuABitmasks
 	dw Marowak_ABitmasks

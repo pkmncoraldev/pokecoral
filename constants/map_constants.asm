@@ -102,8 +102,6 @@ MAP_NONE   EQU 0
 	mapgroup DIGLETTS_CAVE,                              18, 10 ; 84
 	mapgroup MOUNT_MOON,                                  9, 15 ; 85
 	mapgroup SUNSET_LIGHTHOUSE, 5, 5
-	mapgroup ROCK_TUNNEL_1F,                             18, 15 ; 87
-	mapgroup ROCK_TUNNEL_B1F,                            18, 15 ; 88
 	mapgroup SAFARI_ZONE_FUCHSIA_GATE_BETA,               4,  5 ; 89
 	mapgroup SAFARI_ZONE_BETA,                           18, 10 ; 90
 	mapgroup VICTORY_ROAD,                               36, 10 ; 91
@@ -269,6 +267,8 @@ MAP_NONE   EQU 0
 	mapgroup ILEX_FOREST_AZALEA_GATE, 4, 5
 	mapgroup ROUTE_34_ILEX_FOREST_GATE, 4, 5
 	mapgroup DAYCARE,                                     4,  5 ; 24
+	mapgroup ROCK_TUNNEL_1F,                             18, 21 ; 87
+	mapgroup ROCK_TUNNEL_B1F,                            26, 25 ; 88
 
 	newgroup                                                    ; 12
 
@@ -290,7 +290,7 @@ MAP_NONE   EQU 0
 	newgroup                                                    ; 13
 
 	mapgroup VERMILION_CITY, 19, 19
-	mapgroup VERMILION_PORT,                             14, 16 ;  2
+	mapgroup VERMILION_PORT, 14, 16
 	mapgroup ROUTE_1,                                    18, 10 ;  1
 	mapgroup PALLET_TOWN, 9, 10
 	mapgroup REDS_HOUSE_1F,                               4,  4 ;  3

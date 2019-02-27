@@ -84,7 +84,7 @@
 	db LOPUNNY
 	db BUNEARY
 	db ALTARIA
-	db HO_OH
+	db RAICHU_A
 	db NOIBAT
 	db ARON
 	db HORSEA

@@ -1377,6 +1377,20 @@ TitleScreenMain: ; 6304
 	and D_DOWN + B_BUTTON + SELECT
 	cp  D_DOWN + B_BUTTON + SELECT
 	jr z, .clock_reset
+	
+; Hold Left + B + Select to start pokemon color test.
+
+	ld a, [hl]
+	and D_LEFT + B_BUTTON + SELECT
+	cp  D_LEFT + B_BUTTON + SELECT
+	jr z, .color_test_mons
+	
+; Hold Right + B + Select to start trainer color test.
+
+	ld a, [hl]
+	and D_RIGHT + B_BUTTON + SELECT
+	cp  D_RIGHT + B_BUTTON + SELECT
+	jr z, .color_test_trainers
 
 ; Press Start or A to start the game.
 .check_start
@@ -1385,13 +1399,21 @@ TitleScreenMain: ; 6304
 	jr nz, .incave
 	ret
 
+.color_test_mons
+	ld a, 0
+	ld [wd002], a
+	farcall ColorTest
+	
+.color_test_trainers
+	farcall ColorTest
+	
 .incave
 	ld a, 0
 	jr .done
 
 .delete_save_data
 	ld a, 1
-
+	
 .done
 	ld [wcf64], a
 

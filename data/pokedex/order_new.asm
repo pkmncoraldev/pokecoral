@@ -56,7 +56,7 @@
 	db WIGGLYTUFF
 	db PIKACHU
 	db RAICHU
-	db HO_OH
+	db RAICHU_A
 	db WEEDLE
 	db KAKUNA
 	db BEEDRILL

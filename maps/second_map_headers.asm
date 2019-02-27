@@ -266,7 +266,7 @@
 	connection south, ROUTE_14, Route14, 0, 0, 10, ROUTE_13
 
 	map_header_2 Route11, ROUTE_11, 5, NORTH
-	connection north, VERMILION_CITY, VermilionCity, 6, 4, 12, ROUTE_11
+	connection north, VERMILION_CITY, VermilionCity, 8, 4, 12, ROUTE_11
 ;	connection east, ROUTE_12, Route12, -3, 6, 15, ROUTE_11
 
 	map_header_2 LavenderTown, LAVENDER_TOWN, $2c, NORTH | SOUTH | WEST

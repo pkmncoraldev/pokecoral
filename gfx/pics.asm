@@ -17,7 +17,7 @@ TrainerPicPointers:: INCLUDE "gfx/pics/trainer_pic_pointers.asm"
 
 SECTION "Pics 1", ROMX[$45ee], BANK[PICS_1]
 
-HoOhFrontpic:        INCBIN "gfx/pics/ho_oh/front.2bpp.lz"
+RaichuAFrontpic:        INCBIN "gfx/pics/raichu_a/front.2bpp.lz"
 MachampFrontpic:     INCBIN "gfx/pics/machamp/front.2bpp.lz"
 FloatzelFrontpic:   INCBIN "gfx/pics/floatzel/front.2bpp.lz"
 FeraligatrFrontpic:  INCBIN "gfx/pics/feraligatr/front.2bpp.lz"
@@ -506,7 +506,7 @@ EnteiBackpic:        INCBIN "gfx/pics/entei/back.2bpp.lz"
 GruntfPic:           INCBIN "gfx/trainers/grunt_f.2bpp.lz"
 HorseaFrontpic:      INCBIN "gfx/pics/horsea/front.2bpp.lz"
 PidgeotBackpic:      INCBIN "gfx/pics/pidgeot/back.2bpp.lz"
-HoOhBackpic:         INCBIN "gfx/pics/ho_oh/back.2bpp.lz"
+RaichuABackpic:         INCBIN "gfx/pics/raichu_a/back.2bpp.lz"
 PoliwhirlBackpic:    INCBIN "gfx/pics/poliwhirl/back.2bpp.lz"
 MewBackpic:          INCBIN "gfx/pics/mew/back.2bpp.lz"
 MachopBackpic:       INCBIN "gfx/pics/machop/back.2bpp.lz"

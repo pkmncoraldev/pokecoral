@@ -40,21 +40,69 @@ Route6UndergroundEntrance_MapEventHeader:: db 0, 0
 .BGEvents: db 0
 
 .ObjectEvents: db 4
-	person_event SPRITE_DELINQUENT_M, 3, 15, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TrainTunnelNPC1, EVENT_DELINQUENTS_IN_TUNNEL
-	person_event SPRITE_DELINQUENT_F, 3, 17, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TrainTunnelNPC2, EVENT_DELINQUENTS_IN_TUNNEL
-	person_event SPRITE_DELINQUENT_M, 6, 16, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TrainTunnelNPC3, EVENT_DELINQUENTS_IN_TUNNEL
-	person_event SPRITE_DELINQUENT_M, 3, 18, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TrainTunnelNPC4, EVENT_DELINQUENTS_IN_TUNNEL
+	person_event SPRITE_DELINQUENT_M, 3, 15, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrainTunnelNPC1, EVENT_DELINQUENTS_IN_TUNNEL
+	person_event SPRITE_DELINQUENT_F, 3, 17, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrainTunnelNPC2, EVENT_DELINQUENTS_IN_TUNNEL
+	person_event SPRITE_DELINQUENT_M, 6, 16, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrainTunnelNPC3, EVENT_DELINQUENTS_IN_TUNNEL
+	person_event SPRITE_DELINQUENT_M, 3, 18, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrainTunnelNPC4, EVENT_DELINQUENTS_IN_TUNNEL
 
 TrainTunnelNPC1:
+	faceplayer
+	opentext
+	checkevent EVENT_DELINQUENTS_IN_TUNNEL
+	iftrue .fought
+	writetext TrainTunnelNPC1Text1
+	waitbutton
+	closetext
+	end
+.fought
+	writetext TrainTunnelNPC1Text2
+	waitbutton
+	closetext
 	end
 	
 TrainTunnelNPC2:
+	faceplayer
+	opentext
+	checkevent EVENT_DELINQUENTS_IN_TUNNEL
+	iftrue .fought
+	writetext TrainTunnelNPC2Text1
+	waitbutton
+	closetext
+	end
+.fought
+	writetext TrainTunnelNPC2Text2
+	waitbutton
+	closetext
 	end
 	
 TrainTunnelNPC3:
+	faceplayer
+	opentext
+	checkevent EVENT_DELINQUENTS_IN_TUNNEL
+	iftrue .fought
+	writetext TrainTunnelNPC3Text1
+	waitbutton
+	closetext
+	end
+.fought
+	writetext TrainTunnelNPC3Text2
+	waitbutton
+	closetext
 	end
 	
 TrainTunnelNPC4:
+	faceplayer
+	opentext
+	checkevent EVENT_DELINQUENTS_IN_TUNNEL
+	iftrue .fought
+	writetext TrainTunnelNPC4Text1
+	waitbutton
+	closetext
+	end
+.fought
+	writetext TrainTunnelNPC4Text2
+	waitbutton
+	closetext
 	end
 	
 TrainTunnelStopsYou1:
@@ -188,7 +236,7 @@ TrainTunnelStopsYoucont
 	closetext
 	winlosstext TrainTunnelStopsYouWinText3, 0
 	setlasttalked TRAINTUNNELNPC1
-	loadtrainer DELINQUENT_M, 1
+	loadtrainer DELINQUENT_M, 2
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -202,10 +250,11 @@ TrainTunnelStopsYoucont
 	writetext TrainTunnelStopsYouText15
 	waitbutton
 	closetext
-	applymovement TRAINTUNNELNPC3, Movement_TrainTunnelStopsYou2
+	applymovement TRAINTUNNELNPC3, Movement_TrainTunnelStopsYou12
 	spriteface TRAINTUNNELNPC3, DOWN
 	closetext
 	dotrigger $1
+	setevent EVENT_DELINQUENTS_IN_TUNNEL
 	end
 	
 .end
@@ -223,7 +272,7 @@ TrainTunnelStopsYoucont
 	playsound SFX_BUMP
 	spriteface PLAYER, LEFT
 	applymovement PLAYER, Movement_TrainTunnelStopsYou9
-	warpfacing LEFT, VERMILION_CITY, 38, 20
+	warpfacing LEFT, VERMILION_CITY, 35, 20
 	end
 	
 	
@@ -293,6 +342,10 @@ Movement_TrainTunnelStopsYou10:
 Movement_TrainTunnelStopsYou11:
 	step UP
 	step UP
+	step_end
+	
+Movement_TrainTunnelStopsYou12:
+	step DOWN
 	step_end
 	
 TrainTunnelStopsYouText1:
@@ -366,4 +419,47 @@ TrainTunnelStopsYouWinText2:
 
 TrainTunnelStopsYouWinText3:
 	text "WIN TEXT"
+	done
+	
+TrainTunnelNPC1Text1:
+	text "What are you look-"
+	line "ing at?"
+	done
+	
+TrainTunnelNPC1Text2:
+	text "You're pretty tough"
+	line "kid."
+	done
+	
+TrainTunnelNPC2Text1:
+	text "What do you want,"
+	line "runt?"
+	done
+	
+TrainTunnelNPC2Text2:
+	text "Hehe…"
+	
+	para "You're kinda cute."
+	done
+	
+TrainTunnelNPC3Text1:
+	text "Move along."
+	done
+	
+TrainTunnelNPC3Text2:
+	text "Hmm.."
+	
+	para "Not bad."
+	done
+		
+TrainTunnelNPC4Text1:
+	text "This is our turf."
+	done
+	
+TrainTunnelNPC4Text2:
+	text "You're good, kid."
+	
+	para "Now get outta here"
+	line "before I change my"
+	cont "mind."
 	done

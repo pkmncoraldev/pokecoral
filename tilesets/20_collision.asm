@@ -95,6 +95,34 @@
 	tilecoll $b2, $b2, $72, $72 ; 5e
 	tilecoll $07, $1a, $07, $00 ; 5f
 	tilecoll $00, $00, $1a, $07 ; 60
-	tilecoll $00, $00, $00, $00 ; 61
-	tilecoll $00, $00, $00, $00 ; 62
-	tilecoll $00, $00, $00, $00 ; 63
+	tilecoll $29, $29, $29, $29 ; 61
+	tilecoll $29, $29, $29, $29 ; 62
+	tilecoll $00, $07, $00, $07 ; 63
+	tilecoll $00, $07, $0, $07 ; 64
+	tilecoll $00, $00, $07, $07 ; 65
+	tilecoll $07, $07, $07, $07 ; 66
+	tilecoll $07, $b2, $07, $00 ; 67
+	tilecoll $00, $00, $07, $07 ; 68
+	tilecoll $00, $07, $00, $07 ; 69
+	tilecoll $00, $07, $00, $07 ; 6a
+	tilecoll $00, $07, $00, $07 ; 6b
+	tilecoll $00, $07, $00, $07 ; 6c
+	tilecoll $07, $00, $07, $07 ; 6d
+	tilecoll $07, $b2, $07, $00 ; 6e
+	tilecoll , , ,  ; 6f
+	tilecoll , , ,  ; 70
+	tilecoll , , ,  ; 71
+	tilecoll , , ,  ; 72
+	tilecoll , , ,  ; 73
+	tilecoll , , ,  ; 74
+	tilecoll , , ,  ; 75
+	tilecoll , , ,  ; 76
+	tilecoll , , ,  ; 77
+	tilecoll , , ,  ; 78
+	tilecoll , , ,  ; 79
+	tilecoll , , ,  ; 7a
+	tilecoll , , ,  ; 7b
+	tilecoll , , ,  ; 7c
+	tilecoll , , ,  ; 7d
+	tilecoll , , ,  ; 7e
+	tilecoll , , ,  ; 7f

@@ -249,7 +249,7 @@ LarvitarCryHeader:    cry_header CRY_RAIKOU,      $05f,  $0d0
 PupitarCryHeader:     cry_header CRY_SPINARAK,   -$1db,  $150
 TyranitarCryHeader:   cry_header CRY_RAIKOU,     -$100,  $180
 LugiaCryHeader:       cry_header CRY_TYPHLOSION,  $000,  $100
-HoOhCryHeader:        cry_header CRY_RAICHU,      $0ee,  $088
+RaichuACryHeader:        cry_header CRY_RAICHU,      $0ee,  $088
 Marowak_ACryHeader:      cry_header CRY_ODDISH,      $04f,  $0e0
 CryHeader252:         cry_header CRY_NIDORAN_M,      0,     0
 CryHeader253:         cry_header CRY_NIDORAN_M,      0,     0

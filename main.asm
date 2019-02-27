@@ -85,8 +85,8 @@ ReanchorBGMap_NoOAMUpdate:: ; 6454
 	ld a, VBGMap1 / $100
 	call .LoadBGMapAddrIntoHRAM
 	call _OpenAndCloseMenu_HDMATransferTileMapAndAttrMap
-;	callba LoadOW_BGPal7
-;	callba ApplyPals
+	callba LoadOW_BGPal7
+	callba ApplyPals
 	ld a, $1
 	ld [hCGBPalUpdate], a
 	xor a

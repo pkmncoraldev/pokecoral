@@ -250,7 +250,7 @@ const_value set 1
 	const PUPITAR
 	const TYRANITAR
 	const LUGIA
-	const HO_OH
+	const RAICHU_A
 	const MAROWAK_A
 
 const_value SET const_value + -1

@@ -252,5 +252,5 @@ EvosAttacksPointers:: ; 0x425b1
 	dw PupitarEvosAttacks
 	dw TyranitarEvosAttacks
 	dw LugiaEvosAttacks
-	dw HoOhEvosAttacks
+	dw RaichuAEvosAttacks
 	dw Marowak_AEvosAttacks

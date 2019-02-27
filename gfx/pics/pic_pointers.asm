@@ -500,8 +500,8 @@
 	add_pic TyranitarBackpic
 	add_pic LugiaFrontpic
 	add_pic LugiaBackpic
-	add_pic HoOhFrontpic
-	add_pic HoOhBackpic
+	add_pic RaichuAFrontpic
+	add_pic RaichuABackpic
 	add_pic Marowak_AFrontpic
 	add_pic Marowak_ABackpic
 	dbw -1, -1 ; unused

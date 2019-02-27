@@ -248,5 +248,5 @@ AnimationPointers:
 	dw PupitarAnimation
 	dw TyranitarAnimation
 	dw LugiaAnimation
-	dw HoOhAnimation
+	dw RaichuAAnimation
 	dw Marowak_AAnimation

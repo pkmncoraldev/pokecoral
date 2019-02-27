@@ -3,7 +3,7 @@
 SpecialHoOhChamber: ; 0x8addb
 	ld hl, PartySpecies
 	ld a, [hl]
-	cp HO_OH ; is Ho-oh the first Pokémon in the party?
+	cp RAICHU_A ; is Ho-oh the first Pokémon in the party?
 	jr nz, .done ; if not, we're done
 	call GetSecondaryMapHeaderPointer
 	ld de, EVENT_WALL_OPENED_IN_HO_OH_CHAMBER

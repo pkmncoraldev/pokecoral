@@ -321,5 +321,5 @@ PokedexDataPointerTable: ; 0x44378
 	dw PupitarPokedexEntry
 	dw TyranitarPokedexEntry
 	dw LugiaPokedexEntry
-	dw HoOhPokedexEntry
+	dw RaichuAPokedexEntry
 	dw Marowak_APokedexEntry

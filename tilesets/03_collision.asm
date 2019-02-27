@@ -55,10 +55,10 @@
 	tilecoll $00, $00, $00, $00 ; 36
 	tilecoll $07, $07, $72, $00 ; 37
 	tilecoll $07, $07, $00, $72 ; 38
-	tilecoll $00, $00, $00, $00 ; 39
-	tilecoll $00, $00, $00, $00 ; 3a
-	tilecoll $00, $00, $00, $00 ; 3b
-	tilecoll $00, $00, $00, $00 ; 3c
+	tilecoll $07, $07, $00, $00 ; 39
+	tilecoll $07, $00, $00, $07 ; 3a
+	tilecoll $00, $00, $00, $70 ; 3b
+	tilecoll $00, $07, $70, $00 ; 3c
 	tilecoll $07, $07, $07, $07 ; 3d
 	tilecoll $07, $07, $07, $07 ; 3e
 	tilecoll $00, $00, $00, $00 ; 3f

@@ -263,7 +263,7 @@ MonMenuIcons: ; 8eac4
 	db ICON_PUPITAR
 	db ICON_TYRANITAR
 	db ICON_LUGIA
-	db ICON_HO_OH
+	db ICON_RAICHU_A
 	db ICON_MAROWAK_A
 	db ICON_EGG
 
@@ -518,7 +518,7 @@ IconPointers:
 	dw PupitarIcon
 	dw TyranitarIcon
 	dw LugiaIcon
-	dw HoOhIcon
+	dw RaichuAIcon
 	dw Marowak_AIcon
 	dw EggIcon
 

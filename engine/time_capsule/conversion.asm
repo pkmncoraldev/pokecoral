@@ -478,7 +478,7 @@ Pokered_MonIndices: ; fb91c
 	db GOLEM
 	db HERACROSS
 	db MAGMAR
-	db HO_OH
+	db RAICHU_A
 	db ELECTABUZZ
 	db MAGNETON
 	db KOFFING

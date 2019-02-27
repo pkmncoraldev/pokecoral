@@ -289,10 +289,10 @@ Function81a74: ; 81a74
 	jr nc, .asm_81a8b
 	ld hl, hJoyLast
 	ld a, [hl]
-	and SELECT
+	and START
 	jr nz, .asm_81a9a
 	ld a, [hl]
-	and START
+	and SELECT
 	jr nz, .asm_81aab
 
 .asm_81a8b
@@ -596,9 +596,9 @@ Function81cbc: ; 81cbc
 
 Function81cc2: ; 81cc2
 	ld a, [hJoyLast]
-	and B_BUTTON
-	jr nz, .asm_81cdf
-	ld a, [hJoyLast]
+;	and B_BUTTON
+;	jr nz, .asm_81cdf
+;	ld a, [hJoyLast]
 	and A_BUTTON
 	jr nz, .asm_81ce5
 	ld a, [wcf64]
@@ -613,10 +613,10 @@ Function81cc2: ; 81cc2
 	ld l, a
 	jp [hl]
 
-.asm_81cdf
-	ld a, $4
-	ld [wJumptableIndex], a
-	ret
+;.asm_81cdf
+;	ld a, $4
+;	ld [wJumptableIndex], a
+;	ret
 
 .asm_81ce5
 	ld a, [wd002]
@@ -754,14 +754,14 @@ Function81d8e: ; 81d8e
 ; 81daf
 
 Function81daf: ; 81daf
-	ld hl, hJoyPressed
-	ld a, [hl]
-	and B_BUTTON
-	jr nz, .asm_81dbb
-	call Function81dc7
-	ret
+;	ld hl, hJoyPressed
+;	ld a, [hl]
+;	and B_BUTTON
+;	jr nz, .asm_81dbb
+;	call Function81dc7
+;	ret
 
-.asm_81dbb
+;.asm_81dbb
 	ld a, $0
 	ld [wJumptableIndex], a
 	ret
@@ -1253,14 +1253,14 @@ Function82236: ; 82236
 	ld hl, hJoyLast
 	ld a, [hl]
 	and SELECT
-	jr nz, .loop7
-	ld a, [hl]
-	and B_BUTTON
+;	jr nz, .loop7
+;	ld a, [hl]
+;	and B_BUTTON
 	jr nz, .asm_82299
-	call Function822f0
-	ret
+;	call Function822f0
+;	ret
 
-.loop7
+;.loop7
 	ld hl, wcf64
 	ld a, [hl]
 	inc a

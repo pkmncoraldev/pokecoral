@@ -286,7 +286,7 @@ const_value SET 1
 	const ICON_PUPITAR
 	const ICON_TYRANITAR
 	const ICON_LUGIA
-	const ICON_HO_OH
+	const ICON_RAICHU_A
 	const ICON_MAROWAK_A
 	const ICON_EGG
 
